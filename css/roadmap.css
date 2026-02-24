@@ -1,0 +1,387 @@
+/* ===== ROADMAP PAGE STYLES ===== */
+
+/* ── Back Nav ── */
+.roadmap-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(10, 10, 26, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+}
+
+.nav-right-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ── Roadmap Header ── */
+.roadmap-header {
+    padding: 50px 40px 40px;
+    background: var(--gradient-hero);
+    position: relative;
+}
+
+.roadmap-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, var(--bg-primary), transparent);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.header-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.roadmap-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.roadmap-header .category-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 16px;
+}
+
+.roadmap-meta {
+    display: flex;
+    gap: 24px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.roadmap-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ── Progress Bar ── */
+.progress-section {
+    padding: 0 40px;
+    margin-top: -20px;
+    position: relative;
+    z-index: 2;
+}
+
+.progress-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;
+}
+
+.progress-bar-wrapper {
+    flex: 1;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.progress-label span:first-child {
+    color: var(--text-secondary);
+}
+
+.progress-label span:last-child {
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.progress-icon {
+    font-size: 28px;
+}
+
+/* ── Timeline ── */
+.timeline-section {
+    padding: 40px;
+    max-width: 840px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple), var(--accent-pink), transparent);
+}
+
+/* ── Timeline Step ── */
+.timeline-step {
+    position: relative;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-out;
+}
+
+.timeline-step.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.step-dot {
+    position: absolute;
+    left: -33px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent-purple);
+    z-index: 1;
+    transition: all var(--transition-fast);
+}
+
+.timeline-step.completed .step-dot {
+    background: var(--accent-green);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: all var(--transition-medium);
+}
+
+.step-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.step-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.step-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.step-duration {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 3px 10px;
+    border-radius: 50px;
+}
+
+.step-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.step-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* ── Courses inside step ── */
+.step-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.course-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.course-link:hover {
+    background: rgba(123, 140, 255, 0.06);
+    border-color: rgba(123, 140, 255, 0.15);
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.course-platform {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+
+.course-ext {
+    font-size: 11px;
+    color: var(--text-link);
+    white-space: nowrap;
+}
+
+/* ── Complete Button ── */
+.btn-complete {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-secondary);
+}
+
+.btn-complete:hover {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--accent-green);
+}
+
+.btn-complete.done {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.2);
+    color: var(--accent-green);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .roadmap-nav {
+        padding: 14px 20px;
+    }
+
+    .roadmap-header {
+        padding: 36px 20px 32px;
+    }
+
+    .roadmap-header h1 {
+        font-size: 26px;
+    }
+
+    .progress-section {
+        padding: 0 20px;
+    }
+
+    .timeline-section {
+        padding: 24px 20px;
+    }
+
+    .roadmap-meta {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .progress-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline {
+        padding-left: 30px;
+    }
+
+    .step-dot {
+        left: -23px;
+    }
+
+    .step-card {
+        padding: 18px;
+    }
+}

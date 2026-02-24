@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CourseMap — Discover structured learning roadmaps for 25+ domains. Start your journey today.">
+  <title>CourseMap — Your Learning Journey Starts Here</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-page">
+    <!-- Animated Background -->
+    <div class="login-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="login-container">
+      <!-- Brand -->
+      <div class="brand">
+        <div class="brand-icon">🗺️</div>
+        <h1 class="gradient-text">CourseMap</h1>
+        <p>Navigate your learning path with clarity</p>
+      </div>
+
+      <!-- Login Card -->
+      <div class="login-card">
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login" id="tab-login">Sign In</button>
+          <button class="auth-tab" data-tab="signup" id="tab-signup">Create Account</button>
+        </div>
+
+        <!-- Alert Banner -->
+        <div class="auth-alert" id="auth-alert"></div>
+
+        <!-- Login Form -->
+        <form class="auth-form active" id="login-form" autocomplete="on">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" placeholder="you@example.com" required autocomplete="email">
+            <div class="error-message" id="login-email-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required autocomplete="current-password">
+            <div class="error-message" id="login-password-error"></div>
+          </div>
+          <button type="submit" class="btn-submit">Sign In</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form class="auth-form" id="signup-form" autocomplete="on">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" placeholder="John Doe" required autocomplete="name">
+            <div class="error-message" id="signup-name-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" placeholder="you@example.com" required autocomplete="email">
+            <div class="error-message" id="signup-email-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Min. 6 characters" required autocomplete="new-password" minlength="6">
+            <div class="error-message" id="signup-password-error"></div>
+          </div>
+          <button type="submit" class="btn-submit">Create Account</button>
+        </form>
+      </div>
+
+      <div class="login-footer">
+        <p>Start exploring roadmaps in every domain 🚀</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Redirect if already logged in
+    if (Auth.isLoggedIn()) {
+      window.location.href = 'dashboard.html';
+    }
+
+    // Tab switching
+    const tabs = document.querySelectorAll('.auth-tab');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+    const alertBox = document.getElementById('auth-alert');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        alertBox.className = 'auth-alert';
+        alertBox.style.display = 'none';
+
+        if (tab.dataset.tab === 'login') {
+          loginForm.classList.add('active');
+          signupForm.classList.remove('active');
+        } else {
+          signupForm.classList.add('active');
+          loginForm.classList.remove('active');
+        }
+      });
+    });
+
+    function showAlert(msg, type) {
+      alertBox.textContent = msg;
+      alertBox.className = 'auth-alert ' + type;
+    }
+
+    function clearFieldErrors() {
+      document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('visible');
+      });
+      document.querySelectorAll('.form-group input').forEach(el => {
+        el.classList.remove('error');
+      });
+    }
+
+    function showFieldError(id, msg) {
+      const errorEl = document.getElementById(id);
+      const inputEl = errorEl.previousElementSibling;
+      errorEl.textContent = msg;
+      errorEl.classList.add('visible');
+      inputEl.classList.add('error');
+    }
+
+    // Login
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearFieldErrors();
+
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      let hasError = false;
+      if (!email) { showFieldError('login-email-error', 'Please enter your email'); hasError = true; }
+      if (!password) { showFieldError('login-password-error', 'Please enter your password'); hasError = true; }
+      if (hasError) return;
+
+      const result = Auth.login(email, password);
+      if (result.success) {
+        showAlert(result.message, 'success');
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
+      } else {
+        showAlert(result.message, 'error');
+      }
+    });
+
+    // Signup
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      clearFieldErrors();
+
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+
+      let hasError = false;
+      if (!name) { showFieldError('signup-name-error', 'Please enter your name'); hasError = true; }
+      if (!email) { showFieldError('signup-email-error', 'Please enter your email'); hasError = true; }
+      if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters'); hasError = true; }
+      if (hasError) return;
+
+      const result = Auth.signup(name, email, password);
+      if (result.success) {
+        showAlert(result.message, 'success');
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
+      } else {
+        showAlert(result.message, 'error');
+      }
+    });
+  </script>
+</body>
+</html>

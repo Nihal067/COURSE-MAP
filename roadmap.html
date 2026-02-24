@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Follow a structured roadmap with curated courses from top learning platforms.">
+    <title>Roadmap — CourseMap</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/roadmap.css">
+</head>
+
+<body>
+    <!-- Nav -->
+    <nav class="roadmap-nav">
+        <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+        <div class="nav-right-actions">
+            <span class="nav-user-name" style="font-size:13px;color:var(--text-muted)">
+                <strong id="user-display-name" style="color:var(--text-secondary)"></strong>
+            </span>
+            <button class="btn-logout" id="btn-logout"
+                style="padding:6px 14px;font-size:12px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);color:#f87171;border-radius:6px;cursor:pointer;">Sign
+                Out</button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="roadmap-header">
+        <div class="header-content">
+            <div class="header-icon" id="domain-icon"></div>
+            <span class="category-badge" id="domain-category"></span>
+            <h1 id="domain-name"></h1>
+            <div class="roadmap-meta">
+                <span id="domain-steps-count">📌 0 Steps</span>
+                <span id="domain-courses-count">📚 0 Courses</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress -->
+    <div class="progress-section">
+        <div class="progress-card">
+            <div class="progress-icon" id="progress-icon">📋</div>
+            <div class="progress-bar-wrapper">
+                <div class="progress-label">
+                    <span id="progress-text">0 of 0 steps completed</span>
+                    <span id="progress-pct">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="timeline" id="timeline"></div>
+    </section>
+
+    <script src="js/auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/roadmap.js"></script>
+</body>
+
+</html>
