@@ -1,182 +1,263 @@
 /* ===== DASHBOARD LOGIC ===== */
-document.addEventListener('DOMContentLoaded', () => {
-    if (!Auth.requireAuth()) return;
 
-    const user = Auth.getCurrentUser();
-    initNavbar(user);
-    initHero(user);
-    renderTopCourses();
-    initCategories();
-    renderDomainCards(DOMAINS);
-    initSearch();
-});
+const ENROLLED_PREFIX = 'courseMap_enrolled_';
 
-function initNavbar(user) {
-    const nameEl = document.getElementById('user-display-name');
-    if (nameEl) nameEl.textContent = user.name;
-
-    document.getElementById('btn-logout').addEventListener('click', () => {
-        Auth.logout();
-    });
+function getEnrolledKey(email) {
+    return ENROLLED_PREFIX + email;
 }
 
-function initHero(user) {
-    const greetEl = document.getElementById('greeting-name');
-    if (greetEl) greetEl.textContent = user.name.split(' ')[0];
-
-    const totalCourses = DOMAINS.reduce((sum, d) =>
-        sum + d.steps.reduce((s, step) => s + step.courses.length, 0), 0);
-
-    document.getElementById('stat-domains').textContent = DOMAINS.length;
-    document.getElementById('stat-courses').textContent = totalCourses;
-    document.getElementById('stat-categories').textContent = CATEGORIES.length - 1;
+function getEnrolledIds(email) {
+    try {
+        const raw = localStorage.getItem(getEnrolledKey(email));
+        return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+        return [];
+    }
 }
 
-/* ── Top Courses Section ── */
-function renderTopCourses() {
-    const container = document.getElementById('top-courses-grid');
-    if (!container) return;
-
-    // Curated top courses from various domains
-    const topCourses = [
-        { name: "The Complete JavaScript Course", platform: "Udemy", domain: "Web Development", icon: "🌐", color: "#3b82f6", url: "https://www.udemy.com/course/the-complete-javascript-course/" },
-        { name: "Machine Learning by Stanford", platform: "Coursera", domain: "AI & ML", icon: "🤖", color: "#ec4899", url: "https://www.coursera.org/learn/machine-learning" },
-        { name: "Python for Everybody", platform: "Coursera", domain: "Data Science", icon: "📊", color: "#a855f7", url: "https://www.coursera.org/specializations/python" },
-        { name: "React - The Complete Guide", platform: "Udemy", domain: "Frontend", icon: "⚛️", color: "#06b6d4", url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/" },
-        { name: "AWS Cloud Practitioner", platform: "AWS", domain: "Cloud Computing", icon: "☁️", color: "#f59e0b", url: "https://aws.amazon.com/certification/certified-cloud-practitioner/" },
-        { name: "Deep Learning Specialization", platform: "Coursera", domain: "Deep Learning", icon: "🧠", color: "#8b5cf6", url: "https://www.coursera.org/specializations/deep-learning" },
-        { name: "Ethical Hacking from Scratch", platform: "Udemy", domain: "Cybersecurity", icon: "🔒", color: "#ef4444", url: "https://www.udemy.com/course/learn-ethical-hacking-from-scratch/" },
-        { name: "Google UX Design Certificate", platform: "Coursera", domain: "UI/UX Design", icon: "🎨", color: "#d946ef", url: "https://www.coursera.org/professional-certificates/google-ux-design" },
-        { name: "Flutter & Dart Complete Guide", platform: "Udemy", domain: "Mobile Dev", icon: "📱", color: "#22c55e", url: "https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/" },
-        { name: "Docker & Kubernetes", platform: "Udemy", domain: "DevOps", icon: "🔄", color: "#0ea5e9", url: "https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/" },
-        { name: "Financial Markets by Yale", platform: "Coursera", domain: "Finance", icon: "💰", color: "#eab308", url: "https://www.coursera.org/learn/financial-markets-global" },
-        { name: "Unity Game Dev Complete", platform: "Udemy", domain: "Game Dev", icon: "🎮", color: "#10b981", url: "https://www.udemy.com/course/unitycourse2/" }
-    ];
-
-    topCourses.forEach((course, i) => {
-        const card = document.createElement('a');
-        card.href = course.url;
-        card.target = '_blank';
-        card.rel = 'noopener';
-        card.className = 'top-course-card';
-        card.style.setProperty('--card-accent', course.color);
-        card.style.animationDelay = (i * 0.06) + 's';
-
-        card.innerHTML = `
-      <div class="top-course-icon">${course.icon}</div>
-      <div class="top-course-info">
-        <h4>${course.name}</h4>
-        <div class="top-course-meta">
-          <span class="top-course-platform">${course.platform}</span>
-          <span class="top-course-domain">${course.domain}</span>
-        </div>
-      </div>
-      <span class="top-course-arrow">↗</span>
-    `;
-
-        container.appendChild(card);
-    });
-
-    // Scroll-reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    container.querySelectorAll('.top-course-card').forEach(c => observer.observe(c));
-}
-
-function initCategories() {
-    const container = document.getElementById('categories');
-
-    CATEGORIES.forEach(cat => {
-        const chip = document.createElement('button');
-        chip.className = 'chip' + (cat.id === 'all' ? ' active' : '');
-        chip.dataset.cat = cat.id;
-        chip.innerHTML = cat.icon + ' ' + cat.label;
-        chip.addEventListener('click', () => {
-            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            filterDomains();
-        });
-        container.appendChild(chip);
-    });
-}
-
-function renderDomainCards(domains) {
-    const grid = document.getElementById('domains-grid');
-    grid.innerHTML = '';
-
-    if (domains.length === 0) {
-        grid.innerHTML = '<div class="no-results"><h3>No roadmaps found</h3><p>Try a different search term or category.</p></div>';
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        if (!Auth.requireAuth()) return;
+    } catch (e) {
+        console.error('Auth error:', e);
         return;
     }
 
-    domains.forEach((domain, i) => {
-        const card = document.createElement('div');
-        card.className = 'domain-card';
-        card.style.setProperty('--card-accent', domain.color);
-        card.style.transitionDelay = (i * 0.05) + 's';
+    var user;
+    try {
+        user = Auth.getCurrentUser();
+    } catch (e) {
+        console.error('getCurrentUser error:', e);
+        return;
+    }
 
-        card.innerHTML = `
-      <div class="card-header">
-        <div class="card-icon">${domain.icon}</div>
-        <div>
-          <h3>${domain.name}</h3>
-          <span class="card-category">${domain.cat}</span>
-        </div>
-      </div>
-      <div class="card-meta">
-        <span class="card-steps">${domain.steps.length} steps · ${domain.steps.reduce((s, st) => s + st.courses.length, 0)} courses</span>
-        <div class="card-arrow">→</div>
-      </div>
-    `;
+    try { initNavbar(user); } catch (e) { console.error('initNavbar error:', e); }
+    try { initGreeting(user); } catch (e) { console.error('initGreeting error:', e); }
+    try { renderEnrolledDomains(user); } catch (e) {
+        console.error('renderEnrolledDomains error:', e);
+        // Fallback: show all domains if something crashed
+        try { renderAllDomainsAsFallback(); } catch (e2) { console.error('fallback error:', e2); }
+    }
+    try { initExploreModal(user); } catch (e) { console.error('initExploreModal error:', e); }
+    try { updateStats(user); } catch (e) { console.error('updateStats error:', e); }
+});
 
-        card.addEventListener('click', () => {
-            window.location.href = 'roadmap.html?domain=' + domain.id;
-        });
+/* ── Navbar ── */
+function initNavbar(user) {
+    var nameEl = document.getElementById('user-display-name');
+    if (nameEl) nameEl.textContent = user.name;
+    var logoutBtn = document.getElementById('btn-logout');
+    if (logoutBtn) logoutBtn.addEventListener('click', function () { Auth.logout(); });
+    var exploreBtn = document.getElementById('btn-open-explore');
+    if (exploreBtn) exploreBtn.addEventListener('click', openExplore);
+}
 
+/* ── Greeting ── */
+function initGreeting(user) {
+    var el = document.getElementById('greeting-name');
+    if (el) el.textContent = user.name.split(' ')[0] + ' 👋';
+}
+
+/* ── Stats ── */
+function updateStats(user) {
+    var enrolled = getEnrolledIds(user.email);
+    var enrolledEl = document.getElementById('stat-enrolled');
+    if (enrolledEl) enrolledEl.textContent = enrolled.length;
+    var domainsEl = document.getElementById('stat-domains');
+    if (domainsEl && typeof DOMAINS !== 'undefined') domainsEl.textContent = DOMAINS.length;
+}
+
+/* ── Build a domain card ── */
+function buildDomainCard(domain, user) {
+    var enrolledIds = user ? getEnrolledIds(user.email) : [];
+    var isEnrolled = enrolledIds.includes(domain.id);
+
+    var totalRes = 0;
+    try {
+        totalRes = domain.steps.reduce(function (s, st) {
+            return s + (st.courses ? st.courses.length : 0)
+                + (st.videos ? st.videos.length : 0)
+                + (st.books ? st.books.length : 0)
+                + (st.websites ? st.websites.length : 0);
+        }, 0);
+    } catch (e) { totalRes = 0; }
+
+    var pct = 0;
+    try {
+        var progressKey = 'courseMap_progress_' + user.email + '_' + domain.id;
+        var progressData = localStorage.getItem(progressKey);
+        var completed = progressData ? JSON.parse(progressData).length : 0;
+        pct = domain.steps.length > 0 ? Math.round((completed / domain.steps.length) * 100) : 0;
+    } catch (e) { pct = 0; }
+
+    var card = document.createElement('a');
+    card.href = 'roadmap.html?domain=' + domain.id;
+    card.className = 'domain-card';
+    card.style.setProperty('--card-color', domain.color || '#6366f1');
+
+    var progressBar = isEnrolled
+        ? '<div class="card-progress"><div class="card-progress-track"><div class="card-progress-fill" style="width:' + pct + '%;background:' + (domain.color || '#6366f1') + '"></div></div><span class="card-pct">' + pct + '%</span></div>'
+        : '';
+
+    card.innerHTML = '<div class="card-icon">' + (domain.icon || '📚') + '</div>'
+        + '<div class="card-body">'
+        + '<span class="card-cat">' + (domain.cat || '') + '</span>'
+        + '<h3 class="card-title">' + domain.name + '</h3>'
+        + '<div class="card-meta">'
+        + '<span>📌 ' + domain.steps.length + ' steps</span>'
+        + '<span>📦 ' + totalRes + ' resources</span>'
+        + '</div>'
+        + progressBar
+        + '</div>'
+        + '<span class="card-arrow">→</span>';
+
+    return card;
+}
+
+/* ── Fallback: render all domains if other logic fails ── */
+function renderAllDomainsAsFallback() {
+    var grid = document.getElementById('enrolled-grid');
+    if (!grid || typeof DOMAINS === 'undefined') return;
+    grid.innerHTML = '';
+    grid.style.display = 'grid';
+    DOMAINS.forEach(function (domain, index) {
+        var card = buildDomainCard(domain, Auth.getCurrentUser());
         grid.appendChild(card);
+        setTimeout(function () { card.classList.add('visible'); }, index * 30);
     });
+}
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+/* ── My Enrolled Domains ── */
+function renderEnrolledDomains(user) {
+    var enrolledIds = getEnrolledIds(user.email);
+    var grid = document.getElementById('enrolled-grid');
+    var emptyState = document.getElementById('empty-state');
+
+    if (!grid) return;
+
+    grid.innerHTML = '';
+
+    // Always show all domains (enrolled ones show progress bar, others don't)
+    // If no enrollments: show empty-state prompt above the full grid
+    if (enrolledIds.length === 0) {
+        if (emptyState) {
+            emptyState.style.display = 'flex';
+            var ctaBtn = document.getElementById('btn-explore-cta');
+            if (ctaBtn) ctaBtn.addEventListener('click', openExplore);
+        }
+    } else {
+        if (emptyState) emptyState.style.display = 'none';
+    }
+
+    grid.style.display = 'grid';
+
+    // Show only enrolled domains
+    var enrolledDomains = [];
+
+    if (typeof DOMAINS !== 'undefined' && Array.isArray(DOMAINS)) {
+        DOMAINS.forEach(function (d) {
+            if (enrolledIds.includes(d.id)) {
+                enrolledDomains.push(d);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-    document.querySelectorAll('.domain-card').forEach(card => observer.observe(card));
-}
-
-function initSearch() {
-    const input = document.getElementById('search-input');
-    input.addEventListener('input', () => filterDomains());
-}
-
-function filterDomains() {
-    const query = document.getElementById('search-input').value.toLowerCase().trim();
-    const activeCat = document.querySelector('.chip.active').dataset.cat;
-
-    let filtered = DOMAINS;
-
-    if (activeCat !== 'all') {
-        filtered = filtered.filter(d => d.cat === activeCat);
     }
 
-    if (query) {
-        filtered = filtered.filter(d =>
-            d.name.toLowerCase().includes(query) ||
-            d.cat.toLowerCase().includes(query) ||
-            d.id.toLowerCase().includes(query)
-        );
+    enrolledDomains.forEach(function (domain, index) {
+        var card = buildDomainCard(domain, user);
+        grid.appendChild(card);
+        setTimeout(function () { card.classList.add('visible'); }, index * 40);
+    });
+}
+
+/* ── Explore Modal ── */
+var exploreInitialized = false;
+var currentFilter = 'all';
+
+function openExplore() {
+    var overlay = document.getElementById('explore-overlay');
+    if (overlay) overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (!exploreInitialized) {
+        try {
+            initExploreModal(Auth.getCurrentUser());
+            exploreInitialized = true;
+        } catch (e) { console.error('initExploreModal in openExplore:', e); }
+    }
+}
+
+function closeExplore() {
+    var overlay = document.getElementById('explore-overlay');
+    if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function initExploreModal(user) {
+    var closeBtn = document.getElementById('btn-close-modal');
+    if (closeBtn) closeBtn.addEventListener('click', closeExplore);
+
+    var overlay = document.getElementById('explore-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeExplore();
+        });
     }
 
-    renderDomainCards(filtered);
+    // Category chips
+    var catContainer = document.getElementById('modal-cats');
+    if (catContainer && typeof CATEGORIES !== 'undefined') {
+        catContainer.innerHTML = '';
+        CATEGORIES.forEach(function (cat) {
+            var btn = document.createElement('button');
+            btn.className = 'modal-cat-chip' + (cat.id === 'all' ? ' active' : '');
+            btn.textContent = cat.icon + ' ' + cat.label;
+            btn.dataset.cat = cat.id;
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.modal-cat-chip').forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                currentFilter = cat.id;
+                var searchInput = document.getElementById('modal-search');
+                renderExploreGrid(user, searchInput ? searchInput.value : '');
+            });
+            catContainer.appendChild(btn);
+        });
+    }
+
+    // Search
+    var searchInput = document.getElementById('modal-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function (e) {
+            renderExploreGrid(user, e.target.value);
+        });
+    }
+
+    renderExploreGrid(user, '');
+}
+
+function renderExploreGrid(user, query) {
+    var grid = document.getElementById('explore-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+
+    if (typeof DOMAINS === 'undefined' || !Array.isArray(DOMAINS)) {
+        grid.innerHTML = '<p class="no-results">No domains found. Please reload the page.</p>';
+        return;
+    }
+
+    var q = (query || '').trim().toLowerCase();
+    var filtered = DOMAINS.filter(function (d) {
+        var matchCat = currentFilter === 'all' || d.cat === currentFilter;
+        var matchQ = !q || d.name.toLowerCase().includes(q) || (d.cat || '').toLowerCase().includes(q);
+        return matchCat && matchQ;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = '<p class="no-results">No domains match your search.</p>';
+        return;
+    }
+
+    filtered.forEach(function (domain, index) {
+        var card = buildDomainCard(domain, user);
+        grid.appendChild(card);
+        setTimeout(function () { card.classList.add('visible'); }, index * 30);
+    });
 }

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CourseMap — Discover structured learning roadmaps for 25+ domains. Start your journey today.">
+  <meta name="description"
+    content="CourseMap — Discover structured learning roadmaps for 25+ domains. Start your journey today.">
   <title>CourseMap — Your Learning Journey Starts Here</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
 </head>
+
 <body>
   <div class="login-page">
     <!-- Animated Background -->
@@ -46,7 +50,8 @@
           </div>
           <div class="form-group">
             <label for="login-password">Password</label>
-            <input type="password" id="login-password" placeholder="Enter your password" required autocomplete="current-password">
+            <input type="password" id="login-password" placeholder="Enter your password" required
+              autocomplete="current-password">
             <div class="error-message" id="login-password-error"></div>
           </div>
           <button type="submit" class="btn-submit">Sign In</button>
@@ -66,7 +71,8 @@
           </div>
           <div class="form-group">
             <label for="signup-password">Password</label>
-            <input type="password" id="signup-password" placeholder="Min. 6 characters" required autocomplete="new-password" minlength="6">
+            <input type="password" id="signup-password" placeholder="Min. 6 characters" required
+              autocomplete="new-password" minlength="6">
             <div class="error-message" id="signup-password-error"></div>
           </div>
           <button type="submit" class="btn-submit">Create Account</button>
@@ -150,7 +156,14 @@
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
       } else {
-        showAlert(result.message, 'error');
+        // Show error under the right field
+        if (result.message.includes('not registered') || result.message.includes('account')) {
+          showFieldError('login-email-error', '⚠ No account found with this email. Please sign up first.');
+        } else if (result.message.includes('password') || result.message.includes('Incorrect')) {
+          showFieldError('login-password-error', '⚠ Incorrect password. Check your password and try again.');
+        } else {
+          showAlert(result.message, 'error');
+        }
       }
     });
 
@@ -179,4 +192,5 @@
     });
   </script>
 </body>
+
 </html>

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Browse 25+ learning roadmaps across tech, business, engineering, creative arts, and science.">
-    <title>CourseMap — Dashboard</title>
+        content="Your personalized CourseMap dashboard — track your learning paths across 50+ domains.">
+    <title>CourseMap — My Learning Paths</title>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
     <link rel="stylesheet" href="css/global.css">
@@ -26,60 +26,41 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero (simplified — no search bar) -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Welcome back, <span class="gradient-text" id="greeting-name"></span> 👋</h1>
-            <p>Pick a domain and follow a clear, step-by-step roadmap with hand-picked courses from top platforms.</p>
-            <div class="search-wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    stroke-width="2">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                </svg>
-                <input type="text" id="search-input"
-                    placeholder="Search domains... (e.g. React, Data Science, Finance)">
-            </div>
+            <h1>My Learning Paths <span class="gradient-text" id="greeting-name"></span></h1>
+            <p>Pick up where you left off. Your enrolled domains are below.</p>
         </div>
     </section>
 
-    <!-- Stats -->
+    <!-- Stats Bar -->
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number" id="stat-domains">0</div>
-            <div class="stat-label">Domains</div>
+            <div class="stat-number" id="stat-enrolled">0</div>
+            <div class="stat-label">Enrolled</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number" id="stat-courses">0</div>
-            <div class="stat-label">Courses</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number" id="stat-categories">0</div>
-            <div class="stat-label">Categories</div>
+            <div class="stat-number" id="stat-domains">50</div>
+            <div class="stat-label">Domains Available</div>
         </div>
     </div>
 
-    <!-- Top Courses -->
-    <section class="top-courses-section">
-        <h2>🔥 Top Courses to Get Started</h2>
-        <p class="subtitle">Hand-picked from the best learning platforms worldwide</p>
-        <div class="top-courses-grid" id="top-courses-grid"></div>
-    </section>
+    <!-- My Enrolled Domains -->
+    <section class="my-domains-section">
+        <div class="section-header">
+            <h2>📚 My Learning Paths</h2>
+            <button class="btn-explore-nav" id="btn-open-explore">🔍 Explore More Domains</button>
+        </div>
+        <div class="domains-grid" id="enrolled-grid"></div>
 
-    <!-- Choose Your Domain -->
-    <section class="domain-select-header">
-        <h2>📍 Choose Your Domain</h2>
-        <p class="subtitle">Select a domain below to see its complete learning roadmap</p>
-    </section>
-
-    <!-- Category Chips -->
-    <div class="categories" id="categories"></div>
-
-    <!-- Domains Grid -->
-    <section class="domains-section">
-        <h2>Explore Roadmaps</h2>
-        <p class="subtitle">Choose a domain to see its full learning path</p>
-        <div class="domains-grid" id="domains-grid"></div>
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <div class="empty-icon">🗺️</div>
+            <h3>No learning paths yet</h3>
+            <p>Explore over 50+ domains and start your first roadmap today.</p>
+            <button class="btn-explore-cta" id="btn-explore-cta">Browse All Domains</button>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -87,8 +68,33 @@
         <p>CourseMap — Built for learners who want structure. Not affiliated with any course platform.</p>
     </footer>
 
+    <!-- ===== EXPLORE MODAL ===== -->
+    <div class="explore-overlay" id="explore-overlay">
+        <div class="explore-modal">
+            <div class="explore-modal-header">
+                <h2>🔍 Explore All Domains</h2>
+                <button class="btn-close-modal" id="btn-close-modal">✕</button>
+            </div>
+            <!-- Search + filter inside modal -->
+            <div class="explore-controls">
+                <div class="explore-search-wrap">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="modal-search" placeholder="Search domains…">
+                </div>
+                <div class="modal-cats" id="modal-cats"></div>
+            </div>
+            <div class="explore-grid" id="explore-grid"></div>
+        </div>
+    </div>
+
     <script src="js/auth.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/data_govt.js"></script>
+    <script src="js/data_more.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
 

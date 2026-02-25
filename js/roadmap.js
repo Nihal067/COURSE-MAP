@@ -11,17 +11,55 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    const user = Auth.getCurrentUser();
+
     renderHeader(domain);
+    initEnrollButton(domain, user);
     renderTimeline(domain);
     updateProgress(domain);
     initScrollReveal();
 
     // Navbar
-    const user = Auth.getCurrentUser();
     const nameEl = document.getElementById('user-display-name');
     if (nameEl) nameEl.textContent = user.name;
     document.getElementById('btn-logout').addEventListener('click', () => Auth.logout());
 });
+
+function initEnrollButton(domain, user) {
+    const btn = document.getElementById('btn-enroll');
+    if (!btn) return;
+
+    const enrolledKey = 'courseMap_enrolled_' + user.email;
+    let enrolled = JSON.parse(localStorage.getItem(enrolledKey) || '[]');
+    let isEnrolled = enrolled.includes(domain.id);
+
+    updateEnrollButtonState(btn, isEnrolled);
+
+    btn.addEventListener('click', () => {
+        enrolled = JSON.parse(localStorage.getItem(enrolledKey) || '[]');
+        if (enrolled.includes(domain.id)) {
+            // Un-enroll
+            enrolled = enrolled.filter(id => id !== domain.id);
+            isEnrolled = false;
+        } else {
+            // Enroll
+            enrolled.push(domain.id);
+            isEnrolled = true;
+        }
+        localStorage.setItem(enrolledKey, JSON.stringify(enrolled));
+        updateEnrollButtonState(btn, isEnrolled);
+    });
+}
+
+function updateEnrollButtonState(btn, isEnrolled) {
+    if (isEnrolled) {
+        btn.textContent = '✓ Enrolled';
+        btn.classList.add('enrolled');
+    } else {
+        btn.textContent = 'Enroll in Path';
+        btn.classList.remove('enrolled');
+    }
+}
 
 function getProgressKey(domainId) {
     const user = Auth.getCurrentUser();
@@ -52,10 +90,36 @@ function renderHeader(domain) {
     document.getElementById('domain-category').style.color = domain.color;
     document.getElementById('domain-steps-count').textContent = domain.steps.length + ' Steps';
 
-    const totalCourses = domain.steps.reduce((s, st) => s + st.courses.length, 0);
-    document.getElementById('domain-courses-count').textContent = totalCourses + ' Courses';
+    // Count total resources across all types
+    const totalResources = domain.steps.reduce((s, st) => {
+        return s +
+            (st.courses ? st.courses.length : 0) +
+            (st.videos ? st.videos.length : 0) +
+            (st.books ? st.books.length : 0) +
+            (st.websites ? st.websites.length : 0);
+    }, 0);
+    document.getElementById('domain-courses-count').textContent = totalResources + ' Resources';
 
     document.title = domain.name + ' — CourseMap Roadmap';
+}
+
+/* Build one tab panel's links */
+function buildResourceLinks(items, type) {
+    if (!items || items.length === 0) return '<p class="no-resources">No resources yet.</p>';
+
+    const icons = { courses: '🎓', videos: '▶️', books: '📖', websites: '🌐', certificates: '🎖️' };
+    return items.map(r => `
+        <a href="${r.url}" target="_blank" rel="noopener" class="resource-link resource-${type}" data-url="${r.url}">
+            <span class="resource-icon">${icons[type]}</span>
+            <div class="resource-info">
+                <span class="resource-name">${r.name}</span>
+                ${r.platform ? `<span class="resource-platform">${r.platform}</span>` : ''}
+            </div>
+            <span class="${r.paid === true ? 'badge-paid' : 'badge-free'}">${r.paid === true ? 'Paid' : 'Free'}</span>
+            <span class="resource-ext">↗</span>
+        </a>
+    `).join('');
+
 }
 
 function renderTimeline(domain) {
@@ -68,32 +132,65 @@ function renderTimeline(domain) {
         stepEl.className = 'timeline-step' + (isComplete ? ' completed' : '');
         stepEl.style.transitionDelay = (i * 0.1) + 's';
 
-        let coursesHTML = step.courses.map(c => `
-      <a href="${c.url}" target="_blank" rel="noopener" class="course-link">
-        <div class="course-info">
-          <span class="course-name">${c.name}</span>
-          <span class="course-platform">${c.platform}</span>
-        </div>
-        <span class="course-ext">Open ↗</span>
-      </a>
-    `).join('');
+        const tabTypes = ['courses', 'videos', 'books', 'websites', 'certificates'];
+        const tabLabels = { courses: '🎓 Courses', videos: '▶ Videos', books: '📖 Books', websites: '🌐 Websites', certificates: '🎖️ Certificates' };
+
+        // Only show tabs for types that exist and have data
+        const availableTabs = tabTypes.filter(t => step[t] && step[t].length > 0);
+
+        const tabsHTML = availableTabs.map((t, ti) => `
+            <button class="res-tab${ti === 0 ? ' active' : ''}" data-tab="${t}">${tabLabels[t]}</button>
+        `).join('');
+
+        const panelsHTML = availableTabs.map((t, ti) => `
+            <div class="res-panel${ti === 0 ? ' active' : ''}" data-panel="${t}">
+                ${buildResourceLinks(step[t], t)}
+            </div>
+        `).join('');
 
         stepEl.innerHTML = `
-      <div class="step-dot"></div>
-      <div class="step-card">
-        <div class="step-top">
-          <span class="step-number">Step ${i + 1}</span>
-          <span class="step-duration">⏱ ${step.dur}</span>
-        </div>
-        <h3>${step.title}</h3>
-        <p>${step.desc}</p>
-        <div class="step-courses">${coursesHTML}</div>
-        <button class="btn-complete ${isComplete ? 'done' : ''}" data-step="${i}">
-          ${isComplete ? '✓ Completed' : '○ Mark Complete'}
-        </button>
-      </div>
-    `;
+            <div class="step-dot"></div>
+            <div class="step-card">
+                <div class="step-top">
+                    <span class="step-number">Step ${i + 1}</span>
+                    <span class="step-duration">⏱ ${step.dur}</span>
+                </div>
+                <h3>${step.title}</h3>
+                <p>${step.desc}</p>
+                ${availableTabs.length > 0 ? `
+                <div class="resource-tabs">
+                    <div class="res-tab-bar">${tabsHTML}</div>
+                    <div class="res-panels">${panelsHTML}</div>
+                </div>` : ''}
+                <button class="btn-complete ${isComplete ? 'done' : ''}" data-step="${i}">
+                    ${isComplete ? '✓ Completed' : '○ Mark Complete'}
+                </button>
+            </div>
+        `;
 
+        // Tab switching logic
+        stepEl.querySelectorAll('.res-tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.dataset.tab;
+                stepEl.querySelectorAll('.res-tab').forEach(b => b.classList.remove('active'));
+                stepEl.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                stepEl.querySelector(`.res-panel[data-panel="${tabName}"]`).classList.add('active');
+            });
+        });
+
+        // Broken link handling
+        stepEl.querySelectorAll('.resource-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const url = link.dataset.url;
+                if (!url || url === '#' || url === 'null' || url === 'undefined') {
+                    e.preventDefault();
+                    showToastError('Sorry, this resource link is currently broken or unassigned. Please try another one.');
+                }
+            });
+        });
+
+        // Mark complete button
         stepEl.querySelector('.btn-complete').addEventListener('click', (e) => {
             const stepIdx = parseInt(e.currentTarget.dataset.step);
             const newCompleted = toggleStep(domain.id, stepIdx);
@@ -136,4 +233,17 @@ function initScrollReveal() {
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.timeline-step').forEach(el => observer.observe(el));
+}
+
+// Small toast notification system for link errors
+function showToastError(msg) {
+    let toast = document.getElementById('error-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'error-toast';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.className = 'toast-show';
+    setTimeout(() => { toast.classList.remove('toast-show'); }, 3000);
 }
