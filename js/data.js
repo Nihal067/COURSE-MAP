@@ -824,7 +824,7 @@ const DOMAINS = [
                     { name: "Facebook Blueprint", platform: "Meta", url: "https://www.facebook.com/business/learn" }
                 ],
                 videos: [
-                    { name: "Google Ads Tutorial 2024", platform: "YouTube – Aaron Young", url: "https://www.youtube.com/watch?v=E2_1-OvDkDg" },
+                    { name: "Google Ads Tutorial 2024", platform: "YouTube – Aaron Young", url: "https://youtu.be/16-dF2p0kKo?si=pZziUkmVmO7Kikn1" },
                     { name: "Facebook Ads Masterclass", platform: "YouTube – Ben Heath", url: "https://www.youtube.com/watch?v=pCHjzPjdImM" }
                 ],
                 books: [
@@ -1357,7 +1357,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "python-advanced", name: "Python Advanced", icon: "🐍", cat: "Tech", color: "#3b82f6",
+        id: "python-advanced", name: "Python Advanced", icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40">', cat: "Tech", color: "#3b82f6",
         steps: [
             {
                 title: "OOP, Decorators & Metaclasses", desc: "Advanced Python patterns: OOP, decorators, context managers, and metaclasses.", dur: "3-4 weeks",

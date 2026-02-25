@@ -84,7 +84,7 @@ function toggleStep(domainId, stepIndex) {
 }
 
 function renderHeader(domain) {
-    document.getElementById('domain-icon').textContent = domain.icon;
+    document.getElementById('domain-icon').innerHTML = domain.icon;
     document.getElementById('domain-name').textContent = domain.name;
     document.getElementById('domain-category').textContent = domain.cat;
     document.getElementById('domain-category').style.color = domain.color;
