@@ -3,7 +3,7 @@
 
 const EXTRA_DOMAINS = [
     {
-        id: "upsc-ias", name: "UPSC Civil Services (IAS/IPS/IFS)", icon: "🏛️", cat: "GovtExam", color: "#dc2626",
+        id: "upsc-ias", name: "UPSC Civil Services (IAS/IPS/IFS)", cat: "GovtExam", color: "#dc2626",
         steps: [
             {
                 title: "NCERT Foundation (6th-12th)", desc: "Build strong base with NCERT textbooks across History, Geography, Polity, Economy, Science.", dur: "8-12 weeks",
@@ -167,7 +167,7 @@ const EXTRA_DOMAINS = [
         ]
     },
     {
-        id: "ssc-cgl", name: "SSC CGL / CHSL / MTS", icon: "📝", cat: "GovtExam", color: "#ea580c",
+        id: "ssc-cgl", name: "SSC CGL / CHSL / MTS", cat: "GovtExam", color: "#ea580c",
         steps: [
             {
                 title: "Quantitative Aptitude", desc: "Master Arithmetic, Algebra, Geometry, Trigonometry, and Data Interpretation for SSC.", dur: "6-8 weeks",

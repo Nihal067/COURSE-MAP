@@ -99,8 +99,7 @@ function buildDomainCard(domain, user) {
         ? '<div class="card-progress"><div class="card-progress-track"><div class="card-progress-fill" style="width:' + pct + '%;background:' + (domain.color || '#6366f1') + '"></div></div><span class="card-pct">' + pct + '%</span></div>'
         : '';
 
-    card.innerHTML = '<div class="card-icon">' + (domain.icon || '📚') + '</div>'
-        + '<div class="card-body">'
+    card.innerHTML = '<div class="card-body">'
         + '<span class="card-cat">' + (domain.cat || '') + '</span>'
         + '<h3 class="card-title">' + domain.name + '</h3>'
         + '<div class="card-meta">'
@@ -209,7 +208,7 @@ function initExploreModal(user) {
         CATEGORIES.forEach(function (cat) {
             var btn = document.createElement('button');
             btn.className = 'modal-cat-chip' + (cat.id === 'all' ? ' active' : '');
-            btn.textContent = cat.icon + ' ' + cat.label;
+            btn.textContent = cat.label;
             btn.dataset.cat = cat.id;
             btn.addEventListener('click', function () {
                 document.querySelectorAll('.modal-cat-chip').forEach(function (b) { b.classList.remove('active'); });

@@ -2,7 +2,7 @@
 
 const MORE_DOMAINS = [
     {
-        id: "bank-po", name: "Bank PO & Clerk (IBPS/SBI/RBI)", icon: "🏦", cat: "GovtExam", color: "#2563eb",
+        id: "bank-po", name: "Bank PO & Clerk (IBPS/SBI/RBI)", cat: "GovtExam", color: "#2563eb",
         steps: [
             {
                 title: "Quantitative Aptitude & DI", desc: "Number System, Simplification, Profit-Loss, SI/CI, Data Interpretation.", dur: "6-8 weeks",
@@ -113,7 +113,7 @@ const MORE_DOMAINS = [
         ]
     },
     {
-        id: "gate-exam", name: "GATE Engineering Exam", icon: "🔬", cat: "GovtExam", color: "#7c3aed",
+        id: "gate-exam", name: "GATE Engineering Exam", cat: "GovtExam", color: "#7c3aed",
         steps: [
             {
                 title: "Core Engineering Subjects", desc: "Engineering Mathematics, Aptitude, and core discipline-specific subjects.", dur: "12-16 weeks",
@@ -171,7 +171,7 @@ const MORE_DOMAINS = [
         ]
     },
     {
-        id: "neet-medical", name: "NEET UG / PG Medical", icon: "💊", cat: "GovtExam", color: "#059669",
+        id: "neet-medical", name: "NEET UG / PG Medical", cat: "GovtExam", color: "#059669",
         steps: [
             {
                 title: "Physics for NEET", desc: "Mechanics, Optics, Thermodynamics, Electricity, Modern Physics.", dur: "10-14 weeks",
@@ -282,7 +282,7 @@ const MORE_DOMAINS = [
         ]
     },
     {
-        id: "ca-accounting", name: "CA / Accounting & Finance", icon: "📒", cat: "Commerce", color: "#b45309",
+        id: "ca-accounting", name: "CA / Accounting & Finance", cat: "Commerce", color: "#b45309",
         steps: [
             {
                 title: "Accounting Fundamentals", desc: "Double Entry, Trial Balance, Financial Statements, Tally, GST.", dur: "6-10 weeks",
@@ -340,7 +340,7 @@ const MORE_DOMAINS = [
         ]
     },
     {
-        id: "fine-arts", name: "Fine Arts & Visual Arts", icon: "🎨", cat: "Arts", color: "#e11d48",
+        id: "fine-arts", name: "Fine Arts & Visual Arts",
         steps: [
             {
                 title: "Drawing & Sketching Fundamentals", desc: "Pencil drawing, perspective, shading, anatomy, composition basics.", dur: "6-8 weeks",

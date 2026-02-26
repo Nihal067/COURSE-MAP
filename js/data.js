@@ -1,6 +1,6 @@
 const DOMAINS = [
     {
-        id: "web-frontend", name: "Web Development (Frontend)", icon: "🌐", cat: "Tech", color: "#3b82f6",
+        id: "web-frontend", name: "Web Development (Frontend)", cat: "Tech", color: "#3b82f6",
         steps: [
             {
                 title: "HTML & CSS Fundamentals", desc: "Semantic HTML, CSS layouts, box model, Flexbox and Grid.", dur: "3-4 weeks",
@@ -126,7 +126,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "web-backend", name: "Web Development (Backend)", icon: "⚙️", cat: "Tech", color: "#22c55e",
+        id: "web-backend", name: "Web Development (Backend)", cat: "Tech", color: "#22c55e",
         steps: [
             {
                 title: "Node.js & Server Basics", desc: "Server-side JS, modules, HTTP, and the event loop.", dur: "3-4 weeks",
@@ -207,7 +207,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "data-science", name: "Data Science", icon: "📊", cat: "Tech", color: "#a855f7",
+        id: "data-science", name: "Data Science", cat: "Tech", color: "#a855f7",
         steps: [
             {
                 title: "Python Programming", desc: "Core Python: data types, functions, OOP, and file handling.", dur: "4-5 weeks",
@@ -289,7 +289,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "ml-ai", name: "Machine Learning & AI", icon: "🤖", cat: "Tech", color: "#ec4899",
+        id: "ml-ai", name: "Machine Learning & AI", cat: "Tech", color: "#ec4899",
         steps: [
             {
                 title: "Math Foundations for ML", desc: "Linear algebra, calculus, probability — the math powering AI.", dur: "5-6 weeks",
@@ -372,7 +372,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "cybersecurity", name: "Cybersecurity", icon: "🔒", cat: "Tech", color: "#ef4444",
+        id: "cybersecurity", name: "Cybersecurity", cat: "Tech", color: "#ef4444",
         steps: [
             {
                 title: "Networking & Linux Fundamentals", desc: "TCP/IP, DNS, Firewalls, Linux admin and bash scripting.", dur: "4-5 weeks",
@@ -436,7 +436,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "cloud", name: "Cloud Computing", icon: "☁️", cat: "Tech", color: "#06b6d4",
+        id: "cloud", name: "Cloud Computing", cat: "Tech", color: "#06b6d4",
         steps: [
             {
                 title: "Cloud Foundations & AWS Core", desc: "Cloud concepts, IAM, EC2, S3, VPC, and billing basics.", dur: "4-5 weeks",
@@ -496,7 +496,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "devops", name: "DevOps", icon: "🔄", cat: "Tech", color: "#8b5cf6",
+        id: "devops", name: "DevOps", cat: "Tech", color: "#8b5cf6",
         steps: [
             {
                 title: "Git, Linux & Shell Scripting", desc: "Version control workflows, bash scripting, and system administration.", dur: "2-3 weeks",
@@ -555,7 +555,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "mobile-dev", name: "Mobile App Development", icon: "📱", cat: "Tech", color: "#f59e0b",
+        id: "mobile-dev", name: "Mobile App Development", cat: "Tech", color: "#f59e0b",
         steps: [
             {
                 title: "Flutter & Dart Foundations", desc: "Dart syntax, Flutter widgets, layouts, and state management.", dur: "4-5 weeks",
@@ -614,7 +614,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "data-eng", name: "Data Engineering", icon: "🔧", cat: "Tech", color: "#0ea5e9",
+        id: "data-eng", name: "Data Engineering", cat: "Tech", color: "#0ea5e9",
         steps: [
             {
                 title: "SQL & Data Warehousing", desc: "Advanced SQL, window functions, Snowflake, BigQuery, and Redshift.", dur: "4-5 weeks",
@@ -674,7 +674,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "game-dev", name: "Game Development", icon: "🎮", cat: "Creative", color: "#10b981",
+        id: "game-dev", name: "Game Development", cat: "Creative", color: "#10b981",
         steps: [
             {
                 title: "C# / C++ Programming", desc: "Core programming in C# for Unity or C++ for Unreal Engine.", dur: "4-6 weeks",
@@ -734,7 +734,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "uiux", name: "UI/UX Design", icon: "🎨", cat: "Design", color: "#d946ef",
+        id: "uiux", name: "UI/UX Design", cat: "Design", color: "#d946ef",
         steps: [
             {
                 title: "Design Principles & Theory", desc: "Color theory, typography, Gestalt principles, and visual hierarchy.", dur: "3-4 weeks",
@@ -794,7 +794,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "digital-marketing", name: "Digital Marketing", icon: "📣", cat: "Business", color: "#f43f5e",
+        id: "digital-marketing", name: "Digital Marketing", cat: "Business", color: "#f43f5e",
         steps: [
             {
                 title: "SEO & Content Marketing", desc: "Keyword research, on-page SEO, content strategy, and copywriting.", dur: "3-4 weeks",
@@ -856,7 +856,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "finance", name: "Finance & Fintech", icon: "💰", cat: "Business", color: "#eab308",
+        id: "finance", name: "Finance & Fintech", cat: "Business", color: "#eab308",
         steps: [
             {
                 title: "Financial Accounting Basics", desc: "Financial statements, bookkeeping, and GAAP principles.", dur: "3-4 weeks",
@@ -917,7 +917,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "sql-databases", name: "SQL & Databases", icon: "🗄️", cat: "Tech", color: "#0d9488",
+        id: "sql-databases", name: "SQL & Databases", cat: "Tech", color: "#0d9488",
         steps: [
             {
                 title: "SQL Foundations", desc: "SELECT, JOINs, GROUP BY, subqueries, and database design.", dur: "3-4 weeks",
@@ -978,7 +978,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "graphic-design", name: "Graphic Design", icon: "🖌️", cat: "Design", color: "#e879f9",
+        id: "graphic-design", name: "Graphic Design", cat: "Design", color: "#e879f9",
         steps: [
             {
                 title: "Design Theory & Adobe Illustrator", desc: "Color, typography, composition, and vector design in Illustrator.", dur: "4-5 weeks",
@@ -1038,7 +1038,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "video-editing", name: "Video Editing & Motion", icon: "🎬", cat: "Creative", color: "#fb923c",
+        id: "video-editing", name: "Video Editing & Motion", cat: "Creative", color: "#fb923c",
         steps: [
             {
                 title: "Premiere Pro – Editing Fundamentals", desc: "Editing workflow, cuts, colour, audio sync, and export settings.", dur: "3-4 weeks",
@@ -1079,7 +1079,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "competitive-programming", name: "Competitive Programming", icon: "🏆", cat: "Tech", color: "#6366f1",
+        id: "competitive-programming", name: "Competitive Programming", cat: "Tech", color: "#6366f1",
         steps: [
             {
                 title: "Data Structures & Algorithms", desc: "Arrays, trees, graphs, heaps, sorting, and searching.", dur: "6-8 weeks",
@@ -1122,7 +1122,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "networking-cisco", name: "Networking & CCNA", icon: "🌐", cat: "Engineering", color: "#14b8a6",
+        id: "networking-cisco", name: "Networking & CCNA", cat: "Engineering", color: "#14b8a6",
         steps: [
             {
                 title: "Network Fundamentals", desc: "OSI model, TCP/IP, IP addressing, subnetting, and VLANs.", dur: "4-5 weeks",
@@ -1165,7 +1165,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "business-mba", name: "Business & MBA Essentials", icon: "💼", cat: "Business", color: "#0d9488",
+        id: "business-mba", name: "Business & MBA Essentials", cat: "Business", color: "#0d9488",
         steps: [
             {
                 title: "Management & Leadership", desc: "Organizational behavior, leadership styles, and strategic decision-making.", dur: "4-5 weeks",
@@ -1210,7 +1210,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "ai-research", name: "AI Research", icon: "🔬", cat: "Science", color: "#818cf8",
+        id: "ai-research", name: "AI Research", cat: "Science", color: "#818cf8",
         steps: [
             {
                 title: "ML Theory & Mathematics", desc: "PAC learning, VC dimension, kernel methods, and information theory.", dur: "8-10 weeks",
@@ -1252,7 +1252,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "iot-embedded", name: "Embedded & IoT", icon: "🔌", cat: "Engineering", color: "#f97316",
+        id: "iot-embedded", name: "Embedded & IoT", cat: "Engineering", color: "#f97316",
         steps: [
             {
                 title: "Electronics & C Programming", desc: "Circuits, components, microcontrollers, and embedded C coding.", dur: "5-6 weeks",
@@ -1297,7 +1297,7 @@ const DOMAINS = [
     },
     /* ── NEW DOMAINS BATCH 1 ── */
     {
-        id: "blockchain", name: "Blockchain & Web3", icon: "⛓️", cat: "Tech", color: "#8b5cf6",
+        id: "blockchain", name: "Blockchain & Web3", cat: "Tech", color: "#8b5cf6",
         steps: [
             {
                 title: "Blockchain Fundamentals", desc: "Distributed ledgers, consensus mechanisms, hashing, and cryptography.", dur: "3-4 weeks",
@@ -1357,7 +1357,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "python-advanced", name: "Python Advanced", icon: '<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40">', cat: "Tech", color: "#3b82f6",
+        id: "python-advanced", name: "Python Advanced", cat: "Tech", color: "#3b82f6",
         steps: [
             {
                 title: "OOP, Decorators & Metaclasses", desc: "Advanced Python patterns: OOP, decorators, context managers, and metaclasses.", dur: "3-4 weeks",
@@ -1413,7 +1413,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "java", name: "Java Development", icon: "☕", cat: "Tech", color: "#f59e0b",
+        id: "java", name: "Java Development", cat: "Tech", color: "#f59e0b",
         steps: [
             {
                 title: "Java Fundamentals", desc: "Data types, OOP, collections, and exception handling.", dur: "4-5 weeks",
@@ -1469,7 +1469,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "power-bi", name: "Power BI & Data Visualization", icon: "📈", cat: "Business", color: "#0ea5e9",
+        id: "power-bi", name: "Power BI & Data Visualization", cat: "Business", color: "#0ea5e9",
         steps: [
             {
                 title: "Excel & Data Fundamentals", desc: "Pivot tables, VLOOKUP, data cleaning, and Power Query in Excel.", dur: "3-4 weeks",
@@ -1525,7 +1525,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "photography", name: "Photography", icon: "📷", cat: "Creative", color: "#ec4899",
+        id: "photography", name: "Photography", cat: "Creative", color: "#ec4899",
         steps: [
             {
                 title: "Camera Basics & Exposure Triangle", desc: "ISO, aperture, shutter speed, white balance, and camera modes.", dur: "2-3 weeks",
@@ -1576,7 +1576,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "content-writing", name: "Content Writing & Copywriting", icon: "✍️", cat: "Business", color: "#14b8a6",
+        id: "content-writing", name: "Content Writing & Copywriting", cat: "Business", color: "#14b8a6",
         steps: [
             {
                 title: "Writing Fundamentals", desc: "Grammar, clarity, structure, tone of voice, and reader psychology.", dur: "2-3 weeks",
@@ -1614,7 +1614,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "project-management", name: "Project Management", icon: "📋", cat: "Business", color: "#6366f1",
+        id: "project-management", name: "Project Management", cat: "Business", color: "#6366f1",
         steps: [
             {
                 title: "PM Fundamentals & Methodologies", desc: "Waterfall, Agile, Scrum, Kanban, and the project lifecycle.", dur: "3-4 weeks",
@@ -1671,7 +1671,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "linux-admin", name: "Linux System Administration", icon: "🐧", cat: "Engineering", color: "#22c55e",
+        id: "linux-admin", name: "Linux System Administration", cat: "Engineering", color: "#22c55e",
         steps: [
             {
                 title: "Linux CLI & File System", desc: "Navigation, file permissions, processes, and shell scripting basics.", dur: "3-4 weeks",
@@ -1725,7 +1725,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "mlops", name: "MLOps & AI Engineering", icon: "⚙️", cat: "Tech", color: "#818cf8",
+        id: "mlops", name: "MLOps & AI Engineering", cat: "Tech", color: "#818cf8",
         steps: [
             {
                 title: "ML Pipelines & Experiment Tracking", desc: "MLflow, DVC, feature stores, and reproducible experiments.", dur: "4-5 weeks",
@@ -1763,7 +1763,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "product-management", name: "Product Management", icon: "🚀", cat: "Business", color: "#f97316",
+        id: "product-management", name: "Product Management", cat: "Business", color: "#f97316",
         steps: [
             {
                 title: "Product Thinking & Discovery", desc: "User research, PRDs, jobs-to-be-done, OKRs, and prioritization.", dur: "4-5 weeks",
@@ -1804,7 +1804,7 @@ const DOMAINS = [
     },
     /* ── NEW DOMAINS BATCH 2 ── */
     {
-        id: "3d-modeling", name: "3D Modeling & Blender", icon: "🎨", cat: "Creative", color: "#f97316",
+        id: "3d-modeling", name: "3D Modeling & Blender", cat: "Creative", color: "#f97316",
         steps: [
             {
                 title: "Blender Fundamentals", desc: "Interface, navigation, modelling, materials, and rendering basics.", dur: "4-5 weeks",
@@ -1857,7 +1857,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "music-production", name: "Music Production", icon: "🎵", cat: "Creative", color: "#a855f7",
+        id: "music-production", name: "Music Production", cat: "Creative", color: "#a855f7",
         steps: [
             {
                 title: "Music Theory & DAW Basics", desc: "Scales, chords, rhythm, and getting started with a DAW (FL Studio / Ableton).", dur: "3-4 weeks",
@@ -1895,7 +1895,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "ecommerce", name: "E-Commerce & Shopify", icon: "🛒", cat: "Business", color: "#10b981",
+        id: "ecommerce", name: "E-Commerce & Shopify", cat: "Business", color: "#10b981",
         steps: [
             {
                 title: "E-Commerce Fundamentals", desc: "Business models (D2C, dropshipping, marketplace), niche research, and logistics.", dur: "2-3 weeks",
@@ -1933,7 +1933,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "social-media", name: "Social Media & Content Creation", icon: "📱", cat: "Business", color: "#e879f9",
+        id: "social-media", name: "Social Media & Content Creation", cat: "Business", color: "#e879f9",
         steps: [
             {
                 title: "Platform Strategy & Content Planning", desc: "Instagram, TikTok, YouTube, LinkedIn content strategy and algorithm insights.", dur: "2-3 weeks",
@@ -1970,7 +1970,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "english-communication", name: "English Communication", icon: "🗣️", cat: "Business", color: "#38bdf8",
+        id: "english-communication", name: "English Communication", cat: "Business", color: "#38bdf8",
         steps: [
             {
                 title: "Grammar & Writing", desc: "Business writing, professional emails, punctuation, and clarity.", dur: "2-3 weeks",
@@ -2007,7 +2007,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "robotics", name: "Robotics & Automation", icon: "🤖", cat: "Engineering", color: "#0ea5e9",
+        id: "robotics", name: "Robotics & Automation", cat: "Engineering", color: "#0ea5e9",
         steps: [
             {
                 title: "Robotics Fundamentals", desc: "Kinematics, sensors, actuators, embedded systems, and ROS basics.", dur: "4-5 weeks",
@@ -2043,7 +2043,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "healthcare-it", name: "Healthcare IT", icon: "🏥", cat: "Science", color: "#34d399",
+        id: "healthcare-it", name: "Healthcare IT", cat: "Science", color: "#34d399",
         steps: [
             {
                 title: "Health Informatics Fundamentals", desc: "EHR systems, HL7, FHIR, ICD-10 coding, and patient data management.", dur: "4-5 weeks",
@@ -2079,7 +2079,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "ai-ethics", name: "AI Ethics & Responsible AI", icon: "⚖️", cat: "Science", color: "#f43f5e",
+        id: "ai-ethics", name: "AI Ethics & Responsible AI", cat: "Science", color: "#f43f5e",
         steps: [
             {
                 title: "AI Ethics Fundamentals", desc: "Bias, fairness, algorithmic accountability, and ethical frameworks for AI.", dur: "3-4 weeks",
@@ -2118,7 +2118,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "nocode", name: "No-Code / Low-Code Development", icon: "🔧", cat: "Tech", color: "#84cc16",
+        id: "nocode", name: "No-Code / Low-Code Development", cat: "Tech", color: "#84cc16",
         steps: [
             {
                 title: "Bubble & Webflow", desc: "Build full-stack web apps without code using Bubble and advanced websites with Webflow.", dur: "3-4 weeks",
@@ -2155,7 +2155,7 @@ const DOMAINS = [
         ]
     },
     {
-        id: "ar-vr", name: "AR / VR Development", icon: "🥽", cat: "Tech", color: "#c084fc",
+        id: "ar-vr", name: "AR / VR Development", cat: "Tech", color: "#c084fc",
         steps: [
             {
                 title: "Unity & XR Fundamentals", desc: "Unity engine, XR toolkit, object interaction, and spatial UI for VR.", dur: "4-5 weeks",
