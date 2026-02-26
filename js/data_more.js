@@ -45,16 +45,6 @@ const MORE_DOMAINS = [
                     { name: "Oliveboard IBPS PO", url: "https://www.oliveboard.in/ibps-po/" },
                     { name: "BankersAdda", url: "https://www.bankersadda.com/" },
                     { name: "IndiaBIX Aptitude", url: "https://www.indiabix.com/" }
-                ],
-                certificates: [
-                    { name: "Banking Aptitude Certificate", platform: "Testbook", url: "https://testbook.com/" },
-                    { name: "Financial Literacy Cert", platform: "Coursera", url: "https://www.coursera.org/learn/financial-markets" },
-                    { name: "Quant Excellence", platform: "Adda247", url: "https://www.adda247.com/" },
-                    { name: "Statistics Fundamentals", platform: "Khan Academy", url: "https://www.khanacademy.org/" },
-                    { name: "Banking Awareness Cert", platform: "Oliveboard", url: "https://www.oliveboard.in/" },
-                    { name: "Data Analysis Basics", platform: "edX", url: "https://www.edx.org/learn/data-analysis" },
-                    { name: "Risk Management Intro", platform: "GARP", url: "https://www.garp.org/" },
-                    { name: "Financial Markets Cert", platform: "Yale (Coursera)", url: "https://www.coursera.org/learn/financial-markets-global" }
                 ]
             },
             {
@@ -98,16 +88,6 @@ const MORE_DOMAINS = [
                     { name: "BankExamsToday", url: "https://www.bankexamstoday.com/" },
                     { name: "Gradeup Banking Section", url: "https://byjusexamprep.com/" },
                     { name: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/" }
-                ],
-                certificates: [
-                    { name: "Reasoning Pro Certificate", platform: "Testbook", url: "https://testbook.com/" },
-                    { name: "English Mastery for Banking", platform: "Adda247", url: "https://www.adda247.com/" },
-                    { name: "Critical Thinking Cert", platform: "Coursera", url: "https://www.coursera.org/learn/critical-thinking" },
-                    { name: "English Proficiency", platform: "British Council", url: "https://www.britishcouncil.in/" },
-                    { name: "Logic & Problem Solving", platform: "edX", url: "https://www.edx.org/" },
-                    { name: "Banking English Expert", platform: "Oliveboard", url: "https://www.oliveboard.in/" },
-                    { name: "Communication Certificate", platform: "LinkedIn Learning", url: "https://www.linkedin.com/learning/" },
-                    { name: "Analytical Reasoning Cert", platform: "Unacademy", url: "https://unacademy.com/" }
                 ]
             }
         ]
@@ -156,16 +136,6 @@ const MORE_DOMAINS = [
                     { name: "ACE Engineering Academy", url: "https://www.aceenggacademy.com/" },
                     { name: "Testbook GATE Mocks", url: "https://testbook.com/gate" },
                     { name: "MIT OpenCourseWare", url: "https://ocw.mit.edu/" }
-                ],
-                certificates: [
-                    { name: "Algorithms Specialization", platform: "Coursera (Stanford)", url: "https://www.coursera.org/specializations/algorithms" },
-                    { name: "Computer Science Cert", platform: "edX (Harvard)", url: "https://www.edx.org/cs50" },
-                    { name: "Data Structures Certificate", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "Engineering Maths Cert", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "GATE Qualified Badge", platform: "Made Easy", url: "https://www.madeeasy.in/" },
-                    { name: "Operating Systems Cert", platform: "Coursera", url: "https://www.coursera.org/" },
-                    { name: "Database Management Cert", platform: "Oracle", url: "https://education.oracle.com/" },
-                    { name: "Networking Fundamentals", platform: "Cisco", url: "https://www.netacad.com/" }
                 ]
             }
         ]
@@ -214,16 +184,6 @@ const MORE_DOMAINS = [
                     { name: "Embibe NEET Practice", url: "https://www.embibe.com/exams/neet/" },
                     { name: "NCERT Textbooks Free", url: "https://ncert.nic.in/" },
                     { name: "Motion Education", url: "https://www.motion.ac.in/" }
-                ],
-                certificates: [
-                    { name: "Physics Mastery Certificate", platform: "Khan Academy", url: "https://www.khanacademy.org/" },
-                    { name: "AP Physics I", platform: "edX", url: "https://www.edx.org/learn/physics" },
-                    { name: "Classical Mechanics", platform: "MIT OCW", url: "https://ocw.mit.edu/" },
-                    { name: "Intro to Electricity", platform: "Coursera", url: "https://www.coursera.org/" },
-                    { name: "Thermodynamics Cert", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "NEET Physics Pro", platform: "Unacademy", url: "https://unacademy.com/" },
-                    { name: "Optics & Waves Cert", platform: "BYJU'S", url: "https://byjus.com/" },
-                    { name: "Modern Physics Certificate", platform: "Physics Wallah", url: "https://www.pw.live/" }
                 ]
             },
             {
@@ -267,16 +227,6 @@ const MORE_DOMAINS = [
                     { name: "Embibe NEET Chemistry", url: "https://www.embibe.com/exams/neet/" },
                     { name: "Biology Online", url: "https://www.biologyonline.com/" },
                     { name: "ChemLibreTexts", url: "https://chem.libretexts.org/" }
-                ],
-                certificates: [
-                    { name: "Biology Essentials Certificate", platform: "Khan Academy", url: "https://www.khanacademy.org/" },
-                    { name: "Chemistry Fundamentals", platform: "Coursera", url: "https://www.coursera.org/learn/chemistry" },
-                    { name: "Intro to Biology – MIT", platform: "edX", url: "https://www.edx.org/learn/biology" },
-                    { name: "Organic Chemistry Cert", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "Genetics Certificate", platform: "Coursera", url: "https://www.coursera.org/learn/genetics-evolution" },
-                    { name: "Ecology & Conservation", platform: "edX", url: "https://www.edx.org/" },
-                    { name: "NEET Chemistry Pro", platform: "Unacademy", url: "https://unacademy.com/" },
-                    { name: "Medical Sciences Intro", platform: "FutureLearn", url: "https://www.futurelearn.com/" }
                 ]
             }
         ]
@@ -325,16 +275,6 @@ const MORE_DOMAINS = [
                     { name: "GST Portal", url: "https://www.gst.gov.in/" },
                     { name: "ACCA Global", url: "https://www.accaglobal.com/" },
                     { name: "Tally Solutions Official", url: "https://tallysolutions.com/" }
-                ],
-                certificates: [
-                    { name: "CA Foundation (ICAI)", platform: "ICAI", url: "https://www.icai.org/" },
-                    { name: "Financial Accounting Cert", platform: "Coursera (UVA)", url: "https://www.coursera.org/learn/uva-darden-financial-accounting" },
-                    { name: "Tally Certification", platform: "Tally Solutions", url: "https://tallysolutions.com/" },
-                    { name: "GST Practitioner Cert", platform: "ICAI", url: "https://www.icai.org/" },
-                    { name: "Bookkeeping Certificate", platform: "Intuit", url: "https://www.coursera.org/professional-certificates/intuit-bookkeeping" },
-                    { name: "CMA Foundation", platform: "ICMAI", url: "https://icmai.in/" },
-                    { name: "ACCA Fundamentals", platform: "ACCA", url: "https://www.accaglobal.com/" },
-                    { name: "Financial Analysis Cert", platform: "CFI", url: "https://corporatefinanceinstitute.com/" }
                 ]
             }
         ]
@@ -383,16 +323,6 @@ const MORE_DOMAINS = [
                     { name: "Artstation – Portfolio Platform", url: "https://www.artstation.com/" },
                     { name: "QuickPoses – Timed Practice", url: "https://quickposes.com/" },
                     { name: "Concept Art Empire", url: "https://conceptartempire.com/" }
-                ],
-                certificates: [
-                    { name: "Art Fundamentals Certificate", platform: "Coursera (CalArts)", url: "https://www.coursera.org/specializations/art-for-games" },
-                    { name: "Drawing Certification", platform: "Udemy", url: "https://www.udemy.com/" },
-                    { name: "Digital Arts Certificate", platform: "Skillshare", url: "https://www.skillshare.com/" },
-                    { name: "Illustration Specialization", platform: "Coursera", url: "https://www.coursera.org/specializations/illustration" },
-                    { name: "Visual Arts Portfolio Cert", platform: "Domestika", url: "https://www.domestika.org/" },
-                    { name: "Fine Arts History", platform: "edX", url: "https://www.edx.org/learn/art-history" },
-                    { name: "Character Design Cert", platform: "New Masters Academy", url: "https://www.nma.art/" },
-                    { name: "Color Theory Certificate", platform: "LinkedIn Learning", url: "https://www.linkedin.com/learning/" }
                 ]
             }
         ]

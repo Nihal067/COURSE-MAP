@@ -14,7 +14,10 @@ const DOMAINS = [
                     { name: "HTML5 APIs", platform: "Coursera", url: "https://www.coursera.org/learn/html5" },
                     { name: "Responsive Web Design Certification", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/responsive-web-design/" },
                     { name: "Modern Web Layouts", platform: "edX", url: "https://www.edx.org/learn/web-development" },
-                    { name: "CSS Animations in Depth", platform: "Frontend Masters", url: "https://frontendmasters.com/courses/css-animations/" }
+                    { name: "CSS Animations in Depth", platform: "Frontend Masters", url: "https://frontendmasters.com/courses/css-animations/" },
+                    { name: "Web Development in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/web-dev/" },
+                    { name: "HTML & CSS Bootcamp", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" },
+                    { name: "Web Dev Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/web-development-course/" }
                 ],
                 videos: [
                     { name: "HTML & CSS Full Course – 11 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=mU6anWqZJcc" },
@@ -26,7 +29,10 @@ const DOMAINS = [
                     { name: "Understanding the Box Model", platform: "YouTube – SuperSimpleDev", url: "https://www.youtube.com/watch?v=rIO5326FgPE" },
                     { name: "Semantic HTML5 Elements", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=kUMe1FH4CGY" },
                     { name: "CSS Positioning Tutorial", platform: "YouTube – Kevin Powell", url: "https://www.youtube.com/watch?v=jx5jmI0UlXU" },
-                    { name: "Building a Responsive Layout", platform: "YouTube – Web Dev Simplified", url: "https://www.youtube.com/watch?v=srvUrASNj0s" }
+                    { name: "Building a Responsive Layout", platform: "YouTube – Web Dev Simplified", url: "https://www.youtube.com/watch?v=srvUrASNj0s" },
+                    { name: "HTML & CSS Full Course in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=BsDoLVMnmZs" },
+                    { name: "Web Dev Playlist", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=HcOc7P5BMi4" },
+                    { name: "CSS Flexbox & Grid Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=Y6mbMKHHTu8" }
                 ],
                 books: [
                     { name: "HTML & CSS: Design and Build Web Sites – Jon Duckett", url: "https://www.htmlandcssbook.com/" },
@@ -38,7 +44,9 @@ const DOMAINS = [
                     { name: "Smashing Book #5", url: "https://www.smashingmagazine.com/books/" },
                     { name: "HTML and CSS Visual QuickStart Guide", url: "https://www.peachpit.com/" },
                     { name: "Sass for Web Designers", url: "https://abookapart.com/products/sass-for-web-designers" },
-                    { name: "Modern CSS Mastery", url: "https://www.amazon.in/Modern-CSS-Every-Practical-Guide/dp/B0BLN3PCZG" }
+                    { name: "Modern CSS Mastery", url: "https://www.amazon.in/Modern-CSS-Every-Practical-Guide/dp/B0BLN3PCZG" },
+                    { name: "HTML & CSS (Hindi Edition) – S. Chand", url: "https://www.schandpublishing.com/" },
+                    { name: "Web Technology – Black Book (Dreamtech)", url: "https://www.dreamtechpress.com/" }
                 ],
                 websites: [
                     { name: "MDN Web Docs – HTML Reference", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
@@ -50,19 +58,10 @@ const DOMAINS = [
                     { name: "CSS Reference", url: "https://cssreference.io/" },
                     { name: "HTML Reference", url: "https://htmlreference.io/" },
                     { name: "Frontend Mentor", url: "https://www.frontendmentor.io/" },
-                    { name: "CodePen", url: "https://codepen.io/" }
-                ],
-                certificates: [
-                    { name: "Meta Front-End Developer Professional Certificate", platform: "Coursera", url: "https://www.coursera.org/professional-certificates/meta-front-end-developer" },
-                    { name: "Google UX Design Professional Certificate", platform: "Coursera", url: "https://www.coursera.org/professional-certificates/google-ux-design" },
-                    { name: "Responsive Web Design Certification", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/responsive-web-design/" },
-                    { name: "W3C HTML5 Foundations Certification", platform: "edX", url: "https://www.edx.org/learn/html5" },
-                    { name: "Advanced CSS and Sass Certificate", platform: "Udemy", url: "https://www.udemy.com/" },
-                    { name: "Front-End Web Development Certificate", platform: "Cornell", url: "https://ecornell.cornell.edu/certificates/web-design-and-development/front-end-web-development/" },
-                    { name: "IBM Front-End Developer Certificate", platform: "Coursera", url: "https://www.coursera.org/professional-certificates/ibm-front-end-developer" },
-                    { name: "Web Design for Everybody Specialization", platform: "Coursera", url: "https://www.coursera.org/specializations/web-design" },
-                    { name: "HTML CSS Certification", platform: "TestDome", url: "https://www.testdome.com/certifications/html-css/" },
-                    { name: "Certified Web Professional", platform: "CIW", url: "https://www.ciwcertified.com/" }
+                    { name: "CodePen", url: "https://codepen.io/" },
+                    { name: "CodeWithHarry – Web Dev Notes", url: "https://www.codewithharry.com/tutorial/web-dev/" },
+                    { name: "GeeksforGeeks – HTML/CSS", url: "https://www.geeksforgeeks.org/html/" },
+                    { name: "NPTEL – Web Technologies", url: "https://nptel.ac.in/courses/106105084" }
                 ]
             },
             {
@@ -70,19 +69,26 @@ const DOMAINS = [
                 courses: [
                     { name: "JavaScript for Beginners", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "JavaScript Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/javascript-fundamentals" },
-                    { name: "The Complete JavaScript Course", platform: "Udemy", url: "https://www.udemy.com/course/the-complete-javascript-course/" }
+                    { name: "The Complete JavaScript Course", platform: "Udemy", url: "https://www.udemy.com/course/the-complete-javascript-course/" },
+                    { name: "JavaScript in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/javascript/" },
+                    { name: "JavaScript Full Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
                     { name: "JavaScript Full Course – 12 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=jS4aFq5-91M" },
-                    { name: "JavaScript Tutorial for Beginners", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=W6NZfCO5SIk" }
+                    { name: "JavaScript Tutorial for Beginners", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=W6NZfCO5SIk" },
+                    { name: "JavaScript Full Course Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=ER9SspLe4Hg" },
+                    { name: "JavaScript Tutorial in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=VlPiVmYuoqw" }
                 ],
                 books: [
                     { name: "Eloquent JavaScript (Free Online)", url: "https://eloquentjavascript.net/" },
-                    { name: "You Don't Know JS – Kyle Simpson (Free on GitHub)", url: "https://github.com/getify/You-Dont-Know-JS" }
+                    { name: "You Don't Know JS – Kyle Simpson (Free on GitHub)", url: "https://github.com/getify/You-Dont-Know-JS" },
+                    { name: "JavaScript – The Definitive Guide (India Ed.)", url: "https://www.amazon.in/JavaScript-Definitive-Guide-Master-Worlds/dp/1491952024" }
                 ],
                 websites: [
                     { name: "JavaScript.info – Modern JS Tutorial", url: "https://javascript.info/" },
-                    { name: "MDN – JavaScript Guide", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" }
+                    { name: "MDN – JavaScript Guide", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" },
+                    { name: "GeeksforGeeks – JavaScript", url: "https://www.geeksforgeeks.org/javascript/" },
+                    { name: "NPTEL – Programming in JavaScript", url: "https://nptel.ac.in/courses/106102064" }
                 ]
             },
             {
@@ -90,11 +96,15 @@ const DOMAINS = [
                 courses: [
                     { name: "React JS Certification Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "React for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/react-js-tutorial" },
-                    { name: "React – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/" }
+                    { name: "React – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/" },
+                    { name: "React JS Hindi Tutorial", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "React JS Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
                     { name: "React Full Course 2024", platform: "YouTube – Dave Gray", url: "https://www.youtube.com/watch?v=RVFAyFWO4go" },
-                    { name: "React Tutorial for Beginners", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=SqcY0GlETPk" }
+                    { name: "React Tutorial for Beginners", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=SqcY0GlETPk" },
+                    { name: "React JS Full Course in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=jJwFRVbevi4" },
+                    { name: "React in 2024 – Hindi", platform: "YouTube – Chai aur Code", url: "https://www.youtube.com/@chaiaurcode" }
                 ],
                 books: [
                     { name: "Road to React – Robin Wieruch (Free PDF)", url: "https://www.roadtoreact.com/" },
@@ -133,11 +143,15 @@ const DOMAINS = [
                 courses: [
                     { name: "Node.js Certification Training", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Node.js for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/node-js-tutorial" },
-                    { name: "Node.js – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/nodejs-the-complete-guide/" }
+                    { name: "Node.js – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/nodejs-the-complete-guide/" },
+                    { name: "Node.js Hindi Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Backend with Node.js", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
                     { name: "Node.js and Express Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=Oe421EPjeBE" },
-                    { name: "Node.js Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=fBNz5xF-Kx4" }
+                    { name: "Node.js Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=fBNz5xF-Kx4" },
+                    { name: "Node.js Full Course Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=BLl32FvcdVM" },
+                    { name: "Backend Development in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=qwfE7fSVaZM" }
                 ],
                 books: [
                     { name: "Node.js Design Patterns – Mario Casciaro (Packt)", url: "https://www.nodejsdesignpatterns.com/" },
@@ -153,11 +167,16 @@ const DOMAINS = [
                 courses: [
                     { name: "SQL for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/sql-for-data-science" },
                     { name: "MySQL Developer Certification", platform: "Oracle", url: "https://education.oracle.com/mysql-developer" },
-                    { name: "MongoDB University (Free)", platform: "MongoDB", url: "https://university.mongodb.com/" }
+                    { name: "MongoDB University (Free)", platform: "MongoDB", url: "https://university.mongodb.com/" },
+                    { name: "SQL in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/sql/" },
+                    { name: "Database Systems", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105175" },
+                    { name: "MySQL Full Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
                     { name: "SQL Full Course – 4 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
-                    { name: "MongoDB Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=-56x56UppqQ" }
+                    { name: "MongoDB Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=-56x56UppqQ" },
+                    { name: "SQL Tutorial in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=9i3KPs_2RNE" },
+                    { name: "MySQL Full Course Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=7S_tz1z_5bA" }
                 ],
                 books: [
                     { name: "Learning SQL – Alan Beaulieu (O'Reilly, Free)", url: "https://www.oreilly.com/library/view/learning-sql-3rd/9781492057604/" },
@@ -190,11 +209,15 @@ const DOMAINS = [
                 title: "Deployment & Cloud Basics", desc: "Docker, CI/CD with GitHub Actions, and deploying on cloud.", dur: "3-4 weeks",
                 courses: [
                     { name: "Docker & Kubernetes", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "AWS Certified Cloud Practitioner", platform: "AWS (Simplilearn)", url: "https://www.simplilearn.com/" }
+                    { name: "AWS Certified Cloud Practitioner", platform: "AWS (Simplilearn)", url: "https://www.simplilearn.com/" },
+                    { name: "DevOps & Cloud in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "DevOps Bootcamp", platform: "PW Skills", url: "https://pwskills.com/" }
                 ],
                 videos: [
                     { name: "Docker Tutorial for Beginners", platform: "YouTube – TechWorld with Nana", url: "https://www.youtube.com/watch?v=3c-iBn73dDE" },
-                    { name: "GitHub Actions Full Course", platform: "YouTube – TechWorld with Nana", url: "https://www.youtube.com/watch?v=R8_veQiYBjI" }
+                    { name: "GitHub Actions Full Course", platform: "YouTube – TechWorld with Nana", url: "https://www.youtube.com/watch?v=R8_veQiYBjI" },
+                    { name: "Docker & Kubernetes in Hindi", platform: "YouTube – Kunal Kushwaha", url: "https://www.youtube.com/@KunalKushwaha" },
+                    { name: "DevOps Full Course Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=jNJEbZI2uOc" }
                 ],
                 books: [
                     { name: "Docker Deep Dive – Nigel Poulton (Free Preview)", url: "https://www.oreilly.com/library/view/docker-deep-dive/9781801074612/" }
@@ -214,11 +237,20 @@ const DOMAINS = [
                 courses: [
                     { name: "Python for Data Science", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Python Programming", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/python-fundamentals-for-beginners" },
-                    { name: "Python for Everybody", platform: "Coursera (Google)", url: "https://www.coursera.org/specializations/python" }
+                    { name: "Python for Everybody", platform: "Coursera (Google)", url: "https://www.coursera.org/specializations/python" },
+                    { name: "Data Science in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Data Science Bootcamp", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/data-science-course/" },
+                    { name: "Data Science & ML", platform: "NPTEL", url: "https://nptel.ac.in/courses/106106198" }
                 ],
                 videos: [
                     { name: "Python Full Course for Beginners", platform: "YouTube – Programming with Mosh", url: "https://www.youtube.com/watch?v=_uQrJ0TkZlc" },
-                    { name: "Python Data Science Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=LHBE6Q9XlzI" }
+                    { name: "Python Data Science Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=LHBE6Q9XlzI" },
+                    { name: "Python in Hindi Full Course", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=gfDE2a7MKjA" },
+                    { name: "Python for Beginners Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=ERCMXc8x7mc" },
+                    { name: "Python Playlist", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" },
+                    { name: "Data Science Full Course Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=1j0bPYvQMFg" },
+                    { name: "Data Science Roadmap Hindi", platform: "YouTube – Campus X", url: "https://www.youtube.com/@campusx-official" },
+                    { name: "Statistics for Data Science", platform: "YouTube – PW Skills", url: "https://www.youtube.com/c/PWSkills" }
                 ],
                 books: [
                     { name: "Automate the Boring Stuff with Python (Free Online)", url: "https://automatetheboringstuff.com/" },
@@ -226,7 +258,10 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Kaggle – Python Course (Free)", url: "https://www.kaggle.com/learn/python" },
-                    { name: "W3Schools Python", url: "https://www.w3schools.com/python/" }
+                    { name: "W3Schools Python", url: "https://www.w3schools.com/python/" },
+                    { name: "NPTEL – Data Science Courses", url: "https://nptel.ac.in/courses/106106198" },
+                    { name: "Analytics Vidhya (India)", url: "https://www.analyticsvidhya.com/" },
+                    { name: "InterviewBit – Data Science", url: "https://www.interviewbit.com/data-science-interview-questions/" }
                 ]
             },
             {
@@ -271,11 +306,16 @@ const DOMAINS = [
                 courses: [
                     { name: "Machine Learning with Python", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "ML with Python – freeCodeCamp", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/machine-learning-with-python/" },
-                    { name: "Intro to Machine Learning", platform: "Kaggle", url: "https://www.kaggle.com/learn/intro-to-machine-learning" }
+                    { name: "Intro to Machine Learning", platform: "Kaggle", url: "https://www.kaggle.com/learn/intro-to-machine-learning" },
+                    { name: "Machine Learning in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "AI & ML Bootcamp", platform: "PW Skills", url: "https://pwskills.com/" },
+                    { name: "Introduction to Machine Learning", platform: "NPTEL", url: "https://nptel.ac.in/courses/106106139" }
                 ],
                 videos: [
                     { name: "Machine Learning Course – 4 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=NWONeJKn6kc" },
-                    { name: "Scikit-Learn Crash Course", platform: "YouTube – Sentdex", url: "https://www.youtube.com/watch?v=0B5eIE_1vpU" }
+                    { name: "Scikit-Learn Crash Course", platform: "YouTube – Sentdex", url: "https://www.youtube.com/watch?v=0B5eIE_1vpU" },
+                    { name: "Machine Learning in Hindi", platform: "YouTube – Campus X", url: "https://www.youtube.com/@campusx-official" },
+                    { name: "ML Full Playlist – Krish Naik", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" }
                 ],
                 books: [
                     { name: "Hands-On Machine Learning – Géron (O'Reilly)", url: "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" },
@@ -283,7 +323,10 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Kaggle – Machine Learning Course", url: "https://www.kaggle.com/learn/intro-to-machine-learning" },
-                    { name: "Scikit-Learn Docs & Tutorials", url: "https://scikit-learn.org/stable/tutorial/" }
+                    { name: "Scikit-Learn Docs & Tutorials", url: "https://scikit-learn.org/stable/tutorial/" },
+                    { name: "Analytics Vidhya – ML Tutorials", url: "https://www.analyticsvidhya.com/blog/category/machine-learning/" },
+                    { name: "NPTEL – Deep Learning", url: "https://nptel.ac.in/courses/106106184" },
+                    { name: "InterviewBit – ML Questions", url: "https://www.interviewbit.com/machine-learning-interview-questions/" }
                 ]
             }
         ]
@@ -335,7 +378,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Deep Learning Specialization", platform: "Coursera (Andrew Ng)", url: "https://www.coursera.org/specializations/deep-learning" },
                     { name: "TensorFlow Developer Certificate", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Intro to Deep Learning", platform: "Kaggle", url: "https://www.kaggle.com/learn/intro-to-deep-learning" }
+                    { name: "Intro to Deep Learning", platform: "Kaggle", url: "https://www.kaggle.com/learn/intro-to-deep-learning" },
+                    { name: "Deep Learning Hindi Course", platform: "Campus X", url: "https://www.youtube.com/@campusx-official" },
+                    { name: "AI Research", platform: "NPTEL – IIT Bombay", url: "https://nptel.ac.in/courses/106106126" }
                 ],
                 videos: [
                     { name: "Deep Learning Course – MIT 6.S191", platform: "YouTube – MIT", url: "https://www.youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI" },
@@ -383,7 +428,9 @@ const DOMAINS = [
                 ],
                 videos: [
                     { name: "Networking Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=qiQR5rTSshw" },
-                    { name: "Linux Command Line Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=ZtqBQ68cfJc" }
+                    { name: "Linux Command Line Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=ZtqBQ68cfJc" },
+                    { name: "Linux Full Course in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=BC9SoKNqVGA" },
+                    { name: "Linux Tutorial Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/@GateSmashers" }
                 ],
                 books: [
                     { name: "Computer Networking: A Top-Down Approach – Kurose", url: "https://gaia.cs.umass.edu/kurose_ross/" },
@@ -399,7 +446,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Cybersecurity Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "CompTIA Security+ Prep", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/cyber-security-course" },
-                    { name: "Cybersecurity Essentials", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/cybersecurity-essentials" }
+                    { name: "Cybersecurity Essentials", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/cybersecurity-essentials" },
+                    { name: "Ethical Hacking in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Cybersecurity Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/cybersecurity-course/" }
                 ],
                 videos: [
                     { name: "Cybersecurity Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=U_P23SqJaDc" },
@@ -443,18 +492,25 @@ const DOMAINS = [
                 courses: [
                     { name: "AWS Certified Cloud Practitioner", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Google Cloud Foundations", platform: "Google Cloud Skills Boost", url: "https://www.cloudskillsboost.google/paths/9" },
-                    { name: "Oracle Cloud Infrastructure Foundations", platform: "Oracle", url: "https://education.oracle.com/oracle-cloud-infrastructure-2023-foundations-associate" }
+                    { name: "Oracle Cloud Infrastructure Foundations", platform: "Oracle", url: "https://education.oracle.com/oracle-cloud-infrastructure-2023-foundations-associate" },
+                    { name: "AWS Cloud in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Cloud Computing Bootcamp", platform: "PW Skills", url: "https://pwskills.com/" },
+                    { name: "Cloud Computing", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105167" }
                 ],
                 videos: [
                     { name: "AWS Cloud Practitioner Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=SOTamWNgDKc" },
-                    { name: "Google Cloud Associate Engineer", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=jpno8FSqpc8" }
+                    { name: "Google Cloud Associate Engineer", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=jpno8FSqpc8" },
+                    { name: "AWS Full Course in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=AkKHBPEJYIg" },
+                    { name: "Cloud Computing in Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/@GateSmashers" }
                 ],
                 books: [
                     { name: "AWS Certified Cloud Practitioner Study Guide – Sybex", url: "https://www.wiley.com/en-us/AWS+Certified+Cloud+Practitioner+Study+Guide-p-9781119490708" }
                 ],
                 websites: [
                     { name: "AWS Skill Builder (Free Tier)", url: "https://skillbuilder.aws/" },
-                    { name: "Google Cloud Skills Boost", url: "https://www.cloudskillsboost.google/" }
+                    { name: "Google Cloud Skills Boost", url: "https://www.cloudskillsboost.google/" },
+                    { name: "NPTEL – Cloud Computing", url: "https://nptel.ac.in/courses/106105167" },
+                    { name: "GeeksforGeeks – Cloud Computing", url: "https://www.geeksforgeeks.org/cloud-computing/" }
                 ]
             },
             {
@@ -562,11 +618,16 @@ const DOMAINS = [
                 courses: [
                     { name: "Flutter App Development", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Flutter for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/flutter-tutorial" },
-                    { name: "Flutter & Dart", platform: "Udemy – Angela Yu", url: "https://www.udemy.com/course/flutter-bootcamp-with-dart/" }
+                    { name: "Flutter & Dart", platform: "Udemy – Angela Yu", url: "https://www.udemy.com/course/flutter-bootcamp-with-dart/" },
+,
+                    { name: "Flutter in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Android Development in Hindi", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
                     { name: "Flutter Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=VPvVD8t4T-s" },
-                    { name: "Flutter Tutorial for Beginners", platform: "YouTube – Net Ninja", url: "https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ" }
+                    { name: "Flutter Tutorial for Beginners", platform: "YouTube – Net Ninja", url: "https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ" },
+                    { name: "Flutter Full Course in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=TpTumuqo2o0" },
+                    { name: "Android Kotlin in Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=LmNai8oFABE" }
                 ],
                 books: [
                     { name: "Flutter in Action – Windmill (Manning)", url: "https://www.manning.com/books/flutter-in-action" }
@@ -684,7 +745,9 @@ const DOMAINS = [
                 ],
                 videos: [
                     { name: "C# Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=GhQdlIFylQ8" },
-                    { name: "C++ Tutorial for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=vLnPwxZdW4Y" }
+                    { name: "C++ Tutorial for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=vLnPwxZdW4Y" },
+                    { name: "C# Full Course in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=SuLiu5AK9Ps" },
+                    { name: "Game Dev in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/@ThapaAnimator" }
                 ],
                 books: [
                     { name: "C# Programming – Yellow Book (Free PDF)", url: "http://www.csharpcourse.com/" },
@@ -801,11 +864,16 @@ const DOMAINS = [
                 courses: [
                     { name: "Digital Marketing Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "SEO for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/seo-for-beginners" },
-                    { name: "Google Digital Marketing", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/intl/en/catalog" }
+                    { name: "Google Digital Marketing", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/intl/en/catalog" },
+                    { name: "Digital Marketing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Digital Marketing Free Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/digital-marketing-course/" },
+                    { name: "Google Digital Unlocked (Hindi)", platform: "Google India", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" }
                 ],
                 videos: [
                     { name: "SEO Full Course for Beginners", platform: "YouTube – Ahrefs", url: "https://www.youtube.com/watch?v=xsVTqzratPs" },
-                    { name: "Content Marketing Strategy", platform: "YouTube – HubSpot", url: "https://www.youtube.com/watch?v=XcwMgR_J4Lk" }
+                    { name: "Content Marketing Strategy", platform: "YouTube – HubSpot", url: "https://www.youtube.com/watch?v=XcwMgR_J4Lk" },
+                    { name: "Digital Marketing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "SEO Tutorial in Hindi", platform: "YouTube – Technical Guruji", url: "https://www.youtube.com/@TechnicalGuruji" }
                 ],
                 books: [
                     { name: "SEO 2024 – Adam Clarke", url: "https://www.amazon.com/SEO-2023-Optimization-Marketing-Strategy/dp/B0C5P4JL3N" },
@@ -813,7 +881,9 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Moz – Learn SEO (Free)", url: "https://moz.com/learn/seo" },
-                    { name: "Ahrefs Blog – SEO Resources", url: "https://ahrefs.com/blog/" }
+                    { name: "Ahrefs Blog – SEO Resources", url: "https://ahrefs.com/blog/" },
+                    { name: "Google Digital Unlocked (Hindi)", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" },
+                    { name: "WsCube Tech – Digital Marketing Free", url: "https://www.wscubetech.com/" }
                 ]
             },
             {
@@ -863,11 +933,17 @@ const DOMAINS = [
                 courses: [
                     { name: "Financial Accounting", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/financial-accounting" },
                     { name: "Accounting & Finance", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Financial Markets (Yale)", platform: "Coursera", url: "https://www.coursera.org/learn/financial-markets-global" }
+                    { name: "Financial Markets (Yale)", platform: "Coursera", url: "https://www.coursera.org/learn/financial-markets-global" },
+                    { name: "Stock Market in Hindi", platform: "Zerodha Varsity (Free)", url: "https://zerodha.com/varsity/" },
+                    { name: "Financial Markets", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses/110110097" },
+                    { name: "Personal Finance India", platform: "Groww Learn (Free)", url: "https://groww.in/blog/category/investment" }
                 ],
                 videos: [
                     { name: "Accounting Basics Full Course", platform: "YouTube – Accounting Stuff", url: "https://www.youtube.com/watch?v=yYX4bvQSqbo" },
-                    { name: "Financial Statements Explained", platform: "YouTube – The Financial Controller", url: "https://www.youtube.com/watch?v=uVHGgSe3IVY" }
+                    { name: "Financial Statements Explained", platform: "YouTube – The Financial Controller", url: "https://www.youtube.com/watch?v=uVHGgSe3IVY" },
+                    { name: "Stock Market Basics Hindi", platform: "YouTube – Pranjal Kamra", url: "https://www.youtube.com/@PranjalKamra" },
+                    { name: "Mutual Funds Explained Hindi", platform: "YouTube – CA Rachana Phadke", url: "https://www.youtube.com/@CARachanaPhadke" },
+                    { name: "Personal Finance for Indians", platform: "YouTube – Wint Wealth", url: "https://www.youtube.com/@WintWealth" }
                 ],
                 books: [
                     { name: "Accounting Made Simple – Mike Piper (Free Preview)", url: "https://www.accountingmadeclear.com/" },
@@ -875,7 +951,10 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Investopedia – Finance Dictionary & Tutorials", url: "https://www.investopedia.com/" },
-                    { name: "CFA Institute – Learning Resources", url: "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings" }
+                    { name: "CFA Institute – Learning Resources", url: "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings" },
+                    { name: "Zerodha Varsity (Free – India)", url: "https://zerodha.com/varsity/" },
+                    { name: "SEBI – Securities Market India", url: "https://www.sebi.gov.in/" },
+                    { name: "NSE India – Learning Centre", url: "https://www.nseindia.com/education" }
                 ]
             },
             {
@@ -936,7 +1015,10 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "SQLZoo – Interactive Practice", url: "https://sqlzoo.net/" },
-                    { name: "LeetCode SQL Problems", url: "https://leetcode.com/problemset/database/" }
+                    { name: "LeetCode SQL Problems", url: "https://leetcode.com/problemset/database/" },
+                    { name: "GeeksforGeeks – DBMS & SQL", url: "https://www.geeksforgeeks.org/dbms/" },
+                    { name: "NPTEL – Database Management Systems", url: "https://nptel.ac.in/courses/106106093" },
+                    { name: "InterviewBit – SQL Questions", url: "https://www.interviewbit.com/sql-interview-questions/" }
                 ]
             },
             {
@@ -984,11 +1066,16 @@ const DOMAINS = [
                 title: "Design Theory & Adobe Illustrator", desc: "Color, typography, composition, and vector design in Illustrator.", dur: "4-5 weeks",
                 courses: [
                     { name: "Graphic Design Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/graphic-design-course" },
-                    { name: "Adobe Illustrator Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" }
+                    { name: "Adobe Illustrator Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
+                    { name: "Graphic Design in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Photoshop + Illustrator Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Graphic Design Course (Free)", platform: "Internshala Trainings", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Adobe Illustrator Full Course", platform: "YouTube – DesignCourse", url: "https://www.youtube.com/watch?v=Ib8UBwu3yGA" },
-                    { name: "Graphic Design Theory", platform: "YouTube – Will Paterson", url: "https://www.youtube.com/watch?v=_Qq-SJ3vBPo" }
+                    { name: "Graphic Design Theory", platform: "YouTube – Will Paterson", url: "https://www.youtube.com/watch?v=_Qq-SJ3vBPo" },
+                    { name: "Photoshop Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "Canva Tutorial in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/@ThapaAnimator" }
                 ],
                 books: [
                     { name: "Thinking with Type – Ellen Lupton (Free Preview)", url: "http://thinkingwithtype.com/" },
@@ -1032,7 +1119,9 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Behance – Design Portfolio Showcase", url: "https://www.behance.net/" },
-                    { name: "Dribbble – Design Inspiration", url: "https://dribbble.com/" }
+                    { name: "Dribbble – Design Inspiration", url: "https://dribbble.com/" },
+                    { name: "OurCreativeWork – India Design Community", url: "https://www.instagram.com/ourcreativework/" },
+                    { name: "India Design Mark", url: "https://www.indiainclusive.org/" }
                 ]
             }
         ]
@@ -1044,11 +1133,15 @@ const DOMAINS = [
                 title: "Premiere Pro – Editing Fundamentals", desc: "Editing workflow, cuts, colour, audio sync, and export settings.", dur: "3-4 weeks",
                 courses: [
                     { name: "Video Editing Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Premiere Pro Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/video-editing-course" }
+                    { name: "Premiere Pro Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/video-editing-course" },
+                    { name: "Video Editing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Premiere Pro Hindi Tutorial", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" }
                 ],
                 videos: [
                     { name: "Premiere Pro Full Tutorial", platform: "YouTube – Justin Odisho", url: "https://www.youtube.com/watch?v=3FQHSFsOFYc" },
-                    { name: "Premiere Pro Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=6-4Hm6FUBAQ" }
+                    { name: "Premiere Pro Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=6-4Hm6FUBAQ" },
+                    { name: "Video Editing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "CapCut Tutorial in Hindi", platform: "YouTube – Technical Guruji", url: "https://www.youtube.com/@TechnicalGuruji" }
                 ],
                 books: [
                     { name: "Adobe Premiere Pro Classroom in a Book (Adobe Press)", url: "https://www.adobepress.com/store/adobe-premiere-pro-classroom-in-a-book-2024-release-9780138220846" }
@@ -1086,11 +1179,16 @@ const DOMAINS = [
                 courses: [
                     { name: "DSA Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Data Structures", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/data-structures-and-algorithms" },
-                    { name: "Algorithms Specialization", platform: "Coursera – Stanford", url: "https://www.coursera.org/specializations/algorithms" }
+                    { name: "Algorithms Specialization", platform: "Coursera – Stanford", url: "https://www.coursera.org/specializations/algorithms" },
+                    { name: "DSA in Java/C++ Hindi", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" },
+                    { name: "Data Structures & Algorithms", platform: "GeeksforGeeks DSA Course", url: "https://www.geeksforgeeks.org/dsa-self-paced/" },
+                    { name: "CP Course (Free)", platform: "CodeChef – DSA Learning Series", url: "https://www.codechef.com/learn/course/dsa" }
                 ],
                 videos: [
                     { name: "Data Structures Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=RBSGKlAvoiM" },
-                    { name: "Dynamic Programming – Aditya Verma", platform: "YouTube – Aditya Verma", url: "https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go" }
+                    { name: "Dynamic Programming – Aditya Verma", platform: "YouTube – Aditya Verma", url: "https://www.youtube.com/playlist?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go" },
+                    { name: "DSA Full Course by Striver", platform: "YouTube – take U forward", url: "https://www.youtube.com/@takeUforward" },
+                    { name: "Complete DSA in Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=z9bZufPHFLU" }
                 ],
                 books: [
                     { name: "Introduction to Algorithms (CLRS) – MIT Press", url: "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" },
@@ -1098,7 +1196,10 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "LeetCode – Practice Problems", url: "https://leetcode.com/" },
-                    { name: "Codeforces – Competitive Platform", url: "https://codeforces.com/" }
+                    { name: "Codeforces – Competitive Platform", url: "https://codeforces.com/" },
+                    { name: "CodeChef – India CP Platform", url: "https://www.codechef.com/" },
+                    { name: "GeeksforGeeks – DSA Practice", url: "https://practice.geeksforgeeks.org/" },
+                    { name: "InterviewBit – DSA Problems", url: "https://www.interviewbit.com/practice/" }
                 ]
             },
             {
@@ -1129,11 +1230,15 @@ const DOMAINS = [
                 courses: [
                     { name: "CCNA – Introduction to Networks", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/ccna/introduction-networks" },
                     { name: "Networking Basics", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/networking/networking-basics" },
-                    { name: "Network Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/computer-networking-fundamentals" }
+                    { name: "Network Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/computer-networking-fundamentals" },
+                    { name: "Networking in Hindi Full Course", platform: "Gate Smashers", url: "https://www.youtube.com/@GateSmashers" },
+                    { name: "Computer Networks", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105076" }
                 ],
                 videos: [
                     { name: "CCNA Training – Full Course", platform: "YouTube – Jeremy's IT Lab", url: "https://www.youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ" },
-                    { name: "Networking Basics for Beginners", platform: "YouTube – NetworkChuck", url: "https://www.youtube.com/watch?v=S7MNX_UD7vY" }
+                    { name: "Networking Basics for Beginners", platform: "YouTube – NetworkChuck", url: "https://www.youtube.com/watch?v=S7MNX_UD7vY" },
+                    { name: "Computer Networks in Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/watch?v=JFF2vJaN0Cw" },
+                    { name: "Networking Tutorial Hindi", platform: "YouTube – Neso Academy", url: "https://www.youtube.com/@nesoacademy" }
                 ],
                 books: [
                     { name: "CCNA 200-301 Official Cert Guide – Odom (Cisco Press)", url: "https://www.ciscopress.com/store/ccna-200-301-official-cert-guide-library-9781587147142" },
@@ -1159,7 +1264,9 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Cisco Learning Network", url: "https://learningnetwork.cisco.com/" },
-                    { name: "GNS3 – Network Emulator", url: "https://www.gns3.com/" }
+                    { name: "GNS3 – Network Emulator", url: "https://www.gns3.com/" },
+                    { name: "NPTEL – Computer Networks", url: "https://nptel.ac.in/courses/106105076" },
+                    { name: "GeeksforGeeks – Computer Networks", url: "https://www.geeksforgeeks.org/computer-network-tutorials/" }
                 ]
             }
         ]
@@ -1172,7 +1279,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Business Management Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/business-management" },
                     { name: "Leadership & Management", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Foundations of Management", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/management-fundamentals-healthcare-organizations" }
+                    { name: "Foundations of Management", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/management-fundamentals-healthcare-organizations" },
+                    { name: "MBA Essentials", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/learn/iim-bangalore-business-strategy" },
+                    { name: "Business Management", platform: "NPTEL – IIT Delhi", url: "https://nptel.ac.in/courses/110105029" }
                 ],
                 videos: [
                     { name: "MBA Course – Strategy & Management", platform: "YouTube – SimpleShowing", url: "https://www.youtube.com/watch?v=t5fB6nHiqfI" },
@@ -1259,11 +1368,15 @@ const DOMAINS = [
                 courses: [
                     { name: "IOT Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Embedded Systems", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/embedded-systems-overview" },
-                    { name: "Introduction to the Internet of Things – Cisco", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/iot/introduction-iot" }
+                    { name: "Introduction to the Internet of Things – Cisco", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/iot/introduction-iot" },
+                    { name: "IoT & Embedded Systems", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105182" },
+                    { name: "Arduino in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" }
                 ],
                 videos: [
                     { name: "Arduino Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=zJ-LqeX_fLU" },
-                    { name: "Embedded C Programming Tutorial", platform: "YouTube – Microcontroller Tips", url: "https://www.youtube.com/watch?v=mMiqNMZy2do" }
+                    { name: "Embedded C Programming Tutorial", platform: "YouTube – Microcontroller Tips", url: "https://www.youtube.com/watch?v=mMiqNMZy2do" },
+                    { name: "Arduino Tutorial in Hindi", platform: "YouTube – ElectroCraft India", url: "https://www.youtube.com/@RoboticWithRajat" },
+                    { name: "IoT Full Course Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/@GateSmashers" }
                 ],
                 books: [
                     { name: "Making Embedded Systems – Elecia White (O'Reilly)", url: "https://www.oreilly.com/library/view/making-embedded-systems/9781449308889/" },
@@ -1304,11 +1417,14 @@ const DOMAINS = [
                 courses: [
                     { name: "Blockchain Basics", platform: "Coursera – SUNY", url: "https://www.coursera.org/learn/blockchain-basics" },
                     { name: "Blockchain Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Blockchain & Crypto", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/blockchain-technology" }
+                    { name: "Blockchain & Crypto", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/blockchain-technology" },
+                    { name: "Blockchain in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Web3 & Blockchain", platform: "WsCube Tech", url: "https://www.wscubetech.com/" }
                 ],
                 videos: [
                     { name: "Blockchain Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" },
-                    { name: "Blockchain Explained", platform: "YouTube – Simply Explained", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" }
+                    { name: "Blockchain Explained", platform: "YouTube – Simply Explained", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" },
+                    { name: "Blockchain Tutorial in Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" }
                 ],
                 books: [
                     { name: "Mastering Bitcoin – Antonopoulos (Free Online)", url: "https://github.com/bitcoinbook/bitcoinbook" },
@@ -1375,7 +1491,9 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Real Python – Advanced Tutorials", url: "https://realpython.com/" },
-                    { name: "Python Docs – Advanced Topics", url: "https://docs.python.org/3/" }
+                    { name: "Python Docs – Advanced Topics", url: "https://docs.python.org/3/" },
+                    { name: "GeeksforGeeks – Python", url: "https://www.geeksforgeeks.org/python-programming-language/" },
+                    { name: "NPTEL – Python Courses", url: "https://nptel.ac.in/courses/106106145" }
                 ]
             },
             {
@@ -1420,10 +1538,15 @@ const DOMAINS = [
                 courses: [
                     { name: "Java Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Java Programming", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/java-programming" },
-                    { name: "Object Oriented Java (Duke)", platform: "Coursera", url: "https://www.coursera.org/specializations/object-oriented-programming" }
+                    { name: "Object Oriented Java (Duke)", platform: "Coursera", url: "https://www.coursera.org/specializations/object-oriented-programming" },
+                    { name: "Java in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/java/" },
+                    { name: "Java DSA Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" },
+                    { name: "Programming in Java", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105191" }
                 ],
                 videos: [
-                    { name: "Java Full Course – 12 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=A74TOX803D0" }
+                    { name: "Java Full Course – 12 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=A74TOX803D0" },
+                    { name: "Java Full Course Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=rZ41y93P2Qo" },
+                    { name: "Java + DSA Playlist", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=fis26HvvDII" }
                 ],
                 books: [
                     { name: "Head First Java – Sierra & Bates", url: "https://www.oreilly.com/library/view/head-first-java/0596009208/" },
@@ -1492,10 +1615,14 @@ const DOMAINS = [
                 courses: [
                     { name: "Microsoft Power BI Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Power BI for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/power-bi-tutorial" },
-                    { name: "Power BI Data Analyst (PL-300)", platform: "Microsoft Learn (Free)", url: "https://learn.microsoft.com/en-us/training/courses/pl-300t00" }
+                    { name: "Power BI Data Analyst (PL-300)", platform: "Microsoft Learn (Free)", url: "https://learn.microsoft.com/en-us/training/courses/pl-300t00" },
+                    { name: "Power BI in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Data Analytics", platform: "NPTEL – IIT Madras", url: "https://nptel.ac.in/courses/106106198" }
                 ],
                 videos: [
-                    { name: "Power BI Full Course", platform: "YouTube – Guy in a Cube", url: "https://www.youtube.com/watch?v=AGrl-H87pRU" }
+                    { name: "Power BI Full Course", platform: "YouTube – Guy in a Cube", url: "https://www.youtube.com/watch?v=AGrl-H87pRU" },
+                    { name: "Power BI Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "Tableau Tutorial in Hindi", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" }
                 ],
                 books: [
                     { name: "The Definitive Guide to DAX – Ferrari", url: "https://www.microsoftpressstore.com/store/definitive-guide-to-dax-9781509306978" }
@@ -1531,7 +1658,9 @@ const DOMAINS = [
                 title: "Camera Basics & Exposure Triangle", desc: "ISO, aperture, shutter speed, white balance, and camera modes.", dur: "2-3 weeks",
                 courses: [
                     { name: "Photography for Beginners", platform: "Udemy", url: "https://www.udemy.com/course/photography-masterclass-complete-guide-to-photography/" },
-                    { name: "Digital Photography Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/photography-basics" }
+                    { name: "Digital Photography Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/photography-basics" },
+                    { name: "Photography in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Camera Settings Tutorial", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Photography Basics Full Course", platform: "YouTube – Tony & Chelsea Northrup", url: "https://www.youtube.com/watch?v=V7z7BAZdt2M" }
@@ -1582,7 +1711,9 @@ const DOMAINS = [
                 title: "Writing Fundamentals", desc: "Grammar, clarity, structure, tone of voice, and reader psychology.", dur: "2-3 weeks",
                 courses: [
                     { name: "Writing Skills for Engineers (Duke)", platform: "Coursera", url: "https://www.coursera.org/learn/writing-for-engineers" },
-                    { name: "Content Writing Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/content-writing" }
+                    { name: "Content Writing Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/content-writing" },
+                    { name: "Content Writing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Blogging & SEO Writing", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Content Writing Tutorial", platform: "YouTube – Neil Patel", url: "https://www.youtube.com/watch?v=a2zqmhFrj0Q" }
@@ -1621,7 +1752,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Project Management Certificate – Google", platform: "Coursera (Google)", url: "https://www.coursera.org/professional-certificates/google-project-management" },
                     { name: "PMP Certification Training", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Agile Project Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/agile-project-management" }
+                    { name: "Agile Project Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/agile-project-management" },
+                    { name: "PMP Certification Training", platform: "NPTEL", url: "https://nptel.ac.in/courses/110106064" },
+                    { name: "Project Management in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" }
                 ],
                 videos: [
                     { name: "Project Management Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=cDQLME5GBLY" }
@@ -1678,7 +1811,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Linux Administration", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Linux Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/linux-fundamentals" },
-                    { name: "Linux Unhatched", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/os-it/ndg-linux-unhatched" }
+                    { name: "Linux Unhatched", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/os-it/ndg-linux-unhatched" },
+                    { name: "Linux in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "Linux Fundamentals", platform: "NPTEL", url: "https://nptel.ac.in/courses/117106112" }
                 ],
                 videos: [
                     { name: "Linux Command Line Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=ZtqBQ68cfJc" }
@@ -1688,7 +1823,9 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Linux Journey – Interactive Lessons", url: "https://linuxjourney.com/" },
-                    { name: "Cisco NetAcad – Linux Courses", url: "https://www.netacad.com/courses/os-it" }
+                    { name: "Cisco NetAcad – Linux Courses", url: "https://www.netacad.com/courses/os-it" },
+                    { name: "NPTEL – Computer Architecture & Linux", url: "https://nptel.ac.in/courses/117106112" },
+                    { name: "GeeksforGeeks – Linux Commands", url: "https://www.geeksforgeeks.org/linux-commands/" }
                 ]
             },
             {
@@ -1731,7 +1868,9 @@ const DOMAINS = [
                 title: "ML Pipelines & Experiment Tracking", desc: "MLflow, DVC, feature stores, and reproducible experiments.", dur: "4-5 weeks",
                 courses: [
                     { name: "MLOps Specialization", platform: "Coursera (deeplearning.ai)", url: "https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops" },
-                    { name: "MLOps Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-mlops" }
+                    { name: "MLOps Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-mlops" },
+                    { name: "MLOps in Hindi", platform: "Campus X", url: "https://www.youtube.com/@campusx-official" },
+                    { name: "ML Engineering", platform: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/" }
                 ],
                 videos: [
                     { name: "MLOps Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=GrjrB3X7S1U" }
@@ -1770,7 +1909,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Product Manager Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Product Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/product-management" },
-                    { name: "Digital Product Management (UVA)", platform: "Coursera", url: "https://www.coursera.org/specializations/uva-darden-digital-product-management" }
+                    { name: "Digital Product Management (UVA)", platform: "Coursera", url: "https://www.coursera.org/specializations/uva-darden-digital-product-management" },
+                    { name: "Product Management in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Business Strategy", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/learn/iim-bangalore-business-strategy" }
                 ],
                 videos: [
                     { name: "Product Management Full Course", platform: "YouTube – Product School", url: "https://www.youtube.com/watch?v=FIsjJlRtaWY" }
@@ -1810,7 +1951,9 @@ const DOMAINS = [
                 title: "Blender Fundamentals", desc: "Interface, navigation, modelling, materials, and rendering basics.", dur: "4-5 weeks",
                 courses: [
                     { name: "Blender 3D – Complete Beginner's Guide", platform: "Udemy", url: "https://www.udemy.com/course/blendertutorial/" },
-                    { name: "Blender for 3D Printing", platform: "Coursera", url: "https://www.coursera.org/learn/blender-3d-printing" }
+                    { name: "Blender for 3D Printing", platform: "Coursera", url: "https://www.coursera.org/learn/blender-3d-printing" },
+                    { name: "Blender in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "3D Design for Beginners", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Blender Beginner Tutorial Series", platform: "YouTube – Blender Guru", url: "https://www.youtube.com/watch?v=nIoXOplUvAw" },
@@ -1863,7 +2006,9 @@ const DOMAINS = [
                 title: "Music Theory & DAW Basics", desc: "Scales, chords, rhythm, and getting started with a DAW (FL Studio / Ableton).", dur: "3-4 weeks",
                 courses: [
                     { name: "Music Theory for Beginners", platform: "Coursera – Berklee", url: "https://www.coursera.org/learn/musicianship-specialization" },
-                    { name: "Music Production Basics", platform: "Udemy", url: "https://www.udemy.com/course/music-production-in-logic-pro-x-the-complete-guide/" }
+                    { name: "Music Production Basics", platform: "Udemy", url: "https://www.udemy.com/course/music-production-in-logic-pro-x-the-complete-guide/" },
+                    { name: "Music Production & DJing", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" },
+                    { name: "Indian Classical Music Online", platform: "ITC SRA (Free)", url: "https://www.itcsra.org/" }
                 ],
                 videos: [
                     { name: "Music Theory Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=wuAi3pA71m0" },
@@ -1901,7 +2046,9 @@ const DOMAINS = [
                 title: "E-Commerce Fundamentals", desc: "Business models (D2C, dropshipping, marketplace), niche research, and logistics.", dur: "2-3 weeks",
                 courses: [
                     { name: "E-Commerce Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-e-commerce" },
-                    { name: "E-Commerce & Social Media Marketing", platform: "Coursera – UCDavis", url: "https://www.coursera.org/learn/ecommerce-marketing" }
+                    { name: "E-Commerce & Social Media Marketing", platform: "Coursera – UCDavis", url: "https://www.coursera.org/learn/ecommerce-marketing" },
+                    { name: "Amazon Selling in India", platform: "Amazon Seller University (Free)", url: "https://sell.amazon.in/learn" },
+                    { name: "Meesho Dropshipping Guide", platform: "Meesho Supply (Free)", url: "https://supplier.meesho.com/" }
                 ],
                 videos: [
                     { name: "Start an E-Commerce Business from Scratch", platform: "YouTube – Shopify", url: "https://www.youtube.com/watch?v=lDkH1B1Fw5s" }
@@ -1940,7 +2087,9 @@ const DOMAINS = [
                 courses: [
                     { name: "Social Media Marketing", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/social-media-marketing" },
                     { name: "Social Media Marketing Specialization", platform: "Coursera – Northwestern", url: "https://www.coursera.org/specializations/social-media-marketing" },
-                    { name: "Meta Social Media Marketing Certificate", platform: "Coursera (Meta)", url: "https://www.coursera.org/professional-certificates/facebook-social-media-marketing" }
+                    { name: "Meta Social Media Marketing Certificate", platform: "Coursera (Meta)", url: "https://www.coursera.org/professional-certificates/facebook-social-media-marketing" },
+                    { name: "Social Media Marketing Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
+                    { name: "Instagram & YouTube Growth", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Social Media Marketing Full Course", platform: "YouTube – HubSpot", url: "https://www.youtube.com/watch?v=MIUbXYAlw-0" }
@@ -1976,7 +2125,9 @@ const DOMAINS = [
                 title: "Grammar & Writing", desc: "Business writing, professional emails, punctuation, and clarity.", dur: "2-3 weeks",
                 courses: [
                     { name: "English for Career Development", platform: "Coursera – UPenn", url: "https://www.coursera.org/learn/careerdevelopment" },
-                    { name: "Business English", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/business-english" }
+                    { name: "Business English", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/business-english" },
+                    { name: "Spoken English in Hindi", platform: "Let's Talk English (Free)", url: "https://www.youtube.com/@letstalk" },
+                    { name: "English for Indian Professionals", platform: "British Council India", url: "https://www.britishcouncil.in/" }
                 ],
                 videos: [
                     { name: "English Grammar Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=9bZkp7q19f0" }
@@ -2013,7 +2164,9 @@ const DOMAINS = [
                 title: "Robotics Fundamentals", desc: "Kinematics, sensors, actuators, embedded systems, and ROS basics.", dur: "4-5 weeks",
                 courses: [
                     { name: "Robotics Specialization", platform: "Coursera – Penn", url: "https://www.coursera.org/specializations/robotics" },
-                    { name: "Robotics Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" }
+                    { name: "Robotics Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
+                    { name: "Robotics & Automation", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses/112104236" },
+                    { name: "ROS in Hindi", platform: "Articulated Robotics India", url: "https://www.youtube.com/watch?v=wjt7OTi3QfE" }
                 ],
                 videos: [
                     { name: "Robotics Tutorial", platform: "YouTube – Articulated Robotics", url: "https://www.youtube.com/watch?v=wjt7OTi3QfE" }
@@ -2049,7 +2202,8 @@ const DOMAINS = [
                 title: "Health Informatics Fundamentals", desc: "EHR systems, HL7, FHIR, ICD-10 coding, and patient data management.", dur: "4-5 weeks",
                 courses: [
                     { name: "Health Informatics Specialization", platform: "Coursera – Johns Hopkins", url: "https://www.coursera.org/specializations/health-informatics" },
-                    { name: "Healthcare IT Foundations", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/healthcare-informatics" }
+                    { name: "Healthcare IT Foundations", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/healthcare-informatics" },
+                    { name: "Healthcare Informatics India", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105085" }
                 ],
                 videos: [
                     { name: "FHIR Tutorial for Beginners", platform: "YouTube – Firely Team", url: "https://www.youtube.com/watch?v=Mk_wKCfCZ-Q" }
@@ -2086,7 +2240,8 @@ const DOMAINS = [
                 courses: [
                     { name: "AI For Everyone (Andrew Ng)", platform: "Coursera", url: "https://www.coursera.org/learn/ai-for-everyone" },
                     { name: "Ethics in AI", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/artificial-intelligence-for-beginners" },
-                    { name: "Responsible AI Practices", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/preparing-for-google-cloud-machine-learning-engineer-professional-certificate" }
+                    { name: "Responsible AI Practices", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/preparing-for-google-cloud-machine-learning-engineer-professional-certificate" },
+                    { name: "Responsible AI", platform: "NASSCOM FutureSkills (Free)", url: "https://futureskills.nasscom.in/" }
                 ],
                 videos: [
                     { name: "AI Ethics – Full Lecture Series", platform: "YouTube – MIT OpenCourseWare", url: "https://www.youtube.com/watch?v=eFjk79ykWZk" }
@@ -2124,7 +2279,8 @@ const DOMAINS = [
                 title: "Bubble & Webflow", desc: "Build full-stack web apps without code using Bubble and advanced websites with Webflow.", dur: "3-4 weeks",
                 courses: [
                     { name: "Bubble Academy (Free)", platform: "Bubble", url: "https://bubble.io/academy" },
-                    { name: "Webflow University (Free)", platform: "Webflow", url: "https://university.webflow.com/" }
+                    { name: "Webflow University (Free)", platform: "Webflow", url: "https://university.webflow.com/" },
+                    { name: "No-Code Tools in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" }
                 ],
                 videos: [
                     { name: "Bubble.io Tutorial", platform: "YouTube – Coding Without Code", url: "https://www.youtube.com/watch?v=0dTEFCMgI9A" }
@@ -2161,7 +2317,9 @@ const DOMAINS = [
                 title: "Unity & XR Fundamentals", desc: "Unity engine, XR toolkit, object interaction, and spatial UI for VR.", dur: "4-5 weeks",
                 courses: [
                     { name: "AR/VR Development", platform: "Coursera – Unity", url: "https://www.coursera.org/learn/unity-vr" },
-                    { name: "Unity Certified Programmer", platform: "Simplilearn", url: "https://www.simplilearn.com/" }
+                    { name: "Unity Certified Programmer", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
+                    { name: "Unity Game & XR Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
+                    { name: "AR/VR in India Guide", platform: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/" }
                 ],
                 videos: [
                     { name: "Unity VR Tutorial", platform: "YouTube – Valem Tutorials", url: "https://www.youtube.com/watch?v=yxMzAw2Sg5w" }

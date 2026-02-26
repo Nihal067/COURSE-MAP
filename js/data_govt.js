@@ -46,16 +46,6 @@ const EXTRA_DOMAINS = [
                     { name: "NCERT Official – Free Textbooks PDF", url: "https://ncert.nic.in/" },
                     { name: "Civilsdaily – Editorial Analysis", url: "https://www.civilsdaily.com/" },
                     { name: "ForumIAS – Study Plans", url: "https://forumias.com/" }
-                ],
-                certificates: [
-                    { name: "UPSC Foundation Certificate", platform: "Unacademy", url: "https://unacademy.com/goal/upsc-civil-services-examination-ias-preparation/KSCGY" },
-                    { name: "Indian Polity Certification", platform: "Testbook", url: "https://testbook.com/ias-preparation" },
-                    { name: "History for Competitive Exams", platform: "Coursera", url: "https://www.coursera.org/learn/modern-world" },
-                    { name: "Geography Essentials Certificate", platform: "edX", url: "https://www.edx.org/learn/geography" },
-                    { name: "Public Administration Basics", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "Indian Economy Certificate", platform: "StudyIQ", url: "https://www.studyiq.com/" },
-                    { name: "Environment & Ecology Cert", platform: "BYJU'S", url: "https://byjus.com/free-ias-prep/" },
-                    { name: "Ethics & Integrity Course", platform: "Vision IAS", url: "https://visionias.in/" }
                 ]
             },
             {
@@ -99,16 +89,6 @@ const EXTRA_DOMAINS = [
                     { name: "Indian Express – Explained", url: "https://indianexpress.com/section/explained/" },
                     { name: "PRS Legislative Research", url: "https://prsindia.org/" },
                     { name: "Rajya Sabha TV Discussions", url: "https://sansadtv.nic.in/" }
-                ],
-                certificates: [
-                    { name: "UPSC Prelims Mastery", platform: "Unacademy", url: "https://unacademy.com/" },
-                    { name: "Current Affairs Specialist", platform: "Drishti IAS", url: "https://www.drishtiias.com/" },
-                    { name: "CSAT Aptitude Certificate", platform: "Testbook", url: "https://testbook.com/" },
-                    { name: "General Studies Certificate", platform: "BYJU'S", url: "https://byjus.com/" },
-                    { name: "Mock Test Completion", platform: "ClearIAS", url: "https://www.clearias.com/" },
-                    { name: "Environment Studies Cert", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "Indian History Certificate", platform: "Coursera", url: "https://www.coursera.org/learn/modern-world" },
-                    { name: "Political Science Basics", platform: "edX", url: "https://www.edx.org/learn/political-science" }
                 ]
             },
             {
@@ -152,16 +132,6 @@ const EXTRA_DOMAINS = [
                     { name: "Yojana & Kurukshetra Magazines", url: "https://yojana.gov.in/" },
                     { name: "Economic Survey – GOI", url: "https://www.indiabudget.gov.in/economicsurvey/" },
                     { name: "NITI Aayog Reports", url: "https://www.niti.gov.in/" }
-                ],
-                certificates: [
-                    { name: "Mains Answer Writing Pro", platform: "Vision IAS", url: "https://visionias.in/" },
-                    { name: "Essay Excellence Certificate", platform: "Unacademy", url: "https://unacademy.com/" },
-                    { name: "Ethics & Governance Cert", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "International Relations", platform: "Coursera", url: "https://www.coursera.org/learn/international-relations" },
-                    { name: "Public Policy Certificate", platform: "edX", url: "https://www.edx.org/learn/public-policy" },
-                    { name: "Economics for Policy Making", platform: "IMF", url: "https://www.edx.org/school/imfx" },
-                    { name: "Sustainable Development Goals", platform: "UN SDG Academy", url: "https://sdgacademy.org/" },
-                    { name: "Good Governance Certificate", platform: "World Bank", url: "https://olc.worldbank.org/" }
                 ]
             }
         ]
@@ -210,16 +180,6 @@ const EXTRA_DOMAINS = [
                     { name: "IndiaBIX – Aptitude Practice", url: "https://www.indiabix.com/" },
                     { name: "SSC CGL Syllabus Official", url: "https://ssc.nic.in/Portal/Syllabus" },
                     { name: "Maths Practice – Embibe", url: "https://www.embibe.com/exams/ssc-cgl/" }
-                ],
-                certificates: [
-                    { name: "SSC Quant Mastery", platform: "Testbook", url: "https://testbook.com/" },
-                    { name: "Aptitude Excellence", platform: "Adda247", url: "https://www.adda247.com/" },
-                    { name: "Mathematics Fundamentals", platform: "Khan Academy", url: "https://www.khanacademy.org/" },
-                    { name: "Statistics & Probability", platform: "Coursera", url: "https://www.coursera.org/learn/probability-statistics" },
-                    { name: "Data Analysis Basics", platform: "edX", url: "https://www.edx.org/learn/data-analysis" },
-                    { name: "Competitive Maths Cert", platform: "Unacademy", url: "https://unacademy.com/" },
-                    { name: "Algebra Proficiency", platform: "NPTEL", url: "https://nptel.ac.in/" },
-                    { name: "Reasoning & Quant Combined", platform: "Oliveboard", url: "https://www.oliveboard.in/" }
                 ]
             },
             {
@@ -263,16 +223,6 @@ const EXTRA_DOMAINS = [
                     { name: "Jagranjosh Current Affairs", url: "https://www.jagranjosh.com/current-affairs" },
                     { name: "Grammarly Blog – Grammar Tips", url: "https://www.grammarly.com/blog/" },
                     { name: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/" }
-                ],
-                certificates: [
-                    { name: "English Proficiency Certificate", platform: "British Council", url: "https://www.britishcouncil.in/" },
-                    { name: "SSC English Mastery", platform: "Adda247", url: "https://www.adda247.com/" },
-                    { name: "GK Champion Certificate", platform: "Testbook", url: "https://testbook.com/" },
-                    { name: "English Grammar Cert", platform: "Coursera", url: "https://www.coursera.org/learn/grammar-punctuation" },
-                    { name: "Vocabulary Builder Cert", platform: "Udemy", url: "https://www.udemy.com/" },
-                    { name: "Current Affairs Expert", platform: "Oliveboard", url: "https://www.oliveboard.in/" },
-                    { name: "Communication Skills", platform: "edX", url: "https://www.edx.org/learn/communication" },
-                    { name: "Reading Comprehension Cert", platform: "Khan Academy", url: "https://www.khanacademy.org/" }
                 ]
             }
         ]
