@@ -92,6 +92,36 @@
             z-index: 50;
         }
 
+        /* Logo in roadmap nav */
+        .roadmap-nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .roadmap-nav-logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid rgba(99, 102, 241, 0.45);
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+        }
+
+        .roadmap-nav-brand-name {
+            font-size: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.3px;
+        }
+
         .back-btn {
             display: flex;
             align-items: center;
@@ -137,9 +167,9 @@
             background: rgba(239, 68, 68, 0.15);
         }
 
-        /* ======================================================
+        /* 
    DOMAIN HEADER
-   ====================================================== */
+    */
         .domain-header {
             padding: 36px 32px 28px;
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.09) 0%, transparent 65%);
@@ -826,6 +856,10 @@
     <!-- NAV -->
     <nav class="roadmap-nav">
         <a href="dashboard.html" class="back-btn">← Dashboard</a>
+        <a href="dashboard.html" class="roadmap-nav-brand">
+            <img src="logo.jpg" alt="CourseMap" class="roadmap-nav-logo">
+            <span class="roadmap-nav-brand-name">CourseMap</span>
+        </a>
         <div class="nav-right">
             <span class="nav-username" id="nav-username"></span>
             <button class="btn-signout" id="btn-signout">Sign Out</button>

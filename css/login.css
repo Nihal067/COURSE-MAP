@@ -101,16 +101,29 @@
 }
 
 .brand-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    border-radius: var(--radius-lg);
-    background: var(--gradient-primary);
-    margin-bottom: 16px;
-    font-size: 28px;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(99, 102, 241, 0.4);
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2), 0 0 60px rgba(168, 85, 247, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.brand-icon:hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.35), 0 0 80px rgba(168, 85, 247, 0.22);
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .brand h1 {
