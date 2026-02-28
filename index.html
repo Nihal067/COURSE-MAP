@@ -86,6 +86,7 @@
     </div>
   </div>
 
+  <script src="js/api.js"></script>
   <script src="js/auth.js"></script>
   <script>
     // Redirect if already logged in
@@ -140,25 +141,28 @@
     }
 
     // Login
-    loginForm.addEventListener('submit', (e) => {
+    loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       clearFieldErrors();
 
       const email = document.getElementById('login-email').value.trim();
       const password = document.getElementById('login-password').value;
+      const btn = loginForm.querySelector('.btn-submit');
 
       let hasError = false;
       if (!email) { showFieldError('login-email-error', 'Please enter your email'); hasError = true; }
       if (!password) { showFieldError('login-password-error', 'Please enter your password'); hasError = true; }
       if (hasError) return;
 
-      const result = Auth.login(email, password);
+      btn.textContent = 'Signing in…'; btn.disabled = true;
+      const result = await Auth.login(email, password);
+      btn.textContent = 'Sign In'; btn.disabled = false;
+
       if (result.success) {
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
       } else {
-        // Show error under the right field
-        if (result.message.includes('not registered') || result.message.includes('account')) {
+        if (result.message.includes('not registered') || result.message.includes('account') || result.message.includes('No account')) {
           showFieldError('login-email-error', '⚠ No account found with this email. Please sign up first.');
         } else if (result.message.includes('password') || result.message.includes('Incorrect')) {
           showFieldError('login-password-error', '⚠ Incorrect password. Check your password and try again.');
@@ -169,13 +173,14 @@
     });
 
     // Signup
-    signupForm.addEventListener('submit', (e) => {
+    signupForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       clearFieldErrors();
 
       const name = document.getElementById('signup-name').value.trim();
       const email = document.getElementById('signup-email').value.trim();
       const password = document.getElementById('signup-password').value;
+      const btn = signupForm.querySelector('.btn-submit');
 
       let hasError = false;
       if (!name) { showFieldError('signup-name-error', 'Please enter your name'); hasError = true; }
@@ -183,7 +188,10 @@
       if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters'); hasError = true; }
       if (hasError) return;
 
-      const result = Auth.signup(name, email, password);
+      btn.textContent = 'Creating account…'; btn.disabled = true;
+      const result = await Auth.signup(name, email, password);
+      btn.textContent = 'Create Account'; btn.disabled = false;
+
       if (result.success) {
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);

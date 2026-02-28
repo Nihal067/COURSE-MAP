@@ -10,6 +10,7 @@
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/dashboard.css">
+
 </head>
 
 <body>
@@ -23,6 +24,10 @@
         </a>
         <div class="nav-user">
             <span class="nav-user-name">Hey, <strong id="user-display-name"></strong></span>
+            <button class="theme-toggle-btn" id="theme-toggle" title="Toggle theme"
+                style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:5px 10px;font-size:16px;color:inherit;transition:all 0.2s;">☀️</button>
+            <button id="btn-notif-settings" title="Notification settings"
+                style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:5px 10px;font-size:15px;cursor:pointer;transition:all 0.2s;">🔔</button>
             <button class="btn-logout" id="btn-logout">Sign Out</button>
         </div>
     </nav>
@@ -66,6 +71,8 @@
         </div>
     </section>
 
+
+
     <!-- Footer -->
     <footer class="dashboard-footer">
         <p>CourseMap — Built for learners who want structure. Not affiliated with any course platform.</p>
@@ -94,11 +101,15 @@
         </div>
     </div>
 
+    <script src="js/theme.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/data.js"></script>
     <script src="js/data_govt.js"></script>
     <script src="js/data_more.js"></script>
     <script src="js/dashboard.js"></script>
+    <script src="js/notifications.js"></script>
+
 </body>
 
 </html>

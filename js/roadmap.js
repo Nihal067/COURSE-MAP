@@ -7,9 +7,10 @@ const RES_ICONS = { courses: '🎓', videos: '▶', books: '📖', websites: '�
 
 let _domain = null;
 let _activeStep = null;
+let _completedSteps = []; // loaded from backend on init
 
 /* ── Init ── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     try {
         if (!Auth.requireAuth()) return;
 
@@ -26,8 +27,18 @@ document.addEventListener('DOMContentLoaded', () => {
         _domain = domain;
         const user = Auth.getCurrentUser();
 
+        // Load progress from backend
+        try {
+            const { completedSteps } = await API.getProgress(domainId);
+            _completedSteps = completedSteps || [];
+        } catch (e) {
+            // Fallback to localStorage if backend unavailable
+            const raw = localStorage.getItem('courseMap_progress_' + user.email + '_' + domainId);
+            _completedSteps = raw ? JSON.parse(raw) : [];
+        }
+
         renderHeader(domain);
-        initEnrollButton(domain, user);
+        await initEnrollButton(domain, user);
         renderFlowChart(domain);
         updateProgress(domain);
         initDrawer(domain);
@@ -40,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
         console.error('CourseMap roadmap init error:', err);
-        // Show a visible error on screen instead of a blank page
         document.body.innerHTML = `
             <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;
                         background:#080a14;color:#f0f0f5;font-family:Inter,sans-serif;padding:24px;text-align:center;">
@@ -71,18 +81,37 @@ function renderHeader(domain) {
 }
 
 /* ── Enroll ── */
-function initEnrollButton(domain, user) {
+async function initEnrollButton(domain, user) {
     const btn = document.getElementById('btn-enroll');
     if (!btn) return;
-    const key = 'courseMap_enrolled_' + user.email;
-    let enrolled = JSON.parse(localStorage.getItem(key) || '[]');
+
+    let enrolled = [];
+    try {
+        const { domainIds } = await API.getEnrollment();
+        enrolled = domainIds || [];
+    } catch {
+        const raw = localStorage.getItem('courseMap_enrolled_' + user.email);
+        enrolled = raw ? JSON.parse(raw) : [];
+    }
+
     setEnrollStyle(btn, enrolled.includes(domain.id));
-    btn.addEventListener('click', () => {
-        enrolled = JSON.parse(localStorage.getItem(key) || '[]');
-        const has = enrolled.includes(domain.id);
-        enrolled = has ? enrolled.filter(id => id !== domain.id) : [...enrolled, domain.id];
-        localStorage.setItem(key, JSON.stringify(enrolled));
-        setEnrollStyle(btn, !has);
+
+    btn.addEventListener('click', async () => {
+        const isEnrolled = btn.classList.contains('enrolled');
+        try {
+            if (isEnrolled) {
+                await API.unenroll(domain.id);
+            } else {
+                await API.enroll(domain.id);
+            }
+        } catch {
+            // fallback localStorage
+            const key = 'courseMap_enrolled_' + user.email;
+            let ids = JSON.parse(localStorage.getItem(key) || '[]');
+            ids = isEnrolled ? ids.filter(id => id !== domain.id) : [...ids, domain.id];
+            localStorage.setItem(key, JSON.stringify(ids));
+        }
+        setEnrollStyle(btn, !isEnrolled);
     });
 }
 function setEnrollStyle(btn, isEnrolled) {
@@ -91,22 +120,28 @@ function setEnrollStyle(btn, isEnrolled) {
 }
 
 /* ── Progress helpers ── */
-function getProgressKey(domainId) {
-    return 'courseMap_progress_' + Auth.getCurrentUser().email + '_' + domainId;
+function getCompletedSteps() {
+    return _completedSteps;
 }
-function getCompletedSteps(domainId) {
-    const d = localStorage.getItem(getProgressKey(domainId));
-    return d ? JSON.parse(d) : [];
+
+async function toggleStep(domainId, idx) {
+    const i = _completedSteps.indexOf(idx);
+    if (i > -1) _completedSteps.splice(i, 1);
+    else _completedSteps.push(idx);
+
+    // Persist to backend (with localStorage fallback)
+    try {
+        await API.saveProgress(domainId, _completedSteps);
+    } catch {
+        const user = Auth.getCurrentUser();
+        localStorage.setItem('courseMap_progress_' + user.email + '_' + domainId,
+            JSON.stringify(_completedSteps));
+    }
+    return _completedSteps;
 }
-function toggleStep(domainId, idx) {
-    const c = getCompletedSteps(domainId);
-    const i = c.indexOf(idx);
-    if (i > -1) c.splice(i, 1); else c.push(idx);
-    localStorage.setItem(getProgressKey(domainId), JSON.stringify(c));
-    return c;
-}
+
 function updateProgress(domain) {
-    const c = getCompletedSteps(domain.id);
+    const c = getCompletedSteps();
     const total = domain.steps.length;
     const pct = total > 0 ? Math.round((c.length / total) * 100) : 0;
 
@@ -124,7 +159,7 @@ function updateProgress(domain) {
    ============================================================ */
 function renderFlowChart(domain) {
     const canvas = document.getElementById('fc-canvas');
-    const completed = getCompletedSteps(domain.id);
+    const completed = getCompletedSteps();
     const total = domain.steps.length;
     canvas.innerHTML = '';
 
@@ -192,9 +227,9 @@ function initDrawer(domain) {
     document.getElementById('drawer-handle').onclick = closeDrawer;
     document.getElementById('drawer-backdrop').onclick = closeDrawer;
 
-    document.getElementById('drawer-complete-btn').addEventListener('click', () => {
+    document.getElementById('drawer-complete-btn').addEventListener('click', async () => {
         if (_activeStep === null) return;
-        const newC = toggleStep(domain.id, _activeStep);
+        const newC = await toggleStep(domain.id, _activeStep);
         const isDone = newC.includes(_activeStep);
 
         const btn = document.getElementById('drawer-complete-btn');
@@ -213,7 +248,7 @@ function initDrawer(domain) {
 function openDrawer(domain, stepIdx) {
     _activeStep = stepIdx;
     const step = domain.steps[stepIdx];
-    const isDone = getCompletedSteps(domain.id).includes(stepIdx);
+    const isDone = getCompletedSteps().includes(stepIdx);
 
     /* Highlight node */
     document.querySelectorAll('.fc-node').forEach(n => n.classList.remove('fc-active'));
