@@ -3,7 +3,11 @@
    Token is stored in localStorage under 'cm_token'.
    ================================================= */
 
-const API_BASE = 'http://localhost:5000';
+// Dynamically figure out the API URL based on where the frontend is loaded
+const currentHost = window.location.hostname;
+const API_BASE = (currentHost === 'localhost' || currentHost === '127.0.0.1')
+    ? 'http://localhost:5000'
+    : `http://${currentHost}:5000`;
 
 const API = (() => {
     function getToken() {
