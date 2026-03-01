@@ -7,9 +7,9 @@
  */
 
 // These files assign to window.DOMAINS, window.CATEGORIES etc.
-import '../../js/data.js'
-import '../../js/data_govt.js'
-import '../../js/data_more.js'
+import '../../../js/data.js'
+import '../../../js/data_govt.js'
+import '../../../js/data_more.js'
 
 export function getDomains() {
     return window.DOMAINS || []

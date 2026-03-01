@@ -7,7 +7,7 @@
   <meta name="description"
     content="CourseMap — Discover structured learning roadmaps for 25+ domains. Start your journey today.">
   <title>CourseMap — Your Learning Journey Starts Here</title>
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
 </head>
@@ -46,7 +46,7 @@
         <form class="auth-form active" id="login-form" autocomplete="on">
           <div class="form-group">
             <label for="login-email">Email Address</label>
-            <input type="email" id="login-email" placeholder="you@example.com" required autocomplete="email">
+            <input type="email" id="login-email" required autocomplete="email">
             <div class="error-message" id="login-email-error"></div>
           </div>
           <div class="form-group">
@@ -67,7 +67,7 @@
           </div>
           <div class="form-group">
             <label for="signup-email">Email Address</label>
-            <input type="email" id="signup-email" placeholder="you@example.com" required autocomplete="email">
+            <input type="email" id="signup-email" required autocomplete="email">
             <div class="error-message" id="signup-email-error"></div>
           </div>
           <div class="form-group">
@@ -75,6 +75,15 @@
             <input type="password" id="signup-password" placeholder="Min. 6 characters" required
               autocomplete="new-password" minlength="6">
             <div class="error-message" id="signup-password-error"></div>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn-secondary" id="send-otp-btn">Send OTP</button>
+          </div>
+          <div class="form-group">
+            <label for="signup-otp">Email OTP</label>
+            <input type="text" id="signup-otp" placeholder="Enter 6-digit OTP" autocomplete="one-time-code"
+              inputmode="numeric" maxlength="6">
+            <div class="error-message" id="signup-otp-error"></div>
           </div>
           <button type="submit" class="btn-submit">Create Account</button>
         </form>
@@ -99,6 +108,9 @@
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
     const alertBox = document.getElementById('auth-alert');
+    const sendOtpBtn = document.getElementById('send-otp-btn');
+    const signupEmailInput = document.getElementById('signup-email');
+    let otpRequestedFor = '';
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -106,6 +118,9 @@
         tab.classList.add('active');
         alertBox.className = 'auth-alert';
         alertBox.style.display = 'none';
+        if (tab.dataset.tab !== 'signup') {
+          otpRequestedFor = '';
+        }
 
         if (tab.dataset.tab === 'login') {
           loginForm.classList.add('active');
@@ -137,8 +152,48 @@
       const inputEl = errorEl.previousElementSibling;
       errorEl.textContent = msg;
       errorEl.classList.add('visible');
-      inputEl.classList.add('error');
+      if (inputEl && inputEl.classList) inputEl.classList.add('error');
     }
+
+    function looksLikeEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    signupEmailInput.addEventListener('input', () => {
+      const current = signupEmailInput.value.trim().toLowerCase();
+      if (otpRequestedFor && current !== otpRequestedFor) {
+        otpRequestedFor = '';
+      }
+    });
+
+    sendOtpBtn.addEventListener('click', async () => {
+      clearFieldErrors();
+      const email = signupEmailInput.value.trim().toLowerCase();
+
+      if (!email) {
+        showFieldError('signup-email-error', 'Please enter your email first');
+        return;
+      }
+      if (!looksLikeEmail(email)) {
+        showFieldError('signup-email-error', 'Please enter a valid email address');
+        return;
+      }
+
+      sendOtpBtn.disabled = true;
+      sendOtpBtn.textContent = 'Sending OTP…';
+
+      const result = await Auth.requestSignupOtp(email);
+
+      sendOtpBtn.disabled = false;
+      sendOtpBtn.textContent = 'Send OTP';
+
+      if (result.success) {
+        otpRequestedFor = email;
+        showAlert(result.message, 'success');
+      } else {
+        showAlert(result.message, 'error');
+      }
+    });
 
     // Login
     loginForm.addEventListener('submit', async (e) => {
@@ -178,25 +233,37 @@
       clearFieldErrors();
 
       const name = document.getElementById('signup-name').value.trim();
-      const email = document.getElementById('signup-email').value.trim();
+      const email = document.getElementById('signup-email').value.trim().toLowerCase();
       const password = document.getElementById('signup-password').value;
+      const otp = document.getElementById('signup-otp').value.trim();
       const btn = signupForm.querySelector('.btn-submit');
 
       let hasError = false;
       if (!name) { showFieldError('signup-name-error', 'Please enter your name'); hasError = true; }
       if (!email) { showFieldError('signup-email-error', 'Please enter your email'); hasError = true; }
+      if (email && !looksLikeEmail(email)) { showFieldError('signup-email-error', 'Please enter a valid email address'); hasError = true; }
       if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters'); hasError = true; }
+      if (!otp) { showFieldError('signup-otp-error', 'Please enter the OTP sent to your email'); hasError = true; }
+      if (otp && !/^\d{6}$/.test(otp)) { showFieldError('signup-otp-error', 'OTP must be 6 digits'); hasError = true; }
+      if (otpRequestedFor !== email) {
+        showFieldError('signup-email-error', 'Please click "Send OTP" for this email first');
+        hasError = true;
+      }
       if (hasError) return;
 
       btn.textContent = 'Creating account…'; btn.disabled = true;
-      const result = await Auth.signup(name, email, password);
+      const result = await Auth.signup(name, email, password, otp);
       btn.textContent = 'Create Account'; btn.disabled = false;
 
       if (result.success) {
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
       } else {
-        showAlert(result.message, 'error');
+        if (result.message && result.message.toLowerCase().includes('otp')) {
+          showFieldError('signup-otp-error', result.message);
+        } else {
+          showAlert(result.message, 'error');
+        }
       }
     });
   </script>

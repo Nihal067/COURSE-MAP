@@ -14,6 +14,43 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+/* â”€â”€ Signup OTP email â”€â”€ */
+async function sendSignupOtpEmail(toEmail, otp, expiresMinutes = 10) {
+    const mailOptions = {
+        from: `"CourseMap ðŸ—ºï¸" <${process.env.EMAIL_USER}>`,
+        to: toEmail,
+        subject: 'Your CourseMap signup OTP',
+        html: `
+        <!DOCTYPE html>
+        <html>
+        <body style="margin:0;padding:0;background:#080a14;font-family:'Inter',Arial,sans-serif;">
+            <div style="max-width:560px;margin:40px auto;background:#0e1028;border-radius:16px;
+                        border:1px solid rgba(99,102,241,0.25);overflow:hidden;">
+                <div style="padding:28px 32px;border-bottom:1px solid rgba(255,255,255,0.08);">
+                    <h1 style="margin:0;font-size:21px;color:#f0f0f5;">Verify your email</h1>
+                    <p style="margin:8px 0 0;color:#a0a0c0;font-size:13px;">
+                        Use this OTP to complete your CourseMap signup.
+                    </p>
+                </div>
+                <div style="padding:32px;">
+                    <div style="display:inline-block;padding:14px 20px;border-radius:10px;
+                                background:rgba(99,102,241,0.16);border:1px solid rgba(99,102,241,0.35);
+                                color:#f0f0f5;font-size:28px;letter-spacing:6px;font-weight:800;">
+                        ${otp}
+                    </div>
+                    <p style="margin:18px 0 0;color:#a0a0c0;font-size:14px;line-height:1.6;">
+                        This code expires in ${expiresMinutes} minutes.
+                        If you did not request this, you can ignore this email.
+                    </p>
+                </div>
+            </div>
+        </body>
+        </html>`
+    };
+
+    await transporter.sendMail(mailOptions);
+}
+
 /* ── Welcome email ── */
 async function sendWelcomeEmail(toEmail, name) {
     const mailOptions = {
@@ -52,7 +89,7 @@ async function sendWelcomeEmail(toEmail, name) {
                         websites — so you always know exactly what to learn next.
                     </p>
                     <!-- CTA -->
-                    <a href="${process.env.APP_URL || 'http://localhost:5500/dashboard.html'}"
+                    <a href="${process.env.APP_URL || 'http://localhost:3000/dashboard'}"
                        style="display:inline-block;padding:12px 26px;
                               background:linear-gradient(135deg,#6366f1,#a855f7);
                               color:#fff;border-radius:10px;text-decoration:none;
@@ -96,7 +133,7 @@ async function sendWeeklyReminder(toEmail, name, domainName, pct) {
                         <strong style="color:#f0f0f5;">${domainName}</strong> roadmap.
                         You're so close — keep the momentum going!
                     </p>
-                    <a href="${process.env.APP_URL || 'http://localhost:5500/dashboard.html'}"
+                    <a href="${process.env.APP_URL || 'http://localhost:3000/dashboard'}"
                        style="display:inline-block;padding:12px 26px;
                               background:linear-gradient(135deg,#6366f1,#a855f7);
                               color:#fff;border-radius:10px;text-decoration:none;
@@ -117,4 +154,4 @@ async function sendWeeklyReminder(toEmail, name, domainName, pct) {
     await transporter.sendMail(mailOptions);
 }
 
-module.exports = { sendWelcomeEmail, sendWeeklyReminder };
+module.exports = { sendSignupOtpEmail, sendWelcomeEmail, sendWeeklyReminder };

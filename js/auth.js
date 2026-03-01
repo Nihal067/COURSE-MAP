@@ -10,9 +10,18 @@ const Auth = (() => {
         return !!API.getToken() && !!API.getUser();
     }
 
-    async function signup(name, email, password) {
+    async function requestSignupOtp(email) {
         try {
-            const data = await API.register(name, email, password);
+            const data = await API.requestSignupOtp(email);
+            return { success: true, message: data.message || 'OTP sent to your email.' };
+        } catch (err) {
+            return { success: false, message: err.message };
+        }
+    }
+
+    async function signup(name, email, password, otp) {
+        try {
+            const data = await API.register(name, email, password, otp);
             API.saveSession(data.token, data.user);
             return { success: true, message: 'Account created successfully!' };
         } catch (err) {
@@ -47,5 +56,5 @@ const Auth = (() => {
         return getSession();
     }
 
-    return { signup, login, logout, isLoggedIn, requireAuth, getCurrentUser };
+    return { requestSignupOtp, signup, login, logout, isLoggedIn, requireAuth, getCurrentUser };
 })();

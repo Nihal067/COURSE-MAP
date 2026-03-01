@@ -3,11 +3,13 @@
    Token is stored in localStorage under 'cm_token'.
    ================================================= */
 
-// Dynamically figure out the API URL based on where the frontend is loaded
-const currentHost = window.location.hostname;
-const API_BASE = (currentHost === 'localhost' || currentHost === '127.0.0.1')
-    ? 'http://localhost:5000'
-    : `http://${currentHost}:5000`;
+// Set window.COURSEMAP_API_BASE before loading this file to override:
+// <script>window.COURSEMAP_API_BASE = 'https://api.example.com';</script>
+const configuredBase = (window.COURSEMAP_API_BASE || '').trim().replace(/\/$/, '');
+const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname)
+    || window.location.protocol === 'file:'
+    || window.location.origin === 'null';
+const API_BASE = configuredBase || (isLocalhost ? 'http://localhost:5000' : window.location.origin);
 
 const API = (() => {
     function getToken() {
@@ -54,8 +56,10 @@ const API = (() => {
         clearSession,
 
         // Auth
-        register: (name, email, password) =>
-            request('POST', '/api/auth/register', { name, email, password }),
+        requestSignupOtp: (email) =>
+            request('POST', '/api/auth/request-signup-otp', { email }),
+        register: (name, email, password, otp) =>
+            request('POST', '/api/auth/register', { name, email, password, otp }),
         login: (email, password) =>
             request('POST', '/api/auth/login', { email, password }),
         me: () =>

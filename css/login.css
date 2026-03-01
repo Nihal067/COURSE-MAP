@@ -291,6 +291,28 @@
     transform: translateY(0);
 }
 
+.btn-secondary {
+    width: 100%;
+    padding: 11px;
+    background: rgba(99, 102, 241, 0.12);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-secondary:hover {
+    background: rgba(99, 102, 241, 0.2);
+}
+
+.btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* ── Alert ── */
 .auth-alert {
     padding: 10px 14px;
