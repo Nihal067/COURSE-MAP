@@ -10,8 +10,8 @@ const EXTRA_DOMAINS = [
                 courses: [
                     { name: "UPSC NCERT Summary Course", platform: "Unacademy", url: "https://unacademy.com/goal/upsc-civil-services-examination-ias-preparation/KSCGY" },
                     { name: "Complete NCERT for UPSC", platform: "BYJU'S", url: "https://byjus.com/free-ias-prep/" },
-                    { name: "NCERT Foundation – IAS", platform: "StudyIQ", url: "https://www.studyiq.com/course/upsc-cse-prelims-cum-mains" },
-                    { name: "Indian Polity by Laxmikanth", platform: "Udemy", url: "https://www.udemy.com/course/indian-polity-upsc/" },
+                    { name: "NCERT Foundation – IAS", platform: "StudyIQ", url: "https://www.studyiq.com/" },
+                    { name: "Indian Polity by Laxmikanth", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Indian%20Polity%20by%20Laxmikanth%20tutorial" },
                     { name: "UPSC Prelims Complete", platform: "Testbook", url: "https://testbook.com/ias-preparation" },
                     { name: "Ancient India NCERT", platform: "Khan Academy", url: "https://www.khanacademy.org/humanities/world-history" },
                     { name: "Geography NCERT Summary", platform: "Drishti IAS", url: "https://www.drishtiias.com/free-downloads/ncert-notes" },
@@ -28,22 +28,16 @@ const EXTRA_DOMAINS = [
                     { name: "Environment NCERT Complete", platform: "YouTube – Mrunal Patel", url: "https://www.youtube.com/watch?v=Z4c6H8khfPY" }
                 ],
                 books: [
-                    { name: "Indian Polity – M. Laxmikanth", url: "https://www.amazon.in/Indian-Polity-M-Laxmikanth/dp/9352603699" },
+                    { name: "Indian Polity Notes – Drishti IAS", url: "https://www.drishtiias.com/to-the-points/paper2/indian-polity" },
                     { name: "India's Struggle for Independence – Bipan Chandra", url: "https://www.amazon.in/Indias-Struggle-Independence-Bipan-Chandra/dp/0140107819" },
-                    { name: "Indian Economy – Ramesh Singh", url: "https://www.amazon.in/Indian-Economy-Ramesh-Singh/dp/9353168899" },
-                    { name: "Certificate Physical & Human Geography – GC Leong", url: "https://www.amazon.in/Certificate-Physical-Human-Geography-Leong/dp/0198035616" },
-                    { name: "Indian Art & Culture – Nitin Singhania", url: "https://www.amazon.in/Indian-Culture-Civil-Services-Examination/dp/9352604024" },
-                    { name: "Ancient India – RS Sharma", url: "https://www.amazon.in/Ancient-India-R-S-Sharma/dp/0195560477" },
                     { name: "Medieval India – Satish Chandra", url: "https://www.amazon.in/History-Medieval-India-Satish-Chandra/dp/8125032266" },
-                    { name: "NCERT Class 6-12 Complete Set", url: "https://ncert.nic.in/textbook.php" }
                 ],
                 websites: [
                     { name: "Drishti IAS – Current Affairs & Notes", url: "https://www.drishtiias.com/" },
-                    { name: "UPSC Official – Syllabus & Notifications", url: "https://www.upsc.gov.in/" },
+                    { name: "UPSC Official – Syllabus & Notifications", url: "https://upsc.gov.in/" },
                     { name: "Insights on India – Daily Quizzes", url: "https://www.insightsonindia.com/" },
                     { name: "IASbaba – Prelims & Mains", url: "https://iasbaba.com/" },
                     { name: "ClearIAS – Free Study Materials", url: "https://www.clearias.com/" },
-                    { name: "NCERT Official – Free Textbooks PDF", url: "https://ncert.nic.in/" },
                     { name: "Civilsdaily – Editorial Analysis", url: "https://www.civilsdaily.com/" },
                     { name: "ForumIAS – Study Plans", url: "https://forumias.com/" }
                 ]
@@ -81,7 +75,7 @@ const EXTRA_DOMAINS = [
                     { name: "Atlas – Oxford School Atlas", url: "https://www.amazon.in/Oxford-School-Atlas-36th-Edition/dp/0199491771" }
                 ],
                 websites: [
-                    { name: "UPSC Previous Year Papers (Official)", url: "https://www.upsc.gov.in/examinations/previous-question-papers" },
+                    { name: "UPSC Previous Year Papers (Official)", url: "https://upsc.gov.in/examinations/previous-question-papers" },
                     { name: "ClearIAS Prelims Test Series", url: "https://www.clearias.com/upsc-prelims-test-series/" },
                     { name: "Insights on India – Prelims 2025", url: "https://www.insightsonindia.com/upsc-prelims/" },
                     { name: "PIB – Press Information Bureau", url: "https://pib.gov.in/" },
@@ -114,10 +108,6 @@ const EXTRA_DOMAINS = [
                     { name: "Toppers' Copy Analysis", platform: "YouTube – IAS Baba", url: "https://www.youtube.com/watch?v=RkDl0z90WyI" }
                 ],
                 books: [
-                    { name: "Ethics, Integrity & Aptitude – Lexicon", url: "https://www.amazon.in/Ethics-Integrity-Aptitude-Subba-Rao/dp/9332580170" },
-                    { name: "Essay Writing Made Easy", url: "https://www.amazon.in/Essay-Writing-Made-Easy-Competitive/dp/938922847X" },
-                    { name: "Governance in India – Laxmikanth", url: "https://www.amazon.in/Governance-India-Laxmikanth/dp/9352603711" },
-                    { name: "International Relations – Pavneet Singh", url: "https://www.amazon.in/International-Relations-Pavneet-Singh/dp/9352605527" },
                     { name: "Internal Security – Ashok Kumar", url: "https://www.amazon.in/Internal-Security-Ashok-Kumar/dp/9389574455" },
                     { name: "Social Problems in India – Ram Ahuja", url: "https://www.amazon.in/Social-Problems-India-Ram-Ahuja/dp/8131600750" },
                     { name: "Indian Economy – Sriram", url: "https://www.amazon.in/Indian-Economy-Sanjiv-Verma/dp/9389574455" },
@@ -129,7 +119,6 @@ const EXTRA_DOMAINS = [
                     { name: "ForumIAS – MGP Answer Writing", url: "https://forumias.com/" },
                     { name: "IASbaba – TLP Program", url: "https://iasbaba.com/" },
                     { name: "ClearIAS Mains Test Series", url: "https://www.clearias.com/upsc-mains-test-series/" },
-                    { name: "Yojana & Kurukshetra Magazines", url: "https://yojana.gov.in/" },
                     { name: "Economic Survey – GOI", url: "https://www.indiabudget.gov.in/economicsurvey/" },
                     { name: "NITI Aayog Reports", url: "https://www.niti.gov.in/" }
                 ]
@@ -145,7 +134,7 @@ const EXTRA_DOMAINS = [
                     { name: "SSC Maths Complete", platform: "Testbook", url: "https://testbook.com/ssc-cgl" },
                     { name: "Quant for SSC CGL", platform: "Adda247", url: "https://www.adda247.com/product-onlineliveclasses/ssc-cgl" },
                     { name: "SSC Maths by Rakesh Yadav", platform: "Unacademy", url: "https://unacademy.com/goal/ssc-exams/VLEMN" },
-                    { name: "Arithmetic Shortcuts", platform: "BYJU'S Exam Prep", url: "https://byjusexamprep.com/ssc-cgl-exam" },
+                    { name: "Arithmetic Shortcuts", platform: "BYJU'S Exam Prep", url: "https://www.byjus.com/ssc/ssc-cgl/ssc-cgl/" },
                     { name: "Advanced Maths for Tier II", platform: "StudyIQ", url: "https://www.studyiq.com/" },
                     { name: "DI & Data Sufficiency", platform: "Oliveboard", url: "https://www.oliveboard.in/ssc-cgl/" },
                     { name: "Geometry Complete Course", platform: "Careerwill", url: "https://www.careerwill.com/" },
@@ -163,22 +152,18 @@ const EXTRA_DOMAINS = [
                 ],
                 books: [
                     { name: "Quantitative Aptitude – RS Aggarwal", url: "https://www.amazon.in/Quantitative-Aptitude-Competitive-Examinations-Aggarwal/dp/9352534026" },
-                    { name: "SSC Mathematics – Rakesh Yadav", url: "https://www.amazon.in/Rakesh-Yadav-7300-Mathematics/dp/9389645054" },
                     { name: "Advanced Maths – Kiran", url: "https://www.amazon.in/Kiran-Advanced-Maths/dp/9389982847" },
-                    { name: "Quicker Maths – M Tyra", url: "https://www.amazon.in/Quicker-Maths-M-Tyra/dp/9382145699" },
-                    { name: "Arithmetic for Competitive Exams", url: "https://www.amazon.in/dp/B08MTQJHVQ" },
                     { name: "Geometry & Mensuration – Kiran", url: "https://www.amazon.in/Kiran-Geometry-Mensuration/dp/9389982847" },
-                    { name: "Data Interpretation – Arun Sharma", url: "https://www.amazon.in/How-Prepare-Data-Interpretation-Competitive/dp/9352602757" },
-                    { name: "SSC Tier I & II PYQs", url: "https://ssc.nic.in/" }
+                    { name: "SSC Tier I & II PYQs", url: "https://ssc.gov.in/" }
                 ],
                 websites: [
-                    { name: "SSC Official – Papers & Notifications", url: "https://ssc.nic.in/" },
+                    { name: "SSC Official – Papers & Notifications", url: "https://ssc.gov.in/" },
                     { name: "Testbook SSC Prep", url: "https://testbook.com/ssc-cgl" },
                     { name: "Adda247 SSC Section", url: "https://www.adda247.com/ssc-jobs/" },
                     { name: "Oliveboard SSC CGL", url: "https://www.oliveboard.in/ssc-cgl/" },
-                    { name: "GradeUp (BYJU'S Exam Prep)", url: "https://byjusexamprep.com/ssc-cgl-exam" },
+                    { name: "GradeUp (BYJU'S Exam Prep)", url: "https://www.byjus.com/ssc/ssc-cgl/ssc-cgl/" },
                     { name: "IndiaBIX – Aptitude Practice", url: "https://www.indiabix.com/" },
-                    { name: "SSC CGL Syllabus Official", url: "https://ssc.nic.in/Portal/Syllabus" },
+                    { name: "SSC CGL Syllabus Official", url: "https://ssc.gov.in/" },
                     { name: "Maths Practice – Embibe", url: "https://www.embibe.com/exams/ssc-cgl/" }
                 ]
             },
@@ -188,7 +173,7 @@ const EXTRA_DOMAINS = [
                     { name: "SSC English Complete", platform: "Testbook", url: "https://testbook.com/ssc-cgl" },
                     { name: "English Grammar for SSC", platform: "Adda247", url: "https://www.adda247.com/" },
                     { name: "General Awareness SSC CGL", platform: "Unacademy", url: "https://unacademy.com/goal/ssc-exams/VLEMN" },
-                    { name: "Static GK Complete", platform: "BYJU'S Exam Prep", url: "https://byjusexamprep.com/" },
+                    { name: "Static GK Complete", platform: "BYJU'S Exam Prep", url: "https://www.byjus.com/ssc/ssc-cgl/" },
                     { name: "Vocabulary Building Course", platform: "StudyIQ", url: "https://www.studyiq.com/" },
                     { name: "Current Affairs Monthly", platform: "Oliveboard", url: "https://www.oliveboard.in/" },
                     { name: "Error Detection Mastery", platform: "Careerwill", url: "https://www.careerwill.com/" },
@@ -207,19 +192,16 @@ const EXTRA_DOMAINS = [
                 books: [
                     { name: "Word Power Made Easy – Norman Lewis", url: "https://www.amazon.in/Word-Power-Made-Easy-Norman/dp/8183071007" },
                     { name: "Objective General English – SP Bakshi", url: "https://www.amazon.in/Objective-General-English-S-P-Bakshi/dp/9352039734" },
-                    { name: "Lucent's General Knowledge", url: "https://www.amazon.in/Lucents-General-Knowledge-Dr-Binay/dp/9380369190" },
-                    { name: "SSC English by MB Publication", url: "https://www.amazon.in/MB-Publication-English-SSC/dp/B07PPTLN61" },
                     { name: "Plinth to Paramount English", platform: "Neetu Singh", url: "https://www.amazon.in/Plinth-Paramount-English-Neetu-Singh/dp/9386146282" },
-                    { name: "General Awareness – Arihant", url: "https://www.amazon.in/General-Knowledge-2024-Manohar-Pandey/dp/9327198135" },
                     { name: "Current Affairs Yearly 2025", url: "https://www.amazon.in/Yearly-Current-Affairs-2024/dp/9389661579" },
-                    { name: "SSC CGL English PYQs", url: "https://ssc.nic.in/" }
+                    { name: "SSC CGL English PYQs", url: "https://ssc.gov.in/" }
                 ],
                 websites: [
-                    { name: "SSC Official Notifications", url: "https://ssc.nic.in/" },
+                    { name: "SSC Official Notifications", url: "https://ssc.gov.in/" },
                     { name: "GK Today – Daily Current Affairs", url: "https://www.gktoday.in/" },
                     { name: "Adda247 English Quiz", url: "https://www.adda247.com/" },
                     { name: "IndiaBIX English Practice", url: "https://www.indiabix.com/verbal-ability/questions-and-answers/" },
-                    { name: "Testbook GK Section", url: "https://testbook.com/gk-current-affairs" },
+                    { name: "Testbook GK Section", url: "https://testbook.com/" },
                     { name: "Jagranjosh Current Affairs", url: "https://www.jagranjosh.com/current-affairs" },
                     { name: "Grammarly Blog – Grammar Tips", url: "https://www.grammarly.com/blog/" },
                     { name: "BBC Learning English", url: "https://www.bbc.co.uk/learningenglish/" }

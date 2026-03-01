@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadmap — CourseMap</title>
+    <title>Roadmap â€” CourseMap</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
 
     <style>
         /* ======================================================
-   FULL INLINE STYLES — No external CSS dependency issues
+   FULL INLINE STYLES â€” No external CSS dependency issues
    ====================================================== */
 
         /* Reset */
@@ -26,16 +26,28 @@
         }
 
         :root {
-            --bg: #080a14;
-            --bg2: #0e1028;
-            --bg3: #0a0c1e;
-            --border: rgba(255, 255, 255, 0.09);
-            --t1: #f0f0f5;
-            --t2: #a0a0c0;
-            --t3: #666688;
+            --bg: #fdf6ec;
+            --bg2: #fffaf2;
+            --bg3: #f4e9da;
+            --border: rgba(47, 34, 26, 0.16);
+            --t1: #2f221a;
+            --t2: #6b5443;
+            --t3: #866e5b;
             --green: #22c55e;
-            --purple: #6366f1;
+            --purple: #b65a3c;
             --radius: 10px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #2a1d16;
+            --bg2: #34241c;
+            --bg3: #3f2b21;
+            --border: rgba(248, 237, 225, 0.16);
+            --t1: #f8ede1;
+            --t2: #d9c5b3;
+            --t3: #b89f8d;
+            --green: #22c55e;
+            --purple: #e0a280;
         }
 
         html {
@@ -48,11 +60,11 @@
             color: var(--t1);
             line-height: 1.6;
             min-height: 100vh;
-            /* NO overflow:hidden — let page scroll naturally */
+            /* NO overflow - let page scroll naturally */
         }
 
         a {
-            color: #7b8cff;
+            color: #8f3f2a;
             text-decoration: none;
         }
 
@@ -63,19 +75,45 @@
             outline: none;
         }
 
-        /* ── Scrollbar ── */
+        /* â”€â”€ Scrollbar â”€â”€ */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #0c0e1e;
+            background: var(--bg2);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(99, 102, 241, 0.3);
+            background: rgba(182, 90, 60, 0.3);
             border-radius: 3px;
+        }
+
+        .theme-toggle-btn {
+            background: rgba(47, 34, 26, 0.06);
+            border: 1px solid rgba(47, 34, 26, 0.18);
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--t2);
+            transition: all 0.2s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle-btn {
+            background: rgba(248, 237, 225, 0.08);
+            border-color: rgba(248, 237, 225, 0.18);
+            color: var(--t2);
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(47, 34, 26, 0.12);
+            transform: translateY(-1px);
+        }
+
+        [data-theme="dark"] .theme-toggle-btn:hover {
+            background: rgba(248, 237, 225, 0.14);
         }
 
         /* ======================================================
@@ -109,14 +147,14 @@
             height: 34px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1.5px solid rgba(99, 102, 241, 0.45);
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+            border: 1.5px solid rgba(182, 90, 60, 0.45);
+            box-shadow: 0 0 10px rgba(182, 90, 60, 0.25);
         }
 
         .roadmap-nav-brand-name {
             font-size: 15px;
             font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #a855f7);
+            background: linear-gradient(135deg, #d49473, #8f3f2a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -128,7 +166,7 @@
             align-items: center;
             gap: 6px;
             padding: 7px 14px;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(47, 34, 26, 0.04);
             border: 1px solid var(--border);
             border-radius: 8px;
             color: var(--t2);
@@ -139,7 +177,7 @@
         }
 
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.09);
+            background: rgba(47, 34, 26, 0.09);
             color: var(--t1);
         }
 
@@ -173,14 +211,21 @@
     */
         .domain-header {
             padding: 40px 32px 30px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            background: linear-gradient(135deg, rgba(182, 90, 60, 0.08) 0%, transparent 60%);
             border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: auto;
         }
 
         .domain-header-inner {
             max-width: 820px;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
         .cat-badge {
@@ -191,8 +236,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(47, 34, 26, 0.06);
+            border: 1px solid rgba(47, 34, 26, 0.1);
             margin-bottom: 10px;
         }
 
@@ -201,7 +246,12 @@
             font-weight: 800;
             letter-spacing: -0.3px;
             margin-bottom: 8px;
-            color: var(--t1);
+            color: var(--t1) !important;
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 1.2em;
+            line-height: 1.1;
         }
 
         .domain-meta {
@@ -220,19 +270,19 @@
 
         .btn-enroll {
             padding: 9px 22px;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
+            background: linear-gradient(135deg, #b65a3c, #8f3f2a);
             border: none;
             border-radius: 8px;
             color: #fff;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 14px rgba(182, 90, 60, 0.3);
             transition: all 0.2s;
         }
 
         .btn-enroll:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 22px rgba(99, 102, 241, 0.45);
+            box-shadow: 0 6px 22px rgba(182, 90, 60, 0.45);
         }
 
         .btn-enroll.enrolled {
@@ -248,7 +298,7 @@
         .prog-row {
             padding: 10px 32px;
             background: rgba(8, 10, 20, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(47, 34, 26, 0.05);
         }
 
         .prog-inner {
@@ -267,7 +317,7 @@
         .prog-track {
             flex: 1;
             height: 6px;
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(47, 34, 26, 0.07);
             border-radius: 3px;
             overflow: hidden;
         }
@@ -330,7 +380,7 @@
             letter-spacing: 1px;
             color: var(--t3);
             white-space: nowrap;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(47, 34, 26, 0.04);
             border: 1px solid var(--border);
         }
 
@@ -355,15 +405,15 @@
 
         .flow-node:hover .flow-node-box {
             background: #131630;
-            border-color: rgba(255, 255, 255, 0.14);
+            border-color: rgba(47, 34, 26, 0.14);
             transform: translateX(5px);
             box-shadow: -4px 0 18px rgba(0, 0, 0, 0.4);
         }
 
         .flow-node.active-node .flow-node-box {
-            background: rgba(99, 102, 241, 0.07);
+            background: rgba(182, 90, 60, 0.07);
             border-color: var(--node-color, var(--purple));
-            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 0 0 2px rgba(182, 90, 60, 0.15);
         }
 
         .flow-node.done-node .flow-node-box {
@@ -376,7 +426,7 @@
             height: 22px;
             border-radius: 50%;
             flex-shrink: 0;
-            border: 2px solid rgba(255, 255, 255, 0.14);
+            border: 2px solid rgba(47, 34, 26, 0.14);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -438,7 +488,7 @@
         .node-dur {
             font-size: 10px;
             color: var(--t3);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(47, 34, 26, 0.05);
             padding: 2px 9px;
             border-radius: 20px;
             white-space: nowrap;
@@ -454,7 +504,7 @@
             font-weight: 600;
             padding: 2px 6px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(47, 34, 26, 0.05);
             border: 1px solid var(--border);
             color: var(--t3);
         }
@@ -476,7 +526,7 @@
         .flow-connector {
             width: 0;
             height: 28px;
-            border-left: 2px dashed rgba(255, 255, 255, 0.09);
+            border-left: 2px dashed rgba(47, 34, 26, 0.09);
             margin: 0 auto;
             position: relative;
         }
@@ -488,8 +538,8 @@
             left: -5px;
             width: 8px;
             height: 8px;
-            border-right: 2px solid rgba(255, 255, 255, 0.12);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+            border-right: 2px solid rgba(47, 34, 26, 0.12);
+            border-bottom: 2px solid rgba(47, 34, 26, 0.12);
             transform: rotate(45deg);
         }
 
@@ -516,7 +566,7 @@
             right: 0;
             z-index: 9000;
             background: var(--bg2);
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-top: 1px solid rgba(47, 34, 26, 0.12);
             border-radius: 20px 20px 0 0;
             box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.8);
             transform: translateY(100%);
@@ -534,7 +584,7 @@
         .drawer-handle {
             width: 40px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.16);
+            background: rgba(47, 34, 26, 0.16);
             border-radius: 2px;
             margin: 13px auto 0;
             cursor: pointer;
@@ -547,7 +597,7 @@
             justify-content: space-between;
             padding: 13px 28px 12px;
             flex-shrink: 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid rgba(47, 34, 26, 0.07);
         }
 
         .drawer-info {
@@ -586,8 +636,8 @@
             border-radius: 7px;
             font-size: 12px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(47, 34, 26, 0.1);
+            background: rgba(47, 34, 26, 0.04);
             color: var(--t2);
             transition: all 0.18s;
         }
@@ -610,8 +660,8 @@
             border-radius: 50%;
             flex-shrink: 0;
             margin-left: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(47, 34, 26, 0.05);
+            border: 1px solid rgba(47, 34, 26, 0.1);
             color: var(--t2);
             font-size: 20px;
             display: flex;
@@ -631,7 +681,7 @@
             display: flex;
             gap: 4px;
             padding: 10px 28px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid rgba(47, 34, 26, 0.07);
             flex-shrink: 0;
             overflow-x: auto;
             scrollbar-width: none;
@@ -658,13 +708,13 @@
 
         .res-tab:hover {
             color: var(--t2);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(47, 34, 26, 0.04);
         }
 
         .res-tab.active {
             color: var(--t1);
-            background: rgba(99, 102, 241, 0.1);
-            border-color: rgba(99, 102, 241, 0.28);
+            background: rgba(182, 90, 60, 0.1);
+            border-color: rgba(182, 90, 60, 0.28);
         }
 
         /* Scrollable resource list */
@@ -681,7 +731,7 @@
         }
 
         .drawer-content::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(47, 34, 26, 0.1);
             border-radius: 2px;
         }
 
@@ -714,7 +764,7 @@
             gap: 11px;
             padding: 12px 14px;
             border-radius: 9px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(47, 34, 26, 0.03);
             border: 1px solid var(--border);
             text-decoration: none;
             color: var(--t1);
@@ -722,13 +772,13 @@
         }
 
         .res-item:hover {
-            background: rgba(255, 255, 255, 0.07);
+            background: rgba(47, 34, 26, 0.07);
             transform: translateX(3px);
         }
 
         .res-item.r-courses:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            background: rgba(99, 102, 241, 0.06);
+            border-color: rgba(182, 90, 60, 0.4);
+            background: rgba(182, 90, 60, 0.06);
         }
 
         .res-item.r-videos:hover {
@@ -809,7 +859,7 @@
             padding: 10px 0;
         }
 
-        /* ── Star Rating Widget ── */
+        /* â”€â”€ Star Rating Widget â”€â”€ */
         .res-rating {
             display: flex;
             align-items: center;
@@ -823,7 +873,7 @@
             padding: 0;
             font-size: 14px;
             cursor: pointer;
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(47, 34, 26, 0.15);
             transition: color 0.15s, transform 0.1s;
             line-height: 1;
         }
@@ -847,7 +897,7 @@
             color: rgba(0, 0, 0, 0.15);
         }
 
-        /* ── Responsive ── */
+        /* â”€â”€ Responsive â”€â”€ */
 
         @media (max-width: 768px) {
             .roadmap-nav {
@@ -891,15 +941,26 @@
             }
         }
 
-        /* ── Light mode overrides (roadmap inline) ── */
+        /* â”€â”€ Light mode overrides (roadmap inline) â”€â”€ */
         [data-theme="light"] {
-            --bg: #f5f5f9;
-            --bg2: #ffffff;
-            --bg3: #f0f0f5;
-            --border: rgba(0, 0, 0, 0.08);
-            --t1: #0f0f2a;
-            --t2: #4a4a6a;
-            --t3: #8080a0;
+            --bg: #fdf6ec;
+            --bg2: #fffaf2;
+            --bg3: #f4e9da;
+            --border: rgba(47, 34, 26, 0.16);
+            --t1: #2f221a;
+            --t2: #6b5443;
+            --t3: #866e5b;
+        }
+
+        [data-theme="dark"] {
+            --bg: #2a1d16;
+            --bg2: #34241c;
+            --bg3: #423025;
+            --border: rgba(248, 237, 225, 0.16);
+            --t1: #f8ede1;
+            --t2: #d9c5b3;
+            --t3: #b89f8d;
+            --purple: #d0875f;
         }
 
         [data-theme="light"] body {
@@ -908,12 +969,12 @@
         }
 
         [data-theme="light"] .roadmap-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 250, 242, 0.95);
             backdrop-filter: blur(10px);
         }
 
         [data-theme="light"] .domain-header {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 65%);
+            background: linear-gradient(135deg, rgba(182, 90, 60, 0.05) 0%, transparent 65%);
         }
 
         [data-theme="light"] .flow-node-box {
@@ -923,9 +984,9 @@
         }
 
         [data-theme="light"] .flow-node:hover .flow-node-box {
-            background: #f8f8ff;
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1);
-            border-color: rgba(99, 102, 241, 0.3);
+            background: #fff6ea;
+            box-shadow: 0 8px 24px rgba(182, 90, 60, 0.1);
+            border-color: rgba(182, 90, 60, 0.3);
         }
 
         [data-theme="light"] #res-drawer {
@@ -940,7 +1001,7 @@
         }
 
         [data-theme="light"] .res-item:hover {
-            background: rgba(99, 102, 241, 0.06);
+            background: rgba(182, 90, 60, 0.06);
         }
     </style>
 </head>
@@ -949,17 +1010,16 @@
 
     <!-- NAV -->
     <nav class="roadmap-nav">
-        <a href="dashboard.html" class="back-btn">← Dashboard</a>
+        <a href="dashboard.html" class="back-btn">← Dashboard</a>
         <a href="dashboard.html" class="roadmap-nav-brand">
             <img src="logo.jpg" alt="CourseMap" class="roadmap-nav-logo">
             <span class="roadmap-nav-brand-name">CourseMap</span>
         </a>
         <div class="nav-right">
             <span class="nav-username" id="nav-username"></span>
-            <button class="theme-toggle-btn" id="theme-toggle" title="Toggle theme"
-                style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:5px 10px;font-size:15px;cursor:pointer;transition:all 0.2s;">☀️</button>
+            <button class="theme-toggle-btn" id="theme-toggle" title="Toggle theme">Light</button>
             <button id="btn-share-roadmap" title="Share this roadmap"
-                style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);border-radius:8px;padding:5px 12px;font-size:13px;font-weight:600;color:#6366f1;cursor:pointer;transition:all 0.2s;">🔗
+                style="background:rgba(182,90,60,0.14);border:1px solid rgba(182,90,60,0.35);border-radius:8px;padding:5px 12px;font-size:13px;font-weight:600;color:#b65a3c;cursor:pointer;transition:all 0.2s;">📤
                 Share</button>
             <button class="btn-signout" id="btn-signout">Sign Out</button>
         </div>
@@ -1004,7 +1064,7 @@
                 <div class="drawer-step-title" id="drawer-step-title"></div>
                 <div class="drawer-step-desc" id="drawer-step-desc"></div>
                 <div style="margin-top:4px">
-                    <button class="btn-mark-done" id="btn-mark-done">○ Mark Complete</button>
+                    <button class="btn-mark-done" id="btn-mark-done">◉ Mark Complete</button>
                 </div>
             </div>
             <button class="btn-close-drawer" id="btn-close-drawer">×</button>
@@ -1026,15 +1086,15 @@
     <script src="js/share.js"></script>
     <script>
         /* ================================================================
-           ROADMAP PAGE LOGIC — Complete self-contained inline script
+           ROADMAP PAGE LOGIC â€” Complete self-contained inline script
            ================================================================ */
 
-        const RES_ICONS = { courses: '🎓', videos: '▶', books: '📖', websites: '🌐' };
+        const RES_ICONS = { courses: '🎓', videos: '▶️', books: '📖', websites: '🌐' };
         const PHASES = ['Fundamentals', 'Core Concepts', 'Intermediate', 'Advanced', 'Specialization'];
 
         let _domain = null, _activeStep = null;
 
-        /* ─── Init ─── */
+        /* â”€â”€â”€ Init â”€â”€â”€ */
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 if (!Auth.requireAuth()) return;
@@ -1049,6 +1109,18 @@
 
                 const user = Auth.getCurrentUser();
                 renderHeader(domain, user);
+
+                // Ensure domain header is visible
+                const domainHeader = document.querySelector('.domain-header');
+                if (domainHeader) {
+                    domainHeader.style.display = 'block';
+                    domainHeader.style.opacity = '1';
+                }
+                const domainTitle = document.getElementById('domain-name-h1');
+                if (domainTitle && !domainTitle.textContent) {
+                    domainTitle.textContent = domain.name || 'Domain';
+                }
+
                 initEnroll(domain, user);
                 renderNodes(domain);
                 refreshProgress(domain);
@@ -1065,37 +1137,37 @@
                       min-height:100vh;background:#080a14;color:#f0f0f5;
                       font-family:Inter,sans-serif;padding:24px;text-align:center;">
             <div>
-              <div style="font-size:48px;margin-bottom:16px">⚠️</div>
+              <div style="font-size:48px;margin-bottom:16px">âš ï¸</div>
               <h2 style="margin-bottom:8px">Roadmap failed to load</h2>
               <p style="color:#666;margin-bottom:20px;font-size:14px">${err.message}</p>
               <a href="dashboard.html"
-                 style="padding:10px 24px;background:#6366f1;color:#fff;
+                 style="padding:10px 24px;background:#b65a3c;color:#fff;
                         border-radius:8px;text-decoration:none;font-weight:600">
-                ← Back to Dashboard
+                ← Back to Dashboard
               </a>
             </div>
           </div>`;
             }
         });
 
-        /* ─── Header ─── */
+        /* â”€â”€â”€ Header â”€â”€â”€ */
         function renderHeader(domain, user) {
             const cat = document.getElementById('domain-cat');
             cat.textContent = domain.cat;
             cat.style.color = domain.color;
 
             document.getElementById('domain-name-h1').textContent = domain.name;
-            document.title = domain.name + ' — CourseMap';
+            document.title = domain.name + ' â€” CourseMap';
 
             const totalRes = domain.steps.reduce((s, st) =>
                 s + (st.courses?.length || 0) + (st.videos?.length || 0)
                 + (st.books?.length || 0) + (st.websites?.length || 0), 0);
 
-            document.getElementById('meta-steps').textContent = '📌 ' + domain.steps.length + ' Steps';
+            document.getElementById('meta-steps').textContent = '📋 ' + domain.steps.length + ' Steps';
             document.getElementById('meta-resources').textContent = '📚 ' + totalRes + ' Resources';
         }
 
-        /* ─── Enroll ─── */
+        /* â”€â”€â”€ Enroll â”€â”€â”€ */
         function initEnroll(domain, user) {
             const btn = document.getElementById('btn-enroll');
             const key = 'courseMap_enrolled_' + user.email;
@@ -1110,11 +1182,11 @@
             };
         }
         function styleEnroll(btn, enrolled) {
-            btn.textContent = enrolled ? '✓ Enrolled' : 'Enroll in Path';
+            btn.textContent = enrolled ? 'âœ“ Enrolled' : 'Enroll in Path';
             btn.classList.toggle('enrolled', enrolled);
         }
 
-        /* ─── Progress ─── */
+        /* â”€â”€â”€ Progress â”€â”€â”€ */
         function progressKey(domainId) {
             return 'courseMap_progress_' + Auth.getCurrentUser().email + '_' + domainId;
         }
@@ -1138,7 +1210,7 @@
             document.getElementById('prog-label').textContent = done.length + ' / ' + total + ' done';
         }
 
-        /* ─── Render Nodes ─── */
+        /* â”€â”€â”€ Render Nodes â”€â”€â”€ */
         function renderNodes(domain) {
             const canvas = document.getElementById('flow-canvas');
             const done = getDone(domain.id);
@@ -1172,20 +1244,20 @@
                 const node = document.createElement('div');
                 node.className = 'flow-node' + (isDone ? ' done-node' : '');
                 node.dataset.step = i;
-                node.style.setProperty('--node-color', domain.color || '#6366f1');
+                node.style.setProperty('--node-color', domain.color || '#b65a3c');
                 node.innerHTML = `
           <div class="flow-node-box">
-            <div class="node-check">${isDone ? '✓' : ''}</div>
+            <div class="node-check">${isDone ? 'âœ“' : ''}</div>
             <div class="node-body">
               <div class="node-step">Step ${i + 1}</div>
               <div class="node-title">${step.title}</div>
               <div class="node-desc">${step.desc}</div>
             </div>
             <div class="node-right">
-              <span class="node-dur">⏱ ${step.dur}</span>
+              <span class="node-dur">â± ${step.dur}</span>
               <div class="node-chips">${chips}</div>
             </div>
-            <span class="node-arrow">›</span>
+            <span class="node-arrow">â€º</span>
           </div>`;
                 node.addEventListener('click', () => openDrawer(domain, i));
                 canvas.appendChild(node);
@@ -1199,7 +1271,7 @@
             });
         }
 
-        /* ─── Drawer ─── */
+        /* â”€â”€â”€ Drawer â”€â”€â”€ */
         function setupDrawer(domain) {
             const close = () => closeDrawer();
             document.getElementById('btn-close-drawer').onclick = close;
@@ -1212,12 +1284,12 @@
                 const currentDone = getDone(domain.id);
                 const alreadyDone = currentDone.includes(stepIdx);
 
-                // If already done → toggle off (unmark) without quiz
+                // If already done ←’ toggle off (unmark) without quiz
                 if (alreadyDone) {
                     const newDone = toggleDone(domain.id, stepIdx);
                     const btn = document.getElementById('btn-mark-done');
                     btn.className = 'btn-mark-done';
-                    btn.textContent = '○ Mark Complete';
+                    btn.textContent = '◉ Mark Complete';
                     const nodeEl = document.querySelector(`.flow-node[data-step="${stepIdx}"]`);
                     if (nodeEl) {
                         nodeEl.classList.remove('done-node');
@@ -1227,7 +1299,7 @@
                     return;
                 }
 
-                // Not yet done → open quiz first
+                // Not yet done ←’ open quiz first
                 const stepName = domain.steps[stepIdx]?.title || `Step ${stepIdx + 1}`;
                 openStepQuiz(domain.id, stepIdx, stepName,
                     // onPass
@@ -1236,99 +1308,81 @@
                         const btn = document.getElementById('btn-mark-done');
                         if (btn) {
                             btn.className = 'btn-mark-done marked';
-                            btn.textContent = '✓ Completed';
+                            btn.textContent = 'âœ“ Completed';
                         }
                         const nodeEl = document.querySelector(`.flow-node[data-step="${stepIdx}"]`);
                         if (nodeEl) {
                             nodeEl.classList.add('done-node');
-                            nodeEl.querySelector('.node-check').textContent = '✓';
+                            nodeEl.querySelector('.node-check').textContent = 'âœ“';
                         }
                         refreshProgress(domain);
 
-                        // Check if ALL steps now done → show domain quiz
+                        // Check if ALL steps now done ←’ show domain quiz
                         const afterDone = getDone(domain.id);
                         if (afterDone.length === domain.steps.length) {
                             setTimeout(() => {
                                 openDomainQuiz(domain,
-                                    () => showToast('🏆 Domain mastered! Outstanding work!'),
-                                    () => { }
-                                );
-                            }, 700);
-                        }
-                    },
-                    // onFail — quiz skipped or failed
-                    () => { }
-                );
-            });
-        }
-
-        function openDrawer(domain, idx) {
-            _activeStep = idx;
-            const step = domain.steps[idx];
-            const isDone = getDone(domain.id).includes(idx);
-
-            // Highlight active node
-            document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
+                                    () => showToast('📚));
             document.querySelector(`.flow-node[data-step="${idx}"]`)?.classList.add('active-node');
 
-            // Fill info
-            document.getElementById('drawer-step-num').textContent = `Step ${idx + 1} of ${domain.steps.length}`;
-            document.getElementById('drawer-step-title').textContent = step.title;
-            document.getElementById('drawer-step-desc').textContent = step.desc;
+                                // Fill info
+                                document.getElementById('drawer-step-num').textContent = `Step ${idx + 1} of ${domain.steps.length}`;
+                                document.getElementById('drawer-step-title').textContent = step.title;
+                                document.getElementById('drawer-step-desc').textContent = step.desc;
 
-            const btn = document.getElementById('btn-mark-done');
-            btn.className = 'btn-mark-done' + (isDone ? ' marked' : '');
-            btn.textContent = isDone ? '✓ Completed' : '○ Mark Complete';
+                                const btn = document.getElementById('btn-mark-done');
+                                btn.className = 'btn-mark-done' + (isDone ? ' marked' : '');
+                                btn.textContent = isDone ? 'âœ“ Completed' : '◉ Mark Complete';
 
-            // Tabs + content
-            const types = ['courses', 'videos', 'books', 'websites'];
-            const labels = { courses: '🎓 Courses', videos: '▶ Videos', books: '📖 Books', websites: '🌐 Websites' };
-            const avail = types.filter(t => step[t]?.length > 0);
+                                // Tabs + content
+                                const types = ['courses', 'videos', 'books', 'websites'];
+                                const labels = { courses: '🎓 Courses', videos: '▶️ Videos', books: '📖 Books', websites: '🌐 Websites' };
+                                const avail = types.filter(t => step[t]?.length > 0);
 
-            const tabBar = document.getElementById('drawer-tabs');
-            const content = document.getElementById('drawer-content');
+                                const tabBar = document.getElementById('drawer-tabs');
+                                const content = document.getElementById('drawer-content');
 
-            tabBar.innerHTML = avail.map((t, i) =>
-                `<button class="res-tab${i === 0 ? ' active' : ''}" data-t="${t}">${labels[t]}</button>`
-            ).join('');
+                                tabBar.innerHTML = avail.map((t, i) =>
+                                    `<button class="res-tab${i === 0 ? ' active' : ''}" data-t="${t}">${labels[t]}</button>`
+                                ).join('');
 
-            content.innerHTML = avail.length > 0
-                ? avail.map((t, i) => `
+                                content.innerHTML = avail.length > 0
+                                    ? avail.map((t, i) => `
             <div class="res-section${i === 0 ? ' active' : ''}" data-section="${t}">
               ${buildResLinks(step[t], t)}
             </div>`).join('')
-                : '<p class="no-res">No resources added yet for this step.</p>';
+                                    : '<p class="no-res">No resources added yet for this step.</p>';
 
-            // Tab click
-            tabBar.querySelectorAll('.res-tab').forEach(b => {
-                b.onclick = () => {
-                    tabBar.querySelectorAll('.res-tab').forEach(x => x.classList.remove('active'));
-                    content.querySelectorAll('.res-section').forEach(x => x.classList.remove('active'));
-                    b.classList.add('active');
-                    content.querySelector(`.res-section[data-section="${b.dataset.t}"]`)?.classList.add('active');
-                };
-            });
+                                // Tab click
+                                tabBar.querySelectorAll('.res-tab').forEach(b => {
+                                    b.onclick = () => {
+                                        tabBar.querySelectorAll('.res-tab').forEach(x => x.classList.remove('active'));
+                                        content.querySelectorAll('.res-section').forEach(x => x.classList.remove('active'));
+                                        b.classList.add('active');
+                                        content.querySelector(`.res-section[data-section="${b.dataset.t}"]`)?.classList.add('active');
+                                    };
+                                });
 
-            // Load ratings (async, non-blocking)
-            loadRatings(_domain.id, idx);
+                                // Load ratings (async, non-blocking)
+                                loadRatings(_domain.id, idx);
 
-            // Show drawer
-            document.getElementById('res-drawer').classList.add('show');
-            document.getElementById('drawer-overlay').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
+                                // Show drawer
+                                document.getElementById('res-drawer').classList.add('show');
+                                document.getElementById('drawer-overlay').classList.add('show');
+                                document.body.style.overflow = 'hidden';
+                            }
 
         function closeDrawer() {
-            document.getElementById('res-drawer').classList.remove('show');
-            document.getElementById('drawer-overlay').classList.remove('show');
-            document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
-            document.body.style.overflow = '';
-            _activeStep = null;
-        }
+                                    document.getElementById('res-drawer').classList.remove('show');
+                                    document.getElementById('drawer-overlay').classList.remove('show');
+                                    document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
+                                    document.body.style.overflow = '';
+                                    _activeStep = null;
+                                }
 
         function buildResLinks(items, type) {
-            if (!items?.length) return '<p class="no-res">No resources yet.</p>';
-            return items.map(r => `
+                                    if (!items?.length) return '<p class="no-res">No resources yet.</p>';
+                                    return items.map(r => `
       <div class="res-item-wrap">
         <a href="${r.url || '#'}" target="_blank" rel="noopener"
            class="res-item r-${type}">
@@ -1338,49 +1392,49 @@
             ${r.platform ? `<span class="res-plat">${r.platform}</span>` : ''}
           </div>
           <span class="${r.paid === true ? 'badge-p' : 'badge-f'}">${r.paid === true ? 'Paid' : 'Free'}</span>
-          <span class="res-arrow">↗</span>
+          <span class="res-arrow">←—</span>
         </a>
         <div class="res-rating" data-url="${r.url || ''}">
           ${[1, 2, 3, 4, 5].map(s => `<button class="star-btn" data-star="${s}" title="${s} star">★</button>`).join('')}
           <span class="rating-avg"></span>
         </div>
       </div>`).join('');
-        }
+                                }
 
-        /* ── Load & wire ratings for current step ── */
+        /* â”€â”€ Load & wire ratings for current step â”€â”€ */
         async function loadRatings(domainId, stepIdx) {
-            try {
-                const { ratings } = await API.getRatings(domainId, stepIdx);
-                document.querySelectorAll('.res-rating').forEach(widget => {
-                    const url = widget.dataset.url;
-                    if (!url) return;
-                    const info = ratings[url];
-                    const userStars = info?.userStars || 0;
-                    const avg = info?.avg || 0;
-                    const count = info?.count || 0;
-                    widget.querySelectorAll('.star-btn').forEach(btn => {
-                        const s = Number(btn.dataset.star);
-                        btn.classList.toggle('on', s <= userStars);
-                        btn.onclick = async (e) => {
-                            e.stopPropagation();
-                            try {
-                                await API.submitRating(domainId, stepIdx, url, s);
-                                widget.querySelectorAll('.star-btn').forEach(b => {
-                                    b.classList.toggle('on', Number(b.dataset.star) <= s);
-                                });
-                                const avgEl = widget.querySelector('.rating-avg');
-                                if (avgEl) avgEl.textContent = `⭐ ${s}/5`;
-                                showToast('Rating saved!');
-                            } catch { showToast('Could not save rating.'); }
-                        };
-                    });
-                    const avgEl = widget.querySelector('.rating-avg');
-                    if (avgEl && count > 0) avgEl.textContent = `⭐ ${avg} (${count})`;
-                });
-            } catch (e) {
-                // Ratings unavailable — silently skip
-            }
-        }
+                                    try {
+                                        const { ratings } = await API.getRatings(domainId, stepIdx);
+                                        document.querySelectorAll('.res-rating').forEach(widget => {
+                                            const url = widget.dataset.url;
+                                            if (!url) return;
+                                            const info = ratings[url];
+                                            const userStars = info?.userStars || 0;
+                                            const avg = info?.avg || 0;
+                                            const count = info?.count || 0;
+                                            widget.querySelectorAll('.star-btn').forEach(btn => {
+                                                const s = Number(btn.dataset.star);
+                                                btn.classList.toggle('on', s <= userStars);
+                                                btn.onclick = async (e) => {
+                                                    e.stopPropagation();
+                                                    try {
+                                                        await API.submitRating(domainId, stepIdx, url, s);
+                                                        widget.querySelectorAll('.star-btn').forEach(b => {
+                                                            b.classList.toggle('on', Number(b.dataset.star) <= s);
+                                                        });
+                                                        const avgEl = widget.querySelector('.rating-avg');
+                                                        if (avgEl) avgEl.textContent = `â­ ${s}/5`;
+                                                        showToast('Rating saved!');
+                                                    } catch { showToast('Could not save rating.'); }
+                                                };
+                                            });
+                                            const avgEl = widget.querySelector('.rating-avg');
+                                            if (avgEl && count > 0) avgEl.textContent = `â­ ${avg} (${count})`;
+                                        });
+                                    } catch (e) {
+                                        // Ratings unavailable â€” silently skip
+                                    }
+                                }
     </script>
 
 </body>

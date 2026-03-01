@@ -56,10 +56,8 @@ const API = (() => {
         clearSession,
 
         // Auth
-        requestSignupOtp: (email) =>
-            request('POST', '/api/auth/request-signup-otp', { email }),
-        register: (name, email, password, otp) =>
-            request('POST', '/api/auth/register', { name, email, password, otp }),
+        register: (name, email, password) =>
+            request('POST', '/api/auth/register', { name, email, password }),
         login: (email, password) =>
             request('POST', '/api/auth/login', { email, password }),
         me: () =>

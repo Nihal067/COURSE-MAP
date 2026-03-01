@@ -8,31 +8,37 @@ function isValidEmail(email) {
 }
 
 export default function LoginPage() {
-    const { login, requestSignupOtp, register, isLoggedIn } = useAuth()
+    const { login, register, isLoggedIn } = useAuth()
     const navigate = useNavigate()
 
+    const [theme, setTheme] = useState('dark')
     const [tab, setTab] = useState('login')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [loading, setLoading] = useState(false)
-    const [otpSending, setOtpSending] = useState(false)
-    const [otpRequestedFor, setOtpRequestedFor] = useState('')
 
     const [signupName, setSignupName] = useState('')
     const [signupEmail, setSignupEmail] = useState('')
     const [signupPassword, setSignupPassword] = useState('')
-    const [signupOtp, setSignupOtp] = useState('')
 
     useEffect(() => {
         if (isLoggedIn) navigate('/dashboard')
     }, [isLoggedIn, navigate])
 
     useEffect(() => {
-        const normalized = signupEmail.trim().toLowerCase()
-        if (otpRequestedFor && normalized !== otpRequestedFor) {
-            setOtpRequestedFor('')
-        }
-    }, [signupEmail, otpRequestedFor])
+        const saved = localStorage.getItem('cm_theme')
+        const system = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        const active = saved || system
+        document.documentElement.setAttribute('data-theme', active)
+        setTheme(active)
+    }, [])
+
+    function toggleTheme() {
+        const next = theme === 'light' ? 'dark' : 'light'
+        localStorage.setItem('cm_theme', next)
+        document.documentElement.setAttribute('data-theme', next)
+        setTheme(next)
+    }
 
     async function handleLogin(e) {
         e.preventDefault()
@@ -53,32 +59,6 @@ export default function LoginPage() {
         }
     }
 
-    async function handleSendOtp() {
-        setError('')
-        setSuccess('')
-
-        const email = signupEmail.trim().toLowerCase()
-        if (!email) {
-            setError('Please enter your email first.')
-            return
-        }
-        if (!isValidEmail(email)) {
-            setError('Please enter a valid email address.')
-            return
-        }
-
-        setOtpSending(true)
-        try {
-            const data = await requestSignupOtp(email)
-            setOtpRequestedFor(email)
-            setSuccess(data.message || 'OTP sent to your email.')
-        } catch (err) {
-            setError(err.response?.data?.message || 'Could not send OTP. Please try again.')
-        } finally {
-            setOtpSending(false)
-        }
-    }
-
     async function handleRegister(e) {
         e.preventDefault()
         setError('')
@@ -87,7 +67,6 @@ export default function LoginPage() {
         const name = signupName.trim()
         const email = signupEmail.trim().toLowerCase()
         const password = signupPassword
-        const otp = signupOtp.trim()
 
         if (!name || !email || !password) {
             setError('Name, email and password are required.')
@@ -101,14 +80,10 @@ export default function LoginPage() {
             setError('Password must be at least 6 characters.')
             return
         }
-        if (otp && !/^\d{6}$/.test(otp)) {
-            setError('OTP must be 6 digits.')
-            return
-        }
 
         setLoading(true)
         try {
-            await register(name, email, password, otp)
+            await register(name, email, password)
             navigate('/dashboard')
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.')
@@ -119,6 +94,14 @@ export default function LoginPage() {
 
     return (
         <div className="login-page">
+            <button
+                type="button"
+                className="theme-toggle-login"
+                onClick={toggleTheme}
+                title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+            >
+                {theme === 'light' ? 'Dark' : 'Light'}
+            </button>
             <div className="login-bg">
                 <div className="orb orb-1" />
                 <div className="orb orb-2" />
@@ -128,7 +111,7 @@ export default function LoginPage() {
             <div className="login-container">
                 <div className="brand">
                     <div className="brand-icon">CM</div>
-                    <h1 className="gradient-text">CourseMap</h1>
+                    <h1>CourseMap</h1>
                     <p>Navigate your learning path with clarity</p>
                 </div>
 
@@ -169,7 +152,7 @@ export default function LoginPage() {
                             </div>
                             <div className="form-group">
                                 <label>Password</label>
-                                <input name="password" type="password" placeholder="Enter your password" required />
+                                <input name="password" type="password" required />
                             </div>
                             <button type="submit" className="btn-submit" disabled={loading}>
                                 {loading ? 'Signing in...' : 'Sign In'}
@@ -182,7 +165,6 @@ export default function LoginPage() {
                                 <input
                                     name="name"
                                     type="text"
-                                    placeholder="John Doe"
                                     value={signupName}
                                     onChange={(e) => setSignupName(e.target.value)}
                                     required
@@ -203,31 +185,10 @@ export default function LoginPage() {
                                 <input
                                     name="password"
                                     type="password"
-                                    placeholder="Min. 6 characters"
                                     minLength={6}
                                     value={signupPassword}
                                     onChange={(e) => setSignupPassword(e.target.value)}
                                     required
-                                />
-                            </div>
-                            <button
-                                type="button"
-                                className="btn-submit"
-                                onClick={handleSendOtp}
-                                disabled={otpSending}
-                            >
-                                {otpSending ? 'Sending OTP...' : 'Send OTP'}
-                            </button>
-                            <div className="form-group">
-                                <label>Email OTP</label>
-                                <input
-                                    name="otp"
-                                    type="text"
-                                    placeholder="Enter 6-digit OTP"
-                                    maxLength={6}
-                                    inputMode="numeric"
-                                    value={signupOtp}
-                                    onChange={(e) => setSignupOtp(e.target.value)}
                                 />
                             </div>
                             <button type="submit" className="btn-submit" disabled={loading}>

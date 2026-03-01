@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Visibility Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fdf6ec;
+            color: #2f221a;
+            padding: 20px;
+        }
+
+        .test-section {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #d49473;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #d49473;
+            padding-bottom: 10px;
+        }
+
+        .result {
+            font-size: 14px;
+            line-height: 1.6;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .success {
+            background: #ecfdf5;
+            color: #065f46;
+            border-left: 4px solid #10b981;
+        }
+
+        .warning {
+            background: #fffbeb;
+            color: #78350f;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .error {
+            background: #fef2f2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+
+        .code {
+            background: #f3f4f6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 Domain Visibility Test</h1>
+
+    <div class="test-section">
+        <h2>1. DOM Elements Check</h2>
+        <div id="dom-check"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Test Data Loading</h2>
+        <div id="data-check"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Theme System Check</h2>
+        <div id="theme-check"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4. URL Parameter Check</h2>
+        <div id="url-check"></div>
+    </div>
+
+    <script>
+        function addResult(containerId, title, content, type = 'success') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = `<strong>${title}</strong><br>${content}`;
+            container.appendChild(div);
+        }
+
+        // Test 1: DOM Elements
+        const domCheck = document.getElementById('dom-check');
+        const elements = {
+            'domain-header': document.getElementById('domain-header') || 'NOT FOUND',
+            'domain-name-h1': document.querySelector('#domain-name-h1') || 'NOT FOUND',
+            'domain-cat': document.querySelector('#domain-cat') || 'NOT FOUND',
+            'meta-steps': document.querySelector('#meta-steps') || 'NOT FOUND',
+            'meta-resources': document.querySelector('#meta-resources') || 'NOT FOUND',
+        };
+        const elementStatus = Object.keys(elements).map(key =>
+            `${key}: ${elements[key] !== 'NOT FOUND' ? '✓ Present' : '✗ Missing'}`
+        ).join('<br>');
+        addResult('dom-check', 'DOM Elements Status:', elementStatus,
+            Object.values(elements).every(e => e !== 'NOT FOUND') ? 'success' : 'error');
+
+        // Test 4: URL Parameters
+        const params = new URLSearchParams(window.location.search);
+        const domainId = params.get('domain');
+        addResult('url-check', 'URL Domain Parameter:',
+            domainId ? `✓ Found: "${domainId}"` : '✗ Not found (URL params empty)',
+            domainId ? 'success' : 'warning');
+
+        // Test 2: Check if data would load
+        addResult('data-check', 'Data Files:', 'Roadmap should load: js/data.js, js/data_govt.js, js/data_more.js', 'success');
+
+        // Test 3: Theme
+        const htmlTheme = document.documentElement.getAttribute('data-theme') || 'not set';
+        const cssVariables = getComputedStyle(document.documentElement);
+        const bgColor = cssVariables.getPropertyValue('--bg') || 'undefined';
+        const textColor = cssVariables.getPropertyValue('--t1') || 'undefined';
+        const themeStatus = `Theme: ${htmlTheme}<br>CSS Variables: ${bgColor && textColor ? '✓ Loaded' : '✗ Not found'}`;
+        addResult('theme-check', 'Theme System:', themeStatus,
+            (bgColor && textColor) ? 'success' : 'warning');
+    </script>
+</body>
+
+</html>

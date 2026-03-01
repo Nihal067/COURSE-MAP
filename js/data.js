@@ -8,14 +8,14 @@ const DOMAINS = [
                     { name: "HTML & CSS for Beginners", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "HTML, CSS & JavaScript", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses" },
                     { name: "Web Development Basics", platform: "Google (Coursera)", url: "https://learndigital.withgoogle.com/digitalgarage" },
-                    { name: "Advanced CSS Layouts", platform: "Udemy", url: "https://www.udemy.com/course/advanced-css-and-sass/" },
+                    { name: "Advanced CSS Layouts", platform: "Udemy", url: "https://www.freecodecamp.org/learn/2022/responsive-web-design/" },
                     { name: "Mastering Flexbox", platform: "LinkedIn Learning", url: "https://www.linkedin.com/learning/css-essential-training" },
-                    { name: "CSS Grid Essentials", platform: "Pluralsight", url: "https://www.pluralsight.com/courses/css-grid-layout" },
-                    { name: "HTML5 APIs", platform: "Coursera", url: "https://www.coursera.org/learn/html5" },
+                    { name: "CSS Grid Essentials", platform: "Pluralsight", url: "https://www.pluralsight.com/browse" },
+                    { name: "HTML5 APIs", platform: "Coursera", url: "https://www.coursera.org/search?query=HTML5%20APIs" },
                     { name: "Responsive Web Design Certification", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/responsive-web-design/" },
                     { name: "Modern Web Layouts", platform: "edX", url: "https://www.edx.org/learn/web-development" },
                     { name: "CSS Animations in Depth", platform: "Frontend Masters", url: "https://frontendmasters.com/courses/css-animations/" },
-                    { name: "Web Development in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/web-dev/" },
+                    { name: "Web Development in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/courses/" },
                     { name: "HTML & CSS Bootcamp", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" },
                     { name: "Web Dev Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/web-development-course/" }
                 ],
@@ -35,31 +35,30 @@ const DOMAINS = [
                     { name: "CSS Flexbox & Grid Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=Y6mbMKHHTu8" }
                 ],
                 books: [
-                    { name: "HTML & CSS: Design and Build Web Sites – Jon Duckett", url: "https://www.htmlandcssbook.com/" },
-                    { name: "Learning Web Design – Jennifer Robbins (O'Reilly)", url: "https://www.oreilly.com/library/view/learning-web-design/9781491960196/" },
-                    { name: "CSS Secrets – Lea Verou", url: "https://csssecrets.io/" },
-                    { name: "HTML5: The Missing Manual", url: "https://www.oreilly.com/library/view/html5-the-missing/9781449332616/" },
+                    { name: "HTML & CSS: Design and Build Web Sites – Jon Duckett", url: "https://www.wiley.com/en-in/HTML+and+CSS%3A+Design+and+Build+Web+Sites-p-9781118008188" },
+                    { name: "Learning Web Design – Jennifer Robbins (O'Reilly)", url: "https://www.amazon.com/s?k=Learning+Web+Design+Jennifer+Robbins" },
+                    { name: "CSS Secrets – Lea Verou", url: "https://www.amazon.com/CSS-Secrets-Better-Solutions-Everyday/dp/1449372635" },
+                    { name: "HTML5: The Missing Manual", url: "https://www.amazon.com/s?k=HTML5+The+Missing+Manual" },
                     { name: "CSS in Depth – Keith J. Grant", url: "https://www.manning.com/books/css-in-depth" },
                     { name: "Responsive Web Design – Ethan Marcotte", url: "https://abookapart.com/products/responsive-web-design" },
                     { name: "Smashing Book #5", url: "https://www.smashingmagazine.com/books/" },
                     { name: "HTML and CSS Visual QuickStart Guide", url: "https://www.peachpit.com/" },
                     { name: "Sass for Web Designers", url: "https://abookapart.com/products/sass-for-web-designers" },
-                    { name: "Modern CSS Mastery", url: "https://www.amazon.in/Modern-CSS-Every-Practical-Guide/dp/B0BLN3PCZG" },
-                    { name: "HTML & CSS (Hindi Edition) – S. Chand", url: "https://www.schandpublishing.com/" },
-                    { name: "Web Technology – Black Book (Dreamtech)", url: "https://www.dreamtechpress.com/" }
+                    { name: "HTML & CSS (Hindi Edition) – S. Chand", url: "https://www.amazon.com/s?k=HTML+CSS+Hindi+Edition" },
+                    { name: "Web Technology – Black Book (Dreamtech)", url: "https://www.bpbonline.com/" }
                 ],
                 websites: [
                     { name: "MDN Web Docs – HTML Reference", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
                     { name: "freeCodeCamp – Responsive Web Design", url: "https://www.freecodecamp.org/learn/responsive-web-design/" },
                     { name: "CSS-Tricks", url: "https://css-tricks.com/" },
                     { name: "Smashing Magazine", url: "https://www.smashingmagazine.com/" },
-                    { name: "HTML.com Tutorials", url: "https://html.com/" },
+                    { name: "HTML.com Tutorials", url: "https://developer.mozilla.org/en-US/docs/Learn_web_development" },
                     { name: "W3Schools HTML & CSS", url: "https://www.w3schools.com/" },
                     { name: "CSS Reference", url: "https://cssreference.io/" },
                     { name: "HTML Reference", url: "https://htmlreference.io/" },
                     { name: "Frontend Mentor", url: "https://www.frontendmentor.io/" },
-                    { name: "CodePen", url: "https://codepen.io/" },
-                    { name: "CodeWithHarry – Web Dev Notes", url: "https://www.codewithharry.com/tutorial/web-dev/" },
+                    { name: "CodePen", url: "https://codesandbox.io/" },
+                    { name: "CodeWithHarry – Web Dev Notes", url: "https://www.codewithharry.com/courses/" },
                     { name: "GeeksforGeeks – HTML/CSS", url: "https://www.geeksforgeeks.org/html/" },
                     { name: "NPTEL – Web Technologies", url: "https://nptel.ac.in/courses/106105084" }
                 ]
@@ -68,9 +67,9 @@ const DOMAINS = [
                 title: "JavaScript Essentials", desc: "Variables, DOM manipulation, events, async/await, and ES6+.", dur: "4-6 weeks",
                 courses: [
                     { name: "JavaScript for Beginners", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "JavaScript Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/javascript-fundamentals" },
-                    { name: "The Complete JavaScript Course", platform: "Udemy", url: "https://www.udemy.com/course/the-complete-javascript-course/" },
-                    { name: "JavaScript in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/javascript/" },
+                    { name: "JavaScript Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
+                    { name: "The Complete JavaScript Course", platform: "Udemy", url: "https://javascript.info/" },
+                    { name: "JavaScript in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/courses/" },
                     { name: "JavaScript Full Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
                 videos: [
@@ -96,7 +95,7 @@ const DOMAINS = [
                 courses: [
                     { name: "React JS Certification Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "React for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/react-js-tutorial" },
-                    { name: "React – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/" },
+                    { name: "React – The Complete Guide", platform: "Udemy", url: "https://react.dev/learn" },
                     { name: "React JS Hindi Tutorial", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "React JS Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
@@ -108,7 +107,7 @@ const DOMAINS = [
                 ],
                 books: [
                     { name: "Road to React – Robin Wieruch (Free PDF)", url: "https://www.roadtoreact.com/" },
-                    { name: "Learning React – Alex Banks & Eve Porcello (O'Reilly)", url: "https://www.oreilly.com/library/view/learning-react-2nd/9781492051718/" }
+                    { name: "Learning React – Alex Banks & Eve Porcello (O'Reilly)", url: "https://www.amazon.com/s?k=Learning+React+Alex+Banks+Eve+Porcello" }
                 ],
                 websites: [
                     { name: "React Official Docs", url: "https://react.dev/" },
@@ -119,14 +118,14 @@ const DOMAINS = [
                 title: "Advanced: TypeScript & Testing", desc: "TypeScript types, generics, Jest, and end-to-end testing with Playwright.", dur: "3-4 weeks",
                 courses: [
                     { name: "TypeScript Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "TypeScript Tutorial", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/typescript-tutorial" }
+                    { name: "TypeScript Tutorial", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "TypeScript Full Course for Beginners", platform: "YouTube – Dave Gray", url: "https://www.youtube.com/watch?v=30LWjhZzg50" },
                     { name: "Jest Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=7r4xVDI2vho" }
                 ],
                 books: [
-                    { name: "Programming TypeScript – Boris Cherny (O'Reilly)", url: "https://www.oreilly.com/library/view/programming-typescript/9781492037644/" }
+                    { name: "Programming TypeScript – Boris Cherny (O'Reilly)", url: "https://www.amazon.com/s?k=Programming+TypeScript+Boris+Cherny" }
                 ],
                 websites: [
                     { name: "TypeScript Official Docs", url: "https://www.typescriptlang.org/docs/" },
@@ -142,8 +141,8 @@ const DOMAINS = [
                 title: "Node.js & Server Basics", desc: "Server-side JS, modules, HTTP, and the event loop.", dur: "3-4 weeks",
                 courses: [
                     { name: "Node.js Certification Training", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Node.js for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/node-js-tutorial" },
-                    { name: "Node.js – The Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/nodejs-the-complete-guide/" },
+                    { name: "Node.js for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
+                    { name: "Node.js – The Complete Guide", platform: "Udemy", url: "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs" },
                     { name: "Node.js Hindi Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "Backend with Node.js", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
@@ -166,9 +165,9 @@ const DOMAINS = [
                 title: "Databases – SQL & NoSQL", desc: "PostgreSQL, MySQL, MongoDB data modeling and querying.", dur: "4-5 weeks",
                 courses: [
                     { name: "SQL for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/sql-for-data-science" },
-                    { name: "MySQL Developer Certification", platform: "Oracle", url: "https://education.oracle.com/mysql-developer" },
+                    { name: "MySQL Developer Certification", platform: "Oracle", url: "https://education.oracle.com/" },
                     { name: "MongoDB University (Free)", platform: "MongoDB", url: "https://university.mongodb.com/" },
-                    { name: "SQL in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/tutorial/sql/" },
+                    { name: "SQL in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/courses/" },
                     { name: "Database Systems", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105175" },
                     { name: "MySQL Full Course", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
                 ],
@@ -179,8 +178,8 @@ const DOMAINS = [
                     { name: "MySQL Full Course Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=7S_tz1z_5bA" }
                 ],
                 books: [
-                    { name: "Learning SQL – Alan Beaulieu (O'Reilly, Free)", url: "https://www.oreilly.com/library/view/learning-sql-3rd/9781492057604/" },
-                    { name: "MongoDB: The Definitive Guide (O'Reilly)", url: "https://www.oreilly.com/library/view/mongodb-the-definitive/9781491954454/" }
+                    { name: "Learning SQL – Alan Beaulieu (O'Reilly, Free)", url: "https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu" },
+                    { name: "MongoDB: The Definitive Guide (O'Reilly)", url: "https://www.amazon.com/s?k=MongoDB+The+Definitive+Guide" }
                 ],
                 websites: [
                     { name: "SQLZoo – Interactive SQL Practice", url: "https://sqlzoo.net/" },
@@ -191,14 +190,14 @@ const DOMAINS = [
                 title: "REST APIs & Authentication", desc: "Express.js REST APIs, JWT auth, OAuth2, and security best practices.", dur: "3-4 weeks",
                 courses: [
                     { name: "RESTful APIs with Node & Express", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "API Development", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/api-integration" }
+                    { name: "API Development", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "REST API Tutorial – Node, Express, MongoDB", platform: "YouTube – Web Dev Simplified", url: "https://www.youtube.com/watch?v=fgTGADljAeg" },
                     { name: "JWT Authentication Tutorial", platform: "YouTube – Web Dev Simplified", url: "https://www.youtube.com/watch?v=mbsmsi7l3r4" }
                 ],
                 books: [
-                    { name: "REST API Design Rulebook – Masse (O'Reilly)", url: "https://www.oreilly.com/library/view/rest-api-design/9781449317904/" }
+                    { name: "REST API Design Rulebook – Masse (O'Reilly)", url: "https://www.amazon.com/s?k=REST+API+Design+Rulebook+Mark+Masse" }
                 ],
                 websites: [
                     { name: "Postman Learning Center", url: "https://learning.postman.com/" },
@@ -220,7 +219,7 @@ const DOMAINS = [
                     { name: "DevOps Full Course Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/watch?v=jNJEbZI2uOc" }
                 ],
                 books: [
-                    { name: "Docker Deep Dive – Nigel Poulton (Free Preview)", url: "https://www.oreilly.com/library/view/docker-deep-dive/9781801074612/" }
+                    { name: "Docker Deep Dive – Nigel Poulton (Free Preview)", url: "https://www.amazon.com/s?k=Docker+Deep+Dive+Nigel+Poulton" }
                 ],
                 websites: [
                     { name: "Docker Official Docs", url: "https://docs.docker.com/" },
@@ -250,7 +249,7 @@ const DOMAINS = [
                     { name: "Python Playlist", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" },
                     { name: "Data Science Full Course Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=1j0bPYvQMFg" },
                     { name: "Data Science Roadmap Hindi", platform: "YouTube – Campus X", url: "https://www.youtube.com/@campusx-official" },
-                    { name: "Statistics for Data Science", platform: "YouTube – PW Skills", url: "https://www.youtube.com/c/PWSkills" }
+                    { name: "Statistics for Data Science", platform: "YouTube – PW Skills", url: "https://www.youtube.com/@PWSkills" }
                 ],
                 books: [
                     { name: "Automate the Boring Stuff with Python (Free Online)", url: "https://automatetheboringstuff.com/" },
@@ -261,14 +260,14 @@ const DOMAINS = [
                     { name: "W3Schools Python", url: "https://www.w3schools.com/python/" },
                     { name: "NPTEL – Data Science Courses", url: "https://nptel.ac.in/courses/106106198" },
                     { name: "Analytics Vidhya (India)", url: "https://www.analyticsvidhya.com/" },
-                    { name: "InterviewBit – Data Science", url: "https://www.interviewbit.com/data-science-interview-questions/" }
+                    { name: "InterviewBit – Data Science", url: "https://www.interviewbit.com/" }
                 ]
             },
             {
                 title: "Statistics & Probability", desc: "Descriptive stats, probability distributions, and hypothesis testing.", dur: "4-5 weeks",
                 courses: [
                     { name: "Statistics for Data Science", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Statistics & Probability", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/probability-and-statistics" }
+                    { name: "Statistics & Probability", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Statistics – Full College Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=xxpc-HPKN28" },
@@ -286,7 +285,7 @@ const DOMAINS = [
             {
                 title: "Data Wrangling with Pandas", desc: "Data cleaning, manipulation using Pandas and NumPy.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Data Analysis with Python", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/data-analysis-with-pandas-and-python" },
+                    { name: "Data Analysis with Python", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Pandas – freeCodeCamp", platform: "freeCodeCamp", url: "https://www.freecodecamp.org/learn/data-analysis-with-python/" }
                 ],
                 videos: [
@@ -294,7 +293,7 @@ const DOMAINS = [
                     { name: "NumPy Crash Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=8Y0qQEh7dJg" }
                 ],
                 books: [
-                    { name: "Python for Data Analysis – Wes McKinney (O'Reilly)", url: "https://www.oreilly.com/library/view/python-for-data/9781491957653/" }
+                    { name: "Python for Data Analysis – Wes McKinney", url: "https://www.amazon.com/s?k=Python+for+Data+Analysis+Wes+McKinney" }
                 ],
                 websites: [
                     { name: "Kaggle – Pandas Course (Free)", url: "https://www.kaggle.com/learn/pandas" },
@@ -318,15 +317,15 @@ const DOMAINS = [
                     { name: "ML Full Playlist – Krish Naik", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" }
                 ],
                 books: [
-                    { name: "Hands-On Machine Learning – Géron (O'Reilly)", url: "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" },
+                    { name: "Hands-On Machine Learning – Géron", url: "https://www.amazon.com/s?k=Hands-On+Machine+Learning+with+Scikit-Learn+Keras+TensorFlow+Aurelien+Geron" },
                     { name: "An Introduction to Statistical Learning (Free PDF)", url: "https://www.statlearning.com/" }
                 ],
                 websites: [
                     { name: "Kaggle – Machine Learning Course", url: "https://www.kaggle.com/learn/intro-to-machine-learning" },
-                    { name: "Scikit-Learn Docs & Tutorials", url: "https://scikit-learn.org/stable/tutorial/" },
+                    { name: "Scikit-Learn Docs & Tutorials", url: "https://scikit-learn.org/stable/getting_started.html" },
                     { name: "Analytics Vidhya – ML Tutorials", url: "https://www.analyticsvidhya.com/blog/category/machine-learning/" },
                     { name: "NPTEL – Deep Learning", url: "https://nptel.ac.in/courses/106106184" },
-                    { name: "InterviewBit – ML Questions", url: "https://www.interviewbit.com/machine-learning-interview-questions/" }
+                    { name: "InterviewBit – ML Questions", url: "https://www.interviewbit.com/" }
                 ]
             }
         ]
@@ -366,7 +365,7 @@ const DOMAINS = [
                     { name: "Machine Learning Zero to Hero", platform: "YouTube – Google Developers", url: "https://www.youtube.com/watch?v=VwVg9jCtqaU" }
                 ],
                 books: [
-                    { name: "Pattern Recognition & ML – Bishop (Free PDF)", url: "https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf" }
+                    { name: "Pattern Recognition & ML – Bishop", url: "https://link.springer.com/book/10.1007/978-0-387-45528-0" }
                 ],
                 websites: [
                     { name: "Google ML Crash Course", url: "https://developers.google.com/machine-learning/crash-course" },
@@ -399,7 +398,7 @@ const DOMAINS = [
                 title: "NLP & Generative AI", desc: "Transformers, LLMs, prompt engineering, and RAG systems.", dur: "5-6 weeks",
                 courses: [
                     { name: "NLP Specialization", platform: "Coursera", url: "https://www.coursera.org/specializations/natural-language-processing" },
-                    { name: "Generative AI Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/intro-to-generative-ai" },
+                    { name: "Generative AI Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "LLM Applications", platform: "Kaggle", url: "https://www.kaggle.com/learn" }
                 ],
                 videos: [
@@ -407,7 +406,7 @@ const DOMAINS = [
                     { name: "LangChain Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=lG7Uxts9SXs" }
                 ],
                 books: [
-                    { name: "Natural Language Processing with Transformers (Hugging Face)", url: "https://www.oreilly.com/library/view/natural-language-processing/9781098136789/" }
+                    { name: "Natural Language Processing with Transformers (Hugging Face)", url: "https://www.amazon.com/s?k=Natural+Language+Processing+with+Transformers+Lewis+Tunstall" }
                 ],
                 websites: [
                     { name: "Hugging Face – NLP Course (Free)", url: "https://huggingface.co/learn/nlp-course" },
@@ -424,7 +423,7 @@ const DOMAINS = [
                 courses: [
                     { name: "Networking Basics", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/networking/networking-basics" },
                     { name: "Introduction to Cybersecurity", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/intro-cybersecurity" },
-                    { name: "Linux Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/linux-fundamentals" }
+                    { name: "Linux Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Networking Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=qiQR5rTSshw" },
@@ -445,17 +444,17 @@ const DOMAINS = [
                 title: "Security Foundations & Protocols", desc: "CIA triad, encryption, PKI, TLS, and risk management.", dur: "4-5 weeks",
                 courses: [
                     { name: "Cybersecurity Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "CompTIA Security+ Prep", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/cyber-security-course" },
+                    { name: "CompTIA Security+ Prep", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Cybersecurity Essentials", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/cybersecurity-essentials" },
                     { name: "Ethical Hacking in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
-                    { name: "Cybersecurity Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/cybersecurity-course/" }
+                    { name: "Cybersecurity Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/" }
                 ],
                 videos: [
                     { name: "Cybersecurity Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=U_P23SqJaDc" },
                     { name: "CompTIA Security+ Full Course", platform: "YouTube – Professor Messer", url: "https://www.youtube.com/playlist?list=PLG49S3nxzAnkL2ulFS3132mOVKuzzBxA8" }
                 ],
                 books: [
-                    { name: "CompTIA Security+ Study Guide – Chapple (Sybex)", url: "https://www.wiley.com/en-us/CompTIA+Security%2B+Study+Guide-p-9781119676287" },
+                    { name: "CompTIA Security+ Study Guide – Chapple (Sybex)", url: "https://www.wiley.com/" },
                     { name: "The Web Application Hacker's Handbook", url: "https://www.wiley.com/en-us/The+Web+Application+Hacker%27s+Handbook-p-9781118026472" }
                 ],
                 websites: [
@@ -467,7 +466,7 @@ const DOMAINS = [
                 title: "Ethical Hacking & Pentesting", desc: "Recon, scanning, exploitation, and responsible disclosure.", dur: "6-8 weeks",
                 courses: [
                     { name: "Ethical Hacking Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Certified Ethical Hacker (CEH)", platform: "EC-Council (Great Learning)", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/ethical-hacking-course" }
+                    { name: "Certified Ethical Hacker (CEH)", platform: "EC-Council (Great Learning)", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Full Ethical Hacking Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=3Kq1MIfTWCE" },
@@ -475,7 +474,7 @@ const DOMAINS = [
                 ],
                 books: [
                     { name: "The Hacker Playbook 3 – Peter Kim", url: "https://www.amazon.com/Hacker-Playbook-Practical-Penetration-Testing/dp/1980901759" },
-                    { name: "Penetration Testing – Georgia Weidman", url: "https://nostarch.com/penetrationtesting" }
+                    { name: "Penetration Testing – Georgia Weidman", url: "https://nostarch.com/catalog/security" }
                 ],
                 websites: [
                     { name: "Hack The Box – Practice Hacking", url: "https://www.hackthebox.com/" },
@@ -492,7 +491,7 @@ const DOMAINS = [
                 courses: [
                     { name: "AWS Certified Cloud Practitioner", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Google Cloud Foundations", platform: "Google Cloud Skills Boost", url: "https://www.cloudskillsboost.google/paths/9" },
-                    { name: "Oracle Cloud Infrastructure Foundations", platform: "Oracle", url: "https://education.oracle.com/oracle-cloud-infrastructure-2023-foundations-associate" },
+                    { name: "Oracle Cloud Infrastructure Foundations", platform: "Oracle", url: "https://education.oracle.com/" },
                     { name: "AWS Cloud in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "Cloud Computing Bootcamp", platform: "PW Skills", url: "https://pwskills.com/" },
                     { name: "Cloud Computing", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105167" }
@@ -504,7 +503,7 @@ const DOMAINS = [
                     { name: "Cloud Computing in Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/@GateSmashers" }
                 ],
                 books: [
-                    { name: "AWS Certified Cloud Practitioner Study Guide – Sybex", url: "https://www.wiley.com/en-us/AWS+Certified+Cloud+Practitioner+Study+Guide-p-9781119490708" }
+                    { name: "AWS Certified Cloud Practitioner Study Guide – Sybex", url: "https://www.wiley.com/" }
                 ],
                 websites: [
                     { name: "AWS Skill Builder (Free Tier)", url: "https://skillbuilder.aws/" },
@@ -517,7 +516,7 @@ const DOMAINS = [
                 title: "Containers – Docker & Kubernetes", desc: "Containerize apps, Kubernetes clusters, Helm charts.", dur: "4-5 weeks",
                 courses: [
                     { name: "Docker & Kubernetes Training", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Docker for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/docker-tutorial" }
+                    { name: "Docker for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Docker & Kubernetes Full Course", platform: "YouTube – TechWorld with Nana", url: "https://www.youtube.com/watch?v=3c-iBn73dDE" },
@@ -535,14 +534,14 @@ const DOMAINS = [
                 title: "Infrastructure as Code & DevOps", desc: "Terraform, CloudFormation, CI/CD pipelines in the cloud.", dur: "3-4 weeks",
                 courses: [
                     { name: "Terraform Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Oracle DevOps Foundations", platform: "Oracle", url: "https://education.oracle.com/oracle-cloud-infrastructure-devops-professional" }
+                    { name: "Oracle DevOps Foundations", platform: "Oracle", url: "https://education.oracle.com/" }
                 ],
                 videos: [
                     { name: "Terraform Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=SLB_c_ayRMo" },
                     { name: "GitHub Actions CI/CD Tutorial", platform: "YouTube – TechWorld with Nana", url: "https://www.youtube.com/watch?v=R8_veQiYBjI" }
                 ],
                 books: [
-                    { name: "Terraform: Up & Running – Brikman (O'Reilly)", url: "https://www.oreilly.com/library/view/terraform-up-and/9781098116736/" }
+                    { name: "Terraform: Up & Running – Brikman", url: "https://www.amazon.com/s?k=Terraform+Up+and+Running+Yevgeniy+Brikman" }
                 ],
                 websites: [
                     { name: "HashiCorp Learn – Terraform", url: "https://developer.hashicorp.com/terraform/tutorials" },
@@ -558,7 +557,7 @@ const DOMAINS = [
                 title: "Git, Linux & Shell Scripting", desc: "Version control workflows, bash scripting, and system administration.", dur: "2-3 weeks",
                 courses: [
                     { name: "DevOps Engineer Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Linux & Shell Scripting", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/linux-fundamentals" }
+                    { name: "Linux & Shell Scripting", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Git & GitHub Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=SWYqp7iY_Tc" },
@@ -576,7 +575,7 @@ const DOMAINS = [
                 title: "CI/CD & Automation", desc: "Jenkins, GitHub Actions, GitLab CI, and automated pipelines.", dur: "3-4 weeks",
                 courses: [
                     { name: "Jenkins for DevOps", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "DevOps with GitHub Actions", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/github-for-beginners" }
+                    { name: "DevOps with GitHub Actions", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Jenkins Full Course", platform: "YouTube – Edureka", url: "https://www.youtube.com/watch?v=FX322RVNGj4" },
@@ -617,8 +616,8 @@ const DOMAINS = [
                 title: "Flutter & Dart Foundations", desc: "Dart syntax, Flutter widgets, layouts, and state management.", dur: "4-5 weeks",
                 courses: [
                     { name: "Flutter App Development", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Flutter for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/flutter-tutorial" },
-                    { name: "Flutter & Dart", platform: "Udemy – Angela Yu", url: "https://www.udemy.com/course/flutter-bootcamp-with-dart/" },
+                    { name: "Flutter for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
+                    { name: "Flutter & Dart", platform: "Flutter Docs", url: "https://docs.flutter.dev/get-started/codelab" },
 ,
                     { name: "Flutter in Hindi Full Course", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "Android Development in Hindi", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" }
@@ -641,14 +640,14 @@ const DOMAINS = [
                 title: "React Native", desc: "Cross-platform iOS/Android apps with React Native.", dur: "4-5 weeks",
                 courses: [
                     { name: "React Native Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "React Native Full Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/react-native-tutorial" }
+                    { name: "React Native Full Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "React Native Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=Hf4MJH0jDb4" },
                     { name: "React Native Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=obH0Po_RdWk" }
                 ],
                 books: [
-                    { name: "Learning React Native – Bonnie Eisenman (O'Reilly)", url: "https://www.oreilly.com/library/view/learning-react-native/9781491929049/" }
+                    { name: "Learning React Native – Bonnie Eisenman", url: "https://www.amazon.com/s?k=Learning+React+Native+Bonnie+Eisenman" }
                 ],
                 websites: [
                     { name: "React Native Official Docs", url: "https://reactnative.dev/docs/getting-started" },
@@ -682,7 +681,7 @@ const DOMAINS = [
                 courses: [
                     { name: "SQL for Data Engineering", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "SQL & Databases", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/sql-for-data-science" },
-                    { name: "Oracle Database SQL Certified", platform: "Oracle", url: "https://education.oracle.com/oracle-database-sql-certified-associate-exam-1z0-071" }
+                    { name: "Oracle Database SQL Certified", platform: "Oracle", url: "https://education.oracle.com/" }
                 ],
                 videos: [
                     { name: "SQL for Data Engineers", platform: "YouTube – Alex The Analyst", url: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
@@ -700,7 +699,7 @@ const DOMAINS = [
                 title: "ETL Pipelines & Airflow", desc: "Extract-Transform-Load, Apache Airflow DAGs, and workflow scheduling.", dur: "4-5 weeks",
                 courses: [
                     { name: "Data Engineering with Python", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Apache Airflow Certification", platform: "Astronomer (Great Learning)", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/data-engineering-essentials" }
+                    { name: "Apache Airflow Certification", platform: "Astronomer (Great Learning)", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Apache Airflow Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=K9AnJ9_ZAXE" },
@@ -718,7 +717,7 @@ const DOMAINS = [
                 title: "Apache Spark & Streaming", desc: "Big data with PySpark, Kafka, and real-time streaming pipelines.", dur: "5-6 weeks",
                 courses: [
                     { name: "Apache Spark with Python", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Kafka & Spark Streaming", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/big-data-analytics" }
+                    { name: "Kafka & Spark Streaming", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Apache Spark Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=_C8kWso4ne4" },
@@ -741,17 +740,17 @@ const DOMAINS = [
                 title: "C# / C++ Programming", desc: "Core programming in C# for Unity or C++ for Unreal Engine.", dur: "4-6 weeks",
                 courses: [
                     { name: "C# for Beginners", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "C++ Certification", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/c-plus-plus" }
+                    { name: "C++ Certification", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "C# Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=GhQdlIFylQ8" },
                     { name: "C++ Tutorial for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=vLnPwxZdW4Y" },
                     { name: "C# Full Course in Hindi", platform: "YouTube – CodeWithHarry", url: "https://www.youtube.com/watch?v=SuLiu5AK9Ps" },
-                    { name: "Game Dev in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/@ThapaAnimator" }
+                    { name: "Game Dev in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/results?search_query=Game%20Dev%20in%20Hindi" }
                 ],
                 books: [
                     { name: "C# Programming – Yellow Book (Free PDF)", url: "http://www.csharpcourse.com/" },
-                    { name: "Programming: Principles and Practice Using C++ – Stroustrup", url: "https://www.stroustrup.com/Programming/" }
+                    { name: "Programming: Principles and Practice Using C++ – Stroustrup", url: "https://www.geeksforgeeks.org/?s=Programming%3A%20Principles%20and%20Practice%20Using%20C%2B%2B%20%E2%80%93%20Stroustrup" }
                 ],
                 websites: [
                     { name: "Microsoft Learn – C# Fundamentals", url: "https://learn.microsoft.com/en-us/dotnet/csharp/" },
@@ -762,7 +761,7 @@ const DOMAINS = [
                 title: "Unity Game Engine", desc: "Unity editor, physics, scene management, animations, and 2D/3D games.", dur: "6-8 weeks",
                 courses: [
                     { name: "Unity Game Developer", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Unity for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/unity-3d-game-development" }
+                    { name: "Unity for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Unity Beginner Tutorial – Make a Game", platform: "YouTube – Brackeys", url: "https://www.youtube.com/watch?v=pwZpJzpE2lQ" },
@@ -780,7 +779,7 @@ const DOMAINS = [
                 title: "Publishing & Game Design", desc: "Game design principles, balancing, and publishing to Steam/mobile.", dur: "3-4 weeks",
                 courses: [
                     { name: "Game Design & Theory", platform: "Coursera – CalArts", url: "https://www.coursera.org/learn/game-design" },
-                    { name: "Game Dev Business", platform: "Udemy", url: "https://www.udemy.com/course/game-marketing/" }
+                    { name: "Game Dev Business", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Game%20Dev%20Business%20tutorial" }
                 ],
                 videos: [
                     { name: "How to Publish on Steam", platform: "YouTube – Brackeys", url: "https://www.youtube.com/watch?v=V5HMzmjQ6yI" },
@@ -815,13 +814,13 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Refactoring UI – Design Tips", url: "https://www.refactoringui.com/" },
-                    { name: "Nielsen Norman Group – UX Research", url: "https://www.nngroup.com/" }
+                    { name: "Nielsen Norman Group – UX Research", url: "https://www.geeksforgeeks.org/?s=Nielsen%20Norman%20Group%20%E2%80%93%20UX%20Research" }
                 ]
             },
             {
                 title: "Figma Mastery", desc: "Components, auto-layout, variants, prototyping, and design systems.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Figma UI Design", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-figma" },
+                    { name: "Figma UI Design", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "UX Design with Figma", platform: "Simplilearn", url: "https://www.simplilearn.com/" }
                 ],
                 videos: [
@@ -829,10 +828,10 @@ const DOMAINS = [
                     { name: "Figma Auto Layout Tutorial", platform: "YouTube – Figma", url: "https://www.youtube.com/watch?v=TyaGpGDFczw" }
                 ],
                 books: [
-                    { name: "Figma for UX Designers – Pratik Anand", url: "https://www.packtpub.com/product/figma-for-ux-designers/9781800561564" }
+                    { name: "Figma for UX Designers – Pratik Anand", url: "https://www.amazon.com/s?k=Figma%20for%20UX%20Designers%20%E2%80%93%20Pratik%20Anand" }
                 ],
                 websites: [
-                    { name: "Figma Resources & Community", url: "https://www.figma.com/community" },
+                    { name: "Figma Resources & Community", url: "https://www.geeksforgeeks.org/?s=Figma%20Resources%20%26%20Community" },
                     { name: "Figma Official Learn Portal", url: "https://www.figma.com/resources/learn-design/" }
                 ]
             },
@@ -850,7 +849,7 @@ const DOMAINS = [
                     { name: "Just Enough Research – Erika Hall", url: "https://abookapart.com/products/just-enough-research" }
                 ],
                 websites: [
-                    { name: "UX Planet – Articles & Case Studies", url: "https://uxplanet.org/" },
+                    { name: "UX Planet – Articles & Case Studies", url: "https://www.geeksforgeeks.org/?s=UX%20Planet%20%E2%80%93%20Articles%20%26%20Case%20Studies" },
                     { name: "Maze – Usability Testing Tool (Free Tier)", url: "https://maze.co/" }
                 ]
             }
@@ -864,7 +863,7 @@ const DOMAINS = [
                 courses: [
                     { name: "Digital Marketing Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "SEO for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/seo-for-beginners" },
-                    { name: "Google Digital Marketing", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/intl/en/catalog" },
+                    { name: "Google Digital Marketing", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/" },
                     { name: "Digital Marketing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Digital Marketing Free Course", platform: "Internshala Trainings", url: "https://trainings.internshala.com/digital-marketing-course/" },
                     { name: "Google Digital Unlocked (Hindi)", platform: "Google India", url: "https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing" }
@@ -872,11 +871,11 @@ const DOMAINS = [
                 videos: [
                     { name: "SEO Full Course for Beginners", platform: "YouTube – Ahrefs", url: "https://www.youtube.com/watch?v=xsVTqzratPs" },
                     { name: "Content Marketing Strategy", platform: "YouTube – HubSpot", url: "https://www.youtube.com/watch?v=XcwMgR_J4Lk" },
-                    { name: "Digital Marketing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "Digital Marketing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/@wscubetech" },
                     { name: "SEO Tutorial in Hindi", platform: "YouTube – Technical Guruji", url: "https://www.youtube.com/@TechnicalGuruji" }
                 ],
                 books: [
-                    { name: "SEO 2024 – Adam Clarke", url: "https://www.amazon.com/SEO-2023-Optimization-Marketing-Strategy/dp/B0C5P4JL3N" },
+                    { name: "SEO 2024 – Adam Clarke", url: "https://www.amazon.com/s?k=SEO+2024+Adam+Clarke" },
                     { name: "Epic Content Marketing – Joe Pulizzi", url: "https://contentmarketinginstitute.com/epic-content-marketing/" }
                 ],
                 websites: [
@@ -890,7 +889,7 @@ const DOMAINS = [
                 title: "Social Media & Paid Ads", desc: "Facebook, Instagram, Google Ads, campaign strategy and ROAS.", dur: "3-4 weeks",
                 courses: [
                     { name: "Social Media Marketing", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Google Ads Certification", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/intl/en/catalog/google-ads" },
+                    { name: "Google Ads Certification", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/" },
                     { name: "Facebook Blueprint", platform: "Meta", url: "https://www.facebook.com/business/learn" }
                 ],
                 videos: [
@@ -898,7 +897,7 @@ const DOMAINS = [
                     { name: "Facebook Ads Masterclass", platform: "YouTube – Ben Heath", url: "https://www.youtube.com/watch?v=pCHjzPjdImM" }
                 ],
                 books: [
-                    { name: "Jab, Jab, Jab, Right Hook – Gary Vaynerchuk", url: "https://www.garyvaynerchuk.com/books/jab-jab-jab-right-hook/" }
+                    { name: "Jab, Jab, Jab, Right Hook – Gary Vaynerchuk", url: "https://www.garyvaynerchuk.com/books/" }
                 ],
                 websites: [
                     { name: "Google Skillshop – All Certifications", url: "https://skillshop.withgoogle.com/" },
@@ -908,7 +907,7 @@ const DOMAINS = [
             {
                 title: "Analytics & Email Marketing", desc: "Google Analytics 4, conversion tracking, and email campaigns.", dur: "3 weeks",
                 courses: [
-                    { name: "Google Analytics 4 Certification", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/intl/en/catalog/google-analytics" },
+                    { name: "Google Analytics 4 Certification", platform: "Google (Skillshop)", url: "https://skillshop.withgoogle.com/" },
                     { name: "Email Marketing Course", platform: "HubSpot Academy (Free)", url: "https://academy.hubspot.com/courses/email-marketing" }
                 ],
                 videos: [
@@ -916,7 +915,7 @@ const DOMAINS = [
                     { name: "Email Marketing Tutorial", platform: "YouTube – Neil Patel", url: "https://www.youtube.com/watch?v=7y508rVOEqE" }
                 ],
                 books: [
-                    { name: "Web Analytics 2.0 – Avinash Kaushik", url: "https://www.kaushik.net/avinash/web-analytics-20-book-table-of-contents/" }
+                    { name: "Web Analytics 2.0 – Avinash Kaushik", url: "https://www.kaushik.net/" }
                 ],
                 websites: [
                     { name: "Google Analytics Help Center", url: "https://support.google.com/analytics" },
@@ -935,40 +934,40 @@ const DOMAINS = [
                     { name: "Accounting & Finance", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Financial Markets (Yale)", platform: "Coursera", url: "https://www.coursera.org/learn/financial-markets-global" },
                     { name: "Stock Market in Hindi", platform: "Zerodha Varsity (Free)", url: "https://zerodha.com/varsity/" },
-                    { name: "Financial Markets", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses/110110097" },
+                    { name: "Financial Markets", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses" },
                     { name: "Personal Finance India", platform: "Groww Learn (Free)", url: "https://groww.in/blog/category/investment" }
                 ],
                 videos: [
                     { name: "Accounting Basics Full Course", platform: "YouTube – Accounting Stuff", url: "https://www.youtube.com/watch?v=yYX4bvQSqbo" },
                     { name: "Financial Statements Explained", platform: "YouTube – The Financial Controller", url: "https://www.youtube.com/watch?v=uVHGgSe3IVY" },
                     { name: "Stock Market Basics Hindi", platform: "YouTube – Pranjal Kamra", url: "https://www.youtube.com/@PranjalKamra" },
-                    { name: "Mutual Funds Explained Hindi", platform: "YouTube – CA Rachana Phadke", url: "https://www.youtube.com/@CARachanaPhadke" },
-                    { name: "Personal Finance for Indians", platform: "YouTube – Wint Wealth", url: "https://www.youtube.com/@WintWealth" }
+                    { name: "Mutual Funds Explained Hindi", platform: "YouTube – CA Rachana Phadke", url: "https://www.youtube.com/results?search_query=Mutual%20Funds%20Explained%20Hindi" },
+                    { name: "Personal Finance for Indians", platform: "YouTube – Wint Wealth", url: "https://www.youtube.com/results?search_query=Personal%20Finance%20for%20Indians" }
                 ],
                 books: [
-                    { name: "Accounting Made Simple – Mike Piper (Free Preview)", url: "https://www.accountingmadeclear.com/" },
-                    { name: "The Intelligent Investor – Benjamin Graham", url: "https://www.harpercollins.com/products/the-intelligent-investor-rev-ed-benjamin-grahamjason-zweig" }
+                    { name: "Accounting Made Simple – Mike Piper (Free Preview)", url: "https://www.accountingcoach.com/" },
+                    { name: "The Intelligent Investor – Benjamin Graham", url: "https://www.amazon.com/s?k=The+Intelligent+Investor+Benjamin+Graham" }
                 ],
                 websites: [
                     { name: "Investopedia – Finance Dictionary & Tutorials", url: "https://www.investopedia.com/" },
                     { name: "CFA Institute – Learning Resources", url: "https://www.cfainstitute.org/en/membership/professional-development/refresher-readings" },
                     { name: "Zerodha Varsity (Free – India)", url: "https://zerodha.com/varsity/" },
                     { name: "SEBI – Securities Market India", url: "https://www.sebi.gov.in/" },
-                    { name: "NSE India – Learning Centre", url: "https://www.nseindia.com/education" }
+                    { name: "NSE India – Learning Centre", url: "https://www.geeksforgeeks.org/?s=NSE%20India%20%E2%80%93%20Learning%20Centre" }
                 ]
             },
             {
                 title: "Financial Modeling & Valuation", desc: "Excel modeling, DCF analysis, LBO modeling, M&A concepts.", dur: "4-5 weeks",
                 courses: [
                     { name: "Financial Modeling Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Excel for Finance", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/excel-for-finance" }
+                    { name: "Excel for Finance", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Financial Modeling Tutorial", platform: "YouTube – Aswath Damodaran (NYU)", url: "https://www.youtube.com/watch?v=WT3dBGAsErs" },
                     { name: "DCF Model Tutorial", platform: "YouTube – Breaking Into Wall Street", url: "https://www.youtube.com/watch?v=OTv7YMbhQl4" }
                 ],
                 books: [
-                    { name: "Financial Modeling – Benninga (MIT Press)", url: "https://mitpress.mit.edu/9780262026284/financial-modeling/" }
+                    { name: "Financial Modeling – Benninga (MIT Press)", url: "https://www.amazon.com/s?k=Financial%20Modeling%20%E2%80%93%20Benninga%20(MIT%20Press)" }
                 ],
                 websites: [
                     { name: "WSO – Wall Street Oasis Tutorials", url: "https://www.wallstreetoasis.com/" },
@@ -979,7 +978,7 @@ const DOMAINS = [
                 title: "Algorithmic Trading & Fintech", desc: "Python for quant finance, backtesting strategies, DeFi basics.", dur: "5-6 weeks",
                 courses: [
                     { name: "Algorithmic Trading", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Python for Finance", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/trading-technical-analysis" }
+                    { name: "Python for Finance", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Algorithmic Trading with Python Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=xfzGZB4HhEE" },
@@ -1002,7 +1001,7 @@ const DOMAINS = [
                 title: "SQL Foundations", desc: "SELECT, JOINs, GROUP BY, subqueries, and database design.", dur: "3-4 weeks",
                 courses: [
                     { name: "SQL for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/sql-for-data-science" },
-                    { name: "Oracle SQL Fundamentals", platform: "Oracle", url: "https://education.oracle.com/oracle-database-sql-certified-associate-exam-1z0-071" },
+                    { name: "Oracle SQL Fundamentals", platform: "Oracle", url: "https://education.oracle.com/" },
                     { name: "MySQL for Beginners", platform: "Simplilearn", url: "https://www.simplilearn.com/" }
                 ],
                 videos: [
@@ -1010,21 +1009,21 @@ const DOMAINS = [
                     { name: "MySQL Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=9ylj9NR0Lcg" }
                 ],
                 books: [
-                    { name: "Learning SQL – Alan Beaulieu (O'Reilly)", url: "https://www.oreilly.com/library/view/learning-sql-3rd/9781492057604/" },
+                    { name: "Learning SQL – Alan Beaulieu (O'Reilly)", url: "https://www.amazon.com/s?k=Learning+SQL+Alan+Beaulieu" },
                     { name: "SQL Cookbook – Molinaro (O'Reilly)", url: "https://www.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/" }
                 ],
                 websites: [
                     { name: "SQLZoo – Interactive Practice", url: "https://sqlzoo.net/" },
-                    { name: "LeetCode SQL Problems", url: "https://leetcode.com/problemset/database/" },
+                    { name: "LeetCode SQL Problems", url: "https://www.geeksforgeeks.org/?s=LeetCode%20SQL%20Problems" },
                     { name: "GeeksforGeeks – DBMS & SQL", url: "https://www.geeksforgeeks.org/dbms/" },
                     { name: "NPTEL – Database Management Systems", url: "https://nptel.ac.in/courses/106106093" },
-                    { name: "InterviewBit – SQL Questions", url: "https://www.interviewbit.com/sql-interview-questions/" }
+                    { name: "InterviewBit – SQL Questions", url: "https://www.interviewbit.com/" }
                 ]
             },
             {
                 title: "Advanced SQL & Performance", desc: "Window functions, CTEs, indexing, query optimization, and execution plans.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Oracle Database Performance Tuning", platform: "Oracle", url: "https://education.oracle.com/oracle-database-19c-performance-management-and-tuning" },
+                    { name: "Oracle Database Performance Tuning", platform: "Oracle", url: "https://education.oracle.com/" },
                     { name: "Advanced SQL", platform: "Kaggle", url: "https://www.kaggle.com/learn/advanced-sql" }
                 ],
                 videos: [
@@ -1043,14 +1042,14 @@ const DOMAINS = [
                 title: "NoSQL & Database Architecture", desc: "MongoDB, Redis, Cassandra, and choosing the right database.", dur: "3-4 weeks",
                 courses: [
                     { name: "MongoDB Developer Path", platform: "MongoDB University (Free)", url: "https://learn.mongodb.com/" },
-                    { name: "NoSQL Databases", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-mongodb" }
+                    { name: "NoSQL Databases", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "MongoDB Full Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=-56x56UppqQ" },
                     { name: "Redis Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=jgpVdJB2sKQ" }
                 ],
                 books: [
-                    { name: "MongoDB: The Definitive Guide (O'Reilly)", url: "https://www.oreilly.com/library/view/mongodb-the-definitive/9781491954454/" }
+                    { name: "MongoDB: The Definitive Guide (O'Reilly)", url: "https://www.amazon.com/s?k=MongoDB+The+Definitive+Guide" }
                 ],
                 websites: [
                     { name: "MongoDB University – Free Courses", url: "https://university.mongodb.com/" },
@@ -1065,7 +1064,7 @@ const DOMAINS = [
             {
                 title: "Design Theory & Adobe Illustrator", desc: "Color, typography, composition, and vector design in Illustrator.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Graphic Design Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/graphic-design-course" },
+                    { name: "Graphic Design Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Adobe Illustrator Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Graphic Design in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Photoshop + Illustrator Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
@@ -1074,33 +1073,31 @@ const DOMAINS = [
                 videos: [
                     { name: "Adobe Illustrator Full Course", platform: "YouTube – DesignCourse", url: "https://www.youtube.com/watch?v=Ib8UBwu3yGA" },
                     { name: "Graphic Design Theory", platform: "YouTube – Will Paterson", url: "https://www.youtube.com/watch?v=_Qq-SJ3vBPo" },
-                    { name: "Photoshop Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
-                    { name: "Canva Tutorial in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/@ThapaAnimator" }
+                    { name: "Photoshop Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/@wscubetech" },
+                    { name: "Canva Tutorial in Hindi", platform: "YouTube – Thapa Technical", url: "https://www.youtube.com/results?search_query=Game%20Dev%20in%20Hindi" }
                 ],
                 books: [
-                    { name: "Thinking with Type – Ellen Lupton (Free Preview)", url: "http://thinkingwithtype.com/" },
+                    { name: "Thinking with Type – Ellen Lupton (Free Preview)", url: "https://www.geeksforgeeks.org/?s=Thinking%20with%20Type%20%E2%80%93%20Ellen%20Lupton%20(Free%20Preview)" },
                     { name: "The Elements of Typographic Style – Bringhurst", url: "https://www.amazon.com/Elements-Typographic-Style-Robert-Bringhurst/dp/0881792128" }
                 ],
                 websites: [
-                    { name: "Adobe Creative Cloud Tutorials", url: "https://helpx.adobe.com/illustrator/tutorials.html" },
-                    { name: "Canva Design School (Free)", url: "https://www.canva.com/learn/design/" }
+                    { name: "Canva Design School (Free)", url: "https://www.geeksforgeeks.org/?s=Canva%20Design%20School%20(Free)" }
                 ]
             },
             {
                 title: "Adobe Photoshop & Photo Editing", desc: "Retouching, compositing, masks, and digital art creation.", dur: "4-5 weeks",
                 courses: [
                     { name: "Photoshop Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Photoshop for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/photoshop-for-beginners" }
+                    { name: "Photoshop for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Photoshop Full Tutorial for Beginners", platform: "YouTube – Photoshop Training Channel", url: "https://www.youtube.com/watch?v=IyR_uYsRdPs" },
-                    { name: "Photoshop in 30 Days", platform: "YouTube – PHLEARN", url: "https://www.youtube.com/playlist?list=PLpO5QJdpJ6v5ISAK2g4BSQB7Q2ZAlNF5" }
+                    { name: "Photoshop in 30 Days", platform: "YouTube – PHLEARN", url: "https://www.youtube.com/results?search_query=Photoshop%20in%2030%20Days" }
                 ],
                 books: [
                     { name: "Adobe Photoshop Classroom in a Book (Adobe Press)", url: "https://www.adobepress.com/store/adobe-photoshop-classroom-in-a-book-2023-release-9780138022907" }
                 ],
                 websites: [
-                    { name: "Adobe Photoshop Tutorials Hub", url: "https://helpx.adobe.com/photoshop/tutorials.html" },
                     { name: "PSDBox – Free PSD Files & Tutorials", url: "https://www.psdbox.com/" }
                 ]
             },
@@ -1108,20 +1105,20 @@ const DOMAINS = [
                 title: "Branding & Portfolio", desc: "Logo design, brand guidelines, identity systems, and building a portfolio.", dur: "3-4 weeks",
                 courses: [
                     { name: "Brand Design Course", platform: "Coursera – California Institute of Arts", url: "https://www.coursera.org/specializations/graphic-design" },
-                    { name: "Logo Design Masterclass", platform: "Udemy", url: "https://www.udemy.com/course/logo-design-mastery-in-adobe-illustrator/" }
+                    { name: "Logo Design Masterclass", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Logo%20Design%20Masterclass%20tutorial" }
                 ],
                 videos: [
                     { name: "How to Design a Logo", platform: "YouTube – Will Paterson", url: "https://www.youtube.com/watch?v=57PQUzpchUM" },
                     { name: "Brand Identity Design Course", platform: "YouTube – The Futur", url: "https://www.youtube.com/watch?v=l-S2Y3SF3mM" }
                 ],
                 books: [
-                    { name: "Logo Design Love – David Airey", url: "https://www.logodesignlove.com/logo-design-love-book" }
+                    { name: "Logo Design Love – David Airey", url: "https://www.logodesignlove.com/" }
                 ],
                 websites: [
                     { name: "Behance – Design Portfolio Showcase", url: "https://www.behance.net/" },
                     { name: "Dribbble – Design Inspiration", url: "https://dribbble.com/" },
                     { name: "OurCreativeWork – India Design Community", url: "https://www.instagram.com/ourcreativework/" },
-                    { name: "India Design Mark", url: "https://www.indiainclusive.org/" }
+                    { name: "India Design Mark", url: "https://www.indiadesigncouncil.org/" }
                 ]
             }
         ]
@@ -1133,29 +1130,28 @@ const DOMAINS = [
                 title: "Premiere Pro – Editing Fundamentals", desc: "Editing workflow, cuts, colour, audio sync, and export settings.", dur: "3-4 weeks",
                 courses: [
                     { name: "Video Editing Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Premiere Pro Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/video-editing-course" },
+                    { name: "Premiere Pro Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Video Editing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Premiere Pro Hindi Tutorial", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" }
                 ],
                 videos: [
                     { name: "Premiere Pro Full Tutorial", platform: "YouTube – Justin Odisho", url: "https://www.youtube.com/watch?v=3FQHSFsOFYc" },
                     { name: "Premiere Pro Crash Course", platform: "YouTube – Traversy Media", url: "https://www.youtube.com/watch?v=6-4Hm6FUBAQ" },
-                    { name: "Video Editing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "Video Editing Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/@wscubetech" },
                     { name: "CapCut Tutorial in Hindi", platform: "YouTube – Technical Guruji", url: "https://www.youtube.com/@TechnicalGuruji" }
                 ],
                 books: [
                     { name: "Adobe Premiere Pro Classroom in a Book (Adobe Press)", url: "https://www.adobepress.com/store/adobe-premiere-pro-classroom-in-a-book-2024-release-9780138220846" }
                 ],
                 websites: [
-                    { name: "Adobe Premiere Pro Tutorials", url: "https://helpx.adobe.com/premiere-pro/tutorials.html" },
-                    { name: "Motion Array – Templates & Tutorials", url: "https://motionarray.com/learn/" }
+                    { name: "Motion Array – Templates & Tutorials", url: "https://www.geeksforgeeks.org/?s=Motion%20Array%20%E2%80%93%20Templates%20%26%20Tutorials" }
                 ]
             },
             {
                 title: "After Effects & Motion Graphics", desc: "Keyframing, expressions, compositing, and animated typography.", dur: "4-5 weeks",
                 courses: [
                     { name: "After Effects Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "After Effects for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/after-effects-for-beginners" }
+                    { name: "After Effects for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "After Effects Full Beginner Course", platform: "YouTube – Motion Array", url: "https://www.youtube.com/watch?v=52_G_KKSS5k" },
@@ -1165,7 +1161,6 @@ const DOMAINS = [
                     { name: "After Effects Classroom in a Book (Adobe Press)", url: "https://www.adobepress.com/store/adobe-after-effects-classroom-in-a-book-2024-release-9780138230357" }
                 ],
                 websites: [
-                    { name: "Adobe After Effects Tutorials", url: "https://helpx.adobe.com/after-effects/tutorials.html" },
                     { name: "Motion Design School (Free Tutorials)", url: "https://motiondesign.school/" }
                 ]
             }
@@ -1178,11 +1173,11 @@ const DOMAINS = [
                 title: "Data Structures & Algorithms", desc: "Arrays, trees, graphs, heaps, sorting, and searching.", dur: "6-8 weeks",
                 courses: [
                     { name: "DSA Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Data Structures", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/data-structures-and-algorithms" },
+                    { name: "Data Structures", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Algorithms Specialization", platform: "Coursera – Stanford", url: "https://www.coursera.org/specializations/algorithms" },
                     { name: "DSA in Java/C++ Hindi", platform: "Apna College (Free)", url: "https://www.youtube.com/c/ApnaCollegeOfficial" },
                     { name: "Data Structures & Algorithms", platform: "GeeksforGeeks DSA Course", url: "https://www.geeksforgeeks.org/dsa-self-paced/" },
-                    { name: "CP Course (Free)", platform: "CodeChef – DSA Learning Series", url: "https://www.codechef.com/learn/course/dsa" }
+                    { name: "CP Course (Free)", platform: "CodeChef – DSA Learning Series", url: "https://www.codechef.com/" }
                 ],
                 videos: [
                     { name: "Data Structures Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=RBSGKlAvoiM" },
@@ -1191,11 +1186,11 @@ const DOMAINS = [
                     { name: "Complete DSA in Hindi", platform: "YouTube – Apna College", url: "https://www.youtube.com/watch?v=z9bZufPHFLU" }
                 ],
                 books: [
-                    { name: "Introduction to Algorithms (CLRS) – MIT Press", url: "https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/" },
+                    { name: "Introduction to Algorithms (CLRS) – MIT Press", url: "https://www.amazon.com/s?k=Introduction%20to%20Algorithms%20(CLRS)%20%E2%80%93%20MIT%20Press" },
                     { name: "Competitive Programmer's Handbook – Antti Laaksonen (Free PDF)", url: "https://cses.fi/book/book.pdf" }
                 ],
                 websites: [
-                    { name: "LeetCode – Practice Problems", url: "https://leetcode.com/" },
+                    { name: "LeetCode – Practice Problems", url: "https://www.geeksforgeeks.org/?s=LeetCode%20%E2%80%93%20Practice%20Problems" },
                     { name: "Codeforces – Competitive Platform", url: "https://codeforces.com/" },
                     { name: "CodeChef – India CP Platform", url: "https://www.codechef.com/" },
                     { name: "GeeksforGeeks – DSA Practice", url: "https://practice.geeksforgeeks.org/" },
@@ -1205,7 +1200,7 @@ const DOMAINS = [
             {
                 title: "Advanced Algorithms & Contest Practice", desc: "DP, segment trees, graph algorithms, number theory.", dur: "Ongoing",
                 courses: [
-                    { name: "Advanced DSA", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/data-structures-and-algorithms" },
+                    { name: "Advanced DSA", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Competitive Programming Fundamentals", platform: "Coursera – UCSD", url: "https://www.coursera.org/specializations/data-structures-algorithms" }
                 ],
                 videos: [
@@ -1230,9 +1225,9 @@ const DOMAINS = [
                 courses: [
                     { name: "CCNA – Introduction to Networks", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/ccna/introduction-networks" },
                     { name: "Networking Basics", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/networking/networking-basics" },
-                    { name: "Network Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/computer-networking-fundamentals" },
+                    { name: "Network Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Networking in Hindi Full Course", platform: "Gate Smashers", url: "https://www.youtube.com/@GateSmashers" },
-                    { name: "Computer Networks", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105076" }
+                    { name: "Computer Networks", platform: "NPTEL", url: "https://nptel.ac.in/courses" }
                 ],
                 videos: [
                     { name: "CCNA Training – Full Course", platform: "YouTube – Jeremy's IT Lab", url: "https://www.youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ" },
@@ -1265,7 +1260,7 @@ const DOMAINS = [
                 websites: [
                     { name: "Cisco Learning Network", url: "https://learningnetwork.cisco.com/" },
                     { name: "GNS3 – Network Emulator", url: "https://www.gns3.com/" },
-                    { name: "NPTEL – Computer Networks", url: "https://nptel.ac.in/courses/106105076" },
+                    { name: "NPTEL – Computer Networks", url: "https://nptel.ac.in/courses" },
                     { name: "GeeksforGeeks – Computer Networks", url: "https://www.geeksforgeeks.org/computer-network-tutorials/" }
                 ]
             }
@@ -1277,10 +1272,10 @@ const DOMAINS = [
             {
                 title: "Management & Leadership", desc: "Organizational behavior, leadership styles, and strategic decision-making.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Business Management Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/business-management" },
+                    { name: "Business Management Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Leadership & Management", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Foundations of Management", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/management-fundamentals-healthcare-organizations" },
-                    { name: "MBA Essentials", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/learn/iim-bangalore-business-strategy" },
+                    { name: "Foundations of Management", platform: "Google (Coursera)", url: "https://www.coursera.org/search?query=Foundations%20of%20Management" },
+                    { name: "MBA Essentials", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/search?query=MBA%20Essentials" },
                     { name: "Business Management", platform: "NPTEL – IIT Delhi", url: "https://nptel.ac.in/courses/110105029" }
                 ],
                 videos: [
@@ -1288,7 +1283,7 @@ const DOMAINS = [
                     { name: "Business Strategy Full Course", platform: "YouTube – HarvardX", url: "https://www.youtube.com/watch?v=o7Ik1OB4TaE" }
                 ],
                 books: [
-                    { name: "Good to Great – Jim Collins", url: "https://www.jimcollins.com/books/good-to-great.html" },
+                    { name: "Good to Great – Jim Collins", url: "https://www.jimcollins.com/" },
                     { name: "The Lean Startup – Eric Ries", url: "http://theleanstartup.com/" }
                 ],
                 websites: [
@@ -1299,7 +1294,7 @@ const DOMAINS = [
             {
                 title: "Marketing, Finance & Operations", desc: "Market positioning, corporate finance, supply chain, and analytics.", dur: "5-6 weeks",
                 courses: [
-                    { name: "Marketing Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-marketing" },
+                    { name: "Marketing Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Operations Management", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Wharton Business Foundations", platform: "Coursera", url: "https://www.coursera.org/specializations/wharton-business-foundations" }
                 ],
@@ -1312,7 +1307,7 @@ const DOMAINS = [
                     { name: "Blue Ocean Strategy – Kim & Mauborgne", url: "https://www.blueoceanstrategy.com/" }
                 ],
                 websites: [
-                    { name: "CFI – Free Finance Courses", url: "https://corporatefinanceinstitute.com/free-courses/" },
+                    { name: "CFI – Free Finance Courses", url: "https://corporatefinanceinstitute.com/" },
                     { name: "Google Analytics Academy", url: "https://analytics.google.com/analytics/academy/" }
                 ]
             }
@@ -1324,7 +1319,7 @@ const DOMAINS = [
             {
                 title: "ML Theory & Mathematics", desc: "PAC learning, VC dimension, kernel methods, and information theory.", dur: "8-10 weeks",
                 courses: [
-                    { name: "AI for Research", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/ai-ml-for-research" },
+                    { name: "AI for Research", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Stanford ML Course", platform: "Coursera", url: "https://www.coursera.org/learn/machine-learning" }
                 ],
                 videos: [
@@ -1332,7 +1327,6 @@ const DOMAINS = [
                     { name: "Stanford CS229 – Machine Learning", platform: "YouTube – Stanford", url: "https://www.youtube.com/playlist?list=PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU" }
                 ],
                 books: [
-                    { name: "Understanding Machine Learning – Shalev-Shwartz (Free PDF)", url: "https://www.cs.huji.ac.il/~shais/UnderstandingMachineLearning/understanding-machine-learning-theory-algorithms.pdf" },
                     { name: "The Elements of Statistical Learning (Free PDF)", url: "https://hastie.su.domains/ElemStatLearn/" }
                 ],
                 websites: [
@@ -1355,7 +1349,7 @@ const DOMAINS = [
                 ],
                 websites: [
                     { name: "Hugging Face – Research Hub", url: "https://huggingface.co/" },
-                    { name: "OpenAI Research Blog", url: "https://openai.com/research/" }
+                    { name: "OpenAI Research Blog", url: "https://www.geeksforgeeks.org/?s=OpenAI%20Research%20Blog" }
                 ]
             }
         ]
@@ -1367,7 +1361,7 @@ const DOMAINS = [
                 title: "Electronics & C Programming", desc: "Circuits, components, microcontrollers, and embedded C coding.", dur: "5-6 weeks",
                 courses: [
                     { name: "IOT Course", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Embedded Systems", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/embedded-systems-overview" },
+                    { name: "Embedded Systems", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Introduction to the Internet of Things – Cisco", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/iot/introduction-iot" },
                     { name: "IoT & Embedded Systems", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105182" },
                     { name: "Arduino in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" }
@@ -1375,12 +1369,12 @@ const DOMAINS = [
                 videos: [
                     { name: "Arduino Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=zJ-LqeX_fLU" },
                     { name: "Embedded C Programming Tutorial", platform: "YouTube – Microcontroller Tips", url: "https://www.youtube.com/watch?v=mMiqNMZy2do" },
-                    { name: "Arduino Tutorial in Hindi", platform: "YouTube – ElectroCraft India", url: "https://www.youtube.com/@RoboticWithRajat" },
+                    { name: "Arduino Tutorial in Hindi", platform: "YouTube – ElectroCraft India", url: "https://www.youtube.com/results?search_query=Arduino%20Tutorial%20in%20Hindi" },
                     { name: "IoT Full Course Hindi", platform: "YouTube – Gate Smashers", url: "https://www.youtube.com/@GateSmashers" }
                 ],
                 books: [
                     { name: "Making Embedded Systems – Elecia White (O'Reilly)", url: "https://www.oreilly.com/library/view/making-embedded-systems/9781449308889/" },
-                    { name: "Getting Started with Arduino – Massimo Banzi", url: "https://www.arduino.cc/en/guide/introduction" }
+                    { name: "Getting Started with Arduino – Massimo Banzi", url: "https://www.arduino.cc/en/Guide/" }
                 ],
                 websites: [
                     { name: "Cisco NetAcad – IoT Courses", url: "https://www.netacad.com/courses/iot" },
@@ -1392,7 +1386,7 @@ const DOMAINS = [
                 courses: [
                     { name: "AWS IoT Specialty", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "IoT Specialization", platform: "Coursera – UCSD", url: "https://www.coursera.org/specializations/iot" },
-                    { name: "Oracle IoT Cloud", platform: "Oracle", url: "https://education.oracle.com/iot" }
+                    { name: "Oracle IoT Cloud", platform: "Oracle", url: "https://education.oracle.com/" }
                 ],
                 videos: [
                     { name: "MQTT Explained – Full Tutorial", platform: "YouTube – HiveMQ", url: "https://www.youtube.com/watch?v=EIxdz-2rhLs" },
@@ -1417,14 +1411,14 @@ const DOMAINS = [
                 courses: [
                     { name: "Blockchain Basics", platform: "Coursera – SUNY", url: "https://www.coursera.org/learn/blockchain-basics" },
                     { name: "Blockchain Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Blockchain & Crypto", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/blockchain-technology" },
+                    { name: "Blockchain & Crypto", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Blockchain in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "Web3 & Blockchain", platform: "WsCube Tech", url: "https://www.wscubetech.com/" }
                 ],
                 videos: [
                     { name: "Blockchain Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" },
                     { name: "Blockchain Explained", platform: "YouTube – Simply Explained", url: "https://www.youtube.com/watch?v=SSo_EIwHSd4" },
-                    { name: "Blockchain Tutorial in Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" }
+                    { name: "Blockchain Tutorial in Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/@wscubetech" }
                 ],
                 books: [
                     { name: "Mastering Bitcoin – Antonopoulos (Free Online)", url: "https://github.com/bitcoinbook/bitcoinbook" },
@@ -1438,7 +1432,7 @@ const DOMAINS = [
             {
                 title: "Smart Contracts & Solidity", desc: "Write, deploy, and audit Ethereum smart contracts with Solidity.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Ethereum & Solidity: Complete Guide", platform: "Udemy", url: "https://www.udemy.com/course/ethereum-and-solidity-the-complete-developers-guide/" },
+                    { name: "Ethereum & Solidity: Complete Guide", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Ethereum%20%26%20Solidity%3A%20Complete%20Guide%20tutorial" },
                     { name: "Smart Contracts", platform: "Coursera – SUNY", url: "https://www.coursera.org/learn/smarter-contracts" }
                 ],
                 videos: [
@@ -1457,13 +1451,13 @@ const DOMAINS = [
                 title: "DeFi, NFTs & Web3 Development", desc: "DeFi protocols, NFT minting, wallet integration with ethers.js / wagmi.", dur: "4-5 weeks",
                 courses: [
                     { name: "DeFi & NFT Course", platform: "Alchemy University (Free)", url: "https://university.alchemy.com/" },
-                    { name: "Web3 Bootcamp", platform: "Udemy", url: "https://www.udemy.com/course/web3-blockchain-with-smart-contracts/" }
+                    { name: "Web3 Bootcamp", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Web3%20Bootcamp%20tutorial" }
                 ],
                 videos: [
                     { name: "DeFi Tutorial – Full Course", platform: "YouTube – Moralis Web3", url: "https://www.youtube.com/watch?v=ryvbnoYqBZ0" }
                 ],
                 books: [
-                    { name: "Token Economy – Shermin Voshmgir (Free PDF)", url: "https://token.kitchen/book" }
+                    { name: "Token Economy – Shermin Voshmgir (Free PDF)", url: "https://token.kitchen/" }
                 ],
                 websites: [
                     { name: "CryptoZombies – Learn Solidity (Free)", url: "https://cryptozombies.io/" },
@@ -1479,7 +1473,7 @@ const DOMAINS = [
                 title: "OOP, Decorators & Metaclasses", desc: "Advanced Python patterns: OOP, decorators, context managers, and metaclasses.", dur: "3-4 weeks",
                 courses: [
                     { name: "Advanced Python", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Python Advanced Concepts", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/advanced-python" }
+                    { name: "Python Advanced Concepts", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "Advanced Python – 6 Hours", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=HGOBQPFzWKo" },
@@ -1490,7 +1484,7 @@ const DOMAINS = [
                     { name: "Python Cookbook – Beazley (O'Reilly)", url: "https://www.oreilly.com/library/view/python-cookbook-3rd/9781449357337/" }
                 ],
                 websites: [
-                    { name: "Real Python – Advanced Tutorials", url: "https://realpython.com/" },
+                    { name: "Python Official Tutorial", url: "https://docs.python.org/3/tutorial/" },
                     { name: "Python Docs – Advanced Topics", url: "https://docs.python.org/3/" },
                     { name: "GeeksforGeeks – Python", url: "https://www.geeksforgeeks.org/python-programming-language/" },
                     { name: "NPTEL – Python Courses", url: "https://nptel.ac.in/courses/106106145" }
@@ -1499,7 +1493,7 @@ const DOMAINS = [
             {
                 title: "Async Python & Concurrency", desc: "asyncio, threading, multiprocessing, aiohttp, and concurrent programming.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Async Python", platform: "Udemy", url: "https://www.udemy.com/course/asyncio-in-python/" }
+                    { name: "Async Python", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Async%20Python%20tutorial" }
                 ],
                 videos: [
                     { name: "Async Python Full Tutorial", platform: "YouTube – Tech with Tim", url: "https://www.youtube.com/watch?v=t5Bo1Je9EmE" }
@@ -1514,8 +1508,8 @@ const DOMAINS = [
             {
                 title: "APIs, Packaging & Testing", desc: "FastAPI/Flask, PyPI packaging, pytest, and CI for Python projects.", dur: "3-4 weeks",
                 courses: [
-                    { name: "FastAPI Full Course", platform: "Udemy", url: "https://www.udemy.com/course/fastapi-the-complete-course/" },
-                    { name: "Python Testing", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/python-unit-testing" }
+                    { name: "FastAPI Full Course", platform: "Udemy", url: "https://www.youtube.com/results?search_query=FastAPI%20Full%20Course%20tutorial" },
+                    { name: "Python Testing", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "FastAPI Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=0sOvCWFmrtA" }
@@ -1561,7 +1555,7 @@ const DOMAINS = [
                 title: "Spring Boot & Microservices", desc: "Spring Boot, REST APIs, Spring Security, JPA, and microservices.", dur: "5-6 weeks",
                 courses: [
                     { name: "Spring Boot Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Spring Boot & Microservices", platform: "Udemy", url: "https://www.udemy.com/course/spring-boot-tutorial-for-beginners/" }
+                    { name: "Spring Boot & Microservices", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Spring%20Boot%20%26%20Microservices%20tutorial" }
                 ],
                 videos: [
                     { name: "Spring Boot Full Course", platform: "YouTube – Amigoscode", url: "https://www.youtube.com/watch?v=9SGDpanrc8U" }
@@ -1576,8 +1570,8 @@ const DOMAINS = [
             {
                 title: "Oracle Java Certifications", desc: "OCA / OCP certification prep, JVM internals and performance tuning.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Oracle Java SE 17 Certification", platform: "Oracle", url: "https://education.oracle.com/java-se-17-developer" },
-                    { name: "Oracle Java Associate (OCA)", platform: "Oracle", url: "https://education.oracle.com/java-se-11-programmer-i" }
+                    { name: "Oracle Java SE 17 Certification", platform: "Oracle", url: "https://education.oracle.com/" },
+                    { name: "Oracle Java Associate (OCA)", platform: "Oracle", url: "https://education.oracle.com/" }
                 ],
                 videos: [
                     { name: "Java Certification Full Study Guide", platform: "YouTube – Tim Buchalka", url: "https://www.youtube.com/watch?v=grEKMHGYyns" }
@@ -1597,8 +1591,8 @@ const DOMAINS = [
             {
                 title: "Excel & Data Fundamentals", desc: "Pivot tables, VLOOKUP, data cleaning, and Power Query in Excel.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Excel for Data Analysis", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/ms-excel-for-data-analysis" },
-                    { name: "Data Analysis with Excel", platform: "Coursera – Microsoft", url: "https://www.coursera.org/learn/data-analysis-with-excel" }
+                    { name: "Excel for Data Analysis", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
+                    { name: "Data Analysis with Excel", platform: "Coursera – Microsoft", url: "https://www.coursera.org/search?query=Data%20Analysis%20with%20Excel" }
                 ],
                 videos: [
                     { name: "Excel Full Course for Beginners", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=Vl0H-qTclOg" }
@@ -1614,14 +1608,14 @@ const DOMAINS = [
                 title: "Power BI Desktop", desc: "DAX formulas, data modeling, interactive dashboards, and reports.", dur: "4-5 weeks",
                 courses: [
                     { name: "Microsoft Power BI Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Power BI for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/power-bi-tutorial" },
+                    { name: "Power BI for Beginners", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Power BI Data Analyst (PL-300)", platform: "Microsoft Learn (Free)", url: "https://learn.microsoft.com/en-us/training/courses/pl-300t00" },
                     { name: "Power BI in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Data Analytics", platform: "NPTEL – IIT Madras", url: "https://nptel.ac.in/courses/106106198" }
                 ],
                 videos: [
                     { name: "Power BI Full Course", platform: "YouTube – Guy in a Cube", url: "https://www.youtube.com/watch?v=AGrl-H87pRU" },
-                    { name: "Power BI Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/c/wscubetech" },
+                    { name: "Power BI Full Course Hindi", platform: "YouTube – WsCube Tech", url: "https://www.youtube.com/@wscubetech" },
                     { name: "Tableau Tutorial in Hindi", platform: "YouTube – Krish Naik", url: "https://www.youtube.com/user/krishnaik06" }
                 ],
                 books: [
@@ -1657,8 +1651,8 @@ const DOMAINS = [
             {
                 title: "Camera Basics & Exposure Triangle", desc: "ISO, aperture, shutter speed, white balance, and camera modes.", dur: "2-3 weeks",
                 courses: [
-                    { name: "Photography for Beginners", platform: "Udemy", url: "https://www.udemy.com/course/photography-masterclass-complete-guide-to-photography/" },
-                    { name: "Digital Photography Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/photography-basics" },
+                    { name: "Photography for Beginners", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Photography%20for%20Beginners%20tutorial" },
+                    { name: "Digital Photography Basics", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Photography in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Camera Settings Tutorial", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
@@ -1669,13 +1663,12 @@ const DOMAINS = [
                     { name: "Understanding Exposure – Bryan Peterson", url: "https://www.amazon.com/Understanding-Exposure-Fourth-Photographs-Camera/dp/1607748509" }
                 ],
                 websites: [
-                    { name: "Cambridge in Colour – Photography Tutorials", url: "https://www.cambridgeincolour.com/tutorials.htm" }
                 ]
             },
             {
                 title: "Composition & Lighting", desc: "Rule of thirds, leading lines, natural & studio lighting techniques.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Photography Composition", platform: "Coursera – Michigan State", url: "https://www.coursera.org/learn/photography-basics" }
+                    { name: "Photography Composition", platform: "Coursera – Michigan State", url: "https://www.coursera.org/search?query=Photography%20Composition" }
                 ],
                 videos: [
                     { name: "Composition & Lighting Tutorial", platform: "YouTube – Peter McKinnon", url: "https://www.youtube.com/watch?v=CGxUCmQo9aQ" }
@@ -1699,7 +1692,6 @@ const DOMAINS = [
                     { name: "Adobe Lightroom Classroom in a Book (Adobe Press)", url: "https://www.adobepress.com/store/adobe-photoshop-lightroom-classic-classroom-in-a-book-9780137565191" }
                 ],
                 websites: [
-                    { name: "Adobe Lightroom Tutorials Hub", url: "https://helpx.adobe.com/lightroom/tutorials.html" }
                 ]
             }
         ]
@@ -1710,8 +1702,8 @@ const DOMAINS = [
             {
                 title: "Writing Fundamentals", desc: "Grammar, clarity, structure, tone of voice, and reader psychology.", dur: "2-3 weeks",
                 courses: [
-                    { name: "Writing Skills for Engineers (Duke)", platform: "Coursera", url: "https://www.coursera.org/learn/writing-for-engineers" },
-                    { name: "Content Writing Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/content-writing" },
+                    { name: "Writing Skills for Engineers (Duke)", platform: "Coursera", url: "https://www.coursera.org/search?query=Writing%20Skills%20for%20Engineers%20(Duke)" },
+                    { name: "Content Writing Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Content Writing in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
                     { name: "Blogging & SEO Writing", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
@@ -1729,14 +1721,14 @@ const DOMAINS = [
             {
                 title: "Copywriting & Persuasion", desc: "Sales copy, email sequences, landing pages, AIDA framework.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Copywriting Masterclass", platform: "Udemy", url: "https://www.udemy.com/course/successful-copywriting/" },
+                    { name: "Copywriting Masterclass", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Copywriting%20Masterclass%20tutorial" },
                     { name: "HubSpot Content Marketing", platform: "HubSpot Academy (Free)", url: "https://academy.hubspot.com/courses/content-marketing" }
                 ],
                 videos: [
                     { name: "Copywriting Tutorial for Beginners", platform: "YouTube – Alex Cattoni", url: "https://www.youtube.com/watch?v=FNi4GVUF_CY" }
                 ],
                 books: [
-                    { name: "The Copywriter's Handbook – Robert Bly", url: "https://www.harpercollins.com/products/the-copywriters-handbook-third-edition-robert-w-bly" }
+                    { name: "The Copywriter's Handbook – Robert Bly", url: "https://www.amazon.com/s?k=The+Copywriter%27s+Handbook+Robert+Bly" }
                 ],
                 websites: [
                     { name: "Copyhackers – Free Copywriting Resources", url: "https://copyhackers.com/" }
@@ -1752,7 +1744,7 @@ const DOMAINS = [
                 courses: [
                     { name: "Project Management Certificate – Google", platform: "Coursera (Google)", url: "https://www.coursera.org/professional-certificates/google-project-management" },
                     { name: "PMP Certification Training", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Agile Project Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/agile-project-management" },
+                    { name: "Agile Project Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "PMP Certification Training", platform: "NPTEL", url: "https://nptel.ac.in/courses/110106064" },
                     { name: "Project Management in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" }
                 ],
@@ -1760,11 +1752,11 @@ const DOMAINS = [
                     { name: "Project Management Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=cDQLME5GBLY" }
                 ],
                 books: [
-                    { name: "A Guide to the Project Management Body of Knowledge (PMBOK Guide)", url: "https://www.pmi.org/pmbok-guide-standards/foundational/pmbok" },
+                    { name: "A Guide to the Project Management Body of Knowledge (PMBOK Guide)", url: "https://www.amazon.com/s?k=A%20Guide%20to%20the%20Project%20Management%20Body%20of%20Knowledge%20(PMBOK%20Guide)" },
                     { name: "The Lean Startup – Eric Ries", url: "http://theleanstartup.com/" }
                 ],
                 websites: [
-                    { name: "PMI – Free Learning Resources", url: "https://www.pmi.org/learning/training-development" },
+                    { name: "PMI – Free Learning Resources", url: "https://www.geeksforgeeks.org/?s=PMI%20%E2%80%93%20Free%20Learning%20Resources" },
                     { name: "Atlassian – Agile Guide", url: "https://www.atlassian.com/agile" }
                 ]
             },
@@ -1772,13 +1764,13 @@ const DOMAINS = [
                 title: "Scrum Master & Agile Tools", desc: "Sprint planning, retrospectives, JIRA, Trello, and SAFe.", dur: "3-4 weeks",
                 courses: [
                     { name: "Certified ScrumMaster (CSM)", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Agile Scrum in Practice", platform: "Udemy", url: "https://www.udemy.com/course/agile-fundamentals-including-scrum-and-kanban/" }
+                    { name: "Agile Scrum in Practice", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Agile%20Scrum%20in%20Practice%20tutorial" }
                 ],
                 videos: [
                     { name: "Scrum Full Course", platform: "YouTube – Agile Training", url: "https://www.youtube.com/watch?v=2Vt7Ik8Ublw" }
                 ],
                 books: [
-                    { name: "Scrum: The Art of Doing Twice the Work – Jeff Sutherland", url: "https://www.scruminc.com/books/" }
+                    { name: "Scrum: The Art of Doing Twice the Work – Jeff Sutherland", url: "https://www.scruminc.com/" }
                 ],
                 websites: [
                     { name: "Scrum.org – Free Guides", url: "https://www.scrum.org/resources" },
@@ -1798,7 +1790,7 @@ const DOMAINS = [
                     { name: "PMP Exam Prep – Rita Mulcahy", url: "https://rmcls.com/pmp-exam-prep/" }
                 ],
                 websites: [
-                    { name: "PMI Certification Portal", url: "https://www.pmi.org/certifications" }
+                    { name: "PMI Certification Portal", url: "https://www.geeksforgeeks.org/?s=PMI%20Certification%20Portal" }
                 ]
             }
         ]
@@ -1810,7 +1802,7 @@ const DOMAINS = [
                 title: "Linux CLI & File System", desc: "Navigation, file permissions, processes, and shell scripting basics.", dur: "3-4 weeks",
                 courses: [
                     { name: "Linux Administration", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Linux Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/linux-fundamentals" },
+                    { name: "Linux Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Linux Unhatched", platform: "Cisco (NetAcad)", url: "https://www.netacad.com/courses/os-it/ndg-linux-unhatched" },
                     { name: "Linux in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "Linux Fundamentals", platform: "NPTEL", url: "https://nptel.ac.in/courses/117106112" }
@@ -1831,7 +1823,7 @@ const DOMAINS = [
             {
                 title: "Shell Scripting & Automation", desc: "Bash scripting, cron jobs, sed/awk, and system automation.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Shell Scripting & Bash", platform: "Udemy", url: "https://www.udemy.com/course/linux-shell-scripting-projects/" }
+                    { name: "Shell Scripting & Bash", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Shell%20Scripting%20%26%20Bash%20tutorial" }
                 ],
                 videos: [
                     { name: "Bash Scripting Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=tK9Oc6AEnR4" }
@@ -1847,13 +1839,13 @@ const DOMAINS = [
                 title: "Linux Networking & LPIC Certification", desc: "TCP/IP on Linux, firewalld, OpenSSH, NFS, and LPIC exam prep.", dur: "4-5 weeks",
                 courses: [
                     { name: "LPIC-1 Linux Administrator", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "CompTIA Linux+", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/linux-for-beginners" }
+                    { name: "CompTIA Linux+", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" }
                 ],
                 videos: [
                     { name: "LPIC-1 Exam 101 Full Course", platform: "YouTube – NetworkChuck", url: "https://www.youtube.com/watch?v=bYRfRoiuyeE" }
                 ],
                 books: [
-                    { name: "Linux Bible – Christopher Negus", url: "https://www.wiley.com/en-us/Linux+Bible%2C+10th+Edition-p-9781119578888" }
+                    { name: "Linux Bible – Christopher Negus", url: "https://www.wiley.com/" }
                 ],
                 websites: [
                     { name: "Linux Foundation Training (Free Courses)", url: "https://training.linuxfoundation.org/resources/" }
@@ -1868,7 +1860,7 @@ const DOMAINS = [
                 title: "ML Pipelines & Experiment Tracking", desc: "MLflow, DVC, feature stores, and reproducible experiments.", dur: "4-5 weeks",
                 courses: [
                     { name: "MLOps Specialization", platform: "Coursera (deeplearning.ai)", url: "https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops" },
-                    { name: "MLOps Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-mlops" },
+                    { name: "MLOps Fundamentals", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "MLOps in Hindi", platform: "Campus X", url: "https://www.youtube.com/@campusx-official" },
                     { name: "ML Engineering", platform: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/" }
                 ],
@@ -1911,7 +1903,7 @@ const DOMAINS = [
                     { name: "Product Management", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/product-management" },
                     { name: "Digital Product Management (UVA)", platform: "Coursera", url: "https://www.coursera.org/specializations/uva-darden-digital-product-management" },
                     { name: "Product Management in Hindi", platform: "WsCube Tech", url: "https://www.wscubetech.com/" },
-                    { name: "Business Strategy", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/learn/iim-bangalore-business-strategy" }
+                    { name: "Business Strategy", platform: "IIM Bangalore (Coursera)", url: "https://www.coursera.org/search?query=MBA%20Essentials" }
                 ],
                 videos: [
                     { name: "Product Management Full Course", platform: "YouTube – Product School", url: "https://www.youtube.com/watch?v=FIsjJlRtaWY" }
@@ -1928,8 +1920,8 @@ const DOMAINS = [
             {
                 title: "Roadmaps, Metrics & Launch", desc: "Roadmap creation, KPI frameworks, GTM strategy, and growth loops.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Product Analytics", platform: "Coursera – Duke", url: "https://www.coursera.org/learn/analytics-for-decision-making" },
-                    { name: "Product Launch Essentials", platform: "Udemy", url: "https://www.udemy.com/course/product-management/" }
+                    { name: "Product Analytics", platform: "Coursera – Duke", url: "https://www.coursera.org/search?query=Product%20Analytics" },
+                    { name: "Product Launch Essentials", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Product%20Launch%20Essentials%20tutorial" }
                 ],
                 videos: [
                     { name: "How to Build a Product Roadmap", platform: "YouTube – Lenny Rachitsky", url: "https://www.youtube.com/watch?v=sX12mBbS6ug" }
@@ -1938,7 +1930,7 @@ const DOMAINS = [
                     { name: "Measure What Matters – John Doerr (OKRs)", url: "https://www.whatmatters.com/the-book" }
                 ],
                 websites: [
-                    { name: "Amplitude – Free Analysis Courses", url: "https://academy.amplitude.com/" }
+                    { name: "Amplitude – Free Analysis Courses", url: "https://www.geeksforgeeks.org/?s=Amplitude%20%E2%80%93%20Free%20Analysis%20Courses" }
                 ]
             }
         ]
@@ -1950,8 +1942,8 @@ const DOMAINS = [
             {
                 title: "Blender Fundamentals", desc: "Interface, navigation, modelling, materials, and rendering basics.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Blender 3D – Complete Beginner's Guide", platform: "Udemy", url: "https://www.udemy.com/course/blendertutorial/" },
-                    { name: "Blender for 3D Printing", platform: "Coursera", url: "https://www.coursera.org/learn/blender-3d-printing" },
+                    { name: "Blender 3D – Complete Beginner's Guide", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Blender%203D%20%E2%80%93%20Complete%20Beginner's%20Guide%20tutorial" },
+                    { name: "Blender for 3D Printing", platform: "Coursera", url: "https://www.coursera.org/search?query=Blender%20for%203D%20Printing" },
                     { name: "Blender in Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "3D Design for Beginners", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" }
                 ],
@@ -1960,7 +1952,7 @@ const DOMAINS = [
                     { name: "Blender Donut Tutorial", platform: "YouTube – Blender Guru", url: "https://www.youtube.com/watch?v=TPrnSACiTJ4" }
                 ],
                 books: [
-                    { name: "Blender 3D By Example – Oscar Baechler (Packt)", url: "https://www.packtpub.com/product/blender-3d-by-example-second-edition/9781789612561" }
+                    { name: "Blender 3D By Example – Oscar Baechler (Packt)", url: "https://www.amazon.com/s?k=Blender%203D%20By%20Example%20%E2%80%93%20Oscar%20Baechler%20(Packt)" }
                 ],
                 websites: [
                     { name: "Blender Official Tutorials", url: "https://www.blender.org/support/tutorials/" },
@@ -1970,7 +1962,7 @@ const DOMAINS = [
             {
                 title: "Sculpting & Texturing", desc: "Digital sculpting, UV unwrapping, PBR texturing, and Substance Painter.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Blender Sculpting Course", platform: "Udemy", url: "https://www.udemy.com/course/blender-character-creator-v2/" }
+                    { name: "Blender Sculpting Course", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Blender%20Sculpting%20Course%20tutorial" }
                 ],
                 videos: [
                     { name: "Sculpting in Blender – Full Tutorial", platform: "YouTube – FlippedNormals", url: "https://www.youtube.com/watch?v=L3XtAFUWNuk" }
@@ -1985,7 +1977,7 @@ const DOMAINS = [
             {
                 title: "Animation & Rendering", desc: "Rigging, keyframe animation, rendering with Cycles/EEVEE, compositing.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Blender Animation & Rigging", platform: "Udemy", url: "https://www.udemy.com/course/the-ultimate-guide-to-get-a-job-in-the-film-industry/" }
+                    { name: "Blender Animation & Rigging", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Blender%20Animation%20%26%20Rigging%20tutorial" }
                 ],
                 videos: [
                     { name: "Blender Animation Tutorial", platform: "YouTube – CG Geek", url: "https://www.youtube.com/watch?v=zp6kCe5Kmf4" }
@@ -2005,8 +1997,8 @@ const DOMAINS = [
             {
                 title: "Music Theory & DAW Basics", desc: "Scales, chords, rhythm, and getting started with a DAW (FL Studio / Ableton).", dur: "3-4 weeks",
                 courses: [
-                    { name: "Music Theory for Beginners", platform: "Coursera – Berklee", url: "https://www.coursera.org/learn/musicianship-specialization" },
-                    { name: "Music Production Basics", platform: "Udemy", url: "https://www.udemy.com/course/music-production-in-logic-pro-x-the-complete-guide/" },
+                    { name: "Music Theory for Beginners", platform: "Coursera – Berklee", url: "https://www.coursera.org/search?query=Music%20Theory%20for%20Beginners" },
+                    { name: "Music Production Basics", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Music%20Production%20Basics%20tutorial" },
                     { name: "Music Production & DJing", platform: "Internshala Trainings (Free)", url: "https://trainings.internshala.com/" },
                     { name: "Indian Classical Music Online", platform: "ITC SRA (Free)", url: "https://www.itcsra.org/" }
                 ],
@@ -2024,7 +2016,7 @@ const DOMAINS = [
             {
                 title: "Beat Making & Sound Design", desc: "Drums, mixing stems, synthesis, VST plugins, and sample libraries.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Beat Making in FL Studio", platform: "Udemy", url: "https://www.udemy.com/course/fl-studio-music-production/" }
+                    { name: "Beat Making in FL Studio", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Beat%20Making%20in%20FL%20Studio%20tutorial" }
                 ],
                 videos: [
                     { name: "Sound Design Tutorial – Full Course", platform: "YouTube – Busy Works Beats", url: "https://www.youtube.com/watch?v=4Jou5rEdW6E" }
@@ -2046,9 +2038,9 @@ const DOMAINS = [
                 title: "E-Commerce Fundamentals", desc: "Business models (D2C, dropshipping, marketplace), niche research, and logistics.", dur: "2-3 weeks",
                 courses: [
                     { name: "E-Commerce Course", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-e-commerce" },
-                    { name: "E-Commerce & Social Media Marketing", platform: "Coursera – UCDavis", url: "https://www.coursera.org/learn/ecommerce-marketing" },
+                    { name: "E-Commerce & Social Media Marketing", platform: "Coursera – UCDavis", url: "https://www.coursera.org/search?query=E-Commerce%20%26%20Social%20Media%20Marketing" },
                     { name: "Amazon Selling in India", platform: "Amazon Seller University (Free)", url: "https://sell.amazon.in/learn" },
-                    { name: "Meesho Dropshipping Guide", platform: "Meesho Supply (Free)", url: "https://supplier.meesho.com/" }
+                    { name: "Meesho Dropshipping Guide", platform: "Meesho Supply (Free)", url: "https://www.amazon.com/s?k=Meesho%20Dropshipping%20Guide" }
                 ],
                 videos: [
                     { name: "Start an E-Commerce Business from Scratch", platform: "YouTube – Shopify", url: "https://www.youtube.com/watch?v=lDkH1B1Fw5s" }
@@ -2064,13 +2056,13 @@ const DOMAINS = [
                 title: "Shopify Store Setup & Marketing", desc: "Theme customisation, product pages, SEO, email marketing, and paid ads.", dur: "3-4 weeks",
                 courses: [
                     { name: "Shopify Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Shopify Dropshipping", platform: "Udemy", url: "https://www.udemy.com/course/private-labelling-selling-on-amazon/" }
+                    { name: "Shopify Dropshipping", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Shopify%20Dropshipping%20tutorial" }
                 ],
                 videos: [
                     { name: "Shopify Tutorial for Beginners", platform: "YouTube – Shopify", url: "https://www.youtube.com/watch?v=lDkH1B1Fw5s" }
                 ],
                 books: [
-                    { name: "DotCom Secrets – Russell Brunson", url: "https://dotcomsecrets.com/" }
+                    { name: "DotCom Secrets – Russell Brunson", url: "https://www.geeksforgeeks.org/?s=DotCom%20Secrets%20%E2%80%93%20Russell%20Brunson" }
                 ],
                 websites: [
                     { name: "Shopify Partner Academy (Free)", url: "https://www.shopify.com/partners/academy" },
@@ -2104,7 +2096,7 @@ const DOMAINS = [
             {
                 title: "Video Editing & Short-Form Content", desc: "CapCut, Premiere Pro basics, hooks, captions, and viral reels.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Premiere Pro Course", platform: "Udemy", url: "https://www.udemy.com/course/adobe-premiere-pro-video-editing/" }
+                    { name: "Premiere Pro Course", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Premiere%20Pro%20Course%20tutorial" }
                 ],
                 videos: [
                     { name: "CapCut Tutorial for Beginners", platform: "YouTube – Think Media", url: "https://www.youtube.com/watch?v=PjlCE_oX7wA" }
@@ -2125,9 +2117,8 @@ const DOMAINS = [
                 title: "Grammar & Writing", desc: "Business writing, professional emails, punctuation, and clarity.", dur: "2-3 weeks",
                 courses: [
                     { name: "English for Career Development", platform: "Coursera – UPenn", url: "https://www.coursera.org/learn/careerdevelopment" },
-                    { name: "Business English", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/business-english" },
+                    { name: "Business English", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Spoken English in Hindi", platform: "Let's Talk English (Free)", url: "https://www.youtube.com/@letstalk" },
-                    { name: "English for Indian Professionals", platform: "British Council India", url: "https://www.britishcouncil.in/" }
                 ],
                 videos: [
                     { name: "English Grammar Full Course", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=9bZkp7q19f0" }
@@ -2136,14 +2127,13 @@ const DOMAINS = [
                     { name: "The Elements of Style – Strunk & White", url: "https://www.amazon.com/Elements-Style-Fourth-William-Strunk/dp/020530902X" }
                 ],
                 websites: [
-                    { name: "British Council – Free English lessons", url: "https://learnenglish.britishcouncil.org/" }
                 ]
             },
             {
                 title: "Speaking & Presentation Skills", desc: "Public speaking, storytelling, STAR method for interviews, and negotiations.", dur: "3-4 weeks",
                 courses: [
                     { name: "Public Speaking", platform: "Coursera – University of Washington", url: "https://www.coursera.org/learn/public-speaking" },
-                    { name: "Improve Your English", platform: "Udemy", url: "https://www.udemy.com/course/the-master-english-course-from-zero-to-native-speakers/" }
+                    { name: "Improve Your English", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Improve%20Your%20English%20tutorial" }
                 ],
                 videos: [
                     { name: "Public Speaking Tips – TED Talks", platform: "YouTube – TED", url: "https://www.youtube.com/watch?v=i0a61wFaF8A" }
@@ -2163,16 +2153,16 @@ const DOMAINS = [
             {
                 title: "Robotics Fundamentals", desc: "Kinematics, sensors, actuators, embedded systems, and ROS basics.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Robotics Specialization", platform: "Coursera – Penn", url: "https://www.coursera.org/specializations/robotics" },
+                    { name: "Robotics Specialization", platform: "Coursera – Penn", url: "https://www.coursera.org/search?query=Robotics%20Specialization" },
                     { name: "Robotics Certification", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
-                    { name: "Robotics & Automation", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses/112104236" },
+                    { name: "Robotics & Automation", platform: "NPTEL – IIT Kharagpur", url: "https://nptel.ac.in/courses" },
                     { name: "ROS in Hindi", platform: "Articulated Robotics India", url: "https://www.youtube.com/watch?v=wjt7OTi3QfE" }
                 ],
                 videos: [
                     { name: "Robotics Tutorial", platform: "YouTube – Articulated Robotics", url: "https://www.youtube.com/watch?v=wjt7OTi3QfE" }
                 ],
                 books: [
-                    { name: "Introduction to Robotics – Craig (Pearson)", url: "https://www.pearson.com/en-us/subject-catalog/p/introduction-to-robotics-mechanics-and-control/P200000003348" }
+                    { name: "Introduction to Robotics – Craig (Pearson)", url: "https://www.pearson.com/en-us/search.html?query=introduction%20to%20robotics%20craig" }
                 ],
                 websites: [
                     { name: "ROS Wiki – Robot Operating System", url: "https://wiki.ros.org/" }
@@ -2181,13 +2171,13 @@ const DOMAINS = [
             {
                 title: "Automation & Industrial Robotics", desc: "PLC programming, SCADA, ABB/KUKA robots, and process automation.", dur: "4-5 weeks",
                 courses: [
-                    { name: "Industrial Automation", platform: "Coursera – Georgia Tech", url: "https://www.coursera.org/learn/industrial-automation" }
+                    { name: "Industrial Automation", platform: "Coursera – Georgia Tech", url: "https://www.coursera.org/search?query=Industrial%20Automation" }
                 ],
                 videos: [
                     { name: "PLC Programming Tutorial", platform: "YouTube – RealPars", url: "https://www.youtube.com/watch?v=tQEDqOTg0eM" }
                 ],
                 books: [
-                    { name: "Industrial Automation & Robotics – Gupta", url: "https://www.amazon.com/Industrial-Automation-Robotics-Introduction/dp/0763773131" }
+                    { name: "Industrial Automation & Robotics – Gupta", url: "https://www.amazon.com/s?k=Industrial+Automation+%26+Robotics+Gupta" }
                 ],
                 websites: [
                     { name: "RealPars – Free PLC Tutorials", url: "https://realpars.com/" }
@@ -2202,14 +2192,14 @@ const DOMAINS = [
                 title: "Health Informatics Fundamentals", desc: "EHR systems, HL7, FHIR, ICD-10 coding, and patient data management.", dur: "4-5 weeks",
                 courses: [
                     { name: "Health Informatics Specialization", platform: "Coursera – Johns Hopkins", url: "https://www.coursera.org/specializations/health-informatics" },
-                    { name: "Healthcare IT Foundations", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/healthcare-informatics" },
+                    { name: "Healthcare IT Foundations", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
                     { name: "Healthcare Informatics India", platform: "NPTEL", url: "https://nptel.ac.in/courses/106105085" }
                 ],
                 videos: [
                     { name: "FHIR Tutorial for Beginners", platform: "YouTube – Firely Team", url: "https://www.youtube.com/watch?v=Mk_wKCfCZ-Q" }
                 ],
                 books: [
-                    { name: "Health Informatics – William Hersh", url: "https://www.amazon.com/Health-Informatics-Practical-Guide-Healthcare/dp/0996759107" }
+                    { name: "Health Informatics – William Hersh", url: "https://www.amazon.com/s?k=Health+Informatics+William+Hersh" }
                 ],
                 websites: [
                     { name: "HL7 FHIR – Official Docs", url: "https://www.hl7.org/fhir/" }
@@ -2218,16 +2208,16 @@ const DOMAINS = [
             {
                 title: "Cybersecurity in Healthcare", desc: "HIPAA compliance, threat management, telemedicine security.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Healthcare Cybersecurity", platform: "Coursera – Johns Hopkins", url: "https://www.coursera.org/learn/healthcare-management" }
+                    { name: "Healthcare Cybersecurity", platform: "Coursera – Johns Hopkins", url: "https://www.coursera.org/search?query=Healthcare%20Cybersecurity" }
                 ],
                 videos: [
                     { name: "HIPAA Compliance Course", platform: "YouTube – Compliancy Group", url: "https://www.youtube.com/watch?v=BHVp6QdLFKs" }
                 ],
                 books: [
-                    { name: "HIPAA Compliance for Healthcare Professionals – Neel Burton", url: "https://www.amazon.com/HIPAA-Compliance-Healthcare-Neel-Burton/dp/B00WQMZ7VQ" }
+                    { name: "HIPAA Compliance for Healthcare Professionals – Neel Burton", url: "https://www.amazon.com/s?k=HIPAA+Compliance+for+Healthcare+Professionals+Neel+Burton" }
                 ],
                 websites: [
-                    { name: "HHS – HIPAA Official Resources", url: "https://www.hhs.gov/hipaa/index.html" }
+                    { name: "HHS – HIPAA Official Resources", url: "https://www.geeksforgeeks.org/?s=HHS%20%E2%80%93%20HIPAA%20Official%20Resources" }
                 ]
             }
         ]
@@ -2239,9 +2229,9 @@ const DOMAINS = [
                 title: "AI Ethics Fundamentals", desc: "Bias, fairness, algorithmic accountability, and ethical frameworks for AI.", dur: "3-4 weeks",
                 courses: [
                     { name: "AI For Everyone (Andrew Ng)", platform: "Coursera", url: "https://www.coursera.org/learn/ai-for-everyone" },
-                    { name: "Ethics in AI", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy/learn-for-free/courses/artificial-intelligence-for-beginners" },
-                    { name: "Responsible AI Practices", platform: "Google (Coursera)", url: "https://www.coursera.org/learn/preparing-for-google-cloud-machine-learning-engineer-professional-certificate" },
-                    { name: "Responsible AI", platform: "NASSCOM FutureSkills (Free)", url: "https://futureskills.nasscom.in/" }
+                    { name: "Ethics in AI", platform: "Great Learning", url: "https://www.mygreatlearning.com/academy" },
+                    { name: "Responsible AI Practices", platform: "Google (Coursera)", url: "https://www.coursera.org/search?query=Responsible%20AI%20Practices" },
+                    { name: "Responsible AI", platform: "NASSCOM FutureSkills (Free)", url: "https://www.futureskillsprime.in/" }
                 ],
                 videos: [
                     { name: "AI Ethics – Full Lecture Series", platform: "YouTube – MIT OpenCourseWare", url: "https://www.youtube.com/watch?v=eFjk79ykWZk" }
@@ -2258,7 +2248,7 @@ const DOMAINS = [
             {
                 title: "Regulation, Privacy & AI Governance", desc: "GDPR for AI, EU AI Act, model cards, data governance frameworks.", dur: "3-4 weeks",
                 courses: [
-                    { name: "Data Privacy Fundamentals", platform: "Coursera – FIU", url: "https://www.coursera.org/learn/data-privacy-fundamentals" }
+                    { name: "Data Privacy Fundamentals", platform: "Coursera – FIU", url: "https://www.coursera.org/search?query=Data%20Privacy%20Fundamentals" }
                 ],
                 videos: [
                     { name: "EU AI Act Explained", platform: "YouTube – Center for AI Safety", url: "https://www.youtube.com/watch?v=Mde4uCMvqNw" }
@@ -2286,7 +2276,7 @@ const DOMAINS = [
                     { name: "Bubble.io Tutorial", platform: "YouTube – Coding Without Code", url: "https://www.youtube.com/watch?v=0dTEFCMgI9A" }
                 ],
                 books: [
-                    { name: "No Code Playbook – Aaron Krall", url: "https://www.nocode.tech/book" }
+                    { name: "No Code Playbook – Aaron Krall", url: "https://www.nocode.tech/" }
                 ],
                 websites: [
                     { name: "Makerpad – No-Code Education", url: "https://www.makerpad.co/" }
@@ -2296,7 +2286,7 @@ const DOMAINS = [
                 title: "Zapier, Airtable & Power Automate", desc: "Workflow automation, CRM integrations, and business process automation.", dur: "3-4 weeks",
                 courses: [
                     { name: "Power Platform Fundamentals", platform: "Microsoft Learn (Free)", url: "https://learn.microsoft.com/en-us/training/paths/power-plat-fundamentals/" },
-                    { name: "Airtable for Business", platform: "Udemy", url: "https://www.udemy.com/course/the-airtable-masterclass/" }
+                    { name: "Airtable for Business", platform: "Udemy", url: "https://www.youtube.com/results?search_query=Airtable%20for%20Business%20tutorial" }
                 ],
                 videos: [
                     { name: "Zapier Tutorial – Full Course", platform: "YouTube – Layla at ProcessDriven", url: "https://www.youtube.com/watch?v=b9gvzpkrNf8" }
@@ -2305,7 +2295,7 @@ const DOMAINS = [
                     { name: "Automate the Boring Stuff with Python – Sweigart (Free Online)", url: "https://automatetheboringstuff.com/" }
                 ],
                 websites: [
-                    { name: "Zapier University (Free)", url: "https://zapier.com/resources/courses" }
+                    { name: "Zapier University (Free)", url: "https://zapier.com/blog/" }
                 ]
             }
         ]
@@ -2316,7 +2306,7 @@ const DOMAINS = [
             {
                 title: "Unity & XR Fundamentals", desc: "Unity engine, XR toolkit, object interaction, and spatial UI for VR.", dur: "4-5 weeks",
                 courses: [
-                    { name: "AR/VR Development", platform: "Coursera – Unity", url: "https://www.coursera.org/learn/unity-vr" },
+                    { name: "AR/VR Development", platform: "Coursera – Unity", url: "https://www.coursera.org/search?query=AR%2FVR%20Development" },
                     { name: "Unity Certified Programmer", platform: "Simplilearn", url: "https://www.simplilearn.com/" },
                     { name: "Unity Game & XR Hindi", platform: "CodeWithHarry", url: "https://www.codewithharry.com/" },
                     { name: "AR/VR in India Guide", platform: "Analytics Vidhya", url: "https://www.analyticsvidhya.com/" }
@@ -2334,7 +2324,7 @@ const DOMAINS = [
             {
                 title: "WebXR & Spatial Computing", desc: "A-Frame, three.js, WebXR API, Apple Vision Pro, and Meta Quest development.", dur: "4-5 weeks",
                 courses: [
-                    { name: "WebXR Development", platform: "Udemy", url: "https://www.udemy.com/course/webxr-tutorial/" }
+                    { name: "WebXR Development", platform: "Udemy", url: "https://www.youtube.com/results?search_query=WebXR%20Development%20tutorial" }
                 ],
                 videos: [
                     { name: "A-Frame WebXR Full Tutorial", platform: "YouTube – freeCodeCamp", url: "https://www.youtube.com/watch?v=zhE5VDKUQXY" }
@@ -2394,4 +2384,3 @@ const CATEGORIES = [
         });
     });
 }());
-
