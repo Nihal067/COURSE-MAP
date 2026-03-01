@@ -89,8 +89,8 @@ export default function LoginPage() {
         const password = signupPassword
         const otp = signupOtp.trim()
 
-        if (!name || !email || !password || !otp) {
-            setError('Name, email, password and OTP are required.')
+        if (!name || !email || !password) {
+            setError('Name, email and password are required.')
             return
         }
         if (!isValidEmail(email)) {
@@ -101,12 +101,8 @@ export default function LoginPage() {
             setError('Password must be at least 6 characters.')
             return
         }
-        if (!/^\d{6}$/.test(otp)) {
+        if (otp && !/^\d{6}$/.test(otp)) {
             setError('OTP must be 6 digits.')
-            return
-        }
-        if (otpRequestedFor !== email) {
-            setError('Please click "Send OTP" for this email first.')
             return
         }
 
@@ -232,7 +228,6 @@ export default function LoginPage() {
                                     inputMode="numeric"
                                     value={signupOtp}
                                     onChange={(e) => setSignupOtp(e.target.value)}
-                                    required
                                 />
                             </div>
                             <button type="submit" className="btn-submit" disabled={loading}>

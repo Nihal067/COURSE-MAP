@@ -71,7 +71,8 @@ if (!process.env.MONGO_URI) {
 if (!process.env.JWT_SECRET) {
     console.warn('JWT_SECRET is missing. A development fallback secret will be used.');
 }
-if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+const otpRequired = String(process.env.REQUIRE_SIGNUP_OTP || 'false').toLowerCase() === 'true';
+if (otpRequired && (!process.env.EMAIL_USER || !process.env.EMAIL_PASS)) {
     console.warn('EMAIL_USER/EMAIL_PASS not set. Signup OTP email will not work.');
 }
 

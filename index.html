@@ -243,12 +243,7 @@
       if (!email) { showFieldError('signup-email-error', 'Please enter your email'); hasError = true; }
       if (email && !looksLikeEmail(email)) { showFieldError('signup-email-error', 'Please enter a valid email address'); hasError = true; }
       if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters'); hasError = true; }
-      if (!otp) { showFieldError('signup-otp-error', 'Please enter the OTP sent to your email'); hasError = true; }
       if (otp && !/^\d{6}$/.test(otp)) { showFieldError('signup-otp-error', 'OTP must be 6 digits'); hasError = true; }
-      if (otpRequestedFor !== email) {
-        showFieldError('signup-email-error', 'Please click "Send OTP" for this email first');
-        hasError = true;
-      }
       if (hasError) return;
 
       btn.textContent = 'Creating account…'; btn.disabled = true;

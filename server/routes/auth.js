@@ -8,6 +8,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'dev-only-change-this-secret';
 if (!process.env.JWT_SECRET) {
     console.warn('JWT_SECRET is missing. Using a development fallback secret.');
 }
+const REQUIRE_SIGNUP_OTP = String(process.env.REQUIRE_SIGNUP_OTP || 'false').toLowerCase() === 'true';
 
 const OTP_EXPIRY_MS = 10 * 60 * 1000;
 const OTP_RESEND_COOLDOWN_MS = 60 * 1000;
@@ -45,6 +46,12 @@ function hashOtp(otp) {
 
 router.post('/request-signup-otp', async (req, res) => {
     try {
+        if (!REQUIRE_SIGNUP_OTP) {
+            return res.status(400).json({
+                message: 'OTP verification is currently disabled for signup.'
+            });
+        }
+
         const email = normalizeEmail(req.body.email);
 
         if (!email) {
@@ -93,9 +100,9 @@ router.post('/register', async (req, res) => {
         const password = String(req.body.password || '');
         const otp = String(req.body.otp || '').trim();
 
-        if (!name || !email || !password || !otp) {
+        if (!name || !email || !password) {
             return res.status(400).json({
-                message: 'Name, email, password and OTP are required for signup.'
+                message: 'Name, email and password are required for signup.'
             });
         }
         if (!isValidEmail(email)) {
@@ -110,27 +117,33 @@ router.post('/register', async (req, res) => {
             return res.status(409).json({ message: 'An account with this email already exists.' });
         }
 
-        const otpRecord = signupOtpStore.get(email);
-        if (!otpRecord || otpRecord.expiresAt < Date.now()) {
+        if (REQUIRE_SIGNUP_OTP) {
+            if (!otp) {
+                return res.status(400).json({ message: 'OTP is required for signup.' });
+            }
+
+            const otpRecord = signupOtpStore.get(email);
+            if (!otpRecord || otpRecord.expiresAt < Date.now()) {
+                signupOtpStore.delete(email);
+                return res.status(400).json({ message: 'OTP expired or not found. Please request a new OTP.' });
+            }
+
+            if (otpRecord.attempts >= OTP_MAX_ATTEMPTS) {
+                signupOtpStore.delete(email);
+                return res.status(400).json({
+                    message: 'Too many invalid OTP attempts. Please request a new OTP.'
+                });
+            }
+
+            if (otpRecord.otpHash !== hashOtp(otp)) {
+                otpRecord.attempts += 1;
+                signupOtpStore.set(email, otpRecord);
+                return res.status(400).json({ message: 'Invalid OTP.' });
+            }
+
+            // OTP has been used successfully, consume it.
             signupOtpStore.delete(email);
-            return res.status(400).json({ message: 'OTP expired or not found. Please request a new OTP.' });
         }
-
-        if (otpRecord.attempts >= OTP_MAX_ATTEMPTS) {
-            signupOtpStore.delete(email);
-            return res.status(400).json({
-                message: 'Too many invalid OTP attempts. Please request a new OTP.'
-            });
-        }
-
-        if (otpRecord.otpHash !== hashOtp(otp)) {
-            otpRecord.attempts += 1;
-            signupOtpStore.set(email, otpRecord);
-            return res.status(400).json({ message: 'Invalid OTP.' });
-        }
-
-        // OTP has been used successfully, consume it.
-        signupOtpStore.delete(email);
 
         const user = new User({ name, email, passwordHash: password });
         await user.save();
