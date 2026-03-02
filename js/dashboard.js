@@ -26,7 +26,7 @@ function initNavbar(user) {
 /* ── Greeting ── */
 function initGreeting(user) {
     const el = document.getElementById('greeting-name');
-    if (el) el.textContent = user.name.split(' ')[0] + ' 👋';
+    if (el) el.textContent = user.name.split(' ')[0] ;
 }
 
 /* ── Stats ── */
