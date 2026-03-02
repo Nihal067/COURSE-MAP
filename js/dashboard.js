@@ -1,4 +1,4 @@
-/* ===== DASHBOARD LOGIC — Backend-connected ===== */
+﻿/* Dashboard logic - backend connected */
 
 document.addEventListener('DOMContentLoaded', async function () {
     try { if (!Auth.requireAuth()) return; } catch (e) { return; }
@@ -13,37 +13,41 @@ document.addEventListener('DOMContentLoaded', async function () {
     await renderEnrolledDomains(user);
 });
 
-/* ── Navbar ── */
 function initNavbar(user) {
     const nameEl = document.getElementById('user-display-name');
     if (nameEl) nameEl.textContent = user.name;
+
     const logoutBtn = document.getElementById('btn-logout');
     if (logoutBtn) logoutBtn.addEventListener('click', () => Auth.logout());
+
     const exploreBtn = document.getElementById('btn-open-explore');
     if (exploreBtn) exploreBtn.addEventListener('click', openExplore);
 }
 
-/* ── Greeting ── */
 function initGreeting(user) {
     const el = document.getElementById('greeting-name');
-    if (el) el.textContent = user.name.split(' ')[0] ;
+    if (el) el.textContent = user.name.split(' ')[0];
 }
 
-/* ── Stats ── */
 async function updateStats(user) {
     const domainsEl = document.getElementById('stat-domains');
     if (domainsEl && typeof DOMAINS !== 'undefined') domainsEl.textContent = DOMAINS.length;
 
+    const localKey = 'courseMap_enrolled_' + user.email;
+    const localIds = JSON.parse(localStorage.getItem(localKey) || '[]');
+
     try {
         const { domainIds } = await API.getEnrollment();
+        const mergedIds = [...new Set([...(domainIds || []), ...localIds])];
         const enrolledEl = document.getElementById('stat-enrolled');
-        if (enrolledEl) enrolledEl.textContent = domainIds.length;
+        if (enrolledEl) enrolledEl.textContent = mergedIds.length;
     } catch (e) {
+        const enrolledEl = document.getElementById('stat-enrolled');
+        if (enrolledEl) enrolledEl.textContent = localIds.length;
         console.warn('Could not fetch enrollment stats:', e.message);
     }
 }
 
-/* ── Build domain card ── */
 function buildDomainCard(domain, enrolledIds, progressMap) {
     const isEnrolled = enrolledIds.includes(domain.id);
     const completedSteps = progressMap[domain.id] || [];
@@ -55,7 +59,9 @@ function buildDomainCard(domain, enrolledIds, progressMap) {
         totalRes = domain.steps.reduce((s, st) =>
             s + (st.courses?.length || 0) + (st.videos?.length || 0)
             + (st.books?.length || 0) + (st.websites?.length || 0), 0);
-    } catch (e) { totalRes = 0; }
+    } catch (e) {
+        totalRes = 0;
+    }
 
     const card = document.createElement('a');
     card.href = 'roadmap.html?domain=' + domain.id;
@@ -70,31 +76,39 @@ function buildDomainCard(domain, enrolledIds, progressMap) {
         <span class="card-cat">${domain.cat || ''}</span>
         <h3 class="card-title">${domain.name}</h3>
         <div class="card-meta">
-            <span>📌 ${totalSteps} steps</span>
-            <span>📦 ${totalRes} resources</span>
+            <span>${totalSteps} steps</span>
+            <span>${totalRes} resources</span>
         </div>
         ${progressBar}
-    </div><span class="card-arrow">→</span>`;
+    </div><span class="card-arrow">></span>`;
 
     return card;
 }
 
-/* ── Render Enrolled Domains ── */
 async function renderEnrolledDomains(user) {
     const grid = document.getElementById('enrolled-grid');
     const emptyState = document.getElementById('empty-state');
     if (!grid) return;
 
-    grid.innerHTML = '<p style="color:var(--t2);padding:16px">Loading your domains…</p>';
+    grid.innerHTML = '<p style="color:var(--t2);padding:16px">Loading your domains...</p>';
 
+    const localKey = 'courseMap_enrolled_' + user.email;
+    const localIds = JSON.parse(localStorage.getItem(localKey) || '[]');
     let enrolledIds = [];
     let progressMap = {};
 
     try {
         const data = await API.getEnrollment();
-        enrolledIds = data.domainIds || [];
+        const backendIds = data.domainIds || [];
+        enrolledIds = [...new Set([...backendIds, ...localIds])];
 
-        // Fetch progress for each enrolled domain in parallel
+        // Sync fallback local enrollments into backend when possible.
+        const missingInBackend = enrolledIds.filter(id => !backendIds.includes(id));
+        if (missingInBackend.length > 0) {
+            await Promise.all(missingInBackend.map(id => API.enroll(id).catch(() => null)));
+        }
+        localStorage.setItem(localKey, JSON.stringify(enrolledIds));
+
         const progressResults = await Promise.all(
             enrolledIds.map(id =>
                 API.getProgress(id).then(r => ({ id, steps: r.completedSteps || [] })).catch(() => ({ id, steps: [] }))
@@ -103,9 +117,7 @@ async function renderEnrolledDomains(user) {
         progressResults.forEach(({ id, steps }) => { progressMap[id] = steps; });
     } catch (e) {
         console.warn('Backend unavailable, falling back to localStorage:', e.message);
-        // Graceful fallback to localStorage if server is down
-        const raw = localStorage.getItem('courseMap_enrolled_' + user.email);
-        enrolledIds = raw ? JSON.parse(raw) : [];
+        enrolledIds = localIds;
     }
 
     grid.innerHTML = '';
@@ -132,7 +144,6 @@ async function renderEnrolledDomains(user) {
     });
 }
 
-/* ── Explore Modal ── */
 let exploreInitialized = false;
 let currentFilter = 'all';
 
@@ -140,6 +151,7 @@ function openExplore() {
     const overlay = document.getElementById('explore-overlay');
     if (overlay) overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+
     if (!exploreInitialized) {
         initExploreModal(Auth.getCurrentUser());
         exploreInitialized = true;
@@ -157,7 +169,11 @@ function initExploreModal(user) {
     if (closeBtn) closeBtn.addEventListener('click', closeExplore);
 
     const overlay = document.getElementById('explore-overlay');
-    if (overlay) overlay.addEventListener('click', e => { if (e.target === overlay) closeExplore(); });
+    if (overlay) {
+        overlay.addEventListener('click', e => {
+            if (e.target === overlay) closeExplore();
+        });
+    }
 
     const catContainer = document.getElementById('modal-cats');
     if (catContainer && typeof CATEGORIES !== 'undefined') {
@@ -179,7 +195,9 @@ function initExploreModal(user) {
     }
 
     const searchInput = document.getElementById('modal-search');
-    if (searchInput) searchInput.addEventListener('input', e => renderExploreGrid(user, e.target.value));
+    if (searchInput) {
+        searchInput.addEventListener('input', e => renderExploreGrid(user, e.target.value));
+    }
 
     renderExploreGrid(user, '');
 }

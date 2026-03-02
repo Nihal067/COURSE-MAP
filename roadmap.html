@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roadmap â€” CourseMap</title>
+    <title>Roadmap - CourseMap</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1010,7 +1010,7 @@
 
     <!-- NAV -->
     <nav class="roadmap-nav">
-        <a href="dashboard.html" class="back-btn">← Dashboard</a>
+        <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
         <a href="dashboard.html" class="roadmap-nav-brand">
             <img src="logo.jpg" alt="CourseMap" class="roadmap-nav-logo">
             <span class="roadmap-nav-brand-name">CourseMap</span>
@@ -1064,7 +1064,7 @@
                 <div class="drawer-step-title" id="drawer-step-title"></div>
                 <div class="drawer-step-desc" id="drawer-step-desc"></div>
                 <div style="margin-top:4px">
-                    <button class="btn-mark-done" id="btn-mark-done">◉ Mark Complete</button>
+                    <button class="btn-mark-done" id="btn-mark-done">Mark Complete</button>
                 </div>
             </div>
             <button class="btn-close-drawer" id="btn-close-drawer">×</button>
@@ -1089,13 +1089,18 @@
            ROADMAP PAGE LOGIC â€” Complete self-contained inline script
            ================================================================ */
 
-        const RES_ICONS = { courses: '🎓', videos: '▶️', books: '📖', websites: '🌐' };
+        const RES_ICONS = {
+            courses: String.fromCodePoint(0x1F393),
+            videos: '\u25B6',
+            books: String.fromCodePoint(0x1F4D6),
+            websites: String.fromCodePoint(0x1F310)
+        };
         const PHASES = ['Fundamentals', 'Core Concepts', 'Intermediate', 'Advanced', 'Specialization'];
 
         let _domain = null, _activeStep = null;
 
         /* â”€â”€â”€ Init â”€â”€â”€ */
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             try {
                 if (!Auth.requireAuth()) return;
 
@@ -1121,7 +1126,7 @@
                     domainTitle.textContent = domain.name || 'Domain';
                 }
 
-                initEnroll(domain, user);
+                await initEnroll(domain, user);
                 renderNodes(domain);
                 refreshProgress(domain);
                 setupDrawer(domain);
@@ -1137,13 +1142,13 @@
                       min-height:100vh;background:#080a14;color:#f0f0f5;
                       font-family:Inter,sans-serif;padding:24px;text-align:center;">
             <div>
-              <div style="font-size:48px;margin-bottom:16px">âš ï¸</div>
+              <div style="font-size:48px;margin-bottom:16px">!</div>
               <h2 style="margin-bottom:8px">Roadmap failed to load</h2>
               <p style="color:#666;margin-bottom:20px;font-size:14px">${err.message}</p>
               <a href="dashboard.html"
                  style="padding:10px 24px;background:#b65a3c;color:#fff;
                         border-radius:8px;text-decoration:none;font-weight:600">
-                ← Back to Dashboard
+                Back to Dashboard
               </a>
             </div>
           </div>`;
@@ -1157,32 +1162,54 @@
             cat.style.color = domain.color;
 
             document.getElementById('domain-name-h1').textContent = domain.name;
-            document.title = domain.name + ' â€” CourseMap';
+            document.title = domain.name + ' - CourseMap';
 
             const totalRes = domain.steps.reduce((s, st) =>
                 s + (st.courses?.length || 0) + (st.videos?.length || 0)
                 + (st.books?.length || 0) + (st.websites?.length || 0), 0);
 
-            document.getElementById('meta-steps').textContent = '📋 ' + domain.steps.length + ' Steps';
-            document.getElementById('meta-resources').textContent = '📚 ' + totalRes + ' Resources';
+            document.getElementById('meta-steps').textContent = domain.steps.length + ' Steps';
+            document.getElementById('meta-resources').textContent = totalRes + ' Resources';
         }
 
         /* â”€â”€â”€ Enroll â”€â”€â”€ */
-        function initEnroll(domain, user) {
+        async function initEnroll(domain, user) {
             const btn = document.getElementById('btn-enroll');
             const key = 'courseMap_enrolled_' + user.email;
-            let list = JSON.parse(localStorage.getItem(key) || '[]');
-            styleEnroll(btn, list.includes(domain.id));
-            btn.onclick = () => {
+            let list = [];
+
+            try {
+                const data = await API.getEnrollment();
+                list = Array.isArray(data.domainIds) ? data.domainIds : [];
+            } catch {
                 list = JSON.parse(localStorage.getItem(key) || '[]');
-                const has = list.includes(domain.id);
-                list = has ? list.filter(x => x !== domain.id) : [...list, domain.id];
+            }
+            localStorage.setItem(key, JSON.stringify(list));
+
+            styleEnroll(btn, list.includes(domain.id));
+
+            btn.onclick = async () => {
+                const has = btn.classList.contains('enrolled');
+
+                try {
+                    if (has) {
+                        await API.unenroll(domain.id);
+                    } else {
+                        await API.enroll(domain.id);
+                    }
+                } catch {
+                    list = JSON.parse(localStorage.getItem(key) || '[]');
+                    list = has ? list.filter(x => x !== domain.id) : [...list, domain.id];
+                }
+
+                list = JSON.parse(localStorage.getItem(key) || '[]');
+                list = has ? list.filter(x => x !== domain.id) : [...new Set([...list, domain.id])];
                 localStorage.setItem(key, JSON.stringify(list));
                 styleEnroll(btn, !has);
             };
         }
         function styleEnroll(btn, enrolled) {
-            btn.textContent = enrolled ? 'âœ“ Enrolled' : 'Enroll in Path';
+            btn.textContent = enrolled ? 'Enrolled' : 'Enroll in Path';
             btn.classList.toggle('enrolled', enrolled);
         }
 
@@ -1247,17 +1274,17 @@
                 node.style.setProperty('--node-color', domain.color || '#b65a3c');
                 node.innerHTML = `
           <div class="flow-node-box">
-            <div class="node-check">${isDone ? 'âœ“' : ''}</div>
+            <div class="node-check">${isDone ? '\u2713' : ''}</div>
             <div class="node-body">
               <div class="node-step">Step ${i + 1}</div>
               <div class="node-title">${step.title}</div>
               <div class="node-desc">${step.desc}</div>
             </div>
             <div class="node-right">
-              <span class="node-dur">â± ${step.dur}</span>
+              <span class="node-dur">Time: ${step.dur}</span>
               <div class="node-chips">${chips}</div>
             </div>
-            <span class="node-arrow">â€º</span>
+            <span class="node-arrow">></span>
           </div>`;
                 node.addEventListener('click', () => openDrawer(domain, i));
                 canvas.appendChild(node);
@@ -1309,7 +1336,7 @@
                     if (nodeEl) {
                         nodeEl.classList.add('done-node');
                         const check = nodeEl.querySelector('.node-check');
-                        if (check) check.textContent = '✓';
+                        if (check) check.textContent = '\u2713';
                     }
                     refreshProgress(domain);
                 };
@@ -1360,7 +1387,12 @@
             btn.textContent = isDone ? 'Completed' : 'Mark Complete';
 
             const types = ['courses', 'videos', 'books', 'websites'];
-            const labels = { courses: 'Courses', videos: 'Videos', books: 'Books', websites: 'Websites' };
+            const labels = {
+                courses: `${RES_ICONS.courses} Courses`,
+                videos: `${RES_ICONS.videos} Videos`,
+                books: `${RES_ICONS.books} Books`,
+                websites: `${RES_ICONS.websites} Websites`
+            };
             const avail = types.filter(t => step[t]?.length > 0);
 
             const tabBar = document.getElementById('drawer-tabs');
