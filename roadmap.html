@@ -1271,7 +1271,7 @@
             });
         }
 
-        /* â”€â”€â”€ Drawer â”€â”€â”€ */
+        /* Drawer */
         function setupDrawer(domain) {
             const close = () => closeDrawer();
             document.getElementById('btn-close-drawer').onclick = close;
@@ -1281,160 +1281,209 @@
             document.getElementById('btn-mark-done').addEventListener('click', () => {
                 if (_activeStep === null) return;
                 const stepIdx = _activeStep;
-                const currentDone = getDone(domain.id);
-                const alreadyDone = currentDone.includes(stepIdx);
+                const alreadyDone = getDone(domain.id).includes(stepIdx);
 
-                // If already done ←’ toggle off (unmark) without quiz
                 if (alreadyDone) {
-                    const newDone = toggleDone(domain.id, stepIdx);
+                    toggleDone(domain.id, stepIdx);
                     const btn = document.getElementById('btn-mark-done');
                     btn.className = 'btn-mark-done';
-                    btn.textContent = '◉ Mark Complete';
+                    btn.textContent = 'Mark Complete';
                     const nodeEl = document.querySelector(`.flow-node[data-step="${stepIdx}"]`);
                     if (nodeEl) {
                         nodeEl.classList.remove('done-node');
-                        nodeEl.querySelector('.node-check').textContent = '';
+                        const check = nodeEl.querySelector('.node-check');
+                        if (check) check.textContent = '';
                     }
                     refreshProgress(domain);
                     return;
                 }
 
-                // Not yet done ←’ open quiz first
-                const stepName = domain.steps[stepIdx]?.title || `Step ${stepIdx + 1}`;
-                openStepQuiz(domain.id, stepIdx, stepName,
-                    // onPass
-                    () => {
-                        const newDone = toggleDone(domain.id, stepIdx);
-                        const btn = document.getElementById('btn-mark-done');
-                        if (btn) {
-                            btn.className = 'btn-mark-done marked';
-                            btn.textContent = 'âœ“ Completed';
-                        }
-                        const nodeEl = document.querySelector(`.flow-node[data-step="${stepIdx}"]`);
-                        if (nodeEl) {
-                            nodeEl.classList.add('done-node');
-                            nodeEl.querySelector('.node-check').textContent = 'âœ“';
-                        }
-                        refreshProgress(domain);
+                const markStepDone = () => {
+                    toggleDone(domain.id, stepIdx);
+                    const btn = document.getElementById('btn-mark-done');
+                    if (btn) {
+                        btn.className = 'btn-mark-done marked';
+                        btn.textContent = 'Completed';
+                    }
+                    const nodeEl = document.querySelector(`.flow-node[data-step="${stepIdx}"]`);
+                    if (nodeEl) {
+                        nodeEl.classList.add('done-node');
+                        const check = nodeEl.querySelector('.node-check');
+                        if (check) check.textContent = '✓';
+                    }
+                    refreshProgress(domain);
+                };
 
-                        // Check if ALL steps now done ←’ show domain quiz
-                        const afterDone = getDone(domain.id);
-                        if (afterDone.length === domain.steps.length) {
-                            setTimeout(() => {
-                                openDomainQuiz(domain,
-                                    () => showToast('📚));
+                if (typeof openStepQuiz === 'function') {
+                    const stepName = domain.steps[stepIdx]?.title || `Step ${stepIdx + 1}`;
+                    openStepQuiz(
+                        domain.id,
+                        stepIdx,
+                        stepName,
+                        () => {
+                            markStepDone();
+                            const afterDone = getDone(domain.id);
+                            if (afterDone.length === domain.steps.length && typeof openDomainQuiz === 'function') {
+                                setTimeout(() => {
+                                    openDomainQuiz(
+                                        domain,
+                                        () => showToast('Domain quiz passed.'),
+                                        () => showToast('Domain quiz not passed yet.')
+                                    );
+                                }, 200);
+                            }
+                        },
+                        () => showToast('Step quiz not passed yet.')
+                    );
+                    return;
+                }
+
+                markStepDone();
+            });
+        }
+
+        function openDrawer(domain, idx) {
+            _activeStep = idx;
+            const step = domain.steps[idx];
+            if (!step) return;
+
+            const isDone = getDone(domain.id).includes(idx);
+            document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
             document.querySelector(`.flow-node[data-step="${idx}"]`)?.classList.add('active-node');
 
-                                // Fill info
-                                document.getElementById('drawer-step-num').textContent = `Step ${idx + 1} of ${domain.steps.length}`;
-                                document.getElementById('drawer-step-title').textContent = step.title;
-                                document.getElementById('drawer-step-desc').textContent = step.desc;
+            document.getElementById('drawer-step-num').textContent = `Step ${idx + 1} of ${domain.steps.length}`;
+            document.getElementById('drawer-step-title').textContent = step.title || '';
+            document.getElementById('drawer-step-desc').textContent = step.desc || '';
 
-                                const btn = document.getElementById('btn-mark-done');
-                                btn.className = 'btn-mark-done' + (isDone ? ' marked' : '');
-                                btn.textContent = isDone ? 'âœ“ Completed' : '◉ Mark Complete';
+            const btn = document.getElementById('btn-mark-done');
+            btn.className = 'btn-mark-done' + (isDone ? ' marked' : '');
+            btn.textContent = isDone ? 'Completed' : 'Mark Complete';
 
-                                // Tabs + content
-                                const types = ['courses', 'videos', 'books', 'websites'];
-                                const labels = { courses: '🎓 Courses', videos: '▶️ Videos', books: '📖 Books', websites: '🌐 Websites' };
-                                const avail = types.filter(t => step[t]?.length > 0);
+            const types = ['courses', 'videos', 'books', 'websites'];
+            const labels = { courses: 'Courses', videos: 'Videos', books: 'Books', websites: 'Websites' };
+            const avail = types.filter(t => step[t]?.length > 0);
 
-                                const tabBar = document.getElementById('drawer-tabs');
-                                const content = document.getElementById('drawer-content');
+            const tabBar = document.getElementById('drawer-tabs');
+            const content = document.getElementById('drawer-content');
 
-                                tabBar.innerHTML = avail.map((t, i) =>
-                                    `<button class="res-tab${i === 0 ? ' active' : ''}" data-t="${t}">${labels[t]}</button>`
-                                ).join('');
+            tabBar.innerHTML = avail.map((t, i) =>
+                `<button class="res-tab${i === 0 ? ' active' : ''}" data-t="${t}">${labels[t]}</button>`
+            ).join('');
 
-                                content.innerHTML = avail.length > 0
-                                    ? avail.map((t, i) => `
+            content.innerHTML = avail.length > 0
+                ? avail.map((t, i) => `
             <div class="res-section${i === 0 ? ' active' : ''}" data-section="${t}">
               ${buildResLinks(step[t], t)}
             </div>`).join('')
-                                    : '<p class="no-res">No resources added yet for this step.</p>';
+                : '<p class="no-res">No resources added yet for this step.</p>';
 
-                                // Tab click
-                                tabBar.querySelectorAll('.res-tab').forEach(b => {
-                                    b.onclick = () => {
-                                        tabBar.querySelectorAll('.res-tab').forEach(x => x.classList.remove('active'));
-                                        content.querySelectorAll('.res-section').forEach(x => x.classList.remove('active'));
-                                        b.classList.add('active');
-                                        content.querySelector(`.res-section[data-section="${b.dataset.t}"]`)?.classList.add('active');
-                                    };
-                                });
+            tabBar.querySelectorAll('.res-tab').forEach(b => {
+                b.onclick = () => {
+                    tabBar.querySelectorAll('.res-tab').forEach(x => x.classList.remove('active'));
+                    content.querySelectorAll('.res-section').forEach(x => x.classList.remove('active'));
+                    b.classList.add('active');
+                    content.querySelector(`.res-section[data-section="${b.dataset.t}"]`)?.classList.add('active');
+                };
+            });
 
-                                // Load ratings (async, non-blocking)
-                                loadRatings(_domain.id, idx);
-
-                                // Show drawer
-                                document.getElementById('res-drawer').classList.add('show');
-                                document.getElementById('drawer-overlay').classList.add('show');
-                                document.body.style.overflow = 'hidden';
-                            }
+            loadRatings(domain.id, idx);
+            document.getElementById('res-drawer').classList.add('show');
+            document.getElementById('drawer-overlay').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
 
         function closeDrawer() {
-                                    document.getElementById('res-drawer').classList.remove('show');
-                                    document.getElementById('drawer-overlay').classList.remove('show');
-                                    document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
-                                    document.body.style.overflow = '';
-                                    _activeStep = null;
-                                }
+            document.getElementById('res-drawer').classList.remove('show');
+            document.getElementById('drawer-overlay').classList.remove('show');
+            document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active-node'));
+            document.body.style.overflow = '';
+            _activeStep = null;
+        }
 
         function buildResLinks(items, type) {
-                                    if (!items?.length) return '<p class="no-res">No resources yet.</p>';
-                                    return items.map(r => `
+            if (!items?.length) return '<p class="no-res">No resources yet.</p>';
+            return items.map(r => `
       <div class="res-item-wrap">
-        <a href="${r.url || '#'}" target="_blank" rel="noopener"
-           class="res-item r-${type}">
+        <a href="${r.url || '#'}" target="_blank" rel="noopener" class="res-item r-${type}">
           <span class="res-icon">${RES_ICONS[type]}</span>
           <div class="res-info">
-            <span class="res-name">${r.name}</span>
+            <span class="res-name">${r.name || 'Untitled resource'}</span>
             ${r.platform ? `<span class="res-plat">${r.platform}</span>` : ''}
           </div>
           <span class="${r.paid === true ? 'badge-p' : 'badge-f'}">${r.paid === true ? 'Paid' : 'Free'}</span>
-          <span class="res-arrow">←—</span>
+          <span class="res-arrow">↗</span>
         </a>
         <div class="res-rating" data-url="${r.url || ''}">
           ${[1, 2, 3, 4, 5].map(s => `<button class="star-btn" data-star="${s}" title="${s} star">★</button>`).join('')}
           <span class="rating-avg"></span>
         </div>
       </div>`).join('');
-                                }
+        }
 
-        /* â”€â”€ Load & wire ratings for current step â”€â”€ */
         async function loadRatings(domainId, stepIdx) {
-                                    try {
-                                        const { ratings } = await API.getRatings(domainId, stepIdx);
-                                        document.querySelectorAll('.res-rating').forEach(widget => {
-                                            const url = widget.dataset.url;
-                                            if (!url) return;
-                                            const info = ratings[url];
-                                            const userStars = info?.userStars || 0;
-                                            const avg = info?.avg || 0;
-                                            const count = info?.count || 0;
-                                            widget.querySelectorAll('.star-btn').forEach(btn => {
-                                                const s = Number(btn.dataset.star);
-                                                btn.classList.toggle('on', s <= userStars);
-                                                btn.onclick = async (e) => {
-                                                    e.stopPropagation();
-                                                    try {
-                                                        await API.submitRating(domainId, stepIdx, url, s);
-                                                        widget.querySelectorAll('.star-btn').forEach(b => {
-                                                            b.classList.toggle('on', Number(b.dataset.star) <= s);
-                                                        });
-                                                        const avgEl = widget.querySelector('.rating-avg');
-                                                        if (avgEl) avgEl.textContent = `â­ ${s}/5`;
-                                                        showToast('Rating saved!');
-                                                    } catch { showToast('Could not save rating.'); }
-                                                };
-                                            });
-                                            const avgEl = widget.querySelector('.rating-avg');
-                                            if (avgEl && count > 0) avgEl.textContent = `â­ ${avg} (${count})`;
-                                        });
-                                    } catch (e) {
-                                        // Ratings unavailable â€” silently skip
-                                    }
-                                }
+            if (typeof API === 'undefined' || typeof API.getRatings !== 'function' || typeof API.submitRating !== 'function') return;
+
+            try {
+                const data = await API.getRatings(domainId, stepIdx);
+                const ratings = data?.ratings || {};
+
+                document.querySelectorAll('.res-rating').forEach(widget => {
+                    const url = widget.dataset.url;
+                    if (!url) return;
+
+                    const info = ratings[url] || {};
+                    const userStars = info.userStars || 0;
+                    const avg = info.avg || 0;
+                    const count = info.count || 0;
+
+                    widget.querySelectorAll('.star-btn').forEach(btn => {
+                        const s = Number(btn.dataset.star);
+                        btn.classList.toggle('on', s <= userStars);
+                        btn.onclick = async (e) => {
+                            e.stopPropagation();
+                            try {
+                                await API.submitRating(domainId, stepIdx, url, s);
+                                widget.querySelectorAll('.star-btn').forEach(b => {
+                                    b.classList.toggle('on', Number(b.dataset.star) <= s);
+                                });
+                                const avgEl = widget.querySelector('.rating-avg');
+                                if (avgEl) avgEl.textContent = `Rating ${s}/5`;
+                            } catch {
+                                showToast('Could not save rating.');
+                            }
+                        };
+                    });
+
+                    const avgEl = widget.querySelector('.rating-avg');
+                    if (avgEl && count > 0) avgEl.textContent = `Avg ${avg} (${count})`;
+                });
+            } catch (e) {
+                // Ratings unavailable, skip silently.
+            }
+        }
+
+        function showToast(message) {
+            let toast = document.getElementById('error-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'error-toast';
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.padding = '8px 14px';
+                toast.style.borderRadius = '8px';
+                toast.style.background = 'rgba(0,0,0,0.8)';
+                toast.style.color = '#fff';
+                toast.style.fontSize = '13px';
+                toast.style.zIndex = '10000';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = message;
+            toast.style.display = 'block';
+            clearTimeout(showToast._timer);
+            showToast._timer = setTimeout(() => { toast.style.display = 'none'; }, 2200);
+        }
     </script>
 
 </body>

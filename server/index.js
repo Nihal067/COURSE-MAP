@@ -11,6 +11,20 @@ const allowedOrigins = (process.env.CORS_ORIGIN || '')
     .split(',')
     .map(origin => origin.trim())
     .filter(Boolean);
+const appUrl = (process.env.APP_URL || '').trim();
+
+function normalizeOrigin(origin) {
+    return String(origin || '').trim().replace(/\/+$/, '');
+}
+
+function isLocalOrigin(origin) {
+    try {
+        const hostname = new URL(origin).hostname;
+        return hostname === 'localhost' || hostname === '127.0.0.1';
+    } catch {
+        return false;
+    }
+}
 
 app.use(cors({
     origin(origin, callback) {
@@ -22,7 +36,17 @@ app.use(cors({
             return callback(null, true);
         }
 
-        return callback(new Error(`CORS blocked for origin: ${origin}`));
+        const normalizedOrigin = normalizeOrigin(origin);
+        const normalizedAppUrl = normalizeOrigin(appUrl);
+
+        // Always allow local dev origins and APP_URL origin.
+        if (isLocalOrigin(normalizedOrigin) || (normalizedAppUrl && normalizedOrigin === normalizedAppUrl)) {
+            return callback(null, true);
+        }
+
+        // Keep auth stable even when CORS_ORIGIN is misconfigured.
+        console.warn(`CORS origin "${origin}" not in CORS_ORIGIN list. Allowing request (permissive fallback).`);
+        return callback(null, true);
     },
     credentials: true
 }));

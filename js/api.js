@@ -5,11 +5,32 @@
 
 // Set window.COURSEMAP_API_BASE before loading this file to override:
 // <script>window.COURSEMAP_API_BASE = 'https://api.example.com';</script>
-const configuredBase = (window.COURSEMAP_API_BASE || '').trim().replace(/\/$/, '');
-const isLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname)
+function normalizeBase(base) {
+    const value = String(base || '').trim();
+    if (!value) return '';
+    return value
+        .replace(/\/+$/, '')
+        .replace(/\/api$/i, '');
+}
+
+const localStorageBase = (() => {
+    try { return localStorage.getItem('cm_api_base') || ''; } catch { return ''; }
+})();
+
+const configuredBase = normalizeBase(window.COURSEMAP_API_BASE || localStorageBase);
+const currentOrigin = normalizeBase(window.location.origin && window.location.origin !== 'null' ? window.location.origin : '');
+const shouldTryLocalhost = ['localhost', '127.0.0.1', ''].includes(window.location.hostname)
     || window.location.protocol === 'file:'
     || window.location.origin === 'null';
-const API_BASE = configuredBase || (isLocalhost ? 'http://localhost:5000' : window.location.origin);
+const localhostBase = 'http://localhost:5000';
+
+const CANDIDATE_BASES = [...new Set([
+    configuredBase,
+    currentOrigin,
+    shouldTryLocalhost ? localhostBase : ''
+].filter(Boolean))];
+
+let API_BASE = CANDIDATE_BASES[0] || localhostBase;
 
 const API = (() => {
     function getToken() {
@@ -33,20 +54,80 @@ const API = (() => {
     }
 
     async function request(method, path, body) {
-        const opts = {
-            method,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + getToken()
+        const token = getToken();
+        const bases = [API_BASE, ...CANDIDATE_BASES.filter(b => b !== API_BASE)];
+        let lastNetworkError = null;
+        const isPublicAuthCall = /^\/api\/auth\/(login|register)$/i.test(path);
+
+        for (const base of bases) {
+            const opts = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            if (token && !isPublicAuthCall) opts.headers.Authorization = 'Bearer ' + token;
+            if (body) opts.body = JSON.stringify(body);
+
+            try {
+                const res = await fetch(base + path, opts);
+                const contentType = String(res.headers.get('content-type') || '').toLowerCase();
+                const isJson = contentType.includes('application/json');
+                const raw = await res.text();
+                let data = {};
+                try {
+                    data = raw ? JSON.parse(raw) : {};
+                } catch {
+                    data = { message: raw || `HTTP ${res.status}` };
+                }
+
+                // If current host serves only static files, /api may 404.
+                // Try next candidate base before failing.
+                if (bases.length > 1 && res.status === 404 && (base === currentOrigin || !isJson)) {
+                    continue;
+                }
+
+                // Retry another candidate when current candidate is unhealthy.
+                if (bases.length > 1 && res.status >= 500) {
+                    continue;
+                }
+
+                // If this endpoint should be JSON API but we got HTML/text from a wrong host,
+                // try next candidate.
+                if (bases.length > 1 && /^\/api\//i.test(path) && !isJson) {
+                    continue;
+                }
+
+                if (!res.ok) throw new Error(data.message || 'Request failed');
+
+                // Auth endpoints must return token + user. Otherwise we likely hit a wrong base.
+                if (isPublicAuthCall && (!data || !data.token || !data.user)) {
+                    if (bases.length > 1) continue;
+                    throw new Error('Invalid auth response from backend.');
+                }
+
+                if (API_BASE !== base) {
+                    API_BASE = base;
+                    try { localStorage.setItem('cm_api_base', base); } catch { }
+                }
+                return data;
+            } catch (err) {
+                const msg = String(err && err.message ? err.message : '');
+                const isNetworkError = err instanceof TypeError
+                    || /Failed to fetch|NetworkError|Load failed|fetch/i.test(msg);
+                if (isNetworkError) {
+                    lastNetworkError = err;
+                    continue;
+                }
+                throw err;
             }
-        };
-        if (body) opts.body = JSON.stringify(body);
+        }
 
-        const res = await fetch(API_BASE + path, opts);
-        const data = await res.json();
-
-        if (!res.ok) throw new Error(data.message || 'Request failed');
-        return data;
+        if (lastNetworkError) {
+            try { localStorage.removeItem('cm_api_base'); } catch { }
+            throw new Error('Cannot connect to backend. Start server or set window.COURSEMAP_API_BASE to your backend URL.');
+        }
+        throw new Error('Request failed');
     }
 
     return {
