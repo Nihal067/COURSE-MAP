@@ -22,7 +22,7 @@ Use the `render.yaml` in repo root.
 2. Choose **Blueprint** deploy from your GitHub repo.
 3. Confirm service from `render.yaml`.
 4. Set env vars:
-`MONGO_URI`, `JWT_SECRET`, `APP_URL`, `EMAIL_USER`, `EMAIL_PASS`
+`MONGO_URI`, `JWT_SECRET`, `APP_URL`, `EMAIL_USER`, `EMAIL_PASS`, `GOOGLE_CLIENT_ID`
 5. (Optional) `CORS_ORIGIN` can be blank since frontend + API are same origin.
 
 After deploy, your site URL will be:
@@ -35,6 +35,13 @@ Signup OTP will not send unless these are valid:
 - `EMAIL_PASS`: Gmail **App Password** (not Gmail account password)
 
 Also make sure Gmail has 2-Step Verification enabled.
+
+## 3.5 Google login setup
+
+To enable direct Google sign-in on the login page:
+- Create a **Web Application** OAuth client in Google Cloud Console.
+- Add your domains (production + local) to Authorized JavaScript origins.
+- Add the generated client id to `GOOGLE_CLIENT_ID` in your environment variables.
 
 ## 4. Verify production
 

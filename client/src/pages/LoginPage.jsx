@@ -20,9 +20,15 @@ export default function LoginPage() {
     const [signupName, setSignupName] = useState('')
     const [signupEmail, setSignupEmail] = useState('')
     const [signupPassword, setSignupPassword] = useState('')
+    const [shouldRedirect, setShouldRedirect] = useState(false)
 
+    // Only redirect if user is already logged in (not on initial page load)
     useEffect(() => {
-        if (isLoggedIn) navigate('/dashboard')
+        if (isLoggedIn && shouldRedirect) {
+            navigate('/dashboard')
+        }
+        // Set flag after first render to allow login form to display
+        setShouldRedirect(true)
     }, [isLoggedIn, navigate])
 
     useEffect(() => {
@@ -54,7 +60,6 @@ export default function LoginPage() {
             navigate('/dashboard')
         } catch (err) {
             setError(err.response?.data?.message || 'Login failed. Please try again.')
-        } finally {
             setLoading(false)
         }
     }
@@ -87,7 +92,6 @@ export default function LoginPage() {
             navigate('/dashboard')
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed. Please try again.')
-        } finally {
             setLoading(false)
         }
     }
@@ -108,97 +112,105 @@ export default function LoginPage() {
                 <div className="orb orb-3" />
             </div>
 
-            <div className="login-container">
-                <div className="brand">
-                    <div className="brand-icon">CM</div>
-                    <h1>CourseMap</h1>
-                    <p>Navigate your learning path with clarity</p>
+            {loading && (
+                <div className="spinner-wrap login-spinner-wrap">
+                    <div className="spinner" />
                 </div>
+            )}
 
-                <div className="login-card">
-                    <div className="auth-tabs">
-                        <button
-                            type="button"
-                            className={`auth-tab ${tab === 'login' ? 'active' : ''}`}
-                            onClick={() => {
-                                setTab('login')
-                                setError('')
-                                setSuccess('')
-                            }}
-                        >
-                            Sign In
-                        </button>
-                        <button
-                            type="button"
-                            className={`auth-tab ${tab === 'signup' ? 'active' : ''}`}
-                            onClick={() => {
-                                setTab('signup')
-                                setError('')
-                                setSuccess('')
-                            }}
-                        >
-                            Create Account
-                        </button>
+            {!loading && (
+                <div className="login-container">
+                    <div className="brand">
+                        <div className="brand-icon">CM</div>
+                        <h1>CourseMap</h1>
+                        <p>Navigate your learning path with clarity</p>
                     </div>
 
-                    {error && <div className="auth-alert error">{error}</div>}
-                    {success && <div className="auth-alert success">{success}</div>}
+                    <div className="login-card">
+                        <div className="auth-tabs">
+                            <button
+                                type="button"
+                                className={`auth-tab ${tab === 'login' ? 'active' : ''}`}
+                                onClick={() => {
+                                    setTab('login')
+                                    setError('')
+                                    setSuccess('')
+                                }}
+                            >
+                                Sign In
+                            </button>
+                            <button
+                                type="button"
+                                className={`auth-tab ${tab === 'signup' ? 'active' : ''}`}
+                                onClick={() => {
+                                    setTab('signup')
+                                    setError('')
+                                    setSuccess('')
+                                }}
+                            >
+                                Create Account
+                            </button>
+                        </div>
 
-                    {tab === 'login' ? (
-                        <form className="auth-form" onSubmit={handleLogin}>
-                            <div className="form-group">
-                                <label>Email Address</label>
-                                <input name="email" type="email" required />
-                            </div>
-                            <div className="form-group">
-                                <label>Password</label>
-                                <input name="password" type="password" required />
-                            </div>
-                            <button type="submit" className="btn-submit" disabled={loading}>
-                                {loading ? 'Signing in...' : 'Sign In'}
-                            </button>
-                        </form>
-                    ) : (
-                        <form className="auth-form" onSubmit={handleRegister}>
-                            <div className="form-group">
-                                <label>Full Name</label>
-                                <input
-                                    name="name"
-                                    type="text"
-                                    value={signupName}
-                                    onChange={(e) => setSignupName(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Email Address</label>
-                                <input
-                                    name="email"
-                                    type="email"
-                                    value={signupEmail}
-                                    onChange={(e) => setSignupEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Password</label>
-                                <input
-                                    name="password"
-                                    type="password"
-                                    minLength={6}
-                                    value={signupPassword}
-                                    onChange={(e) => setSignupPassword(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <button type="submit" className="btn-submit" disabled={loading}>
-                                {loading ? 'Creating account...' : 'Create Account'}
-                            </button>
-                        </form>
-                    )}
+                        {error && <div className="auth-alert error">{error}</div>}
+                        {success && <div className="auth-alert success">{success}</div>}
+
+                        {tab === 'login' ? (
+                            <form className="auth-form" onSubmit={handleLogin}>
+                                <div className="form-group">
+                                    <label>Email Address</label>
+                                    <input name="email" type="email" required />
+                                </div>
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input name="password" type="password" required />
+                                </div>
+                                <button type="submit" className="btn-submit" disabled={loading}>
+                                    {loading ? 'Signing in...' : 'Sign In'}
+                                </button>
+                            </form>
+                        ) : (
+                            <form className="auth-form" onSubmit={handleRegister}>
+                                <div className="form-group">
+                                    <label>Full Name</label>
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        value={signupName}
+                                        onChange={(e) => setSignupName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email Address</label>
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        value={signupEmail}
+                                        onChange={(e) => setSignupEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Password</label>
+                                    <input
+                                        name="password"
+                                        type="password"
+                                        minLength={6}
+                                        value={signupPassword}
+                                        onChange={(e) => setSignupPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" className="btn-submit" disabled={loading}>
+                                    {loading ? 'Creating account...' : 'Create Account'}
+                                </button>
+                            </form>
+                        )}
+                    </div>
+                    <div className="login-footer"><p>Start exploring roadmaps in every domain.</p></div>
                 </div>
-                <div className="login-footer"><p>Start exploring roadmaps in every domain.</p></div>
-            </div>
+            )}
         </div>
     )
 }

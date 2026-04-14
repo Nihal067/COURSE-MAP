@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roadmap - CourseMap</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Google Fonts -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -880,7 +882,7 @@
 
         .star-btn:hover,
         .star-btn.on {
-            color: #f59e0b;
+            color: #f59e0b !important;
         }
 
         .star-btn:hover {
@@ -888,7 +890,9 @@
         }
 
         .rating-avg {
-            font-size: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.9;
             color: var(--t3);
             margin-left: 5px;
         }
@@ -902,6 +906,25 @@
         @media (max-width: 768px) {
             .roadmap-nav {
                 padding: 10px 16px;
+                gap: 10px;
+            }
+
+            .roadmap-nav-brand {
+                position: static;
+                transform: none;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .nav-right {
+                gap: 6px;
+            }
+
+            .nav-username {
+                max-width: 110px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
 
             .domain-header {
@@ -938,6 +961,52 @@
 
             #res-drawer {
                 max-height: 90vh;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .roadmap-nav {
+                padding: 10px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .roadmap-nav-brand {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 8px;
+            }
+
+            .back-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .nav-right {
+                margin-left: auto;
+            }
+
+            .nav-username {
+                display: none;
+            }
+
+            .domain-meta {
+                flex-wrap: wrap;
+                gap: 8px 14px;
+            }
+
+            .flow-node-box {
+                padding: 12px;
+                gap: 10px;
+            }
+
+            .node-right {
+                display: none;
+            }
+
+            .drawer-step-title {
+                font-size: 16px;
             }
         }
 
@@ -1004,6 +1073,7 @@
             background: rgba(182, 90, 60, 0.06);
         }
     </style>
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
@@ -1016,7 +1086,6 @@
             <span class="roadmap-nav-brand-name">CourseMap</span>
         </a>
         <div class="nav-right">
-            <span class="nav-username" id="nav-username"></span>
             <button class="theme-toggle-btn" id="theme-toggle" title="Toggle theme">Light</button>
             <button id="btn-share-roadmap" title="Share this roadmap"
                 style="background:rgba(182,90,60,0.14);border:1px solid rgba(182,90,60,0.35);border-radius:8px;padding:5px 12px;font-size:13px;font-weight:600;color:#b65a3c;cursor:pointer;transition:all 0.2s;">📤
@@ -1442,56 +1511,114 @@
             <span class="res-name">${r.name || 'Untitled resource'}</span>
             ${r.platform ? `<span class="res-plat">${r.platform}</span>` : ''}
           </div>
-          <span class="${r.paid === true ? 'badge-p' : 'badge-f'}">${r.paid === true ? 'Paid' : 'Free'}</span>
+          <span class="${(() => {
+                let isPaid = r.paid === true;
+                if (!isPaid && r.url) {
+                    const paidDoms = ['amazon.', 'manning.com', 'wiley.com', 'udemy.com', 'linkedin.com/learning', 'edx.org', 'bpbonline.com', 'peachpit.com', 'routledge.com', 'oreilly.com', 'packtpub.com'];
+                    isPaid = paidDoms.some(d => r.url.toLowerCase().includes(d));
+                }
+                return isPaid ? 'badge-p' : 'badge-f';
+            })()}">${(() => {
+                let isPaid = r.paid === true;
+                if (!isPaid && r.url) {
+                    const paidDoms = ['amazon.', 'manning.com', 'wiley.com', 'udemy.com', 'linkedin.com/learning', 'edx.org', 'bpbonline.com', 'peachpit.com', 'routledge.com', 'oreilly.com', 'packtpub.com'];
+                    isPaid = paidDoms.some(d => r.url.toLowerCase().includes(d));
+                }
+                return isPaid ? 'Paid' : 'Free';
+            })()}</span>
           <span class="res-arrow">↗</span>
         </a>
         <div class="res-rating" data-url="${r.url || ''}">
           ${[1, 2, 3, 4, 5].map(s => `<button class="star-btn" data-star="${s}" title="${s} star">★</button>`).join('')}
-          <span class="rating-avg"></span>
+          <span class="rating-avg" style="opacity:0.6;">(No ratings yet)</span>
         </div>
       </div>`).join('');
         }
 
+        /* ── Local ratings storage key ── */
+        function ratingsKey(domainId, stepIdx) {
+            return 'cm_ratings_' + domainId + '_' + stepIdx;
+        }
+        function getLocalRatings(domainId, stepIdx) {
+            try { return JSON.parse(localStorage.getItem(ratingsKey(domainId, stepIdx)) || '{}'); }
+            catch { return {}; }
+        }
+        function saveLocalRating(domainId, stepIdx, url, stars) {
+            const map = getLocalRatings(domainId, stepIdx);
+            map[url] = stars;
+            try { localStorage.setItem(ratingsKey(domainId, stepIdx), JSON.stringify(map)); } catch {}
+        }
+
         async function loadRatings(domainId, stepIdx) {
-            if (typeof API === 'undefined' || typeof API.getRatings !== 'function' || typeof API.submitRating !== 'function') return;
+            /* Try to fetch server ratings; fall back to localStorage. */
+            let serverRatings = {};
+            let backendOk = false;
+            if (typeof API !== 'undefined' && typeof API.getRatings === 'function') {
+                try {
+                    const data = await API.getRatings(domainId, stepIdx);
+                    serverRatings = data?.ratings || {};
+                    backendOk = true;
+                } catch { /* backend offline — will use localStorage */ }
+            }
 
-            try {
-                const data = await API.getRatings(domainId, stepIdx);
-                const ratings = data?.ratings || {};
+            const localRatings = getLocalRatings(domainId, stepIdx);
 
-                document.querySelectorAll('.res-rating').forEach(widget => {
-                    const url = widget.dataset.url;
-                    if (!url) return;
+            document.querySelectorAll('.res-rating').forEach(widget => {
+                const url = widget.dataset.url;
+                if (!url) return;
 
-                    const info = ratings[url] || {};
-                    const userStars = info.userStars || 0;
-                    const avg = info.avg || 0;
-                    const count = info.count || 0;
+                /* Determine current user's rating: prefer server, fall back to local */
+                const serverInfo = serverRatings[url] || {};
+                const localStars = localRatings[url] || 0;
+                const userStars = backendOk ? (serverInfo.userStars || 0) : localStars;
+                const avg = serverInfo.avg || 0;
+                const count = serverInfo.count || 0;
 
-                    widget.querySelectorAll('.star-btn').forEach(btn => {
+                /* Paint stars */
+                widget.querySelectorAll('.star-btn').forEach(btn => {
+                    btn.classList.toggle('on', Number(btn.dataset.star) <= userStars);
+                });
+
+                /* Update avg label */
+                const avgEl = widget.querySelector('.rating-avg');
+                if (avgEl) {
+                    if (backendOk && count > 0) {
+                        avgEl.textContent = `Avg ${avg.toFixed(1)} ★ (${count})`;
+                        avgEl.style.opacity = '1';
+                    } else if (!backendOk && localStars > 0) {
+                        avgEl.textContent = `Your rating: ${localStars}/5`;
+                        avgEl.style.opacity = '1';
+                    } else {
+                        avgEl.textContent = '(No ratings yet)';
+                        avgEl.style.opacity = '0.6';
+                    }
+                }
+
+                /* Attach click handlers — always, regardless of backend */
+                widget.querySelectorAll('.star-btn').forEach(btn => {
+                    btn.onclick = async (e) => {
+                        e.stopPropagation();
                         const s = Number(btn.dataset.star);
-                        btn.classList.toggle('on', s <= userStars);
-                        btn.onclick = async (e) => {
-                            e.stopPropagation();
+
+                        /* Optimistic UI update */
+                        widget.querySelectorAll('.star-btn').forEach(b => {
+                            b.classList.toggle('on', Number(b.dataset.star) <= s);
+                        });
+                        const avgEl2 = widget.querySelector('.rating-avg');
+                        if (avgEl2) { avgEl2.textContent = `Your rating: ${s}/5`; avgEl2.style.opacity = '1'; }
+
+                        /* Persist locally first */
+                        saveLocalRating(domainId, stepIdx, url, s);
+
+                        /* Try to sync to backend */
+                        if (typeof API !== 'undefined' && typeof API.submitRating === 'function') {
                             try {
                                 await API.submitRating(domainId, stepIdx, url, s);
-                                widget.querySelectorAll('.star-btn').forEach(b => {
-                                    b.classList.toggle('on', Number(b.dataset.star) <= s);
-                                });
-                                const avgEl = widget.querySelector('.rating-avg');
-                                if (avgEl) avgEl.textContent = `Rating ${s}/5`;
-                            } catch {
-                                showToast('Could not save rating.');
-                            }
-                        };
-                    });
-
-                    const avgEl = widget.querySelector('.rating-avg');
-                    if (avgEl && count > 0) avgEl.textContent = `Avg ${avg} (${count})`;
+                            } catch { /* saved locally; backend sync will retry next time */ }
+                        }
+                    };
                 });
-            } catch (e) {
-                // Ratings unavailable, skip silently.
-            }
+            });
         }
 
         function showToast(message) {

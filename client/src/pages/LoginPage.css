@@ -16,6 +16,7 @@
     position: relative;
     overflow: hidden;
     background: var(--login-bg);
+    width: 100%;
 }
 
 [data-theme="dark"] .login-page {
@@ -82,7 +83,7 @@
 
 .login-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     max-width: 420px;
     padding: 24px 16px;
@@ -90,6 +91,7 @@
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    background: transparent;
 }
 
 .brand {
@@ -235,8 +237,38 @@
     cursor: not-allowed;
 }
 
+/* ── Spinner Overlay ── */
+.spinner-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--login-bg);
+    pointer-events: all;
+}
+
+.login-spinner-wrap {
+    min-height: 100vh;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid rgba(182, 90, 60, 0.2);
+    border-top-color: var(--login-accent);
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .login-footer {
     color: var(--login-muted);
     font-size: 13px;
 }
-

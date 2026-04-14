@@ -1,126 +1,198 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="CourseMap — Discover structured learning roadmaps for 25+ domains. Start your journey today.">
-  <title>CourseMap — Your Learning Journey Starts Here</title>
+  <title>CourseMap | AI, Web Development, Data Science & Cybersecurity Learning Roadmaps</title>
+  <meta name="description" content="CourseMap helps students and professionals follow step-by-step learning roadmaps for AI, machine learning, web development, data science, cybersecurity, cloud computing, UI/UX design and more.">
+  <meta name="keywords" content="CourseMap, learning roadmap, AI roadmap, machine learning roadmap, web development roadmap, data science roadmap, cybersecurity roadmap, cloud computing roadmap, UI UX roadmap, app development roadmap, online learning path, career roadmap">
+  <meta name="author" content="CourseMap">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#b65a3c">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CourseMap">
+  <meta property="og:title" content="CourseMap | AI, Web Development, Data Science & Cybersecurity Learning Roadmaps">
+  <meta property="og:description" content="Structured learning roadmaps for AI, machine learning, web development, data science, cybersecurity, cloud computing and other fast-growing careers.">
+  <meta property="og:image" content="/logo.jpg">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="CourseMap | AI, Web Development, Data Science & Cybersecurity Learning Roadmaps">
+  <meta property="twitter:description" content="Explore structured learning paths for AI, web development, data science, cybersecurity and more with CourseMap.">
   <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CourseMap",
+      "description": "CourseMap provides step-by-step learning roadmaps for artificial intelligence, machine learning, web development, data science, cybersecurity, cloud computing, UI/UX design and app development.",
+      "inLanguage": "en",
+      "keywords": [
+        "AI roadmap",
+        "machine learning roadmap",
+        "web development roadmap",
+        "data science roadmap",
+        "cybersecurity roadmap",
+        "cloud computing roadmap",
+        "UI UX roadmap",
+        "career learning path"
+      ]
+    }
+  </script>
+  <script id="google-gsi-script" src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
-  <div class="login-page">
-    <!-- Animated Background -->
+  <div class="login-page intro-active">
+    <div class="intro-splash" id="intro-splash" aria-hidden="true">
+      <div class="intro-stage">
+        <div class="intro-rings" aria-hidden="true"></div>
+        <div class="intro-logo-shell">
+          <div class="intro-logo-card">
+            <img src="logo.jpg" alt="" class="intro-logo-img">
+          </div>
+        </div>
+        <p class="intro-caption">CourseMap</p>
+      </div>
+    </div>
+
     <div class="login-bg">
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
     </div>
+
     <button class="theme-toggle-btn theme-toggle-login" type="button" title="Toggle theme">Light</button>
 
-    <div class="login-container">
-      <!-- Brand -->
-      <div class="brand">
-        <div class="brand-icon">
-          <img src="logo.jpg" alt="CourseMap Logo" class="brand-logo-img">
-        </div>
-        <h1>CourseMap</h1>
-        <p>Navigate your learning path with clarity</p>
-      </div>
-
-      <!-- Login Card -->
-      <div class="login-card">
-        <!-- Tabs -->
-        <div class="auth-tabs">
-          <button class="auth-tab active" data-tab="login" id="tab-login">Sign In</button>
-          <button class="auth-tab" data-tab="signup" id="tab-signup">Create Account</button>
+    <main class="login-layout">
+      <section class="auth-panel" aria-label="Account access">
+        <div class="brand">
+          <div class="brand-icon">
+            <img src="logo.jpg" alt="CourseMap logo" class="brand-logo-img">
+          </div>
+          <div>
+            <h1>CourseMap</h1>
+            <p>Learning roadmaps for AI, web development, data science, cybersecurity and more.</p>
+          </div>
         </div>
 
-        <!-- Alert Banner -->
-        <div class="auth-alert" id="auth-alert"></div>
+        <div class="login-card">
+          <div class="auth-tabs" role="tablist" aria-label="Authentication tabs">
+            <button class="auth-tab active" data-tab="login" id="tab-login" role="tab" aria-controls="login-form">Sign In</button>
+            <button class="auth-tab" data-tab="signup" id="tab-signup" role="tab" aria-controls="signup-form">Create Account</button>
+          </div>
 
-        <!-- Login Form -->
-        <form class="auth-form active" id="login-form" autocomplete="on">
-          <div class="form-group">
-            <label for="login-email">Email Address</label>
-            <input type="email" id="login-email" required autocomplete="email">
-            <div class="error-message" id="login-email-error"></div>
-          </div>
-          <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" required
-              autocomplete="current-password">
-            <div class="error-message" id="login-password-error"></div>
-          </div>
-          <button type="submit" class="btn-submit">Sign In</button>
-        </form>
+          <div class="auth-alert" id="auth-alert" role="status" aria-live="polite"></div>
 
-        <!-- Signup Form -->
-        <form class="auth-form" id="signup-form" autocomplete="on">
-          <div class="form-group">
-            <label for="signup-name">Full Name</label>
-            <input type="text" id="signup-name" required autocomplete="name">
-            <div class="error-message" id="signup-name-error"></div>
-          </div>
-          <div class="form-group">
-            <label for="signup-email">Email Address</label>
-            <input type="email" id="signup-email" required autocomplete="email">
-            <div class="error-message" id="signup-email-error"></div>
-          </div>
-          <div class="form-group">
-            <label for="signup-password">Password</label>
-            <input type="password" id="signup-password" required
-              autocomplete="new-password" minlength="6">
-            <div class="error-message" id="signup-password-error"></div>
-          </div>
-          <button type="submit" class="btn-submit">Create Account</button>
-        </form>
-      </div>
+          <form class="auth-form active" id="login-form" autocomplete="on">
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <input type="email" id="login-email" required autocomplete="email">
+              <div class="error-message" id="login-email-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" required autocomplete="current-password">
+              <div class="error-message" id="login-password-error"></div>
+            </div>
+            <button type="submit" class="btn-submit">Sign In</button>
+          </form>
 
-      <div class="login-footer">
-        <p>Start exploring roadmaps in every domain 🚀</p>
-      </div>
-    </div>
+          <form class="auth-form" id="signup-form" autocomplete="on">
+            <div class="form-group">
+              <label for="signup-name">Full Name</label>
+              <input type="text" id="signup-name" required autocomplete="name">
+              <div class="error-message" id="signup-name-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="signup-email">Email Address</label>
+              <input type="email" id="signup-email" required autocomplete="email">
+              <div class="error-message" id="signup-email-error"></div>
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Password</label>
+              <input type="password" id="signup-password" required autocomplete="new-password" minlength="6">
+              <div class="error-message" id="signup-password-error"></div>
+            </div>
+            <button type="submit" class="btn-submit">Create Account</button>
+          </form>
+
+          <div class="auth-divider"><span>or</span></div>
+
+          <div class="social-auth">
+            <p class="social-title">Google Sign-In</p>
+            <div class="google-signin-wrap">
+              <div id="google-btn-container"></div>
+            </div>
+            <button type="button" id="google-login-fallback" class="btn-google-fallback" hidden>Retry Google Sign-In</button>
+            <p id="google-login-msg" class="google-login-msg"></p>
+          </div>
+        </div>
+
+        <div class="login-footer">
+          <p>Use your CourseMap account to continue learning.</p>
+        </div>
+
+        <section class="seo-panel" aria-labelledby="seo-panel-title">
+          <h2 id="seo-panel-title">Popular Learning Paths on CourseMap</h2>
+          <p>
+            CourseMap helps beginners, students and working professionals discover structured learning paths for
+            artificial intelligence, machine learning, web development, data science, cybersecurity, cloud computing,
+            UI/UX design, software engineering and app development.
+          </p>
+          <div class="seo-chip-list" aria-label="Top roadmap keywords">
+            <span class="seo-chip">AI Roadmap</span>
+            <span class="seo-chip">Machine Learning Roadmap</span>
+            <span class="seo-chip">Web Development Roadmap</span>
+            <span class="seo-chip">Data Science Roadmap</span>
+            <span class="seo-chip">Cybersecurity Roadmap</span>
+            <span class="seo-chip">Cloud Computing Roadmap</span>
+            <span class="seo-chip">UI/UX Design Roadmap</span>
+            <span class="seo-chip">App Development Roadmap</span>
+          </div>
+        </section>
+      </section>
+    </main>
   </div>
 
   <script src="js/theme.js"></script>
   <script src="js/api.js"></script>
   <script src="js/auth.js"></script>
   <script>
-    // Redirect if already logged in
     if (Auth.isLoggedIn()) {
       window.location.href = 'dashboard.html';
     }
 
-    // Tab switching
     const tabs = document.querySelectorAll('.auth-tab');
     const loginForm = document.getElementById('login-form');
     const signupForm = document.getElementById('signup-form');
     const alertBox = document.getElementById('auth-alert');
+    const loginPage = document.querySelector('.login-page');
+    const introSplash = document.getElementById('intro-splash');
+    const googleScript = document.getElementById('google-gsi-script');
+    const googleButtonContainer = document.getElementById('google-btn-container');
+    const googleMessage = document.getElementById('google-login-msg');
+    const googleFallbackBtn = document.getElementById('google-login-fallback');
+    let googleScriptReadyPromise = null;
+    let googleClientId = '';
+
+    function setTab(tabName) {
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === tabName));
+      loginForm.classList.toggle('active', tabName === 'login');
+      signupForm.classList.toggle('active', tabName === 'signup');
+      alertBox.className = 'auth-alert';
+      alertBox.style.display = 'none';
+      clearFieldErrors();
+    }
 
     tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        alertBox.className = 'auth-alert';
-        alertBox.style.display = 'none';
-
-        if (tab.dataset.tab === 'login') {
-          loginForm.classList.add('active');
-          signupForm.classList.remove('active');
-        } else {
-          signupForm.classList.add('active');
-          loginForm.classList.remove('active');
-        }
-      });
+      tab.addEventListener('click', () => setTab(tab.dataset.tab));
     });
 
-    function showAlert(msg, type) {
-      alertBox.textContent = msg;
+    function showAlert(message, type) {
+      alertBox.textContent = message;
       alertBox.className = 'auth-alert ' + type;
     }
 
@@ -134,10 +206,11 @@
       });
     }
 
-    function showFieldError(id, msg) {
+    function showFieldError(id, message) {
       const errorEl = document.getElementById(id);
-      const inputEl = errorEl.previousElementSibling;
-      errorEl.textContent = msg;
+      const inputEl = errorEl ? errorEl.previousElementSibling : null;
+      if (!errorEl) return;
+      errorEl.textContent = message;
       errorEl.classList.add('visible');
       if (inputEl && inputEl.classList) inputEl.classList.add('error');
     }
@@ -146,39 +219,181 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     }
 
-    // Login
+    function setGoogleMessage(message) {
+      googleMessage.textContent = message || '';
+    }
+
+    function finishIntro() {
+      loginPage.classList.remove('intro-active');
+      loginPage.classList.add('intro-complete');
+      if (introSplash) introSplash.hidden = true;
+    }
+
+    function runIntroSequence() {
+      if (!loginPage) return;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        finishIntro();
+        return;
+      }
+
+      window.setTimeout(finishIntro, 2100);
+    }
+
+    function waitForGoogleScript(timeoutMs = 7000) {
+      if (window.google && window.google.accounts && window.google.accounts.id) {
+        return Promise.resolve();
+      }
+      if (googleScriptReadyPromise) return googleScriptReadyPromise;
+
+      googleScriptReadyPromise = new Promise((resolve, reject) => {
+        let settled = false;
+
+        function cleanup() {
+          if (googleScript) {
+            googleScript.removeEventListener('load', onLoad);
+            googleScript.removeEventListener('error', onError);
+          }
+          window.clearInterval(poller);
+          window.clearTimeout(timer);
+        }
+
+        function finish(fn, value) {
+          if (settled) return;
+          settled = true;
+          cleanup();
+          fn(value);
+        }
+
+        function checkReady() {
+          if (window.google && window.google.accounts && window.google.accounts.id) {
+            finish(resolve);
+          }
+        }
+
+        function onLoad() {
+          checkReady();
+        }
+
+        function onError() {
+          finish(reject, new Error('Google sign-in script failed to load.'));
+        }
+
+        if (googleScript) {
+          googleScript.addEventListener('load', onLoad, { once: true });
+          googleScript.addEventListener('error', onError, { once: true });
+        }
+
+        const poller = window.setInterval(checkReady, 120);
+        const timer = window.setTimeout(() => {
+          finish(reject, new Error('Google sign-in script timed out.'));
+        }, timeoutMs);
+
+        checkReady();
+      });
+
+      return googleScriptReadyPromise;
+    }
+
+    function renderGoogleButton() {
+      if (!googleClientId || !window.google || !window.google.accounts || !window.google.accounts.id) {
+        return;
+      }
+
+      googleButtonContainer.innerHTML = '';
+      window.google.accounts.id.renderButton(googleButtonContainer, {
+        theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'filled_black' : 'outline',
+        size: 'large',
+        shape: 'pill',
+        text: 'continue_with',
+        width: Math.max(240, Math.min(360, window.innerWidth - 60))
+      });
+    }
+
+    async function handleGoogleCredential(credential) {
+      if (!credential) {
+        showAlert('Google sign-in failed: missing credential.', 'error');
+        return;
+      }
+
+      setGoogleMessage('Signing in with Google...');
+      const result = await Auth.loginWithGoogle(credential);
+      if (result.success) {
+        showAlert(result.message, 'success');
+        setGoogleMessage('');
+        setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
+      } else {
+        showAlert(result.message || 'Google sign-in failed. Please try again.', 'error');
+        setGoogleMessage('Google sign-in is available, but the login did not complete.');
+      }
+    }
+
+    async function initGoogleLogin() {
+      try {
+        const config = await API.getGoogleConfig();
+        if (!config.enabled || !config.clientId) {
+          setGoogleMessage('Google sign-in is currently unavailable on this server. Add GOOGLE_CLIENT_ID to enable it.');
+          return;
+        }
+
+        googleClientId = config.clientId;
+        await waitForGoogleScript();
+
+        window.google.accounts.id.initialize({
+          client_id: googleClientId,
+          callback: async (response) => {
+            await handleGoogleCredential(response && response.credential ? response.credential : '');
+          }
+        });
+
+        renderGoogleButton();
+        setGoogleMessage('');
+        googleFallbackBtn.hidden = true;
+      } catch (err) {
+        console.error('Google auth init error:', err);
+        setGoogleMessage('Google sign-in setup failed. Please use email or check server config.');
+        googleFallbackBtn.hidden = false;
+        googleFallbackBtn.onclick = () => window.location.reload();
+      }
+    }
+
     loginForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       clearFieldErrors();
 
-      const email = document.getElementById('login-email').value.trim();
+      const email = document.getElementById('login-email').value.trim().toLowerCase();
       const password = document.getElementById('login-password').value;
       const btn = loginForm.querySelector('.btn-submit');
 
       let hasError = false;
-      if (!email) { showFieldError('login-email-error', 'Please enter your email'); hasError = true; }
-      if (!password) { showFieldError('login-password-error', 'Please enter your password'); hasError = true; }
+      if (!email) { showFieldError('login-email-error', 'Please enter your email.'); hasError = true; }
+      if (email && !looksLikeEmail(email)) { showFieldError('login-email-error', 'Please enter a valid email address.'); hasError = true; }
+      if (!password) { showFieldError('login-password-error', 'Please enter your password.'); hasError = true; }
       if (hasError) return;
 
-      btn.textContent = 'Signing in…'; btn.disabled = true;
+      btn.textContent = 'Signing In...';
+      btn.disabled = true;
       const result = await Auth.login(email, password);
-      btn.textContent = 'Sign In'; btn.disabled = false;
+      btn.textContent = 'Sign In';
+      btn.disabled = false;
 
       if (result.success) {
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
+        return;
+      }
+
+      if (result.message && (result.message.includes('not registered') || result.message.includes('No account'))) {
+        showFieldError('login-email-error', 'No account found with this email. Please sign up first.');
+      } else if (result.message && result.message.includes('password')) {
+        showFieldError('login-password-error', 'Incorrect password. Please try again.');
+      } else if (result.message && result.message.includes('Google sign-in')) {
+        showAlert('This account uses Google sign-in. Please continue with Google.', 'error');
       } else {
-        if (result.message.includes('not registered') || result.message.includes('account') || result.message.includes('No account')) {
-          showFieldError('login-email-error', '⚠ No account found with this email. Please sign up first.');
-        } else if (result.message.includes('password') || result.message.includes('Incorrect')) {
-          showFieldError('login-password-error', '⚠ Incorrect password. Check your password and try again.');
-        } else {
-          showAlert(result.message, 'error');
-        }
+        showAlert(result.message || 'Login failed.', 'error');
       }
     });
 
-    // Signup
     signupForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       clearFieldErrors();
@@ -189,26 +404,37 @@
       const btn = signupForm.querySelector('.btn-submit');
 
       let hasError = false;
-      if (!name) { showFieldError('signup-name-error', 'Please enter your name'); hasError = true; }
-      if (!email) { showFieldError('signup-email-error', 'Please enter your email'); hasError = true; }
-      if (email && !looksLikeEmail(email)) { showFieldError('signup-email-error', 'Please enter a valid email address'); hasError = true; }
-      if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters'); hasError = true; }
+      if (!name) { showFieldError('signup-name-error', 'Please enter your full name.'); hasError = true; }
+      if (!email) { showFieldError('signup-email-error', 'Please enter your email.'); hasError = true; }
+      if (email && !looksLikeEmail(email)) { showFieldError('signup-email-error', 'Please enter a valid email address.'); hasError = true; }
+      if (password.length < 6) { showFieldError('signup-password-error', 'Password must be at least 6 characters.'); hasError = true; }
       if (hasError) return;
 
-      btn.textContent = 'Creating account…'; btn.disabled = true;
+      btn.textContent = 'Creating Account...';
+      btn.disabled = true;
       const result = await Auth.signup(name, email, password);
-      btn.textContent = 'Create Account'; btn.disabled = false;
+      btn.textContent = 'Create Account';
+      btn.disabled = false;
 
       if (result.success) {
         showAlert(result.message, 'success');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
       } else {
-        showAlert(result.message, 'error');
+        showAlert(result.message || 'Signup failed.', 'error');
       }
     });
+
+    document.querySelector('.theme-toggle-login')?.addEventListener('click', () => {
+      window.setTimeout(renderGoogleButton, 20);
+    });
+
+    window.addEventListener('resize', () => {
+      if (googleClientId) renderGoogleButton();
+    });
+
+    runIntroSequence();
+    initGoogleLogin();
   </script>
 </body>
 
 </html>
-
-

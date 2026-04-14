@@ -3,9 +3,9 @@
     'use strict';
 
     // ─── Constants ───────────────────────────────────────────────
-    const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent';
-    // ↓ Paste your free Gemini API key here  →  aistudio.google.com/app/apikey
-    const GEMINI_API_KEY = 'AIzaSyAtN07bbyFw6_URwj6uJlpUoTVJLT9OBaQ';
+    // Using secure backend proxy for production readiness
+    const GEMINI_API_URL = '/api/chat';
+    const GEMINI_API_KEY = null; 
 
 
     const SYSTEM_PROMPT = `You are CourseBot, a friendly and knowledgeable assistant for CourseMap — a website that provides structured learning roadmaps for 50+ domains like Web Development, Data Science, AI/ML, Cybersecurity, Cloud Computing, and more. 

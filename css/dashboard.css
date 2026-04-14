@@ -1,4 +1,4 @@
-﻿/* ===== DASHBOARD STYLES ===== */
+/* ===== DASHBOARD STYLES ===== */
 
 /* â”€â”€ Navbar â”€â”€ */
 .navbar {
@@ -651,14 +651,14 @@
 .explore-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(5, 5, 16, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(15, 12, 10, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     z-index: 500;
     display: none;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 24px;
     overflow-y: auto;
 }
 
@@ -667,14 +667,18 @@
 }
 
 .explore-modal {
-    background: var(--bg-card);
+    background: var(--bg-glass);
     border: 1px solid var(--bg-glass-border);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     padding: 32px;
     margin: auto;
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+    box-shadow: var(--shadow-lg), 0 0 80px rgba(182, 90, 60, 0.1);
+    position: relative;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .explore-modal-header {
@@ -773,9 +777,10 @@
 }
 
 .modal-cat-chip.active {
-    background: rgba(182, 90, 60, 0.18);
-    border-color: rgba(182, 90, 60, 0.4);
-    color: var(--accent-purple);
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(182, 90, 60, 0.25);
 }
 
 .explore-grid {

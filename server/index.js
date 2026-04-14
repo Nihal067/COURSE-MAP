@@ -59,6 +59,29 @@ app.use('/api/progress', require('./routes/progress'));
 app.use('/api/ratings', require('./routes/ratings'));
 app.use('/api/notifications', require('./routes/notifications'));
 
+// Secure AI Proxy for Chatbot
+app.post('/api/chat', async (req, res) => {
+  const { contents, systemInstruction } = req.body;
+  const apiKey = process.env.GEMINI_API_KEY;
+
+  if (!apiKey) {
+    return res.status(500).json({ error: 'Server configuration error: Missing API Key' });
+  }
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents, systemInstruction })
+    });
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    console.error('Gemini Proxy Error:', err);
+    res.status(500).json({ error: 'Failed to communicate with AI service' });
+  }
+});
+
 app.get('/api/health', (req, res) => {
     res.json({ status: 'CourseMap API running' });
 });
