@@ -1,0 +1,18 @@
+{
+  "name": "coursemap",
+  "version": "1.0.0",
+  "description": "Premium Roadmap Platform",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "install-server": "cd server && npm install",
+    "install-all": "npm install && npm run install-server"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0"
+  }
+}
