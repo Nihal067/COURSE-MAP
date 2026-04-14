@@ -168,6 +168,12 @@ const API = (() => {
         getNotifStatus: () =>
             request('GET', '/api/notifications/status'),
         toggleNotifs: () =>
-            request('POST', '/api/notifications/toggle')
+            request('POST', '/api/notifications/toggle'),
+
+        // Google Auth Config
+        getGoogleConfig: () =>
+            request('GET', '/api/auth/google-config'),
+        googleLogin: (credential) =>
+            request('POST', '/api/auth/google', { credential })
     };
 })();

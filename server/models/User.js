@@ -16,8 +16,17 @@ const UserSchema = new mongoose.Schema({
     },
     passwordHash: {
         type: String,
-        required: true
+        required: function () {
+            // Only require a password if they aren't using Google Login
+            return !this.googleId;
+        }
     },
+    googleId: {
+        type: String,
+        unique: true,
+        sparse: true // Allows multiple users to have NO googleId
+    },
+    picture: String,
     createdAt: {
         type: Date,
         default: Date.now

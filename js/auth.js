@@ -47,5 +47,15 @@ const Auth = (() => {
         return getSession();
     }
 
-    return { signup, login, logout, isLoggedIn, requireAuth, getCurrentUser };
+    async function loginWithGoogle(credential) {
+        try {
+            const data = await API.googleLogin(credential);
+            API.saveSession(data.token, data.user);
+            return { success: true, message: 'Signed in with Google!' };
+        } catch (err) {
+            return { success: false, message: err.message };
+        }
+    }
+
+    return { signup, login, logout, isLoggedIn, requireAuth, getCurrentUser, loginWithGoogle };
 })();
