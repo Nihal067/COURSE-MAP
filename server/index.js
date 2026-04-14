@@ -112,20 +112,44 @@ app.get('/roadmap.html', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 if (!process.env.MONGO_URI) {
-    console.error('MONGO_URI is missing. Add it to server/.env or deployment env vars.');
-    process.exit(1);
-}
-if (!process.env.JWT_SECRET) {
-    console.warn('JWT_SECRET is missing. A development fallback secret will be used.');
-}
-
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log('MongoDB connected');
-        app.listen(PORT, '0.0.0.0', () => console.log(`Server listening on port ${PORT}`));
-    })
-    .catch(err => {
-        console.error('MongoDB connection failed:', err.message);
-        console.error('Check your MONGO_URI in server/.env');
-        process.exit(1);
+    console.warn('⚠️ MONGO_URI is missing. Server will run in "Setup Mode" until configured.');
+    
+    // Serve a simple setup guide if the database isn't connected yet
+    app.get('*', (req, res) => {
+        res.status(200).send(`
+            <div style="font-family: sans-serif; padding: 40px; text-align: center; color: #333; background: #f9f9f9; min-height: 100vh;">
+                <h1 style="color: #6366f1;">🚀 Almost there!</h1>
+                <p style="font-size: 18px;">Your CourseMap application is successfully deployed, but it needs a <b>database connection</b> to work.</p>
+                <div style="max-width: 600px; margin: 40px auto; text-align: left; background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                    <h3>How to finish the setup:</h3>
+                    <ol>
+                        <li>Go to your <b>Render Dashboard</b>.</li>
+                        <li>Select this service and go to the <b>Environment</b> tab.</li>
+                        <li>Add a variable named <code>MONGO_URI</code> with your MongoDB Atlas string.</li>
+                        <li>Add <code>GEMINI_API_KEY</code> and <code>JWT_SECRET</code>.</li>
+                    </ol>
+                    <p><i>The app will automatically restart and go live once you save those settings!</i></p>
+                </div>
+            </div>
+        `);
     });
+
+    app.listen(PORT, '0.0.0.0', () => console.log(`Server listening in SETUP MODE on port ${PORT}`));
+} else {
+    if (!process.env.JWT_SECRET) {
+        console.warn('JWT_SECRET is missing. A development fallback secret will be used.');
+    }
+
+    mongoose.connect(process.env.MONGO_URI)
+        .then(() => {
+            console.log('MongoDB connected');
+            app.listen(PORT, '0.0.0.0', () => console.log(`Server listening on port ${PORT}`));
+        })
+        .catch(err => {
+            console.error('MongoDB connection failed:', err.message);
+            console.error('Check your MONGO_URI in your environment variables.');
+            // Still run the app so it doesn't crash Render, allowing logs to be seen.
+            app.get('*', (req, res) => res.send('Database Connection Failed. Check server logs.'));
+            app.listen(PORT, '0.0.0.0', () => console.log(`Server listening (DB Pending) on port ${PORT}`));
+        });
+}
