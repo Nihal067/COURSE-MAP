@@ -53,6 +53,17 @@ app.use(cors({
 
 app.use(express.json());
 
+// Intercept API requests if database isn't configured
+app.use('/api', (req, res, next) => {
+    if (!process.env.MONGO_URI) {
+        return res.status(503).json({ 
+            message: 'Database connection missing. Please add MONGO_URI to your Render Environment Variables.',
+            error: 'SetupRequired'
+        });
+    }
+    next();
+});
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/enrollment', require('./routes/enrollment'));
 app.use('/api/progress', require('./routes/progress'));
