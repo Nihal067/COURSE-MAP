@@ -1,4 +1,4 @@
-﻿/* ===== LOGIN PAGE STYLES ===== */
+/* ===== LOGIN PAGE STYLES ===== */
 
 .login-page {
     --login-bg: #fdf6ec;
@@ -338,6 +338,50 @@
 .login-footer a {
     color: var(--login-accent);
     font-weight: 600;
+}
+
+/* Social Auth & Divider */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0 16px;
+    color: var(--login-muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--login-border);
+}
+
+.auth-divider span {
+    padding: 0 12px;
+}
+
+.social-auth {
+    text-align: center;
+}
+
+.social-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--login-text);
+    margin-bottom: 12px;
+}
+
+.google-signin-wrap {
+    display: flex;
+    justify-content: center;
+    min-height: 40px;
+}
+
+.google-login-msg {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #dc2626;
 }
 
 /* Responsive */
