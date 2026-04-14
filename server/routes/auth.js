@@ -109,4 +109,77 @@ router.get('/me', authMiddleware, async (req, res) => {
     }
 });
 
+// GET /api/auth/google-config - Share Client ID with Frontend
+router.get('/google-config', (req, res) => {
+    const clientId = process.env.GOOGLE_CLIENT_ID || '';
+    if (!clientId) {
+        return res.json({ enabled: false });
+    }
+    return res.json({ enabled: true, clientId });
+});
+
+// POST /api/auth/google - Verify Google Token and Login/Signup
+router.post('/google', async (req, res) => {
+    try {
+        const { credential } = req.body;
+        if (!credential) {
+            return res.status(400).json({ message: 'Missing Google credential.' });
+        }
+
+        // Verify token securely using Google's tokeninfo endpoint
+        const fetch = require('node-fetch'); // We added this in our package.json yesterday
+        const response = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${credential}`);
+        const payload = await response.json();
+
+        if (payload.error || !payload.email || !payload.sub) {
+            return res.status(401).json({ message: 'Invalid Google token.' });
+        }
+
+        // Verify it was meant for our app
+        if (process.env.GOOGLE_CLIENT_ID && payload.aud !== process.env.GOOGLE_CLIENT_ID) {
+            return res.status(401).json({ message: 'Unauthorized client.' });
+        }
+
+        const email = normalizeEmail(payload.email);
+        const name = payload.name || 'Google User';
+        const googleId = payload.sub;
+
+        // Find existing user or create a new one
+        let user = await User.findOne({ email });
+
+        if (user) {
+            // Link Google ID if they originally signed up with a password
+            if (!user.googleId) {
+                user.googleId = googleId;
+                await user.save();
+            }
+        } else {
+            // Create brand new Google user (no password required because we made it optional!)
+            user = new User({
+                name,
+                email,
+                googleId,
+                picture: payload.picture
+            });
+            await user.save();
+            
+            if (mailer && typeof mailer.sendWelcomeEmail === 'function') {
+                mailer.sendWelcomeEmail(email, name).catch(err =>
+                    console.warn('Welcome email failed:', err.message)
+                );
+            }
+        }
+
+        // Log them into OUR system with OUR token
+        const token = signToken(user._id);
+        return res.json({
+            token,
+            user: { id: user._id, name: user.name, email: user.email }
+        });
+    } catch (err) {
+        console.error('Google login error:', err);
+        return res.status(500).json({ message: 'Server error during Google Login.' });
+    }
+});
+
 module.exports = router;
