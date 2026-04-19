@@ -177,8 +177,18 @@ router.post('/google', async (req, res) => {
             user: { id: user._id, name: user.name, email: user.email }
         });
     } catch (err) {
-        console.error('Google login error:', err);
-        return res.status(500).json({ message: 'Server error during Google Login.' });
+        console.error('CRITICAL: Google login error:', {
+            message: err.message,
+            stack: err.stack,
+            body: req.body ? 'present' : 'missing'
+        });
+        
+        // Return a more descriptive error temporarily for debugging
+        const errorDetail = err.message || 'Unknown backend error';
+        return res.status(500).json({ 
+            message: `Server error during Google Login: ${errorDetail}`,
+            error: err.name
+        });
     }
 });
 
