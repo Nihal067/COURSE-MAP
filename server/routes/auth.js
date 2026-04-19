@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
+const fetch = require('node-fetch');
 const User = require('../models/User');
 const authMiddleware = require('../middleware/auth');
 
@@ -127,7 +128,6 @@ router.post('/google', async (req, res) => {
         }
 
         // Verify token securely using Google's tokeninfo endpoint
-        const fetch = require('node-fetch'); // We added this in our package.json yesterday
         const response = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${credential}`);
         const payload = await response.json();
 

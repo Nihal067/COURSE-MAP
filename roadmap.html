@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roadmap - CourseMap</title>
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <!-- Google Fonts -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="icon" type="image/png" href="logo.png?v=1.1">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -148,7 +146,10 @@
             width: 34px;
             height: 34px;
             border-radius: 50%;
+            overflow: hidden;
+            background: #ffffff; /* Match JPEG background */
             object-fit: cover;
+            transform: scale(1.25); /* Zoom to push square corners out */
             border: 1.5px solid rgba(182, 90, 60, 0.45);
             box-shadow: 0 0 10px rgba(182, 90, 60, 0.25);
         }
@@ -1082,7 +1083,7 @@
     <nav class="roadmap-nav">
         <a href="dashboard.html" class="back-btn">Back to Dashboard</a>
         <a href="dashboard.html" class="roadmap-nav-brand">
-            <img src="logo.jpg" alt="CourseMap" class="roadmap-nav-logo">
+            <img src="logo.png?v=1.1" alt="CourseMap Logo" class="roadmap-nav-logo">
             <span class="roadmap-nav-brand-name">CourseMap</span>
         </a>
         <div class="nav-right">

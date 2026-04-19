@@ -1,8 +1,8 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -100,8 +100,12 @@ app.get('/api/health', (req, res) => {
 // Serve static frontend from repo root so one deployment URL hosts both UI + API.
 app.use('/css', express.static(path.join(ROOT_DIR, 'css')));
 app.use('/js', express.static(path.join(ROOT_DIR, 'js')));
+app.get('/logo.png', (req, res) => {
+    res.sendFile(path.join(ROOT_DIR, 'logo.png'));
+});
+
 app.get('/logo.jpg', (req, res) => {
-    res.sendFile(path.join(ROOT_DIR, 'logo.jpg'));
+    res.sendFile(path.join(ROOT_DIR, 'logo.png')); // Fallback to PNG for old links
 });
 
 app.get('/', (req, res) => {

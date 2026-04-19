@@ -1,0 +1,90 @@
+/* ===== GLOBAL RESPONSIVE DESIGN SYSTEM ===== */
+/* This file provides overrides for mobile and tablet devices across all pages */
+
+/* ── Tablets (up to 1024px) ── */
+@media (max-width: 1024px) {
+    /* Dashboard */
+    .hero h1 { font-size: 36px; }
+    .stats-row { 
+        grid-template-columns: repeat(2, 1fr);
+        padding: 24px 20px;
+        margin-top: -30px;
+    }
+    .my-domains-section, .quick-launch-section { padding: 24px 20px; }
+    .domains-grid, .quick-launch-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+    /* Roadmap */
+    .roadmap-header { padding: 32px 24px 24px; }
+    .fc-canvas { padding: 30px 20px 200px; }
+    .explore-modal { max-width: 90%; }
+}
+
+/* ── Mobile Devices (up to 768px) ── */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar { padding: 12px 20px; }
+    .nav-brand h2 { font-size: 18px; }
+    
+    /* Hero Section */
+    .hero { padding: 48px 20px 32px; }
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 15px; }
+    
+    /* Stats Row - Stack on small mobile */
+    .stats-row { 
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+    .stat-card { padding: 16px; }
+    .stat-number { font-size: 26px; }
+
+    /* Grids */
+    .domains-grid, .quick-launch-grid { 
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Roadmap Flowchart */
+    .fc-phase { max-width: 100%; flex-wrap: wrap; }
+    .fc-node-box { padding: 12px; gap: 10px; }
+    .fc-title { font-size: 13px; }
+    .fc-dur { display: none; }
+    .fc-meta { align-items: flex-start; }
+
+    /* Modals & Overlays */
+    .explore-modal { 
+        padding: 20px;
+        max-height: 95vh;
+    }
+    .explore-modal-header h2 { font-size: 18px; }
+    .explore-grid { grid-template-columns: 1fr; }
+    
+    /* Resource Drawer */
+    #resource-drawer {
+        border-radius: 16px 16px 0 0;
+    }
+    .drawer-header { padding: 12px 20px; }
+    .drawer-title { font-size: 17px; }
+    .drawer-tab-bar { padding: 0 20px; }
+}
+
+/* ── Ultra Small (up to 400px) ── */
+@media (max-width: 400px) {
+    .nav-brand h2 { display: none; }
+    .hero h1 { font-size: 24px; }
+    .login-container { padding: 12px; }
+    .login-card { padding: 24px 16px; }
+    .brand-icon { width: 70px; height: 70px; }
+}
+
+/* ── Navigation Stability Fixes ── */
+.navbar, .roadmap-nav {
+    width: 100%;
+}
+
+/* Ensure no horizontal scrolling on any device */
+body, html {
+    overflow-x: hidden !important;
+    width: 100%;
+}

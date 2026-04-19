@@ -88,7 +88,7 @@ const API = (() => {
                 }
 
                 // Retry another candidate when current candidate is unhealthy.
-                if (bases.length > 1 && res.status >= 500) {
+                if (bases.length > 1 && res.status >= 500 && data.error !== 'SetupRequired') {
                     continue;
                 }
 
