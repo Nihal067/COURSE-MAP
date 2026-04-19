@@ -10,6 +10,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const allowedOrigins = (process.env.CORS_ORIGIN || '')
     .split(',')
     .map(origin => origin.trim())
+    .concat(['https://coursemap.in']) // Explicitly allow production domain
     .filter(Boolean);
 const appUrl = (process.env.APP_URL || '').trim();
 

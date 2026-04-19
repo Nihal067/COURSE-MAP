@@ -296,14 +296,19 @@
       }
 
       setGoogleMessage('Signing in with Google...');
+      console.log('Sending Google credential to backend...');
+
       const result = await Auth.loginWithGoogle(credential);
+      console.log('Backend Auth Result:', result);
+
       if (result.success) {
         showAlert(result.message, 'success');
         setGoogleMessage('');
         setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
       } else {
+        console.error('Auth failure detail:', result.message);
         showAlert(result.message || 'Google sign-in failed. Please try again.', 'error');
-        setGoogleMessage('Google sign-in is available, but the login did not complete.');
+        setGoogleMessage('Google sign-in failed: Check console for details.');
       }
     }
 

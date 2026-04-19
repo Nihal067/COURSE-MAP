@@ -84,6 +84,7 @@ router.post('/login', async (req, res) => {
             return res.status(404).json({ message: 'No account found with this email. Please sign up first.' });
         }
 
+
         const match = await user.comparePassword(password);
         if (!match) {
             return res.status(401).json({ message: 'Incorrect password. Please try again.' });
@@ -127,9 +128,18 @@ router.post('/google', async (req, res) => {
             return res.status(400).json({ message: 'Missing Google credential.' });
         }
 
-        // Verify token securely using Google's tokeninfo endpoint
-        const response = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${credential}`);
+        // Verify token securely using Google's tokeninfo endpoint with 10s timeout
+        console.log('Verifying Google token...');
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 10000);
+        
+        const response = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${credential}`, {
+            signal: controller.signal
+        });
+        clearTimeout(timeout);
+        
         const payload = await response.json();
+        console.log('Google verification response status:', response.status);
 
         if (payload.error || !payload.email || !payload.sub) {
             return res.status(401).json({ message: 'Invalid Google token.' });
