@@ -142,12 +142,18 @@ router.post('/google', async (req, res) => {
         console.log('Google verification response status:', response.status);
 
         if (payload.error || !payload.email || !payload.sub) {
+            console.error('Google token payload error:', payload.error_description || payload.error || 'Missing fields');
             return res.status(401).json({ message: 'Invalid Google token.' });
         }
 
         // Verify it was meant for our app
-        if (process.env.GOOGLE_CLIENT_ID && payload.aud !== process.env.GOOGLE_CLIENT_ID) {
-            return res.status(401).json({ message: 'Unauthorized client.' });
+        if (process.env.GOOGLE_CLIENT_ID) {
+            if (payload.aud !== process.env.GOOGLE_CLIENT_ID) {
+                console.error('Google Client ID mismatch. Expected:', process.env.GOOGLE_CLIENT_ID, 'Received:', payload.aud);
+                return res.status(401).json({ message: 'Unauthorized client.' });
+            }
+        } else {
+            console.warn('GOOGLE_CLIENT_ID is not defined in environment. Skipping audience verification.');
         }
 
         const email = normalizeEmail(payload.email);

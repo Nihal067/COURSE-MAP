@@ -1,4 +1,4 @@
-﻿/* Dashboard logic - backend connected */
+/* Dashboard logic - backend connected */
 
 document.addEventListener('DOMContentLoaded', async function () {
     try { if (!Auth.requireAuth()) return; } catch (e) { return; }
@@ -14,14 +14,19 @@ document.addEventListener('DOMContentLoaded', async function () {
 });
 
 function initNavbar(user) {
-    const nameEl = document.getElementById('user-display-name');
-    if (nameEl) nameEl.textContent = user.name;
-
     const logoutBtn = document.getElementById('btn-logout');
     if (logoutBtn) logoutBtn.addEventListener('click', () => Auth.logout());
 
-    const exploreBtn = document.getElementById('btn-open-explore');
-    if (exploreBtn) exploreBtn.addEventListener('click', openExplore);
+    // Attach to all "Explore" or "Add Domain" buttons
+    const exploreButtons = [
+        'btn-open-explore', 
+        'btn-open-explore2', 
+        'btn-explore-cta'
+    ];
+    exploreButtons.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.addEventListener('click', openExplore);
+    });
 }
 
 function initGreeting(user) {
@@ -72,15 +77,32 @@ function buildDomainCard(domain, enrolledIds, progressMap) {
         ? `<div class="card-progress"><div class="card-progress-track"><div class="card-progress-fill" style="width:${pct}%;background:${domain.color || '#6366f1'}"></div></div><span class="card-pct">${pct}%</span></div>`
         : '';
 
-    card.innerHTML = `<div class="card-body">
-        <span class="card-cat">${domain.cat || ''}</span>
-        <h3 class="card-title">${domain.name}</h3>
-        <div class="card-meta">
-            <span>${totalSteps} steps</span>
-            <span>${totalRes} resources</span>
+    let courseCount = 0;
+    let videoCount = 0;
+    try {
+        domain.steps.forEach(st => {
+            courseCount += (st.courses?.length || 0);
+            videoCount += (st.videos?.length || 0);
+        });
+    } catch (e) {}
+
+    let catLabel = domain.cat || 'General';
+    if (typeof CATEGORIES !== 'undefined') {
+        const catObj = CATEGORIES.find(c => c.id === domain.cat);
+        if (catObj) catLabel = catObj.label;
+    }
+
+    card.innerHTML = `
+        <div class="card-body">
+            <h3 style="margin: 0 0 12px 0; font-size: 18px; color: var(--text-primary); text-transform: none;">${domain.name}</h3>
+            <div class="card-meta" style="display: flex; gap: 12px; font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--bg-glass-border); padding-top: 10px;">
+                <span>${totalSteps} Steps</span>
+                <span style="color: var(--accent-purple); font-weight: 600;">${courseCount} Courses</span>
+                <span>${videoCount} Videos</span>
+            </div>
+            ${progressBar}
         </div>
-        ${progressBar}
-    </div><span class="card-arrow">></span>`;
+        <span class="card-arrow" style="position: absolute; right: 16px; bottom: 16px;">></span>`;
 
     return card;
 }
@@ -213,11 +235,16 @@ function renderExploreGrid(user, query) {
     }
 
     const q = (query || '').trim().toLowerCase();
-    const filtered = DOMAINS.filter(d => {
+    let filtered = DOMAINS.filter(d => {
         const matchCat = currentFilter === 'all' || d.cat === currentFilter;
-        const matchQ = !q || d.name.toLowerCase().includes(q) || (d.cat || '').toLowerCase().includes(q);
+        const matchQ = !q || d.name.toLowerCase().includes(q) || (d.cat?.toLowerCase() || '').includes(q);
         return matchCat && matchQ;
     });
+
+    // Shuffle only for "All Domains" to show variety
+    if (currentFilter === 'all' && !q) {
+        filtered = [...filtered].sort(() => Math.random() - 0.5);
+    }
 
     if (filtered.length === 0) {
         grid.innerHTML = '<p class="no-results">No domains match your search.</p>';

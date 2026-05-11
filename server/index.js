@@ -14,6 +14,12 @@ const allowedOrigins = (process.env.CORS_ORIGIN || '')
     .filter(Boolean);
 const appUrl = (process.env.APP_URL || '').trim();
 
+// Add security headers for Google OAuth popups
+app.use((req, res, next) => {
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+    next();
+});
+
 function normalizeOrigin(origin) {
     return String(origin || '').trim().replace(/\/+$/, '');
 }
